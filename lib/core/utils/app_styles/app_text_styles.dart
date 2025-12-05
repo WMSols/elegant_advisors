@@ -7,7 +7,7 @@ class AppTextStyles {
     fontSize: AppResponsive.fontSizeClamped(
       context,
       min: 28, // Minimum readable size on mobile
-      max: 72, // Maximum size on desktop
+      max: 40, // Maximum size on desktop
     ),
     fontFamily: AppFonts.primaryFont,
     color: Theme.of(context).textTheme.bodyLarge?.color,
@@ -17,7 +17,7 @@ class AppTextStyles {
     fontSize: AppResponsive.fontSizeClamped(
       context,
       min: 20, // Minimum readable size on mobile
-      max: 48, // Maximum size on desktop
+      max: 30, // Maximum size on desktop
     ),
     fontFamily: AppFonts.primaryFont,
     color: Theme.of(context).textTheme.bodyLarge?.color,

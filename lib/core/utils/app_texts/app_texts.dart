@@ -16,18 +16,12 @@ class AppTexts {
   static const String navContact = "Contact";
 
   // Home Page
-  static const String homeHeroTitle = "YOUR VISION, OUR EXPERTISE";
-  static const String homeHeroSubtitle = "ORIA is a leading real estate advisory in Portugal in finding and securing properties for private individuals, family offices, and property investors.";
+  static const String homeTitle = "YOUR VISION, OUR EXPERTISE";
+  static const String homeSubtitle = "ORIA is a leading real estate advisory in Portugal in finding and securing properties for private individuals, family offices, and property investors.";
   static const String homeButtonConsultation = "Request A Private Consultation";
-  static const String homeWhyChooseUs = "Why Choose Us";
-  static const String homePropertyAdvisor = "Property Advisory";
-  static const String homePropertyAdvisorDesc = "Expert guidance on property investments";
-  static const String homeAssetManagement = "Asset Management";
-  static const String homeAssetManagementDesc = "Comprehensive asset advisory services";
-  static const String homeTrustedPartners = "Trusted Partners";
-  static const String homeTrustedPartnersDesc = "Years of experience in the industry";
-  static const String homeCtaTitle = "Ready to Get Started?";
-  static const String homeCtaButton = "Contact Us";
+  static const String homeMarketEducatedTitle = "MARKET EDUCATED,\nBUYER FOCUSED";
+  static const String homeMarketEducatedDescription = "Combining an international mindset and profound local market expertise, our bespoke service gives you the insider's edge on the Portuguese real estate market. We've spent years forging deep connections with prominent real estate agencies, established developers, and well-connected individuals to shape our network and help you find and secure the property you're truly seeking. On or off market, no exclusives to push.";
+  static const String homeMarketEducatedButton = "What We Do";
 
   // What We Do Page
   static const String whatWeDoTitle = "What We Do";

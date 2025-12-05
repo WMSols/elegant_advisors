@@ -63,6 +63,7 @@ flutter:
   assets:
     - assets/images/
     - assets/images/logo/
+    - assets/images/home/
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

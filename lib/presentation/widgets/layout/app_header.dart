@@ -1,15 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import '../../../core/constants/app_constants.dart';
 import '../../../core/utils/app_colors/app_colors.dart';
 import '../../../core/utils/app_images/app_images.dart';
-import '../../../core/utils/app_responsive/app_responsive.dart';
 import '../../../core/utils/app_spacing/app_spacing.dart';
-import '../../../core/utils/app_styles/app_text_styles.dart';
 import '../../../core/utils/app_texts/app_texts.dart';
+import '../../widgets/app_header/header_language_selector.dart';
+import '../../widgets/app_header/header_logo.dart';
+import '../../widgets/app_header/header_mobile_menu.dart';
+import '../../widgets/app_header/header_nav_item.dart';
+import '../../../core/constants/app_constants.dart';
 
-class AppHeader extends StatelessWidget {
-  const AppHeader({super.key});
+class AppHeader extends StatefulWidget {
+  final bool showBackground;
+  
+  const AppHeader({super.key, this.showBackground = false});
+
+  @override
+  State<AppHeader> createState() => _AppHeaderState();
+}
+
+class _AppHeaderState extends State<AppHeader> {
+  String _selectedLanguage = AppImages.englandFlag;
 
   @override
   Widget build(BuildContext context) {
@@ -17,167 +27,97 @@ class AppHeader extends StatelessWidget {
       builder: (context, constraints) {
         final showNav = constraints.maxWidth >= 600;
 
-        return Container(
+        return AnimatedContainer(
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeInOut,
           padding: AppSpacing.symmetric(context, h: 0.04, v: 0.02),
           decoration: BoxDecoration(
-            color: AppColors.primary.withValues(alpha: 0.95),
+            color: widget.showBackground 
+                ? AppColors.primary.withValues(alpha: 0.95)
+                : Colors.transparent,
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: Stack(
             children: [
-              // Logo
-              GestureDetector(
-                onTap: () => Get.toNamed(AppConstants.routeHome),
-                child: Image.asset(
-                  AppImages.webLogo,
-                  height: AppResponsive.scaleSize(context, 30, min: 24, max: 40),
-                  width: AppResponsive.scaleSize(context, 30, min: 24, max: 40),
-                  fit: BoxFit.contain,
-                  errorBuilder: (context, error, stackTrace) {
-                    return Text(
-                      AppTexts.webName,
-                      style: AppTextStyles.bodyText(context).copyWith(
-                        color: AppColors.white,
-                        fontWeight: FontWeight.w300,
-                        letterSpacing: 2,
-                      ),
-                    );
-                  },
-                ),
-              ),
-
-              // Navigation Menu - automatically hides on small screens
+              // Navigation Menu - centered in the screen
               if (showNav)
-                Expanded(
+                Center(
                   child: SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        _NavItem(
+                        HeaderNavItem(
                           label: AppTexts.navWhatWeDo,
                           route: AppConstants.routeWhatWeDo,
                         ),
-                        _NavItem(
+                        HeaderNavItem(
                           label: AppTexts.navHowWeDoIt,
                           route: AppConstants.routeHowWeDoIt,
                         ),
-                        _NavItem(
+                        HeaderNavItem(
                           label: AppTexts.navWhyElegant,
                           route: AppConstants.routeWhyElegant,
                         ),
-                        _NavItem(
+                        HeaderNavItem(
                           label: AppTexts.navServices,
                           route: AppConstants.routeServices,
                         ),
-                        _NavItem(
+                        HeaderNavItem(
                           label: AppTexts.navProperties,
                           route: AppConstants.routeProperties,
                         ),
-                        _NavItem(
+                        HeaderNavItem(
                           label: AppTexts.navInsights,
                           route: AppConstants.routeInsights,
                         ),
-                        _NavItem(
+                        HeaderNavItem(
                           label: AppTexts.navGoldenVisa,
                           route: AppConstants.routeGoldenVisa,
                         ),
-                        _NavItem(
-                          label: AppTexts.navContact,
-                          route: AppConstants.routeContact,
+                        // Contact and Language Selector in same row
+                        Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            HeaderNavItem(
+                              label: AppTexts.navContact,
+                              route: AppConstants.routeContact,
+                            ),
+                            HeaderLanguageSelector(
+                              selectedLanguage: _selectedLanguage,
+                              onLanguageSelected: (language) {
+                                setState(() {
+                                  _selectedLanguage = language;
+                                });
+                              },
+                            ),
+                          ],
                         ),
                       ],
                     ),
                   ),
                 ),
 
-              // Language Selector & Mobile Menu
-              Row(
-                children: [
-                  // Language Selector - automatically hides on small screens
-                  if (showNav)
-                    IconButton(
-                      icon: Icon(
-                        Icons.language,
-                        color: AppColors.white,
-                        size: AppResponsive.scaleSize(context, 20, min: 18, max: 24),
-                      ),
-                      onPressed: () {
-                        // TODO: Implement language selector
-                      },
-                    ),
-                  // Mobile Menu Button - automatically shows on small screens
-                  if (!showNav)
-                    IconButton(
-                      icon: Icon(
-                        Icons.menu,
-                        color: AppColors.white,
-                        size: AppResponsive.scaleSize(context, 24, min: 24, max: 28),
-                      ),
-                      onPressed: () {
-                        // TODO: Implement mobile drawer
-                      },
-                    ),
-                ],
+              // Logo on the left
+              Positioned(
+                left: 0,
+                top: 0,
+                bottom: 0,
+                child: const HeaderLogo(),
               ),
+
+              // Mobile Menu Button - automatically shows on small screens
+              if (!showNav)
+                const Positioned(
+                  right: 0,
+                  top: 0,
+                  bottom: 0,
+                  child: HeaderMobileMenu(),
+                ),
             ],
           ),
         );
       },
-    );
-  }
-}
-
-class _NavItem extends StatelessWidget {
-  final String label;
-  final String route;
-
-  const _NavItem({
-    required this.label,
-    required this.route,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final currentRoute = Get.currentRoute;
-    final isActive = currentRoute == route;
-
-    return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: AppResponsive.scaleSize(context, 8, min: 4, max: 12),
-      ),
-      child: TextButton(
-        onPressed: () => Get.toNamed(route),
-        style: TextButton.styleFrom(
-          padding: EdgeInsets.symmetric(
-            horizontal: AppResponsive.scaleSize(context, 10, min: 6, max: 16),
-            vertical: AppResponsive.screenHeight(context) * 0.01,
-          ),
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              label,
-              style: AppTextStyles.bodyText(context).copyWith(
-                color: AppColors.white,
-                letterSpacing: 0.5,
-              ),
-              overflow: TextOverflow.ellipsis,
-            ),
-            if (isActive)
-              Container(
-                margin: EdgeInsets.only(
-                  top: AppResponsive.scaleSize(context, 4, min: 4, max: 6),
-                ),
-                height: 1,
-                width: AppResponsive.scaleSize(context, 20, min: 15, max: 25),
-                color: AppColors.white,
-              ),
-          ],
-        ),
-      ),
     );
   }
 }

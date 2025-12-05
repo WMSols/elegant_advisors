@@ -41,37 +41,53 @@ class AppButton extends StatelessWidget {
         textColor ??
         (backgroundColor != null ? AppColors.primary : AppColors.white);
 
-    return SizedBox(
-      width: width ?? double.infinity,
-      height: height ?? AppResponsive.screenHeight(context) * 0.06,
-      child: Material(
-        color: Colors.transparent,
-        child: InkWell(
-          onTap: isLoading ? null : onPressed,
-          child: Container(
-            decoration: decoration,
-            child: Center(
-              child: isLoading
-                  ? SizedBox(
-                      height: AppResponsive.iconSize(context),
-                      width: AppResponsive.iconSize(context),
-                      child: CircularProgressIndicator(
-                        strokeWidth: 2,
-                        valueColor: AlwaysStoppedAnimation<Color>(
-                          finalTextColor,
-                        ),
-                      ),
-                    )
-                  : Text(
-                      text,
-                      style: AppTextStyles.buttonText(context).copyWith(
-                        color: finalTextColor,
+    Widget buttonContent = Material(
+      color: Colors.transparent,
+      child: InkWell(
+        onTap: isLoading ? null : onPressed,
+        child: Container(
+          decoration: decoration,
+          padding: EdgeInsets.symmetric(
+            horizontal: AppResponsive.scaleSize(context, 24, min: 16, max: 32),
+            vertical: AppResponsive.screenHeight(context) * 0.015,
+          ),
+          child: Center(
+            child: isLoading
+                ? SizedBox(
+                    height: AppResponsive.iconSize(context),
+                    width: AppResponsive.iconSize(context),
+                    child: CircularProgressIndicator(
+                      strokeWidth: 2,
+                      valueColor: AlwaysStoppedAnimation<Color>(
+                        finalTextColor,
                       ),
                     ),
-            ),
+                  )
+                : Text(
+                    text,
+                    style: AppTextStyles.buttonText(context).copyWith(
+                      color: finalTextColor,
+                    ),
+                  ),
           ),
         ),
       ),
     );
+
+    // If width is provided, wrap in SizedBox, otherwise use intrinsic width
+    if (width != null) {
+      return SizedBox(
+        width: width,
+        height: height ?? AppResponsive.screenHeight(context) * 0.06,
+        child: buttonContent,
+      );
+    } else {
+      return IntrinsicWidth(
+        child: SizedBox(
+          height: height ?? AppResponsive.screenHeight(context) * 0.06,
+          child: buttonContent,
+        ),
+      );
+    }
   }
 }
