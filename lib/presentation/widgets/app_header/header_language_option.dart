@@ -34,7 +34,7 @@ class HeaderLanguageOption extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(3),
             border: Border.all(
-              color: AppColors.white.withOpacity(0.3),
+              color: AppColors.white.withValues(alpha:0.3),
               width: 1,
             ),
           ),
@@ -45,7 +45,7 @@ class HeaderLanguageOption extends StatelessWidget {
               fit: BoxFit.cover,
               errorBuilder: (context, error, stackTrace) {
                 return Container(
-                  color: AppColors.grey.withOpacity(0.3),
+                  color: AppColors.grey.withValues(alpha:0.3),
                   child: Icon(
                     Icons.flag,
                     size: AppResponsive.scaleSize(context, 12, min: 10, max: 16),

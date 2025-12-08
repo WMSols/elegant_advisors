@@ -23,6 +23,42 @@ class AppTexts {
   static const String homeMarketEducatedDescription = "Combining an international mindset and profound local market expertise, our bespoke service gives you the insider's edge on the Portuguese real estate market. We've spent years forging deep connections with prominent real estate agencies, established developers, and well-connected individuals to shape our network and help you find and secure the property you're truly seeking. On or off market, no exclusives to push.";
   static const String homeMarketEducatedButton = "What We Do";
 
+  // Our Discerning Clientele Section
+  static const String homeOurDiscerningClienteleTitle = "OUR DISCERNING\nCLIENTELE";
+  static const String homeOurDiscerningClienteleDescription = "Hailing from 30+ nationalities since 2014, our private clientele values a bespoke, discreet service with strategic guidance across all relevant fields. That's precisely what we do.";
+  static const String homeOurDiscerningClientelePropertyInvestorsTitle = "PROPERTY INVESTORS";
+  static const String homeOurDiscerningClientelePropertyInvestorsDescription = "If you are looking to grow your real estate portfolio in Portugal, we act as your skilled advisor on all things strategy.";
+  static const String homeOurDiscerningClienteleCitizenshipClientsTitle = "CITIZENSHIP CLIENTS";
+  static const String homeOurDiscerningClienteleCitizenshipClientsDescription = "If you are looking to gain access to the Golden Visa or another citizenship program by making a real estate investment, we will guide you in the right way.";
+  static const String homeOurDiscerningClienteleLifestyleHomeBuyersTitle = "LIFESTYLE HOME BUYERS";
+  static const String homeOurDiscerningClienteleLifestyleHomeBuyersDescription = "If you are looking to fully relocate to Portugal or simply enjoy a vacation home, you can count on us to help you find the property you've always envisioned.";
+  static const String homeOurDiscerningClienteleLuxuryPropertyOwnersTitle = "LUXURY PROPERTY OWNERS";
+  static const String homeOurDiscerningClienteleLuxuryPropertyOwnersDescription = "If you are looking to rent or find a trustworthy property manager, we deliver a 360° bespoke service that ensures all runs smoothly.";
+  static const String homeOurDiscerningClienteleButton = "What Our Clients Say";
+
+  // Unparalleled Expertise Section
+  static const String homeUnparalleledExpertiseTitle = "UNPARALLELED EXPERTISE";
+  static const String homeUnparalleledExpertiseDescription = "With an unrivalled track record, our multidisciplinary team manages all transaction details - from first brief to acquisition and post sales.";
+  static const String homeUnparalleledExpertisePropertySearchTitle = "PROPERTY SEARCH";
+  static const String homeUnparalleledExpertisePropertySearchDescription = "After thoroughly analyzing your brief, we take it to the market and search for the property that meets your utmost standards.";
+  static const String homeUnparalleledExpertisePurchaseStrategyTitle = "PURCHASE STRATEGY";
+  static const String homeUnparalleledExpertisePurchaseStrategyDescription = "In collaboration with you, we develop a tactical buying plan that adapts to your particular needs.";
+  static const String homeUnparalleledExpertiseNegotiationTitle = "NEGOTIATION";
+  static const String homeUnparalleledExpertiseNegotiationDescription = "Renowned for our exceptional negotiation skills, we handle the process on your behalf, so you can secure your selected property at the best price.";
+  static const String homeUnparalleledExpertisePortfolioManagementTitle = "PORTFOLIO MANAGEMENT";
+  static const String homeUnparalleledExpertisePortfolioManagementDescription = "Using our market experience to assess risk and identify opportunities, we advise and assist you in building your real estate portfolio.";
+  static const String homeUnparalleledExpertiseVisaTaxAdvisoryTitle = "VISA & TAX ADVISORY";
+  static const String homeUnparalleledExpertiseVisaTaxAdvisoryDescription = "Through our established partnerships with Portuguese lawyers and tax specialists, we provide a turn-key solution to clients interested in the Golden Visa, D7, D2, Nomad Visa or Portugal's Non-Habitual Resident Status (NHR).";
+  static const String homeUnparalleledExpertiseLuxuryRentalsManagementTitle = "LUXURY RENTALS & MANAGEMENT";
+  static const String homeUnparalleledExpertiseLuxuryRentalsManagementDescription = "We ensure your investment is maximized by securing sterling tenants or simply maintaining your property in mint condition. Should you wish to rent an apartment, we will find a prime rental option suitable for your particular goals.";
+  static const String homeUnparalleledExpertiseButton = "Our Team";
+
+  // Privileging Quality Section
+  static const String homePrivilegingQualityTitle = "PRIVILEGING QUALITY";
+  static const String homePrivilegingQualitySubtitle = "Nearly 70% of our clients come by referral";
+  static const String homePrivilegingQualityDescription = "Here is a selection of our previous transactions.";
+  static const String homePrivilegingQualityButton = "Request a Private Consultation";
+
   // What We Do Page
   static const String whatWeDoTitle = "What We Do";
   static const String whatWeDoSubtitle = "Services Overview";

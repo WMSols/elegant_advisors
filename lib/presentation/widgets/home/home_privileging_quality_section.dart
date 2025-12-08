@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import '../../../core/utils/app_colors/app_colors.dart';
 import '../../../core/utils/app_spacing/app_spacing.dart';
 import '../common/app_fade_in_on_scroll.dart';
-import 'home_market_educated_content.dart';
+import 'home_privileging_quality_content.dart';
 
-class HomeMarketEducatedSection extends StatelessWidget {
-  const HomeMarketEducatedSection({super.key});
+class HomePrivilegingQualitySection extends StatelessWidget {
+  const HomePrivilegingQualitySection({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,12 +15,12 @@ class HomeMarketEducatedSection extends StatelessWidget {
 
         return Container(
           width: double.infinity,
-          color: Color(0XFFe3dfd6),
+          color: AppColors.lightBeige,
           padding: AppSpacing.symmetric(context, h: 0.1, v: 0.08),
           child: AppFadeInOnScroll(
             child: isSmallScreen
-                ? const HomeMarketEducatedContentMobile()
-                : const HomeMarketEducatedContentDesktop(),
+                ? const HomePrivilegingQualityContentMobile()
+                : const HomePrivilegingQualityContentDesktop(),
           ),
         );
       },

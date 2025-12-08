@@ -8,6 +8,7 @@ import '../../../core/utils/app_spacing/app_spacing.dart';
 import '../../../core/utils/app_styles/app_text_styles.dart';
 import '../../../core/utils/app_texts/app_texts.dart';
 import '../common/app_button.dart';
+import '../common/app_error_image_fallback.dart';
 
 class HomeMarketEducatedContentDesktop extends StatelessWidget {
   const HomeMarketEducatedContentDesktop({super.key});
@@ -17,78 +18,18 @@ class HomeMarketEducatedContentDesktop extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        // Image on the left (60% width)
         Expanded(
           flex: 6,
-          child: Container(
+          child: _MarketEducatedImage(
             height: AppResponsive.screenHeight(context) * 0.6,
-            decoration: BoxDecoration(color: AppColors.grey.withOpacity(0.1)),
-            child: ClipRRect(
-              child: Image.asset(
-                AppImages.homeMarketEducated,
-                fit: BoxFit.cover,
-                errorBuilder: (context, error, stackTrace) {
-                  return Container(
-                    decoration: BoxDecoration(
-                      color: AppColors.grey.withOpacity(0.1),
-                    ),
-                    child: Center(
-                      child: Icon(
-                        Icons.image,
-                        size: 80,
-                        color: AppColors.grey.withOpacity(0.5),
-                      ),
-                    ),
-                  );
-                },
-              ),
-            ),
+            iconSize: 80,
           ),
         ),
         AppSpacing.horizontal(context, 0.04),
-        // Text content on the right (40% width)
         Expanded(
           flex: 4,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              // Heading
-              Text(
-                AppTexts.homeMarketEducatedTitle,
-                style: AppTextStyles.headline(context).copyWith(
-                  color: AppColors.primary,
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 1,
-                  height: 1.2,
-                ),
-                textAlign: TextAlign.left,
-              ),
-              AppSpacing.vertical(context, 0.04),
-              // Description
-              Text(
-                AppTexts.homeMarketEducatedDescription,
-                style: AppTextStyles.bodyText(context).copyWith(
-                  color: AppColors.black.withOpacity(0.7),
-                  height: 1.6,
-                  fontSize: AppResponsive.scaleSize(
-                    context,
-                    16,
-                    min: 14,
-                    max: 18,
-                  ),
-                ),
-                textAlign: TextAlign.left,
-              ),
-              AppSpacing.vertical(context, 0.06),
-              // Button
-              AppButton(
-                text: AppTexts.homeMarketEducatedButton,
-                backgroundColor: AppColors.primary,
-                textColor: AppColors.white,
-                onPressed: () => Get.toNamed(AppConstants.routeWhatWeDo),
-              ),
-            ],
+          child: _MarketEducatedContent(
+            onButtonPressed: () => Get.toNamed(AppConstants.routeWhatWeDo),
           ),
         ),
       ],
@@ -104,63 +45,85 @@ class HomeMarketEducatedContentMobile extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // Image on top
-        Container(
-          width: double.infinity,
+        _MarketEducatedImage(
           height: AppResponsive.screenHeight(context) * 0.4,
-          decoration: BoxDecoration(color: AppColors.grey.withOpacity(0.1)),
-          child: ClipRRect(
-            child: Image.asset(
-              AppImages.homeMarketEducated,
-              fit: BoxFit.cover,
-              errorBuilder: (context, error, stackTrace) {
-                return Container(
-                  decoration: BoxDecoration(
-                    color: AppColors.grey.withOpacity(0.1),
-                  ),
-                  child: Center(
-                    child: Icon(
-                      Icons.image,
-                      size: 60,
-                      color: AppColors.grey.withOpacity(0.5),
-                    ),
-                  ),
-                );
-              },
-            ),
-          ),
+          iconSize: 60,
         ),
         AppSpacing.vertical(context, 0.04),
-        // Heading
+        _MarketEducatedContent(
+          onButtonPressed: () => Get.toNamed(AppConstants.routeWhatWeDo),
+          fullWidthButton: true,
+        ),
+      ],
+    );
+  }
+}
+
+class _MarketEducatedImage extends StatelessWidget {
+  final double height;
+  final double iconSize;
+
+  const _MarketEducatedImage({required this.height, required this.iconSize});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      height: height,
+      decoration: BoxDecoration(color: AppColors.grey.withValues(alpha:0.1)),
+      child: ClipRRect(
+        child: Image.asset(
+          AppImages.homeMarketEducated,
+          fit: BoxFit.cover,
+          errorBuilder: (context, error, stackTrace) {
+            return AppErrorImageFallback(iconSize: iconSize);
+          },
+        ),
+      ),
+    );
+  }
+}
+
+class _MarketEducatedContent extends StatelessWidget {
+  final VoidCallback onButtonPressed;
+  final bool fullWidthButton;
+
+  const _MarketEducatedContent({
+    required this.onButtonPressed,
+    this.fullWidthButton = false,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
         Text(
           AppTexts.homeMarketEducatedTitle,
-          style: AppTextStyles.headline(context).copyWith(
+          style: AppTextStyles.bodyText(context).copyWith(
             color: AppColors.primary,
             fontWeight: FontWeight.bold,
-            letterSpacing: 1,
-            height: 1.2,
+            fontSize: AppResponsive.fontSizeClamped(context, min: 26, max: 30),
           ),
           textAlign: TextAlign.left,
         ),
         AppSpacing.vertical(context, 0.04),
-        // Description
         Text(
           AppTexts.homeMarketEducatedDescription,
           style: AppTextStyles.bodyText(context).copyWith(
-            color: AppColors.black.withOpacity(0.7),
+            color: AppColors.black.withValues(alpha: 0.7),
             height: 1.6,
-            fontSize: AppResponsive.scaleSize(context, 14, min: 12, max: 16),
           ),
           textAlign: TextAlign.left,
         ),
         AppSpacing.vertical(context, 0.06),
-        // Button
         AppButton(
           text: AppTexts.homeMarketEducatedButton,
           backgroundColor: AppColors.primary,
           textColor: AppColors.white,
-          width: double.infinity,
-          onPressed: () => Get.toNamed(AppConstants.routeWhatWeDo),
+          width: fullWidthButton ? double.infinity : null,
+          onPressed: onButtonPressed,
         ),
       ],
     );

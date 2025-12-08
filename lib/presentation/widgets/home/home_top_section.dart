@@ -20,35 +20,31 @@ class HomeTopSection extends StatelessWidget {
           onError: null,
         ),
       ),
-      child: Stack(
-        children: [
-          // Content (responsive alignment)
-          Positioned.fill(
-            child: LayoutBuilder(
-              builder: (context, constraints) {
-                final isSmallScreen = constraints.maxWidth < 600;
-                final headerHeight =
-                    AppResponsive.screenHeight(context) * 0.08;
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          final isSmallScreen = constraints.maxWidth < 600;
+          final headerHeight = AppResponsive.screenHeight(context) * 0.08;
 
-                return Padding(
-                  padding: EdgeInsets.only(
-                    top: headerHeight,
-                    left: isSmallScreen
-                        ? AppResponsive.screenWidth(context) * 0.05
-                        : AppResponsive.screenWidth(context) * 0.1,
-                    right: isSmallScreen
-                        ? AppResponsive.screenWidth(context) * 0.05
-                        : AppResponsive.screenWidth(context) * 0.1,
-                    bottom: AppResponsive.screenHeight(context) * 0.05,
-                  ),
-                  child: isSmallScreen
-                      ? const HomeTopContentSmall()
-                      : const HomeTopContentLarge(),
-                );
-              },
+          return Padding(
+            padding: EdgeInsets.only(
+              top: headerHeight,
+              left: isSmallScreen
+                  ? AppResponsive.screenWidth(context) * 0.05
+                  : AppResponsive.screenWidth(context) * 0.1,
+              right: isSmallScreen
+                  ? AppResponsive.screenWidth(context) * 0.05
+                  : AppResponsive.screenWidth(context) * 0.1,
+              bottom: AppResponsive.screenHeight(context) * 0.05,
             ),
-          ),
-        ],
+            child: isSmallScreen
+                ? Center(
+                    child: const HomeTopContentSmall(),
+                  )
+                : Center(
+                    child: const HomeTopContentLarge(),
+                  ),
+          );
+        },
       ),
     );
   }

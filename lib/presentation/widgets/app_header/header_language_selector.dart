@@ -52,7 +52,7 @@ class _HeaderLanguageSelectorState extends State<HeaderLanguageSelector> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(4),
                 border: Border.all(
-                  color: AppColors.white.withOpacity(0.3),
+                  color: AppColors.white.withValues(alpha:0.3),
                   width: 1,
                 ),
               ),
@@ -63,7 +63,7 @@ class _HeaderLanguageSelectorState extends State<HeaderLanguageSelector> {
                   fit: BoxFit.cover,
                   errorBuilder: (context, error, stackTrace) {
                     return Container(
-                      color: AppColors.grey.withOpacity(0.3),
+                      color: AppColors.grey.withValues(alpha:0.3),
                       child: Icon(
                         Icons.flag,
                         size: AppResponsive.scaleSize(context, 16, min: 14, max: 20),
@@ -90,7 +90,7 @@ class _HeaderLanguageSelectorState extends State<HeaderLanguageSelector> {
                       borderRadius: BorderRadius.circular(8),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(0.2),
+                          color: Colors.black.withValues(alpha:0.2),
                           blurRadius: 8,
                           offset: const Offset(0, 4),
                         ),

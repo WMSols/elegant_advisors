@@ -36,83 +36,91 @@ class _AppHeaderState extends State<AppHeader> {
                 ? AppColors.primary.withValues(alpha: 0.95)
                 : Colors.transparent,
           ),
-          child: Stack(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              // Navigation Menu - centered in the screen
+              // Logo on the left
+              const HeaderLogo(),
+              
+              // Navigation Menu - centered and flexible
               if (showNav)
-                Center(
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        HeaderNavItem(
-                          label: AppTexts.navWhatWeDo,
-                          route: AppConstants.routeWhatWeDo,
-                        ),
-                        HeaderNavItem(
-                          label: AppTexts.navHowWeDoIt,
-                          route: AppConstants.routeHowWeDoIt,
-                        ),
-                        HeaderNavItem(
-                          label: AppTexts.navWhyElegant,
-                          route: AppConstants.routeWhyElegant,
-                        ),
-                        HeaderNavItem(
-                          label: AppTexts.navServices,
-                          route: AppConstants.routeServices,
-                        ),
-                        HeaderNavItem(
-                          label: AppTexts.navProperties,
-                          route: AppConstants.routeProperties,
-                        ),
-                        HeaderNavItem(
-                          label: AppTexts.navInsights,
-                          route: AppConstants.routeInsights,
-                        ),
-                        HeaderNavItem(
-                          label: AppTexts.navGoldenVisa,
-                          route: AppConstants.routeGoldenVisa,
-                        ),
-                        // Contact and Language Selector in same row
-                        Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            HeaderNavItem(
-                              label: AppTexts.navContact,
-                              route: AppConstants.routeContact,
-                            ),
-                            HeaderLanguageSelector(
-                              selectedLanguage: _selectedLanguage,
-                              onLanguageSelected: (language) {
-                                setState(() {
-                                  _selectedLanguage = language;
-                                });
-                              },
-                            ),
-                          ],
-                        ),
-                      ],
+                Expanded(
+                  child: Center(
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          HeaderNavItem(
+                            label: AppTexts.navWhatWeDo,
+                            route: AppConstants.routeWhatWeDo,
+                          ),
+                          HeaderNavItem(
+                            label: AppTexts.navHowWeDoIt,
+                            route: AppConstants.routeHowWeDoIt,
+                          ),
+                          HeaderNavItem(
+                            label: AppTexts.navWhyElegant,
+                            route: AppConstants.routeWhyElegant,
+                          ),
+                          HeaderNavItem(
+                            label: AppTexts.navServices,
+                            route: AppConstants.routeServices,
+                          ),
+                          HeaderNavItem(
+                            label: AppTexts.navProperties,
+                            route: AppConstants.routeProperties,
+                          ),
+                          HeaderNavItem(
+                            label: AppTexts.navInsights,
+                            route: AppConstants.routeInsights,
+                          ),
+                          HeaderNavItem(
+                            label: AppTexts.navGoldenVisa,
+                            route: AppConstants.routeGoldenVisa,
+                          ),
+                          // Contact and Language Selector in same row
+                          Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              HeaderNavItem(
+                                label: AppTexts.navContact,
+                                route: AppConstants.routeContact,
+                              ),
+                              HeaderLanguageSelector(
+                                selectedLanguage: _selectedLanguage,
+                                onLanguageSelected: (language) {
+                                  setState(() {
+                                    _selectedLanguage = language;
+                                  });
+                                },
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
+                )
+              else
+                const Spacer(),
 
-              // Logo on the left
-              Positioned(
-                left: 0,
-                top: 0,
-                bottom: 0,
-                child: const HeaderLogo(),
-              ),
-
-              // Mobile Menu Button - automatically shows on small screens
+              // Mobile Menu Button and Language Selector - automatically shows on small screens
               if (!showNav)
-                const Positioned(
-                  right: 0,
-                  top: 0,
-                  bottom: 0,
-                  child: HeaderMobileMenu(),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const HeaderMobileMenu(),
+                    HeaderLanguageSelector(
+                      selectedLanguage: _selectedLanguage,
+                      onLanguageSelected: (language) {
+                        setState(() {
+                          _selectedLanguage = language;
+                        });
+                      },
+                    ),
+                  ],
                 ),
             ],
           ),
