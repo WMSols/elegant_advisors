@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import '../../../core/constants/app_constants.dart';
 import '../../../core/utils/app_colors/app_colors.dart';
 import '../../../core/utils/app_responsive/app_responsive.dart';
 import '../../../core/utils/app_spacing/app_spacing.dart';
@@ -203,7 +205,7 @@ class _ExpertiseButton extends StatelessWidget {
       textColor: AppColors.white,
       width: fullWidth ? double.infinity : null,
       onPressed: () {
-        // TODO: Add navigation when team page is available
+        Get.toNamed(AppConstants.routeOurTeam);
       },
     );
   }

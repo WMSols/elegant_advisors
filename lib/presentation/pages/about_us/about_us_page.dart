@@ -5,10 +5,10 @@ import '../../../core/utils/app_styles/app_text_styles.dart';
 import '../../../core/utils/app_texts/app_texts.dart';
 import '../../widgets/layout/app_footer.dart';
 import '../../widgets/layout/app_header.dart';
-import '../../controllers/services/services_controller.dart';
+import '../../controllers/about_us/about_us_controller.dart';
 
-class ServicesPage extends GetView<ServicesController> {
-  const ServicesPage({super.key});
+class AboutUsPage extends GetView<AboutUsController> {
+  const AboutUsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,16 +24,21 @@ class ServicesPage extends GetView<ServicesController> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    AppTexts.servicesTitle,
+                    AppTexts.aboutUsTitle,
                     style: AppTextStyles.headline(context),
                   ),
                   AppSpacing.vertical(context, 0.04),
                   Text(
-                    AppTexts.servicesSubtitle,
+                    AppTexts.aboutUsSubtitle,
                     style: AppTextStyles.heading(context),
                   ),
                   AppSpacing.vertical(context, 0.04),
-                  // Add detailed services here
+                  Text(
+                    AppTexts.aboutUsDescription,
+                    style: AppTextStyles.bodyText(context),
+                  ),
+                  AppSpacing.vertical(context, 0.04),
+                  // Add about us content here
                 ],
               ),
             ),
@@ -44,4 +49,3 @@ class ServicesPage extends GetView<ServicesController> {
     );
   }
 }
-

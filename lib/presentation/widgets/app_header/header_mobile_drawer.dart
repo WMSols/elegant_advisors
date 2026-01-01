@@ -53,41 +53,19 @@ class HeaderMobileDrawer extends StatelessWidget {
                 padding: EdgeInsets.zero,
                 children: [
                   _MobileDrawerItem(
-                    label: AppTexts.navWhatWeDo,
-                    route: AppConstants.routeWhatWeDo,
-                    onTap: onClose,
-                  ),
-                  _MobileDrawerItem(
-                    label: AppTexts.navHowWeDoIt,
-                    route: AppConstants.routeHowWeDoIt,
-                    onTap: onClose,
-                  ),
-                  _MobileDrawerItem(
-                    label: AppTexts.navWhyElegant,
-                    route: AppConstants.routeWhyElegant,
-                    onTap: onClose,
-                  ),
-                  _MobileDrawerItem(
-                    label: AppTexts.navServices,
-                    route: AppConstants.routeServices,
-                    onTap: onClose,
-                  ),
-                  _MobileDrawerItem(
                     label: AppTexts.navProperties,
                     route: AppConstants.routeProperties,
                     onTap: onClose,
                   ),
                   _MobileDrawerItem(
-                    label: AppTexts.navInsights,
-                    route: AppConstants.routeInsights,
+                    label: AppTexts.navOurTeam,
+                    route: AppConstants.routeOurTeam,
                     onTap: onClose,
                   ),
                   _MobileDrawerItem(
-                    label: AppTexts.navGoldenVisa,
-                    route: AppConstants.routeGoldenVisa,
+                    label: AppTexts.navAboutUs,
+                    route: AppConstants.routeAboutUs,
                     onTap: onClose,
-                    showArrow: true,
-                    hasSubmenu: true,
                   ),
                   _MobileDrawerItem(
                     label: AppTexts.navContact,
@@ -108,15 +86,11 @@ class _MobileDrawerItem extends StatefulWidget {
   final String label;
   final String route;
   final VoidCallback onTap;
-  final bool showArrow;
-  final bool hasSubmenu;
 
   const _MobileDrawerItem({
     required this.label,
     required this.route,
     required this.onTap,
-    this.showArrow = false,
-    this.hasSubmenu = false,
   });
 
   @override
@@ -125,7 +99,6 @@ class _MobileDrawerItem extends StatefulWidget {
 
 class _MobileDrawerItemState extends State<_MobileDrawerItem> {
   bool _isHovered = false;
-  bool _isExpanded = false;
 
   @override
   Widget build(BuildContext context) {
@@ -139,12 +112,8 @@ class _MobileDrawerItemState extends State<_MobileDrawerItem> {
           onExit: (_) => setState(() => _isHovered = false),
           child: InkWell(
             onTap: () {
-              if (widget.hasSubmenu) {
-                setState(() => _isExpanded = !_isExpanded);
-              } else {
-                Get.toNamed(widget.route);
-                widget.onTap();
-              }
+              Get.toNamed(widget.route);
+              widget.onTap();
             },
             child: Container(
               padding: EdgeInsets.symmetric(
@@ -176,91 +145,14 @@ class _MobileDrawerItemState extends State<_MobileDrawerItem> {
                       ),
                     ),
                   ),
-                  // Arrow icon for Golden Visa
-                  if (widget.showArrow)
-                    Icon(
-                      _isExpanded ? Icons.arrow_drop_down : Icons.arrow_forward_ios,
-                      size: 14,
-                      color: AppColors.white.withValues(alpha:0.7),
-                    ),
                 ],
               ),
             ),
           ),
         ),
-        // Submenu items
-        if (widget.hasSubmenu && _isExpanded)
-          _GoldenVisaSubmenu(
-            onOptionSelected: () {
-              setState(() => _isExpanded = false);
-              widget.onTap();
-            },
-          ),
       ],
     );
   }
 }
 
-class _GoldenVisaSubmenu extends StatelessWidget {
-  final VoidCallback onOptionSelected;
-
-  const _GoldenVisaSubmenu({required this.onOptionSelected});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: AppColors.primary.withValues(alpha:0.8),
-      child: Column(
-        children: [
-          Divider(
-            color: AppColors.white.withValues(alpha:0.2),
-            height: 1,
-          ),
-          _SubmenuItem(
-            label: 'IFICI',
-            onTap: () {
-              // Navigate to IFICI page
-              onOptionSelected();
-            },
-          ),
-          // Add more submenu items as needed
-        ],
-      ),
-    );
-  }
-}
-
-class _SubmenuItem extends StatelessWidget {
-  final String label;
-  final VoidCallback onTap;
-
-  const _SubmenuItem({
-    required this.label,
-    required this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      child: Container(
-        padding: EdgeInsets.symmetric(
-          horizontal: AppResponsive.screenWidth(context) * 0.08,
-          vertical: AppResponsive.screenHeight(context) * 0.02,
-        ),
-        child: Row(
-          children: [
-            Text(
-              label,
-              style: AppTextStyles.bodyText(context).copyWith(
-                color: AppColors.white,
-                letterSpacing: 0.5,
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
 

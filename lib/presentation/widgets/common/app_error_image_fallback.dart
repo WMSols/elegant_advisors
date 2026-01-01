@@ -18,8 +18,8 @@ class AppErrorImageFallback extends StatelessWidget {
   Widget build(BuildContext context) {
     final defaultIconSize = iconSize ?? 
         AppResponsive.fontSizeClamped(context, min: 30, max: 80);
-    final bgColor = backgroundColor ?? AppColors.grey.withOpacity(0.1);
-    final iconColorValue = iconColor ?? AppColors.grey.withOpacity(0.5);
+    final bgColor = backgroundColor ?? AppColors.grey.withValues(alpha:0.1);
+    final iconColorValue = iconColor ?? AppColors.grey.withValues(alpha:0.5);
 
     return Container(
       decoration: BoxDecoration(color: bgColor),

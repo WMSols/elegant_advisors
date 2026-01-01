@@ -6,13 +6,9 @@ class AppTexts {
 
   // Header Navigation
   static const String navHome = "Home";
-  static const String navWhatWeDo = "What We Do";
-  static const String navHowWeDoIt = "How We Do It";
-  static const String navWhyElegant = "Why Elegant";
-  static const String navServices = "Services";
   static const String navProperties = "Properties";
-  static const String navInsights = "Insights";
-  static const String navGoldenVisa = "Golden Visa";
+  static const String navOurTeam = "Our Team";
+  static const String navAboutUs = "About Us";
   static const String navContact = "Contact";
 
   // Home Page
@@ -59,36 +55,20 @@ class AppTexts {
   static const String homePrivilegingQualityDescription = "Here is a selection of our previous transactions.";
   static const String homePrivilegingQualityButton = "Request a Private Consultation";
 
-  // What We Do Page
-  static const String whatWeDoTitle = "What We Do";
-  static const String whatWeDoSubtitle = "Services Overview";
-  static const String whatWeDoDescription = "Elegant Advisors provides comprehensive property & asset advisory services.";
-
-  // How We Do It Page
-  static const String howWeDoItTitle = "How We Do It";
-  static const String howWeDoItSubtitle = "Step-by-Step Buyer Journey & Process";
-
-  // Why Elegant Page
-  static const String whyElegantTitle = "Why Elegant Advisors";
-  static const String whyElegantSubtitle = "About Elegant Advisors";
-  static const String whyElegantDescription = "Learn more about our team, testimonials, and partners.";
-
-  // Services Page
-  static const String servicesTitle = "Our Services";
-  static const String servicesSubtitle = "Detailed Services";
-
   // Properties Page
   static const String propertiesTitle = "Properties";
-  static const String propertiesSubtitle = "Property Types & Investment Property";
+  static const String propertiesSubtitle = "Property Listings for Sale";
+  static const String propertiesDescription = "Browse our curated selection of premium properties available for purchase.";
 
-  // Insights Page
-  static const String insightsTitle = "Insights";
-  static const String insightsSubtitle = "Articles & Blog";
+  // Our Team Page
+  static const String ourTeamTitle = "Our Team";
+  static const String ourTeamSubtitle = "Meet Our Expert Advisors";
+  static const String ourTeamDescription = "Our multidisciplinary team brings unparalleled expertise to every transaction.";
 
-  // Golden Visa Page
-  static const String goldenVisaTitle = "Golden Visa";
-  static const String goldenVisaSubtitle = "Golden Visa / Residency Guide";
-  static const String goldenVisaDescription = "Comprehensive guide to Golden Visa and residency programs.";
+  // About Us Page
+  static const String aboutUsTitle = "About Us";
+  static const String aboutUsSubtitle = "Elegant Advisors";
+  static const String aboutUsDescription = "Learn more about our mission, values, and commitment to excellence.";
 
   // Contact Page
   static const String contactTitle = "Contact Us";

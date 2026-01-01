@@ -33,7 +33,13 @@ class PropertiesPage extends GetView<PropertiesController> {
                     style: AppTextStyles.heading(context),
                   ),
                   AppSpacing.vertical(context, 0.04),
-                  // Add property types and investment properties here
+                  Text(
+                    AppTexts.propertiesDescription,
+                    style: AppTextStyles.bodyText(context),
+                  ),
+                  AppSpacing.vertical(context, 0.04),
+                  // Property listings grid will be added here
+                  // This is where property cards will be displayed
                 ],
               ),
             ),

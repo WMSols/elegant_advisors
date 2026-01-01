@@ -53,32 +53,16 @@ class _AppHeaderState extends State<AppHeader> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           HeaderNavItem(
-                            label: AppTexts.navWhatWeDo,
-                            route: AppConstants.routeWhatWeDo,
-                          ),
-                          HeaderNavItem(
-                            label: AppTexts.navHowWeDoIt,
-                            route: AppConstants.routeHowWeDoIt,
-                          ),
-                          HeaderNavItem(
-                            label: AppTexts.navWhyElegant,
-                            route: AppConstants.routeWhyElegant,
-                          ),
-                          HeaderNavItem(
-                            label: AppTexts.navServices,
-                            route: AppConstants.routeServices,
-                          ),
-                          HeaderNavItem(
                             label: AppTexts.navProperties,
                             route: AppConstants.routeProperties,
                           ),
                           HeaderNavItem(
-                            label: AppTexts.navInsights,
-                            route: AppConstants.routeInsights,
+                            label: AppTexts.navOurTeam,
+                            route: AppConstants.routeOurTeam,
                           ),
                           HeaderNavItem(
-                            label: AppTexts.navGoldenVisa,
-                            route: AppConstants.routeGoldenVisa,
+                            label: AppTexts.navAboutUs,
+                            route: AppConstants.routeAboutUs,
                           ),
                           // Contact and Language Selector in same row
                           Row(

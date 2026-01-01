@@ -1,6 +1,5 @@
 import '../base_controller.dart';
 
-class ServicesController extends BaseController {
+class OurTeamController extends BaseController {
   // Add your state variables and methods here
 }
-

@@ -136,7 +136,7 @@ class _ImageCarousel extends StatelessWidget {
           width: double.infinity,
           height: carouselHeight,
           decoration: BoxDecoration(
-            color: AppColors.grey.withOpacity(0.1),
+            color: AppColors.grey.withValues(alpha:0.1),
           ),
           child: ClipRRect(
             child: PageView.builder(
@@ -367,7 +367,7 @@ class _ThumbnailItemState extends State<_ThumbnailItem> {
             width: thumbnailSize,
             height: thumbnailSize,
             decoration: BoxDecoration(
-              color: AppColors.grey.withOpacity(0.1),
+              color: AppColors.grey.withValues(alpha:0.1),
               border: widget.isSelected
                   ? Border.all(
                       color: AppColors.primary,
@@ -446,7 +446,7 @@ class _CarouselArrow extends StatelessWidget {
           width: size,
           height: size,
           decoration: BoxDecoration(
-            color: AppColors.white.withOpacity(0.8),
+            color: AppColors.white.withValues(alpha:0.8),
             shape: BoxShape.circle,
           ),
           child: Icon(
