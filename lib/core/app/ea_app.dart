@@ -8,10 +8,7 @@ import 'admin_app.dart';
 class EAApp extends StatelessWidget {
   final AppType appType;
 
-  const EAApp({
-    super.key,
-    this.appType = AppType.unified,
-  });
+  const EAApp({super.key, this.appType = AppType.unified});
 
   @override
   Widget build(BuildContext context) {

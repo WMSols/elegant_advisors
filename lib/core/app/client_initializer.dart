@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../config/firebase_config.dart';
+import 'package:elegant_advisors/core/config/firebase_config.dart';
 
 /// Client application initializer
 /// Handles all initialization logic for the client app

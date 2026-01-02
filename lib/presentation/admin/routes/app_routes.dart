@@ -1,23 +1,23 @@
 import 'package:get/get.dart';
-import '../../../core/constants/admin_constants.dart';
-import '../pages/login/login_page.dart';
-import '../pages/login/login_binding.dart';
-import '../pages/dashboard/dashboard_page.dart';
-import '../pages/dashboard/dashboard_binding.dart';
-import '../middleware/auth_middleware.dart';
+import 'package:elegant_advisors/core/constants/admin_constants.dart';
+import 'package:elegant_advisors/presentation/admin/screens/login/login_screen.dart';
+import 'package:elegant_advisors/presentation/admin/screens/login/login_binding.dart';
+import 'package:elegant_advisors/presentation/admin/screens/dashboard/dashboard_screen.dart';
+import 'package:elegant_advisors/presentation/admin/screens/dashboard/dashboard_binding.dart';
+import 'package:elegant_advisors/presentation/admin/middleware/auth_middleware.dart';
 
-class AppRoutes {
-  AppRoutes._();
+class AdminRoutes {
+  AdminRoutes._();
 
   static final routes = [
     GetPage(
       name: AdminConstants.routeLogin,
-      page: () => const LoginPage(),
+      page: () => const LoginScreen(),
       binding: LoginBinding(),
     ),
     GetPage(
       name: AdminConstants.routeDashboard,
-      page: () => const DashboardPage(),
+      page: () => const DashboardScreen(),
       binding: DashboardBinding(),
       middlewares: [AuthMiddleware()],
     ),

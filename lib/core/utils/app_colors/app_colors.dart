@@ -27,4 +27,3 @@ class AppColors {
   static const Color darkText = Colors.white;
   static const Color darkGrey = Color(0xFF434343);
 }
-

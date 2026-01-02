@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../../../core/utils/app_colors/app_colors.dart';
-import '../../../../core/utils/app_images/app_images.dart';
-import '../../../../core/utils/app_responsive/app_responsive.dart';
-import 'home_top_content.dart';
+import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
+import 'package:elegant_advisors/core/utils/app_images/app_images.dart';
+import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
+import 'package:elegant_advisors/presentation/client/widgets/home/home_top_content.dart';
 
 class HomeTopSection extends StatelessWidget {
   const HomeTopSection({super.key});
@@ -37,16 +37,11 @@ class HomeTopSection extends StatelessWidget {
               bottom: AppResponsive.screenHeight(context) * 0.05,
             ),
             child: isSmallScreen
-                ? Center(
-                    child: const HomeTopContentSmall(),
-                  )
-                : Center(
-                    child: const HomeTopContentLarge(),
-                  ),
+                ? Center(child: const HomeTopContentSmall())
+                : Center(child: const HomeTopContentLarge()),
           );
         },
       ),
     );
   }
 }
-

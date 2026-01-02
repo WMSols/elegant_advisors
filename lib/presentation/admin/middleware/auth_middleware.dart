@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../data/services/auth_service.dart';
-import '../../../core/constants/admin_constants.dart';
+import 'package:elegant_advisors/data/services/auth_service.dart';
+import 'package:elegant_advisors/core/constants/admin_constants.dart';
 
 class AuthMiddleware extends GetMiddleware {
   final AuthService _authService = AuthService();

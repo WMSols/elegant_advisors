@@ -1,11 +1,11 @@
 import 'package:get/get.dart';
-import '../../../../data/services/firestore_service.dart';
-import '../../../../domain/models/team_model.dart';
-import '../../../base_controller.dart';
+import 'package:elegant_advisors/data/services/firestore_service.dart';
+import 'package:elegant_advisors/domain/models/team_model.dart';
+import 'package:elegant_advisors/presentation/base_controller.dart';
 
 class OurTeamController extends BaseController {
   final FirestoreService _firestoreService = FirestoreService();
-  
+
   final teamMembers = <TeamModel>[].obs;
   final isLoadingTeam = false.obs;
 

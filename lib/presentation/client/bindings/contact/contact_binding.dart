@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import '../../controllers/contact/contact_controller.dart';
+import 'package:elegant_advisors/presentation/client/controllers/contact/contact_controller.dart';
 
 class ContactBinding extends Bindings {
   @override
@@ -7,4 +7,3 @@ class ContactBinding extends Bindings {
     Get.lazyPut<ContactController>(() => ContactController());
   }
 }
-

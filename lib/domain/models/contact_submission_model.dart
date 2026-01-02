@@ -23,7 +23,10 @@ class ContactSubmissionModel {
     DateTime? createdAt,
   }) : createdAt = createdAt ?? DateTime.now();
 
-  factory ContactSubmissionModel.fromJson(Map<String, dynamic> json, String id) {
+  factory ContactSubmissionModel.fromJson(
+    Map<String, dynamic> json,
+    String id,
+  ) {
     return ContactSubmissionModel(
       id: id,
       name: json['name'] ?? '',

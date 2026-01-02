@@ -61,4 +61,3 @@ class Helpers {
     return DateTime.now().millisecondsSinceEpoch.toString();
   }
 }
-

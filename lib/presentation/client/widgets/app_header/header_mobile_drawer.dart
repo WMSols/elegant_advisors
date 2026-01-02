@@ -1,31 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../core/constants/client_constants.dart';
-import '../../../../core/utils/app_colors/app_colors.dart';
-import '../../../../core/utils/app_responsive/app_responsive.dart';
-import '../../../../core/utils/app_spacing/app_spacing.dart';
-import '../../../../core/utils/app_styles/app_text_styles.dart';
-import '../../../../core/utils/app_texts/app_texts.dart';
+import 'package:elegant_advisors/core/constants/client_constants.dart';
+import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
+import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
+import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
+import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
+import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
 
 class HeaderMobileDrawer extends StatelessWidget {
   final VoidCallback onClose;
 
-  const HeaderMobileDrawer({
-    super.key,
-    required this.onClose,
-  });
+  const HeaderMobileDrawer({super.key, required this.onClose});
 
   @override
   Widget build(BuildContext context) {
     final screenWidth = AppResponsive.screenWidth(context);
-    final drawerWidth = screenWidth < 600 
+    final drawerWidth = screenWidth < 600
         ? screenWidth * 0.6
         : screenWidth * 0.35;
-    
+
     return Drawer(
-      backgroundColor: AppColors.primary,shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.zero
-      ),
+      backgroundColor: AppColors.primary,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
       width: drawerWidth,
       child: SafeArea(
         child: Column(
@@ -38,10 +34,7 @@ class HeaderMobileDrawer extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   IconButton(
-                    icon: const Icon(
-                      Icons.close,
-                      color: AppColors.white,
-                    ),
+                    icon: const Icon(Icons.close, color: AppColors.white),
                     onPressed: onClose,
                   ),
                 ],
@@ -139,10 +132,9 @@ class _MobileDrawerItemState extends State<_MobileDrawerItem> {
                   Expanded(
                     child: Text(
                       widget.label,
-                      style: AppTextStyles.bodyText(context).copyWith(
-                        color: AppColors.white,
-                        letterSpacing: 0.5,
-                      ),
+                      style: AppTextStyles.bodyText(
+                        context,
+                      ).copyWith(color: AppColors.white, letterSpacing: 0.5),
                     ),
                   ),
                 ],
@@ -154,5 +146,3 @@ class _MobileDrawerItemState extends State<_MobileDrawerItem> {
     );
   }
 }
-
-

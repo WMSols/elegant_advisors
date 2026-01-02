@@ -13,7 +13,10 @@ class StorageService {
     return await snapshot.ref.getDownloadURL();
   }
 
-  Future<List<String>> uploadPropertyImages(List<File> imageFiles, String propertyId) async {
+  Future<List<String>> uploadPropertyImages(
+    List<File> imageFiles,
+    String propertyId,
+  ) async {
     final List<String> urls = [];
     for (final file in imageFiles) {
       urls.add(await uploadPropertyImage(file, propertyId));
@@ -35,7 +38,10 @@ class StorageService {
 
   Future<void> deletePropertyFolder(String propertyId) async {
     try {
-      final listResult = await _storage.ref().child('properties/$propertyId').listAll();
+      final listResult = await _storage
+          .ref()
+          .child('properties/$propertyId')
+          .listAll();
       for (final item in listResult.items) await item.delete();
     } catch (e) {
       print('Error deleting property folder: $e');
@@ -57,7 +63,11 @@ class StorageService {
     }
   }
 
-  Future<String> uploadCMSImage(File imageFile, String pageId, String sectionId) async {
+  Future<String> uploadCMSImage(
+    File imageFile,
+    String pageId,
+    String sectionId,
+  ) async {
     final fileName = '${_uuid.v4()}.jpg';
     final ref = _storage.ref().child('cms/$pageId/$sectionId/$fileName');
     final snapshot = await ref.putFile(imageFile);

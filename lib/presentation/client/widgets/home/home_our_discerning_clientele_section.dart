@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../../../core/utils/app_spacing/app_spacing.dart';
-import '../common/app_fade_in_on_scroll.dart';
-import 'home_our_discerning_clientele_content.dart';
+import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
+import 'package:elegant_advisors/presentation/client/widgets/common/app_fade_in_on_scroll.dart';
+import 'package:elegant_advisors/presentation/client/widgets/home/home_our_discerning_clientele_content.dart';
 
 class HomeOurDiscerningClienteleSection extends StatelessWidget {
   const HomeOurDiscerningClienteleSection({super.key});
@@ -26,4 +26,3 @@ class HomeOurDiscerningClienteleSection extends StatelessWidget {
     );
   }
 }
-

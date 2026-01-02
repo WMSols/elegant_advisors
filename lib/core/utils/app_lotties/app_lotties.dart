@@ -3,4 +3,3 @@ class AppLotties {
 
   // static const String success = 'assets/lotties/success.json';
 }
-

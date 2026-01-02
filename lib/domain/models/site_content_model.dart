@@ -19,7 +19,8 @@ class SiteContentModel {
     return SiteContentModel(
       id: id,
       title: json['title'] ?? '',
-      sections: (json['sections'] as List<dynamic>?)
+      sections:
+          (json['sections'] as List<dynamic>?)
               ?.map((e) => ContentSection.fromJson(e as Map<String, dynamic>))
               .toList() ??
           [],

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../core/utils/app_colors/app_colors.dart';
-import 'dashboard_controller.dart';
+import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
+import 'package:elegant_advisors/presentation/admin/screens/dashboard/dashboard_controller.dart';
 
-class DashboardPage extends GetView<DashboardController> {
-  const DashboardPage({super.key});
+class DashboardScreen extends GetView<DashboardController> {
+  const DashboardScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -102,13 +102,10 @@ class _StatCard extends StatelessWidget {
             Text(
               value,
               style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-                    color: color ?? AppColors.primary,
-                  ),
+                color: color ?? AppColors.primary,
+              ),
             ),
-            Text(
-              title,
-              style: Theme.of(context).textTheme.bodyMedium,
-            ),
+            Text(title, style: Theme.of(context).textTheme.bodyMedium),
           ],
         ),
       ),

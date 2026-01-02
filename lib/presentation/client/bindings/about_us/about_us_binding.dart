@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import '../../controllers/about_us/about_us_controller.dart';
+import 'package:elegant_advisors/presentation/client/controllers/about_us/about_us_controller.dart';
 
 class AboutUsBinding extends Bindings {
   @override

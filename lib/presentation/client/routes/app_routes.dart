@@ -1,43 +1,43 @@
 import 'package:get/get.dart';
-import '../../../core/constants/client_constants.dart';
-import '../bindings/home/home_binding.dart';
-import '../pages/home/home_page.dart';
-import '../bindings/properties/properties_binding.dart';
-import '../pages/properties/properties_page.dart';
-import '../bindings/our_team/our_team_binding.dart';
-import '../pages/our_team/our_team_page.dart';
-import '../bindings/about_us/about_us_binding.dart';
-import '../pages/about_us/about_us_page.dart';
-import '../bindings/contact/contact_binding.dart';
-import '../pages/contact/contact_page.dart';
+import 'package:elegant_advisors/core/constants/client_constants.dart';
+import 'package:elegant_advisors/presentation/client/bindings/home/home_binding.dart';
+import 'package:elegant_advisors/presentation/client/screens/home/home_screen.dart';
+import 'package:elegant_advisors/presentation/client/bindings/properties/properties_binding.dart';
+import 'package:elegant_advisors/presentation/client/screens/properties/properties_screen.dart';
+import 'package:elegant_advisors/presentation/client/bindings/our_team/our_team_binding.dart';
+import 'package:elegant_advisors/presentation/client/screens/our_team/our_team_screen.dart';
+import 'package:elegant_advisors/presentation/client/bindings/about_us/about_us_binding.dart';
+import 'package:elegant_advisors/presentation/client/screens/about_us/about_us_screen.dart';
+import 'package:elegant_advisors/presentation/client/bindings/contact/contact_binding.dart';
+import 'package:elegant_advisors/presentation/client/screens/contact/contact_screen.dart';
 
-class AppRoutes {
-  AppRoutes._();
+class ClientRoutes {
+  ClientRoutes._();
 
   static final routes = [
     GetPage(
       name: ClientConstants.routeHome,
-      page: () => const HomePage(),
+      page: () => const HomeScreen(),
       binding: HomeBinding(),
     ),
     GetPage(
       name: ClientConstants.routeProperties,
-      page: () => const PropertiesPage(),
+      page: () => const PropertiesScreen(),
       binding: PropertiesBinding(),
     ),
     GetPage(
       name: ClientConstants.routeOurTeam,
-      page: () => const OurTeamPage(),
+      page: () => const OurTeamScreen(),
       binding: OurTeamBinding(),
     ),
     GetPage(
       name: ClientConstants.routeAboutUs,
-      page: () => const AboutUsPage(),
+      page: () => const AboutUsScreen(),
       binding: AboutUsBinding(),
     ),
     GetPage(
       name: ClientConstants.routeContact,
-      page: () => const ContactPage(),
+      page: () => const ContactScreen(),
       binding: ContactBinding(),
     ),
   ];

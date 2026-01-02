@@ -8,4 +8,3 @@ abstract class BaseModel {
   /// Create model from JSON
   BaseModel fromJson(Map<String, dynamic> json);
 }
-

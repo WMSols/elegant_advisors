@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import '../../controllers/properties/properties_controller.dart';
+import 'package:elegant_advisors/presentation/client/controllers/properties/properties_controller.dart';
 
 class PropertiesBinding extends Bindings {
   @override
@@ -7,4 +7,3 @@ class PropertiesBinding extends Bindings {
     Get.lazyPut<PropertiesController>(() => PropertiesController());
   }
 }
-

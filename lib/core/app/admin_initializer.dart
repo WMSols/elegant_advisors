@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../config/firebase_config.dart';
+import 'package:elegant_advisors/core/config/firebase_config.dart';
 
 /// Admin application initializer
 /// Handles all initialization logic for the admin app

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../theme/app_theme.dart';
-import '../constants/client_constants.dart';
-import '../../presentation/client/routes/app_routes.dart';
+import 'package:elegant_advisors/core/theme/app_theme.dart';
+import 'package:elegant_advisors/core/constants/client_constants.dart';
+import 'package:elegant_advisors/presentation/client/routes/app_routes.dart';
 
 /// Client-facing application
 class ClientApp extends StatelessWidget {
@@ -15,7 +15,7 @@ class ClientApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: AppTheme.theme,
       initialRoute: ClientConstants.routeHome,
-      getPages: AppRoutes.routes,
+      getPages: ClientRoutes.routes,
     );
   }
 }

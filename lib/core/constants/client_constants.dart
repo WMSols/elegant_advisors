@@ -3,7 +3,7 @@ class ClientConstants {
 
   // App Info
   static const String appName = 'Elegant Advisors';
-  
+
   // Routes
   static const String routeHome = '/';
   static const String routeProperties = '/properties';

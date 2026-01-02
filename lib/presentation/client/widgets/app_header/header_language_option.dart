@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../../core/utils/app_colors/app_colors.dart';
-import '../../../../core/utils/app_responsive/app_responsive.dart';
+import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
+import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 
 class HeaderLanguageOption extends StatelessWidget {
   final String flagImage;
@@ -24,7 +24,7 @@ class HeaderLanguageOption extends StatelessWidget {
           vertical: AppResponsive.scaleSize(context, 8, min: 6, max: 10),
         ),
         decoration: BoxDecoration(
-          color: isSelected 
+          color: isSelected
               ? AppColors.primary.withValues(alpha: 0.3)
               : Colors.transparent,
         ),
@@ -34,7 +34,7 @@ class HeaderLanguageOption extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(3),
             border: Border.all(
-              color: AppColors.white.withValues(alpha:0.3),
+              color: AppColors.white.withValues(alpha: 0.3),
               width: 1,
             ),
           ),
@@ -45,10 +45,15 @@ class HeaderLanguageOption extends StatelessWidget {
               fit: BoxFit.cover,
               errorBuilder: (context, error, stackTrace) {
                 return Container(
-                  color: AppColors.grey.withValues(alpha:0.3),
+                  color: AppColors.grey.withValues(alpha: 0.3),
                   child: Icon(
                     Icons.flag,
-                    size: AppResponsive.scaleSize(context, 12, min: 10, max: 16),
+                    size: AppResponsive.scaleSize(
+                      context,
+                      12,
+                      min: 10,
+                      max: 16,
+                    ),
                     color: AppColors.white,
                   ),
                 );
@@ -60,4 +65,3 @@ class HeaderLanguageOption extends StatelessWidget {
     );
   }
 }
-

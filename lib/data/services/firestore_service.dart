@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import '../../domain/models/property_model.dart';
-import '../../domain/models/team_model.dart';
-import '../../domain/models/site_content_model.dart';
-import '../../domain/models/contact_submission_model.dart';
-import '../../domain/models/admin_user_model.dart';
+import 'package:elegant_advisors/domain/models/property_model.dart';
+import 'package:elegant_advisors/domain/models/team_model.dart';
+import 'package:elegant_advisors/domain/models/site_content_model.dart';
+import 'package:elegant_advisors/domain/models/contact_submission_model.dart';
+import 'package:elegant_advisors/domain/models/admin_user_model.dart';
 
 class FirestoreService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -24,9 +24,11 @@ class FirestoreService {
         .orderBy('sortOrder')
         .orderBy('createdAt', descending: true)
         .snapshots()
-        .map((snapshot) => snapshot.docs
-            .map((doc) => PropertyModel.fromJson(doc.data(), doc.id))
-            .toList());
+        .map(
+          (snapshot) => snapshot.docs
+              .map((doc) => PropertyModel.fromJson(doc.data(), doc.id))
+              .toList(),
+        );
   }
 
   Future<List<PropertyModel>> getPublishedPropertiesOnce() async {
@@ -57,7 +59,10 @@ class FirestoreService {
         .limit(1)
         .get();
     if (snapshot.docs.isNotEmpty) {
-      return PropertyModel.fromJson(snapshot.docs.first.data(), snapshot.docs.first.id);
+      return PropertyModel.fromJson(
+        snapshot.docs.first.data(),
+        snapshot.docs.first.id,
+      );
     }
     return null;
   }
@@ -68,9 +73,11 @@ class FirestoreService {
         .collection(propertiesCollection)
         .orderBy('createdAt', descending: true)
         .snapshots()
-        .map((snapshot) => snapshot.docs
-            .map((doc) => PropertyModel.fromJson(doc.data(), doc.id))
-            .toList());
+        .map(
+          (snapshot) => snapshot.docs
+              .map((doc) => PropertyModel.fromJson(doc.data(), doc.id))
+              .toList(),
+        );
   }
 
   Future<String> createProperty(PropertyModel property) async {
@@ -98,9 +105,11 @@ class FirestoreService {
         .where('isPublished', isEqualTo: true)
         .orderBy('sortOrder')
         .snapshots()
-        .map((snapshot) => snapshot.docs
-            .map((doc) => TeamModel.fromJson(doc.data(), doc.id))
-            .toList());
+        .map(
+          (snapshot) => snapshot.docs
+              .map((doc) => TeamModel.fromJson(doc.data(), doc.id))
+              .toList(),
+        );
   }
 
   Future<List<TeamModel>> getPublishedTeamOnce() async {
@@ -120,13 +129,17 @@ class FirestoreService {
         .collection(teamCollection)
         .orderBy('sortOrder')
         .snapshots()
-        .map((snapshot) => snapshot.docs
-            .map((doc) => TeamModel.fromJson(doc.data(), doc.id))
-            .toList());
+        .map(
+          (snapshot) => snapshot.docs
+              .map((doc) => TeamModel.fromJson(doc.data(), doc.id))
+              .toList(),
+        );
   }
 
   Future<String> createTeamMember(TeamModel team) async {
-    final docRef = await _firestore.collection(teamCollection).add(team.toJson());
+    final docRef = await _firestore
+        .collection(teamCollection)
+        .add(team.toJson());
     return docRef.id;
   }
 
@@ -140,7 +153,10 @@ class FirestoreService {
 
   // Site Content
   Future<SiteContentModel?> getSiteContent(String pageId) async {
-    final doc = await _firestore.collection(siteContentCollection).doc(pageId).get();
+    final doc = await _firestore
+        .collection(siteContentCollection)
+        .doc(pageId)
+        .get();
     if (doc.exists) {
       return SiteContentModel.fromJson(doc.data()!, doc.id);
     }
@@ -152,9 +168,11 @@ class FirestoreService {
         .collection(siteContentCollection)
         .doc(pageId)
         .snapshots()
-        .map((doc) => doc.exists
-            ? SiteContentModel.fromJson(doc.data()!, doc.id)
-            : null);
+        .map(
+          (doc) => doc.exists
+              ? SiteContentModel.fromJson(doc.data()!, doc.id)
+              : null,
+        );
   }
 
   // Admin: Site Content CRUD
@@ -162,12 +180,17 @@ class FirestoreService {
     return _firestore
         .collection(siteContentCollection)
         .snapshots()
-        .map((snapshot) => snapshot.docs
-            .map((doc) => SiteContentModel.fromJson(doc.data(), doc.id))
-            .toList());
+        .map(
+          (snapshot) => snapshot.docs
+              .map((doc) => SiteContentModel.fromJson(doc.data(), doc.id))
+              .toList(),
+        );
   }
 
-  Future<void> updateSiteContent(String pageId, SiteContentModel content) async {
+  Future<void> updateSiteContent(
+    String pageId,
+    SiteContentModel content,
+  ) async {
     await _firestore
         .collection(siteContentCollection)
         .doc(pageId)
@@ -175,7 +198,9 @@ class FirestoreService {
   }
 
   // Contact Submissions
-  Future<String> createContactSubmission(ContactSubmissionModel submission) async {
+  Future<String> createContactSubmission(
+    ContactSubmissionModel submission,
+  ) async {
     final docRef = await _firestore
         .collection(contactSubmissionsCollection)
         .add(submission.toJson());
@@ -188,21 +213,25 @@ class FirestoreService {
         .collection(contactSubmissionsCollection)
         .orderBy('createdAt', descending: true)
         .snapshots()
-        .map((snapshot) => snapshot.docs
-            .map((doc) => ContactSubmissionModel.fromJson(doc.data(), doc.id))
-            .toList());
+        .map(
+          (snapshot) => snapshot.docs
+              .map((doc) => ContactSubmissionModel.fromJson(doc.data(), doc.id))
+              .toList(),
+        );
   }
 
   Future<void> updateContactSubmissionStatus(String id, String status) async {
-    await _firestore
-        .collection(contactSubmissionsCollection)
-        .doc(id)
-        .update({'status': status});
+    await _firestore.collection(contactSubmissionsCollection).doc(id).update({
+      'status': status,
+    });
   }
 
   // Admin Users
   Future<AdminUserModel?> getAdminUser(String uid) async {
-    final doc = await _firestore.collection(adminUsersCollection).doc(uid).get();
+    final doc = await _firestore
+        .collection(adminUsersCollection)
+        .doc(uid)
+        .get();
     if (doc.exists) {
       return AdminUserModel.fromJson(doc.data()!, doc.id);
     }
@@ -210,14 +239,18 @@ class FirestoreService {
   }
 
   Future<void> createAdminUser(String uid, AdminUserModel adminUser) async {
-    await _firestore.collection(adminUsersCollection).doc(uid).set(adminUser.toJson());
+    await _firestore
+        .collection(adminUsersCollection)
+        .doc(uid)
+        .set(adminUser.toJson());
   }
 
   // Analytics - Daily Visitors
   Future<void> incrementDailyVisitor() async {
     final today = DateTime.now();
-    final dateKey = '${today.year}-${today.month.toString().padLeft(2, '0')}-${today.day.toString().padLeft(2, '0')}';
-    
+    final dateKey =
+        '${today.year}-${today.month.toString().padLeft(2, '0')}-${today.day.toString().padLeft(2, '0')}';
+
     final docRef = _firestore.collection(analyticsCollection).doc(dateKey);
     await docRef.set({
       'date': dateKey,
@@ -235,7 +268,10 @@ class FirestoreService {
 
     final Map<String, int> result = {};
     for (final date in dates) {
-      final doc = await _firestore.collection(analyticsCollection).doc(date).get();
+      final doc = await _firestore
+          .collection(analyticsCollection)
+          .doc(date)
+          .get();
       result[date] = doc.data()?['visitors'] ?? 0;
     }
     return result;
@@ -243,8 +279,12 @@ class FirestoreService {
 
   Future<int> getTodayVisitors() async {
     final today = DateTime.now();
-    final dateKey = '${today.year}-${today.month.toString().padLeft(2, '0')}-${today.day.toString().padLeft(2, '0')}';
-    final doc = await _firestore.collection(analyticsCollection).doc(dateKey).get();
+    final dateKey =
+        '${today.year}-${today.month.toString().padLeft(2, '0')}-${today.day.toString().padLeft(2, '0')}';
+    final doc = await _firestore
+        .collection(analyticsCollection)
+        .doc(dateKey)
+        .get();
     return doc.data()?['visitors'] ?? 0;
   }
 }
