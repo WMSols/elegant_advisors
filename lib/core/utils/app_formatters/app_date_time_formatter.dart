@@ -7,4 +7,3 @@ String appDateTimeFormatter(DateTime timestamp) {
   final timePart = DateFormat('h:mm a').format(timestamp); // 9:00 PM
   return '$datePart - $timePart';
 }
-

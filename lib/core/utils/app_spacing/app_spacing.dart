@@ -23,4 +23,3 @@ class AppSpacing {
   static SizedBox horizontal(BuildContext context, double factor) =>
       SizedBox(width: AppResponsive.screenWidth(context) * factor);
 }
-

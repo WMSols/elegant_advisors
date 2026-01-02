@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../core/constants/client_constants.dart';
-import '../../../../core/utils/app_colors/app_colors.dart';
-import '../../../../core/utils/app_responsive/app_responsive.dart';
-import '../../../../core/utils/app_spacing/app_spacing.dart';
-import '../../../../core/utils/app_styles/app_text_styles.dart';
-import '../../../../core/utils/app_texts/app_texts.dart';
-import '../common/app_button.dart';
-import '../common/app_category_card.dart';
+import 'package:elegant_advisors/core/constants/client_constants.dart';
+import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
+import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
+import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
+import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
+import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
+import 'package:elegant_advisors/presentation/client/widgets/common/app_button.dart';
+import 'package:elegant_advisors/presentation/client/widgets/common/app_category_card.dart';
 
 class HomeUnparalleledExpertiseContentDesktop extends StatelessWidget {
   const HomeUnparalleledExpertiseContentDesktop({super.key});
@@ -100,21 +100,24 @@ class _ExpertiseCategoriesGrid extends StatelessWidget {
             Expanded(
               child: AppCategoryCard(
                 title: AppTexts.homeUnparalleledExpertisePropertySearchTitle,
-                description: AppTexts.homeUnparalleledExpertisePropertySearchDescription,
+                description:
+                    AppTexts.homeUnparalleledExpertisePropertySearchDescription,
               ),
             ),
             AppSpacing.horizontal(context, 0.03),
             Expanded(
               child: AppCategoryCard(
                 title: AppTexts.homeUnparalleledExpertisePurchaseStrategyTitle,
-                description: AppTexts.homeUnparalleledExpertisePurchaseStrategyDescription,
+                description: AppTexts
+                    .homeUnparalleledExpertisePurchaseStrategyDescription,
               ),
             ),
             AppSpacing.horizontal(context, 0.03),
             Expanded(
               child: AppCategoryCard(
                 title: AppTexts.homeUnparalleledExpertiseNegotiationTitle,
-                description: AppTexts.homeUnparalleledExpertiseNegotiationDescription,
+                description:
+                    AppTexts.homeUnparalleledExpertiseNegotiationDescription,
               ),
             ),
           ],
@@ -126,22 +129,27 @@ class _ExpertiseCategoriesGrid extends StatelessWidget {
           children: [
             Expanded(
               child: AppCategoryCard(
-                title: AppTexts.homeUnparalleledExpertisePortfolioManagementTitle,
-                description: AppTexts.homeUnparalleledExpertisePortfolioManagementDescription,
+                title:
+                    AppTexts.homeUnparalleledExpertisePortfolioManagementTitle,
+                description: AppTexts
+                    .homeUnparalleledExpertisePortfolioManagementDescription,
               ),
             ),
             AppSpacing.horizontal(context, 0.03),
             Expanded(
               child: AppCategoryCard(
                 title: AppTexts.homeUnparalleledExpertiseVisaTaxAdvisoryTitle,
-                description: AppTexts.homeUnparalleledExpertiseVisaTaxAdvisoryDescription,
+                description: AppTexts
+                    .homeUnparalleledExpertiseVisaTaxAdvisoryDescription,
               ),
             ),
             AppSpacing.horizontal(context, 0.03),
             Expanded(
               child: AppCategoryCard(
-                title: AppTexts.homeUnparalleledExpertiseLuxuryRentalsManagementTitle,
-                description: AppTexts.homeUnparalleledExpertiseLuxuryRentalsManagementDescription,
+                title: AppTexts
+                    .homeUnparalleledExpertiseLuxuryRentalsManagementTitle,
+                description: AppTexts
+                    .homeUnparalleledExpertiseLuxuryRentalsManagementDescription,
               ),
             ),
           ],
@@ -160,12 +168,14 @@ class _ExpertiseCategoriesList extends StatelessWidget {
       children: [
         AppCategoryCard(
           title: AppTexts.homeUnparalleledExpertisePropertySearchTitle,
-          description: AppTexts.homeUnparalleledExpertisePropertySearchDescription,
+          description:
+              AppTexts.homeUnparalleledExpertisePropertySearchDescription,
         ),
         AppSpacing.vertical(context, 0.04),
         AppCategoryCard(
           title: AppTexts.homeUnparalleledExpertisePurchaseStrategyTitle,
-          description: AppTexts.homeUnparalleledExpertisePurchaseStrategyDescription,
+          description:
+              AppTexts.homeUnparalleledExpertisePurchaseStrategyDescription,
         ),
         AppSpacing.vertical(context, 0.04),
         AppCategoryCard(
@@ -175,17 +185,20 @@ class _ExpertiseCategoriesList extends StatelessWidget {
         AppSpacing.vertical(context, 0.04),
         AppCategoryCard(
           title: AppTexts.homeUnparalleledExpertisePortfolioManagementTitle,
-          description: AppTexts.homeUnparalleledExpertisePortfolioManagementDescription,
+          description:
+              AppTexts.homeUnparalleledExpertisePortfolioManagementDescription,
         ),
         AppSpacing.vertical(context, 0.04),
         AppCategoryCard(
           title: AppTexts.homeUnparalleledExpertiseVisaTaxAdvisoryTitle,
-          description: AppTexts.homeUnparalleledExpertiseVisaTaxAdvisoryDescription,
+          description:
+              AppTexts.homeUnparalleledExpertiseVisaTaxAdvisoryDescription,
         ),
         AppSpacing.vertical(context, 0.04),
         AppCategoryCard(
           title: AppTexts.homeUnparalleledExpertiseLuxuryRentalsManagementTitle,
-          description: AppTexts.homeUnparalleledExpertiseLuxuryRentalsManagementDescription,
+          description: AppTexts
+              .homeUnparalleledExpertiseLuxuryRentalsManagementDescription,
         ),
       ],
     );
@@ -210,4 +223,3 @@ class _ExpertiseButton extends StatelessWidget {
     );
   }
 }
-

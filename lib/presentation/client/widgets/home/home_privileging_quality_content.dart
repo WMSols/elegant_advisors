@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../core/constants/client_constants.dart';
-import '../../../../core/utils/app_colors/app_colors.dart';
-import '../../../../core/utils/app_images/app_images.dart';
-import '../../../../core/utils/app_responsive/app_responsive.dart';
-import '../../../../core/utils/app_spacing/app_spacing.dart';
-import '../../../../core/utils/app_styles/app_text_styles.dart';
-import '../../../../core/utils/app_texts/app_texts.dart';
-import '../common/app_button.dart';
-import '../common/app_error_image_fallback.dart';
+import 'package:elegant_advisors/core/constants/client_constants.dart';
+import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
+import 'package:elegant_advisors/core/utils/app_images/app_images.dart';
+import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
+import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
+import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
+import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
+import 'package:elegant_advisors/presentation/client/widgets/common/app_button.dart';
+import 'package:elegant_advisors/presentation/client/widgets/common/app_error_image_fallback.dart';
 
 class HomePrivilegingQualityContentDesktop extends StatelessWidget {
   const HomePrivilegingQualityContentDesktop({super.key});
@@ -126,7 +126,11 @@ class _ImageCarousel extends StatelessWidget {
         ? AppResponsive.screenHeight(context) * 0.4
         : AppResponsive.screenHeight(context) * 0.8;
     final arrowSize = AppResponsive.fontSizeClamped(context, min: 16, max: 20);
-    final arrowButtonSize = AppResponsive.fontSizeClamped(context, min: 32, max: 40);
+    final arrowButtonSize = AppResponsive.fontSizeClamped(
+      context,
+      min: 32,
+      max: 40,
+    );
     final arrowPadding = AppResponsive.screenWidth(context) * 0.02;
     final iconSize = AppResponsive.fontSizeClamped(context, min: 60, max: 80);
 
@@ -136,7 +140,7 @@ class _ImageCarousel extends StatelessWidget {
           width: double.infinity,
           height: carouselHeight,
           decoration: BoxDecoration(
-            color: AppColors.grey.withValues(alpha:0.1),
+            color: AppColors.grey.withValues(alpha: 0.1),
           ),
           child: ClipRRect(
             child: PageView.builder(
@@ -150,14 +154,15 @@ class _ImageCarousel extends StatelessWidget {
                     fit: BoxFit.cover,
                     width: double.infinity,
                     height: double.infinity,
-                    frameBuilder: (context, child, frame, wasSynchronouslyLoaded) {
-                      if (wasSynchronouslyLoaded) {
-                        return child;
-                      }
-                      return frame != null 
-                          ? child 
-                          : AppErrorImageFallback(iconSize: iconSize);
-                    },
+                    frameBuilder:
+                        (context, child, frame, wasSynchronouslyLoaded) {
+                          if (wasSynchronouslyLoaded) {
+                            return child;
+                          }
+                          return frame != null
+                              ? child
+                              : AppErrorImageFallback(iconSize: iconSize);
+                        },
                     errorBuilder: (context, error, stackTrace) {
                       return AppErrorImageFallback(iconSize: iconSize);
                     },
@@ -204,7 +209,8 @@ class _ImageCarouselWithGallery extends StatefulWidget {
   const _ImageCarouselWithGallery();
 
   @override
-  State<_ImageCarouselWithGallery> createState() => _ImageCarouselWithGalleryState();
+  State<_ImageCarouselWithGallery> createState() =>
+      _ImageCarouselWithGalleryState();
 }
 
 class _ImageCarouselWithGalleryState extends State<_ImageCarouselWithGallery> {
@@ -351,7 +357,11 @@ class _ThumbnailItemState extends State<_ThumbnailItem> {
     final thumbnailSize = isSmallScreen
         ? AppResponsive.screenWidth(context) * 0.12
         : AppResponsive.screenWidth(context) * 0.05;
-    final thumbnailIconSize = AppResponsive.fontSizeClamped(context, min: 20, max: 30);
+    final thumbnailIconSize = AppResponsive.fontSizeClamped(
+      context,
+      min: 20,
+      max: 30,
+    );
     final scale = _isHovered ? 1.1 : 1.0;
 
     return MouseRegion(
@@ -367,12 +377,9 @@ class _ThumbnailItemState extends State<_ThumbnailItem> {
             width: thumbnailSize,
             height: thumbnailSize,
             decoration: BoxDecoration(
-              color: AppColors.grey.withValues(alpha:0.1),
+              color: AppColors.grey.withValues(alpha: 0.1),
               border: widget.isSelected
-                  ? Border.all(
-                      color: AppColors.primary,
-                      width: 1,
-                    )
+                  ? Border.all(color: AppColors.primary, width: 1)
                   : null,
             ),
             child: ClipRRect(
@@ -384,14 +391,17 @@ class _ThumbnailItemState extends State<_ThumbnailItem> {
                   fit: BoxFit.cover,
                   width: thumbnailSize,
                   height: thumbnailSize,
-                  frameBuilder: (context, child, frame, wasSynchronouslyLoaded) {
-                    if (wasSynchronouslyLoaded) {
-                      return child;
-                    }
-                    return frame != null 
-                        ? child 
-                        : AppErrorImageFallback(iconSize: thumbnailIconSize);
-                  },
+                  frameBuilder:
+                      (context, child, frame, wasSynchronouslyLoaded) {
+                        if (wasSynchronouslyLoaded) {
+                          return child;
+                        }
+                        return frame != null
+                            ? child
+                            : AppErrorImageFallback(
+                                iconSize: thumbnailIconSize,
+                              );
+                      },
                   errorBuilder: (context, error, stackTrace) {
                     return AppErrorImageFallback(iconSize: thumbnailIconSize);
                   },
@@ -446,17 +456,12 @@ class _CarouselArrow extends StatelessWidget {
           width: size,
           height: size,
           decoration: BoxDecoration(
-            color: AppColors.white.withValues(alpha:0.8),
+            color: AppColors.white.withValues(alpha: 0.8),
             shape: BoxShape.circle,
           ),
-          child: Icon(
-            icon,
-            color: AppColors.primary,
-            size: iconSize,
-          ),
+          child: Icon(icon, color: AppColors.primary, size: iconSize),
         ),
       ),
     );
   }
 }
-

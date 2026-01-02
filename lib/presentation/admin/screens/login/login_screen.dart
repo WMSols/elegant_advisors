@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../core/utils/app_colors/app_colors.dart';
-import 'login_controller.dart';
+import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
+import 'package:elegant_advisors/presentation/admin/screens/login/login_controller.dart';
 
-class LoginPage extends GetView<LoginController> {
-  const LoginPage({super.key});
+class LoginScreen extends GetView<LoginController> {
+  const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +58,9 @@ class LoginPage extends GetView<LoginController> {
                 const SizedBox(height: 24),
                 Obx(
                   () => ElevatedButton(
-                    onPressed: controller.isLoading.value ? null : controller.login,
+                    onPressed: controller.isLoading.value
+                        ? null
+                        : controller.login,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.primary,
                       foregroundColor: AppColors.white,

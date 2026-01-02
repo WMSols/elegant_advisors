@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../controllers/home/home_controller.dart';
+import 'package:elegant_advisors/presentation/client/controllers/home/home_controller.dart';
 
 class AppFadeInOnScroll extends StatefulWidget {
   final Widget child;
@@ -33,14 +33,8 @@ class _AppFadeInOnScrollState extends State<AppFadeInOnScroll>
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
-      duration: widget.duration,
-      vsync: this,
-    );
-    _animation = CurvedAnimation(
-      parent: _controller,
-      curve: widget.curve,
-    );
+    _controller = AnimationController(duration: widget.duration, vsync: this);
+    _animation = CurvedAnimation(parent: _controller, curve: widget.curve);
 
     // Start with opacity 0
     _controller.value = 0.0;
@@ -90,7 +84,8 @@ class _AppFadeInOnScrollState extends State<AppFadeInOnScroll>
     final screenHeight = MediaQuery.of(context).size.height;
 
     // Check if widget is in viewport (with offset buffer)
-    final isVisible = position.dy < screenHeight + widget.offset &&
+    final isVisible =
+        position.dy < screenHeight + widget.offset &&
         position.dy + size.height > -widget.offset;
 
     // Get current scroll position to determine scroll direction
@@ -103,7 +98,7 @@ class _AppFadeInOnScrollState extends State<AppFadeInOnScroll>
       // If just became visible (transition from not visible to visible)
       if (!_wasVisible) {
         // Reset and animate
-        if (_controller.status == AnimationStatus.completed || 
+        if (_controller.status == AnimationStatus.completed ||
             _controller.status == AnimationStatus.dismissed) {
           _controller.reset();
         }
@@ -112,8 +107,9 @@ class _AppFadeInOnScrollState extends State<AppFadeInOnScroll>
         }
       }
       // Also animate if scrolling down and animation hasn't completed
-      else if (isScrollingDown && _controller.value < 1.0 && 
-               _controller.status != AnimationStatus.forward) {
+      else if (isScrollingDown &&
+          _controller.value < 1.0 &&
+          _controller.status != AnimationStatus.forward) {
         _controller.forward();
       }
     } else {
@@ -133,18 +129,22 @@ class _AppFadeInOnScrollState extends State<AppFadeInOnScroll>
     if (!_hasCheckedInBuild) {
       _hasCheckedInBuild = true;
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        if (mounted && _controller.value == 0.0 && _controller.status != AnimationStatus.forward) {
+        if (mounted &&
+            _controller.value == 0.0 &&
+            _controller.status != AnimationStatus.forward) {
           Future.delayed(const Duration(milliseconds: 300), () {
             if (mounted) {
-              final RenderObject? renderObject = _key.currentContext?.findRenderObject();
+              final RenderObject? renderObject = _key.currentContext
+                  ?.findRenderObject();
               if (renderObject != null && renderObject is RenderBox) {
                 final RenderBox renderBox = renderObject;
                 final position = renderBox.localToGlobal(Offset.zero);
                 final size = renderBox.size;
                 final screenHeight = MediaQuery.of(context).size.height;
-                final isVisible = position.dy < screenHeight + widget.offset &&
+                final isVisible =
+                    position.dy < screenHeight + widget.offset &&
                     position.dy + size.height > -widget.offset;
-                
+
                 if (isVisible) {
                   _controller.forward();
                   _wasVisible = true;
@@ -158,11 +158,7 @@ class _AppFadeInOnScrollState extends State<AppFadeInOnScroll>
 
     return FadeTransition(
       opacity: _animation,
-      child: Container(
-        key: _key,
-        child: widget.child,
-      ),
+      child: Container(key: _key, child: widget.child),
     );
   }
 }
-

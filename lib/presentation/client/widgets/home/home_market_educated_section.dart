@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../../../core/utils/app_spacing/app_spacing.dart';
-import '../common/app_fade_in_on_scroll.dart';
-import 'home_market_educated_content.dart';
+import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
+import 'package:elegant_advisors/presentation/client/widgets/common/app_fade_in_on_scroll.dart';
+import 'package:elegant_advisors/presentation/client/widgets/home/home_market_educated_content.dart';
 
 class HomeMarketEducatedSection extends StatelessWidget {
   const HomeMarketEducatedSection({super.key});
@@ -26,4 +26,3 @@ class HomeMarketEducatedSection extends StatelessWidget {
     );
   }
 }
-

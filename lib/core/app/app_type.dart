@@ -3,10 +3,10 @@
 enum AppType {
   /// Client-facing application
   client,
-  
+
   /// Admin/management application
   admin,
-  
+
   /// Unified application (both client and admin routes)
   unified,
 }

@@ -37,8 +37,8 @@ class PropertyModel {
     DateTime? createdAt,
     DateTime? updatedAt,
     this.isPublished = false,
-  })  : createdAt = createdAt ?? DateTime.now(),
-        updatedAt = updatedAt ?? DateTime.now();
+  }) : createdAt = createdAt ?? DateTime.now(),
+       updatedAt = updatedAt ?? DateTime.now();
 
   factory PropertyModel.fromJson(Map<String, dynamic> json, String id) {
     return PropertyModel(
@@ -169,11 +169,7 @@ class PropertyPrice {
   final String currency;
   final bool isOnRequest;
 
-  PropertyPrice({
-    this.amount,
-    this.currency = 'EUR',
-    this.isOnRequest = false,
-  });
+  PropertyPrice({this.amount, this.currency = 'EUR', this.isOnRequest = false});
 
   factory PropertyPrice.fromJson(Map<String, dynamic> json) {
     return PropertyPrice(

@@ -7,7 +7,10 @@ class AnalyticsService {
 
   Future<void> logPageView({required String pageName, String? pagePath}) async {
     try {
-      await _analytics.logScreenView(screenName: pageName, screenClass: pageName);
+      await _analytics.logScreenView(
+        screenName: pageName,
+        screenClass: pageName,
+      );
       await _firestoreService.incrementDailyVisitor();
     } catch (e) {
       print('Analytics error: $e');
@@ -18,7 +21,10 @@ class AnalyticsService {
     try {
       await _analytics.logEvent(
         name: 'property_view',
-        parameters: {'property_id': propertyId, 'property_title': propertyTitle},
+        parameters: {
+          'property_id': propertyId,
+          'property_title': propertyTitle,
+        },
       );
     } catch (e) {
       print('Analytics error: $e');
@@ -33,7 +39,10 @@ class AnalyticsService {
     }
   }
 
-  Future<void> logEvent(String eventName, Map<String, Object> parameters) async {
+  Future<void> logEvent(
+    String eventName,
+    Map<String, Object> parameters,
+  ) async {
     try {
       await _analytics.logEvent(name: eventName, parameters: parameters);
     } catch (e) {

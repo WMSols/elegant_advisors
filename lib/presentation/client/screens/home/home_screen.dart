@@ -1,23 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../widgets/layout/app_header.dart';
-import '../../widgets/home/home_market_educated_section.dart';
-import '../../widgets/home/home_our_discerning_clientele_section.dart';
-import '../../widgets/home/home_unparalleled_expertise_section.dart';
-import '../../widgets/home/home_privileging_quality_section.dart';
-import '../../widgets/home/home_top_section.dart';
-import '../../widgets/app_header/header_mobile_drawer.dart';
-import '../../controllers/home/home_controller.dart';
+import 'package:elegant_advisors/presentation/client/widgets/layout/app_header.dart';
+import 'package:elegant_advisors/presentation/client/widgets/home/home_market_educated_section.dart';
+import 'package:elegant_advisors/presentation/client/widgets/home/home_our_discerning_clientele_section.dart';
+import 'package:elegant_advisors/presentation/client/widgets/home/home_unparalleled_expertise_section.dart';
+import 'package:elegant_advisors/presentation/client/widgets/home/home_privileging_quality_section.dart';
+import 'package:elegant_advisors/presentation/client/widgets/home/home_top_section.dart';
+import 'package:elegant_advisors/presentation/client/widgets/app_header/header_mobile_drawer.dart';
+import 'package:elegant_advisors/presentation/client/controllers/home/home_controller.dart';
 
-class HomePage extends GetView<HomeController> {
-  const HomePage({super.key});
+class HomeScreen extends GetView<HomeController> {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: HeaderMobileDrawer(
-        onClose: () => Navigator.of(context).pop(),
-      ),
+      drawer: HeaderMobileDrawer(onClose: () => Navigator.of(context).pop()),
       body: Stack(
         children: [
           // Main scrollable content
@@ -44,9 +42,7 @@ class HomePage extends GetView<HomeController> {
             left: 0,
             right: 0,
             child: Obx(
-              () => AppHeader(
-                showBackground: controller.showHeader.value,
-              ),
+              () => AppHeader(showBackground: controller.showHeader.value),
             ),
           ),
         ],

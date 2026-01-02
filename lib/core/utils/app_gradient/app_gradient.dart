@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../app_colors/app_colors.dart';
+import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 
 /// App Gradient Extension
 /// Provides reusable gradient decoration extension
@@ -11,12 +11,8 @@ extension AppGradientExtension on BoxDecoration {
       gradient: LinearGradient(
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
-        colors: [
-          AppColors.primary,
-          AppColors.secondary,
-        ],
+        colors: [AppColors.primary, AppColors.secondary],
       ),
     );
   }
 }
-

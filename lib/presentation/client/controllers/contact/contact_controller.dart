@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import '../../../../data/services/firestore_service.dart';
-import '../../../../data/services/analytics_service.dart';
-import '../../../../domain/models/contact_submission_model.dart';
-import '../../../../core/utils/app_texts/app_texts.dart';
-import '../../../base_controller.dart';
+import 'package:elegant_advisors/data/services/firestore_service.dart';
+import 'package:elegant_advisors/data/services/analytics_service.dart';
+import 'package:elegant_advisors/domain/models/contact_submission_model.dart';
+import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
+import 'package:elegant_advisors/presentation/base_controller.dart';
 
 class ContactController extends BaseController {
   final FirestoreService _firestoreService = FirestoreService();
   final AnalyticsService _analyticsService = AnalyticsService();
-  
+
   final nameController = TextEditingController();
   final emailController = TextEditingController();
   final phoneController = TextEditingController();
   final messageController = TextEditingController();
   final subjectController = TextEditingController();
-  
+
   final formKey = GlobalKey<FormState>();
   String? propertyId; // Optional: if inquiry is about a specific property
 
@@ -37,18 +37,18 @@ class ContactController extends BaseController {
             name: nameController.text.trim(),
             email: emailController.text.trim(),
             phone: phoneController.text.trim(),
-            subject: subjectController.text.trim().isEmpty 
-                ? 'General Inquiry' 
+            subject: subjectController.text.trim().isEmpty
+                ? 'General Inquiry'
                 : subjectController.text.trim(),
             message: messageController.text.trim(),
             propertyId: propertyId,
           );
 
           await _firestoreService.createContactSubmission(submission);
-          
+
           // Log analytics event
           await _analyticsService.logContactSubmit();
-          
+
           // Clear form
           nameController.clear();
           emailController.clear();
@@ -56,7 +56,7 @@ class ContactController extends BaseController {
           messageController.clear();
           subjectController.clear();
           propertyId = null;
-          
+
           showSuccess(AppTexts.contactSuccessMessage);
           return true;
         } catch (e) {

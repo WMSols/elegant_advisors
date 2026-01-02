@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import '../../../../core/utils/app_colors/app_colors.dart';
-import '../../../../core/utils/app_images/app_images.dart';
-import '../../../../core/utils/app_spacing/app_spacing.dart';
-import '../../../../core/utils/app_texts/app_texts.dart';
-import '../app_header/header_language_selector.dart';
-import '../app_header/header_logo.dart';
-import '../app_header/header_mobile_menu.dart';
-import '../app_header/header_nav_item.dart';
-import '../../../../core/constants/client_constants.dart';
+import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
+import 'package:elegant_advisors/core/utils/app_images/app_images.dart';
+import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
+import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
+import 'package:elegant_advisors/presentation/client/widgets/app_header/header_language_selector.dart';
+import 'package:elegant_advisors/presentation/client/widgets/app_header/header_logo.dart';
+import 'package:elegant_advisors/presentation/client/widgets/app_header/header_mobile_menu.dart';
+import 'package:elegant_advisors/presentation/client/widgets/app_header/header_nav_item.dart';
+import 'package:elegant_advisors/core/constants/client_constants.dart';
 
 class AppHeader extends StatefulWidget {
   final bool showBackground;
-  
+
   const AppHeader({super.key, this.showBackground = false});
 
   @override
@@ -32,7 +32,7 @@ class _AppHeaderState extends State<AppHeader> {
           curve: Curves.easeInOut,
           padding: AppSpacing.symmetric(context, h: 0.04, v: 0.02),
           decoration: BoxDecoration(
-            color: widget.showBackground 
+            color: widget.showBackground
                 ? AppColors.primary.withValues(alpha: 0.95)
                 : Colors.transparent,
           ),
@@ -41,7 +41,7 @@ class _AppHeaderState extends State<AppHeader> {
             children: [
               // Logo on the left
               const HeaderLogo(),
-              
+
               // Navigation Menu - centered and flexible
               if (showNav)
                 Expanded(

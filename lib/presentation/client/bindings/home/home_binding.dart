@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import '../../controllers/home/home_controller.dart';
+import 'package:elegant_advisors/presentation/client/controllers/home/home_controller.dart';
 
 class HomeBinding extends Bindings {
   @override
@@ -7,4 +7,3 @@ class HomeBinding extends Bindings {
     Get.lazyPut<HomeController>(() => HomeController());
   }
 }
-

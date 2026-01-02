@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../core/utils/app_spacing/app_spacing.dart';
-import '../../../../core/utils/app_styles/app_text_styles.dart';
-import '../../../../core/utils/app_texts/app_texts.dart';
-import '../../widgets/layout/app_footer.dart';
-import '../../widgets/layout/app_header.dart';
-import '../../controllers/our_team/our_team_controller.dart';
+import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
+import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
+import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
+import 'package:elegant_advisors/presentation/client/widgets/layout/app_footer.dart';
+import 'package:elegant_advisors/presentation/client/widgets/layout/app_header.dart';
+import 'package:elegant_advisors/presentation/client/controllers/about_us/about_us_controller.dart';
 
-class OurTeamPage extends GetView<OurTeamController> {
-  const OurTeamPage({super.key});
+class AboutUsScreen extends GetView<AboutUsController> {
+  const AboutUsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,21 +24,21 @@ class OurTeamPage extends GetView<OurTeamController> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    AppTexts.ourTeamTitle,
+                    AppTexts.aboutUsTitle,
                     style: AppTextStyles.headline(context),
                   ),
                   AppSpacing.vertical(context, 0.04),
                   Text(
-                    AppTexts.ourTeamSubtitle,
+                    AppTexts.aboutUsSubtitle,
                     style: AppTextStyles.heading(context),
                   ),
                   AppSpacing.vertical(context, 0.04),
                   Text(
-                    AppTexts.ourTeamDescription,
+                    AppTexts.aboutUsDescription,
                     style: AppTextStyles.bodyText(context),
                   ),
                   AppSpacing.vertical(context, 0.04),
-                  // Add team members here
+                  // Add about us content here
                 ],
               ),
             ),

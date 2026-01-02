@@ -13,7 +13,7 @@ import 'package:elegant_advisors/core/app/app_type.dart';
 void main() async {
   // Set URL strategy to remove hash from URLs
   setUrlStrategy(PathUrlStrategy());
-  
+
   await AppInitializer.initialize();
   runApp(const EAApp(appType: AppType.client));
 }
