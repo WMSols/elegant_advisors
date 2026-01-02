@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:elegant_advisors/core/theme/app_theme.dart';
 import 'package:elegant_advisors/core/constants/admin_constants.dart';
-import 'package:elegant_advisors/presentation/admin/routes/app_routes.dart';
+import 'package:elegant_advisors/presentation/admin/routes/admin_routes.dart';
 
 /// Admin/management application
 class AdminApp extends StatelessWidget {

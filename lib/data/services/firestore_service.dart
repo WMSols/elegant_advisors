@@ -4,6 +4,8 @@ import 'package:elegant_advisors/domain/models/team_model.dart';
 import 'package:elegant_advisors/domain/models/site_content_model.dart';
 import 'package:elegant_advisors/domain/models/contact_submission_model.dart';
 import 'package:elegant_advisors/domain/models/admin_user_model.dart';
+import 'package:elegant_advisors/domain/models/visitor_model.dart';
+import 'package:elegant_advisors/domain/models/visit_tracking_model.dart';
 
 class FirestoreService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -15,6 +17,8 @@ class FirestoreService {
   static const String contactSubmissionsCollection = 'contact_submissions';
   static const String adminUsersCollection = 'admin_users';
   static const String analyticsCollection = 'analytics_daily';
+  static const String visitorsCollection = 'visitors';
+  static const String visitTrackingCollection = 'visit_tracking';
 
   // Properties
   Stream<List<PropertyModel>> getPublishedProperties() {
@@ -286,5 +290,155 @@ class FirestoreService {
         .doc(dateKey)
         .get();
     return doc.data()?['visitors'] ?? 0;
+  }
+
+  // Visitor Tracking
+  Future<String> createVisitor(VisitorModel visitor) async {
+    final docRef = await _firestore
+        .collection(visitorsCollection)
+        .add(visitor.toJson());
+    return docRef.id;
+  }
+
+  Stream<List<VisitorModel>> getVisitors({
+    String? propertyId,
+    DateTime? startDate,
+    DateTime? endDate,
+    int? limit,
+  }) {
+    Query query = _firestore.collection(visitorsCollection);
+
+    if (propertyId != null) {
+      query = query.where('propertyId', isEqualTo: propertyId);
+    }
+
+    if (startDate != null) {
+      query = query.where(
+        'visitedAt',
+        isGreaterThanOrEqualTo: Timestamp.fromDate(startDate),
+      );
+    }
+
+    if (endDate != null) {
+      query = query.where(
+        'visitedAt',
+        isLessThanOrEqualTo: Timestamp.fromDate(endDate),
+      );
+    }
+
+    query = query.orderBy('visitedAt', descending: true);
+
+    if (limit != null) {
+      query = query.limit(limit);
+    }
+
+    return query.snapshots().map(
+      (snapshot) => snapshot.docs
+          .map(
+            (doc) => VisitorModel.fromJson(
+              doc.data() as Map<String, dynamic>,
+              doc.id,
+            ),
+          )
+          .toList(),
+    );
+  }
+
+  // Property Visit Tracking
+  Future<void> incrementPropertyVisit(
+    String propertyId,
+    String? ipAddress,
+  ) async {
+    final today = DateTime.now();
+    final dateKey =
+        '${today.year}-${today.month.toString().padLeft(2, '0')}-${today.day.toString().padLeft(2, '0')}';
+
+    final trackingDocRef = _firestore
+        .collection(visitTrackingCollection)
+        .doc(propertyId);
+
+    final trackingDoc = await trackingDocRef.get();
+
+    if (trackingDoc.exists) {
+      final currentData = trackingDoc.data() as Map<String, dynamic>;
+      final currentTotal = currentData['totalVisits'] ?? 0;
+      final currentUnique = currentData['uniqueVisits'] ?? 0;
+      final visitsByDate = Map<String, int>.from(
+        currentData['visitsByDate'] ?? {},
+      );
+
+      // Increment total visits
+      final newTotal = currentTotal + 1;
+
+      // Check if this is a unique visit (by IP)
+      int newUnique = currentUnique;
+      if (ipAddress != null) {
+        // Check if this IP visited this property today
+        final todayVisits = await _firestore
+            .collection(visitorsCollection)
+            .where('propertyId', isEqualTo: propertyId)
+            .where('ipAddress', isEqualTo: ipAddress)
+            .where(
+              'visitedAt',
+              isGreaterThanOrEqualTo: Timestamp.fromDate(
+                DateTime(today.year, today.month, today.day),
+              ),
+            )
+            .get();
+
+        if (todayVisits.docs.isEmpty) {
+          newUnique = currentUnique + 1;
+        }
+      }
+
+      // Update date-wise tracking
+      visitsByDate[dateKey] = (visitsByDate[dateKey] ?? 0) + 1;
+
+      await trackingDocRef.update({
+        'totalVisits': newTotal,
+        'uniqueVisits': newUnique,
+        'visitsByDate': visitsByDate,
+        'lastVisitedAt': FieldValue.serverTimestamp(),
+        'updatedAt': FieldValue.serverTimestamp(),
+      });
+    } else {
+      // Create new tracking document
+      final visitsByDate = {dateKey: 1};
+      await trackingDocRef.set({
+        'propertyId': propertyId,
+        'totalVisits': 1,
+        'uniqueVisits': ipAddress != null ? 1 : 0,
+        'visitsByDate': visitsByDate,
+        'lastVisitedAt': FieldValue.serverTimestamp(),
+        'updatedAt': FieldValue.serverTimestamp(),
+      });
+    }
+  }
+
+  Future<VisitTrackingModel?> getPropertyVisitTracking(
+    String propertyId,
+  ) async {
+    final doc = await _firestore
+        .collection(visitTrackingCollection)
+        .doc(propertyId)
+        .get();
+
+    if (doc.exists) {
+      return VisitTrackingModel.fromJson(doc.data()!, doc.id);
+    }
+    return null;
+  }
+
+  Stream<List<VisitTrackingModel>> getTopViewedProperties({int limit = 10}) {
+    return _firestore
+        .collection(visitTrackingCollection)
+        .orderBy('totalVisits', descending: true)
+        .limit(limit)
+        .snapshots()
+        .map(
+          (snapshot) => snapshot.docs
+              .map((doc) => VisitTrackingModel.fromJson(doc.data(), doc.id))
+              .toList(),
+        );
   }
 }

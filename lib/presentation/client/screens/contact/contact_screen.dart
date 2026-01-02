@@ -5,7 +5,7 @@ import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
 import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
 import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
-import 'package:elegant_advisors/core/utils/validators.dart';
+import 'package:elegant_advisors/core/utils/app_validators/app_validators.dart';
 import 'package:elegant_advisors/presentation/client/widgets/common/app_button.dart';
 import 'package:elegant_advisors/presentation/client/widgets/common/app_text_field.dart';
 import 'package:elegant_advisors/presentation/client/widgets/layout/app_footer.dart';
@@ -85,29 +85,31 @@ class ContactScreen extends GetView<ContactController> {
           AppTextField(
             label: AppTexts.contactFormName,
             controller: controller.nameController,
-            validator: Validators.validateName,
+            validator: AppValidators.validateName,
           ),
           AppSpacing.vertical(context, 0.02),
           AppTextField(
             label: AppTexts.contactFormEmail,
             controller: controller.emailController,
             keyboardType: TextInputType.emailAddress,
-            validator: Validators.validateEmail,
+            validator: AppValidators.validateEmail,
           ),
           AppSpacing.vertical(context, 0.02),
           AppTextField(
             label: AppTexts.contactFormPhone,
             controller: controller.phoneController,
             keyboardType: TextInputType.phone,
-            validator: (value) =>
-                Validators.validateRequired(value, AppTexts.contactFormPhone),
+            validator: (value) => AppValidators.validateRequired(
+              value,
+              AppTexts.contactFormPhone,
+            ),
           ),
           AppSpacing.vertical(context, 0.02),
           AppTextField(
             label: AppTexts.contactFormMessage,
             controller: controller.messageController,
             maxLines: 5,
-            validator: Validators.validateMessage,
+            validator: AppValidators.validateMessage,
           ),
           AppSpacing.vertical(context, 0.03),
           Obx(

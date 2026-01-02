@@ -1,6 +1,6 @@
-/// Form Validators
+/// Form AppValidators
 /// Contains validation functions for form inputs
-class Validators {
+class AppValidators {
   /// Email validation with advanced checks
   static String? validateEmail(String? value) {
     if (value == null || value.isEmpty) {

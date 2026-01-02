@@ -4,6 +4,8 @@ import 'package:elegant_advisors/presentation/client/bindings/home/home_binding.
 import 'package:elegant_advisors/presentation/client/screens/home/home_screen.dart';
 import 'package:elegant_advisors/presentation/client/bindings/properties/properties_binding.dart';
 import 'package:elegant_advisors/presentation/client/screens/properties/properties_screen.dart';
+import 'package:elegant_advisors/presentation/client/bindings/properties/property_detail_binding.dart';
+import 'package:elegant_advisors/presentation/client/screens/properties/property_detail_screen.dart';
 import 'package:elegant_advisors/presentation/client/bindings/our_team/our_team_binding.dart';
 import 'package:elegant_advisors/presentation/client/screens/our_team/our_team_screen.dart';
 import 'package:elegant_advisors/presentation/client/bindings/about_us/about_us_binding.dart';
@@ -24,6 +26,11 @@ class ClientRoutes {
       name: ClientConstants.routeProperties,
       page: () => const PropertiesScreen(),
       binding: PropertiesBinding(),
+    ),
+    GetPage(
+      name: ClientConstants.routePropertyDetail,
+      page: () => const PropertyDetailScreen(),
+      binding: PropertyDetailBinding(),
     ),
     GetPage(
       name: ClientConstants.routeOurTeam,

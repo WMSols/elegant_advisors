@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:elegant_advisors/data/services/analytics_service.dart';
-import 'package:elegant_advisors/presentation/base_controller.dart';
+import 'package:elegant_advisors/core/base/base_controller/app_base_controller.dart';
 
 class HomeController extends BaseController {
   final AnalyticsService _analyticsService = AnalyticsService();

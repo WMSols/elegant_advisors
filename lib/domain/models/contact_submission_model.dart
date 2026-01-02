@@ -9,6 +9,7 @@ class ContactSubmissionModel {
   final String message;
   final String? propertyId;
   final String status; // new, in_progress, closed
+  final String? ipAddress;
   final DateTime createdAt;
 
   ContactSubmissionModel({
@@ -20,6 +21,7 @@ class ContactSubmissionModel {
     required this.message,
     this.propertyId,
     this.status = 'new',
+    this.ipAddress,
     DateTime? createdAt,
   }) : createdAt = createdAt ?? DateTime.now();
 
@@ -36,6 +38,7 @@ class ContactSubmissionModel {
       message: json['message'] ?? '',
       propertyId: json['propertyId'],
       status: json['status'] ?? 'new',
+      ipAddress: json['ipAddress'],
       createdAt: (json['createdAt'] as Timestamp?)?.toDate() ?? DateTime.now(),
     );
   }
@@ -49,6 +52,7 @@ class ContactSubmissionModel {
       'message': message,
       if (propertyId != null) 'propertyId': propertyId,
       'status': status,
+      if (ipAddress != null) 'ipAddress': ipAddress,
       'createdAt': Timestamp.fromDate(createdAt),
     };
   }
@@ -62,6 +66,7 @@ class ContactSubmissionModel {
     String? message,
     String? propertyId,
     String? status,
+    String? ipAddress,
     DateTime? createdAt,
   }) {
     return ContactSubmissionModel(
@@ -73,6 +78,7 @@ class ContactSubmissionModel {
       message: message ?? this.message,
       propertyId: propertyId ?? this.propertyId,
       status: status ?? this.status,
+      ipAddress: ipAddress ?? this.ipAddress,
       createdAt: createdAt ?? this.createdAt,
     );
   }

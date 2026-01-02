@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:elegant_advisors/core/theme/app_theme.dart';
 import 'package:elegant_advisors/core/constants/client_constants.dart';
-import 'package:elegant_advisors/presentation/client/routes/app_routes.dart';
+import 'package:elegant_advisors/presentation/client/routes/client_routes.dart';
 
 /// Client-facing application
 class ClientApp extends StatelessWidget {

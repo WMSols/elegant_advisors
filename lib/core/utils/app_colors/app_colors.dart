@@ -4,7 +4,7 @@ class AppColors {
   AppColors._();
 
   //global
-  static const Color primary = Color(0XFF08434d);
+  static const Color primary = Color(0XFF060644);
   static const Color secondary = Colors.white;
   static const Color white = Colors.white;
   static const Color black = Colors.black;

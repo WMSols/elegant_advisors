@@ -6,7 +6,7 @@ class AppImages {
   static const String appIcon = 'assets/images/logo/app_icon.png';
 
   //home page
-  static const String homeBackground = 'assets/images/home/home_background.png';
+  static const String homeBackground = 'assets/images/home/home_background.jpg';
   static const String homeMarketEducated =
       'assets/images/home/home_market_educated.jpg';
 

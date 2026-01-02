@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:elegant_advisors/data/services/firestore_service.dart';
 import 'package:elegant_advisors/data/services/analytics_service.dart';
 import 'package:elegant_advisors/domain/models/property_model.dart';
-import 'package:elegant_advisors/presentation/base_controller.dart';
+import 'package:elegant_advisors/core/base/base_controller/app_base_controller.dart';
 
 class PropertiesController extends BaseController {
   final FirestoreService _firestoreService = FirestoreService();

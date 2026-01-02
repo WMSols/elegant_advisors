@@ -2,7 +2,7 @@ import 'package:intl/intl.dart';
 
 /// Helper Functions
 /// Utility functions used across the app
-class Helpers {
+class AppHelpers {
   /// Format date to readable string
   static String formatDate(DateTime date) {
     return DateFormat('MMM dd, yyyy').format(date);

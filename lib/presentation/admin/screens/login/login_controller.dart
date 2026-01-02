@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:elegant_advisors/data/services/auth_service.dart';
-import 'package:elegant_advisors/presentation/base_controller.dart';
+import 'package:elegant_advisors/core/base/base_controller/app_base_controller.dart';
 
 class LoginController extends BaseController {
   final AuthService _authService = AuthService();
