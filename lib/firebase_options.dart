@@ -53,12 +53,13 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBtd0DZjEj-5_IHdit9TyfK7KfVo2pLcA4',
-    appId: '1:707681785518:web:bb3143ff412709663e3f3f',
-    messagingSenderId: '707681785518',
-    projectId: 'elegant-website-2863e',
-    authDomain: 'elegant-website-2863e.firebaseapp.com',
-    storageBucket: 'elegant-website-2863e.firebasestorage.app',
-    measurementId: 'G-2JXDXN809P',
+    apiKey: 'AIzaSyB3Fq3HNYoj39zbTFpc7ZPYjRLHJLAJ5Qs',
+    appId: '1:63396482982:web:a8f5a6427a36e34412c967',
+    messagingSenderId: '63396482982',
+    projectId: 'elegant-2b05d',
+    authDomain: 'elegant-2b05d.firebaseapp.com',
+    storageBucket: 'elegant-2b05d.firebasestorage.app',
+    measurementId: 'G-F0FFS4DJ9C',
   );
+
 }
