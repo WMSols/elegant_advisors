@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:elegant_advisors/core/widgets/app_snackbar.dart';
 
 /// Base controller that provides common functionality for all controllers
 abstract class BaseController extends GetxController {
@@ -69,11 +70,21 @@ abstract class BaseController extends GetxController {
 
   /// Show success message
   void showSuccess(String message) {
-    Get.snackbar('Success', message, snackPosition: SnackPosition.BOTTOM);
+    AppSnackbar.showSuccess(message);
   }
 
   /// Show error message
   void showError(String message) {
-    Get.snackbar('Error', message, snackPosition: SnackPosition.BOTTOM);
+    AppSnackbar.showError(message);
+  }
+
+  /// Show info message
+  void showInfo(String message) {
+    AppSnackbar.showInfo(message);
+  }
+
+  /// Show warning message
+  void showWarning(String message) {
+    AppSnackbar.showWarning(message);
   }
 }

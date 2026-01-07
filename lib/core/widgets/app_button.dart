@@ -3,6 +3,7 @@ import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 import 'package:elegant_advisors/core/utils/app_gradient/app_gradient.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
+import 'package:elegant_advisors/core/widgets/app_loading_indicator.dart';
 
 /// Primary Button Widget with Gradient Support
 class AppButton extends StatelessWidget {
@@ -67,14 +68,7 @@ class AppButton extends StatelessWidget {
           ),
           child: Center(
             child: isLoading
-                ? SizedBox(
-                    height: AppResponsive.iconSize(context),
-                    width: AppResponsive.iconSize(context),
-                    child: CircularProgressIndicator(
-                      strokeWidth: 2,
-                      valueColor: AlwaysStoppedAnimation<Color>(finalTextColor),
-                    ),
-                  )
+                ? AppLoadingIndicator()
                 : Text(
                     text,
                     style: AppTextStyles.buttonText(

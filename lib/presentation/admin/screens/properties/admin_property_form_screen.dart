@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:elegant_advisors/presentation/admin/controllers/properties/admin_property_form_controller.dart';
+import 'package:elegant_advisors/core/widgets/app_loading_indicator.dart';
 
 class AdminPropertyFormScreen extends GetView<AdminPropertyFormController> {
   const AdminPropertyFormScreen({super.key});
@@ -15,7 +16,7 @@ class AdminPropertyFormScreen extends GetView<AdminPropertyFormController> {
       ),
       body: Obx(() {
         if (controller.isLoading.value && controller.isEditMode.value) {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(child: AppLoadingIndicator());
         }
 
         return SingleChildScrollView(

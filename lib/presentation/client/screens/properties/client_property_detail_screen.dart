@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:elegant_advisors/presentation/client/controllers/properties/client_property_detail_controller.dart';
 import 'package:elegant_advisors/presentation/client/widgets/layout/app_header.dart';
 import 'package:elegant_advisors/presentation/client/widgets/layout/app_footer.dart';
+import 'package:elegant_advisors/core/widgets/app_loading_indicator.dart';
 
 class ClientPropertyDetailScreen extends GetView<ClientPropertyDetailController> {
   const ClientPropertyDetailScreen({super.key});
@@ -12,7 +13,7 @@ class ClientPropertyDetailScreen extends GetView<ClientPropertyDetailController>
     return Scaffold(
       body: Obx(() {
         if (controller.isLoading.value) {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(child: AppLoadingIndicator());
         }
 
         if (controller.property.value == null) {

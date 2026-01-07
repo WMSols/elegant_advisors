@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:elegant_advisors/presentation/admin/controllers/inquiries/admin_inquiries_controller.dart';
+import 'package:elegant_advisors/core/widgets/app_loading_indicator.dart';
 
 class AdminInquiriesScreen extends GetView<AdminInquiriesController> {
   const AdminInquiriesScreen({super.key});
@@ -57,7 +58,7 @@ class AdminInquiriesScreen extends GetView<AdminInquiriesController> {
           Expanded(
             child: Obx(() {
               if (controller.isLoading.value) {
-                return const Center(child: CircularProgressIndicator());
+                return const Center(child: AppLoadingIndicator());
               }
 
               if (controller.inquiries.isEmpty) {

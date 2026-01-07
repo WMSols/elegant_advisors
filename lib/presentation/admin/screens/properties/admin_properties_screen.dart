@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:elegant_advisors/presentation/admin/controllers/properties/admin_properties_controller.dart';
+import 'package:elegant_advisors/core/widgets/app_loading_indicator.dart';
 
 class AdminPropertiesScreen extends GetView<AdminPropertiesController> {
   const AdminPropertiesScreen({super.key});
@@ -21,7 +22,7 @@ class AdminPropertiesScreen extends GetView<AdminPropertiesController> {
       ),
       body: Obx(() {
         if (controller.isLoading.value) {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(child: AppLoadingIndicator());
         }
 
         if (controller.properties.isEmpty) {
