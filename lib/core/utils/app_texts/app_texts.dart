@@ -139,7 +139,7 @@ class AppTexts {
 
   // Admin Login
   static const String adminLoginTitle = "Admin login";
-  static const String adminLoginEmailHint = "Enter Email Id";
+  static const String adminLoginEmailHint = "Enter Email Address";
   static const String adminLoginPasswordHint = "Enter Password";
   static const String adminLoginButton = "Login";
   static const String adminLoginEmailError = "Please enter your email";

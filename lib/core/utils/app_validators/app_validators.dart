@@ -126,6 +126,77 @@ class AppValidators {
     return null;
   }
 
+  /// Admin password validation with stricter requirements
+  static String? validateAdminPassword(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Password is required';
+    }
+
+    // Minimum length for admin (stricter)
+    if (value.length < 8) {
+      return 'Admin password must be at least 8 characters long';
+    }
+
+    // Maximum length
+    if (value.length > 128) {
+      return 'Password is too long (max 128 characters)';
+    }
+
+    // Check for spaces
+    if (value.contains(' ')) {
+      return 'Password cannot contain spaces';
+    }
+
+    // Check for common weak passwords
+    final weakPasswords = [
+      'password',
+      'admin',
+      '123456',
+      '12345678',
+      'qwerty',
+      'abc123',
+      'password123',
+      'admin123',
+      'root',
+      'administrator',
+    ];
+    if (weakPasswords.contains(value.toLowerCase())) {
+      return 'This password is too common. Please choose a stronger one';
+    }
+
+    // Check if password is all the same character
+    if (value.split('').every((char) => char == value[0])) {
+      return 'Password cannot be all the same character';
+    }
+
+    // Check if password is all numbers
+    if (RegExp(r'^\d+$').hasMatch(value)) {
+      return 'Password must contain letters, not just numbers';
+    }
+
+    // Check if password is all letters
+    if (RegExp(r'^[a-zA-Z]+$').hasMatch(value)) {
+      return 'Password must contain numbers or special characters for security';
+    }
+
+    // Check for at least one uppercase letter
+    if (!RegExp(r'[A-Z]').hasMatch(value)) {
+      return 'Password must contain at least one uppercase letter';
+    }
+
+    // Check for at least one lowercase letter
+    if (!RegExp(r'[a-z]').hasMatch(value)) {
+      return 'Password must contain at least one lowercase letter';
+    }
+
+    // Check for at least one number
+    if (!RegExp(r'[0-9]').hasMatch(value)) {
+      return 'Password must contain at least one number';
+    }
+
+    return null;
+  }
+
   /// Name validation with advanced checks
   static String? validateName(String? value) {
     if (value == null || value.isEmpty) {

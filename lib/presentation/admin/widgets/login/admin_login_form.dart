@@ -52,16 +52,10 @@ class AdminLoginForm extends GetView<AdminLoginController> {
                 hint: AppTexts.adminLoginEmailHint,
                 controller: controller.emailController,
                 keyboardType: TextInputType.emailAddress,
+                textInputAction: TextInputAction.next,
                 prefixIcon: const Icon(Iconsax.sms),
                 validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return AppTexts.adminLoginEmailError;
-                  }
-                  final emailError = AppValidators.validateEmail(value);
-                  if (emailError != null) {
-                    return AppTexts.adminLoginEmailInvalidError;
-                  }
-                  return null;
+                  return AppValidators.validateEmail(value);
                 },
               ),
               AppSpacing.vertical(context, 0.02),
@@ -69,12 +63,16 @@ class AdminLoginForm extends GetView<AdminLoginController> {
                 hint: AppTexts.adminLoginPasswordHint,
                 controller: controller.passwordController,
                 obscureText: true,
+                textInputAction: TextInputAction.done,
                 prefixIcon: const Icon(Iconsax.lock),
                 validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return AppTexts.adminLoginPasswordError;
+                  return AppValidators.validateAdminPassword(value);
+                },
+                onFieldSubmitted: (_) {
+                  // Trigger login when Enter is pressed on password field
+                  if (!controller.isLoading.value) {
+                    controller.login();
                   }
-                  return null;
                 },
               ),
               AppSpacing.vertical(context, 0.04),

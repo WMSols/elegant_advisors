@@ -19,28 +19,45 @@ class AdminLoginController extends BaseController {
   }
 
   Future<void> login() async {
-    if (formKey.currentState?.validate() ?? false) {
-      setLoading(true);
-      try {
-        await _authService.signInWithEmailAndPassword(
-          emailController.text.trim(),
-          passwordController.text,
+    // Validate form fields with strict validations
+    if (!(formKey.currentState?.validate() ?? false)) {
+      return;
+    }
+
+    setLoading(true);
+    clearError();
+
+    try {
+      // Sign in with Firebase Authentication
+      await _authService.signInWithEmailAndPassword(
+        emailController.text.trim(),
+        passwordController.text,
+      );
+
+      // Verify user has admin privileges in Firestore
+      final isAdmin = await _authService.isAdmin();
+      if (!isAdmin) {
+        // User authenticated but not an admin - sign them out
+        await _authService.signOut();
+        showError(
+          'Access denied. This account does not have admin privileges. '
+          'Please contact your administrator.',
         );
-
-        // Check if user is admin
-        final isAdmin = await _authService.isAdmin();
-        if (!isAdmin) {
-          await _authService.signOut();
-          showError('Access denied. Admin privileges required.');
-          return;
-        }
-
-        Get.offAllNamed(AdminConstants.routeAdminDashboard);
-      } catch (e) {
-        showError('Login failed: ${e.toString()}');
-      } finally {
-        setLoading(false);
+        return;
       }
+
+      // Successfully authenticated as admin - navigate to dashboard
+      showSuccess('Login successful!');
+      Get.offAllNamed(AdminConstants.routeAdminDashboard);
+    } on Exception catch (e) {
+      // Handle formatted error messages from AuthService
+      final errorMessage = e.toString().replaceFirst('Exception: ', '');
+      showError(errorMessage);
+    } catch (e) {
+      // Handle unexpected errors
+      showError('An unexpected error occurred. Please try again.');
+    } finally {
+      setLoading(false);
     }
   }
 }

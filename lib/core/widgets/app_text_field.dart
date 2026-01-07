@@ -14,6 +14,9 @@ class AppTextField extends StatelessWidget {
   final int? maxLines;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
+  final TextInputAction? textInputAction;
+  final void Function(String)? onFieldSubmitted;
+  final FocusNode? focusNode;
 
   const AppTextField({
     super.key,
@@ -26,6 +29,9 @@ class AppTextField extends StatelessWidget {
     this.maxLines = 1,
     this.prefixIcon,
     this.suffixIcon,
+    this.textInputAction,
+    this.onFieldSubmitted,
+    this.focusNode,
   });
 
   @override
@@ -43,6 +49,13 @@ class AppTextField extends StatelessWidget {
           obscureText: obscureText,
           keyboardType: keyboardType,
           maxLines: maxLines,
+          textInputAction: textInputAction,
+          onFieldSubmitted: onFieldSubmitted,
+          focusNode: focusNode,
+          autovalidateMode: AutovalidateMode.onUserInteraction,
+          style: AppTextStyles.bodyText(
+            context,
+          ).copyWith(color: AppColors.primary),
           decoration: InputDecoration(
             hintText: hint,
             hintStyle: AppTextStyles.hintText(context),
@@ -50,6 +63,7 @@ class AppTextField extends StatelessWidget {
             prefixIconColor: AppColors.primary,
             suffixIcon: suffixIcon,
             suffixIconColor: AppColors.primary,
+            errorStyle: AppTextStyles.errorText(context),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(
                 AppResponsive.radius(context, factor: 5),
@@ -60,7 +74,7 @@ class AppTextField extends StatelessWidget {
               borderRadius: BorderRadius.circular(
                 AppResponsive.radius(context, factor: 5),
               ),
-              borderSide: const BorderSide(color:Colors.transparent),
+              borderSide: const BorderSide(color: Colors.transparent),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(

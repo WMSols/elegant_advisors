@@ -9,18 +9,57 @@ class AuthService {
   User? get currentUser => _auth.currentUser;
   Stream<User?> get authStateChanges => _auth.authStateChanges();
 
-  Future<UserCredential?> signInWithEmailAndPassword(
+  /// Sign in with email and password
+  /// Returns user credential on success
+  /// Throws formatted error message on failure
+  Future<UserCredential> signInWithEmailAndPassword(
     String email,
     String password,
   ) async {
     try {
-      return await _auth.signInWithEmailAndPassword(
-        email: email,
+      final credential = await _auth.signInWithEmailAndPassword(
+        email: email.trim(),
         password: password,
       );
+      return credential;
+    } on FirebaseAuthException catch (e) {
+      // Handle specific Firebase Auth errors with user-friendly messages
+      String errorMessage;
+      switch (e.code) {
+        case 'user-not-found':
+          errorMessage = 'No account found with this email address.';
+          break;
+        case 'wrong-password':
+          errorMessage = 'Incorrect password. Please try again.';
+          break;
+        case 'invalid-email':
+          errorMessage = 'Invalid email address format.';
+          break;
+        case 'user-disabled':
+          errorMessage = 'This account has been disabled. Please contact support.';
+          break;
+        case 'too-many-requests':
+          errorMessage = 'Too many failed login attempts. Please try again later.';
+          break;
+        case 'operation-not-allowed':
+          errorMessage = 'Email/password sign-in is not enabled.';
+          break;
+        case 'network-request-failed':
+          errorMessage = 'Network error. Please check your internet connection.';
+          break;
+        case 'invalid-credential':
+          errorMessage = 'Invalid email or password. Please check your credentials.';
+          break;
+        default:
+          errorMessage = 'Login failed: ${e.message ?? 'Unknown error occurred'}';
+      }
+      throw Exception(errorMessage);
     } catch (e) {
-      print('Sign in error: $e');
-      rethrow;
+      // Handle non-Firebase errors
+      if (e is Exception) {
+        rethrow;
+      }
+      throw Exception('An unexpected error occurred. Please try again.');
     }
   }
 

@@ -1,5 +1,6 @@
 import 'package:elegant_advisors/core/utils/app_fonts/app_fonts.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
+import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class AppTextStyles {
@@ -51,5 +52,15 @@ class AppTextStyles {
     ),
     fontFamily: AppFonts.primaryFont,
     color: Colors.white,
+  );
+
+  static TextStyle errorText(BuildContext context) => TextStyle(
+    fontSize: AppResponsive.fontSizeClamped(
+      context,
+      min: 11, // Minimum readable size on mobile
+      max: 12, // Maximum size on desktop
+    ),
+    fontFamily: AppFonts.secondaryFont,
+    color: AppColors.error,
   );
 }
