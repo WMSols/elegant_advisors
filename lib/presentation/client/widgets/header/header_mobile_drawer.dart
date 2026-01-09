@@ -35,7 +35,10 @@ class HeaderMobileDrawer extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   IconButton(
-                    icon: const Icon(Iconsax.close_circle, color: AppColors.white),
+                    icon: const Icon(
+                      Iconsax.close_circle,
+                      color: AppColors.white,
+                    ),
                     onPressed: onClose,
                   ),
                 ],

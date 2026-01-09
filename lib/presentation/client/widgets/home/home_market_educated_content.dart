@@ -29,7 +29,8 @@ class HomeMarketEducatedContentDesktop extends StatelessWidget {
         Expanded(
           flex: 4,
           child: _MarketEducatedContent(
-            onButtonPressed: () => Get.toNamed(ClientConstants.routeClientProperties),
+            onButtonPressed: () =>
+                Get.toNamed(ClientConstants.routeClientProperties),
           ),
         ),
       ],
@@ -51,7 +52,8 @@ class HomeMarketEducatedContentMobile extends StatelessWidget {
         ),
         AppSpacing.vertical(context, 0.04),
         _MarketEducatedContent(
-          onButtonPressed: () => Get.toNamed(ClientConstants.routeClientProperties),
+          onButtonPressed: () =>
+              Get.toNamed(ClientConstants.routeClientProperties),
           fullWidthButton: true,
         ),
       ],

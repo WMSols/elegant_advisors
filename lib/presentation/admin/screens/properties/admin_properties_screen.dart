@@ -34,7 +34,12 @@ class AdminPropertiesScreen extends GetView<AdminPropertiesController> {
                     style: Theme.of(context).textTheme.bodyLarge,
                   ),
                   SizedBox(
-                    height: AppResponsive.scaleSize(context, 16, min: 12, max: 20),
+                    height: AppResponsive.scaleSize(
+                      context,
+                      16,
+                      min: 12,
+                      max: 20,
+                    ),
                   ),
                   AppButton(
                     text: 'Add First Property',
@@ -52,7 +57,12 @@ class AdminPropertiesScreen extends GetView<AdminPropertiesController> {
                 alignment: Alignment.centerRight,
                 child: Padding(
                   padding: EdgeInsets.only(
-                    bottom: AppResponsive.scaleSize(context, 16, min: 12, max: 20),
+                    bottom: AppResponsive.scaleSize(
+                      context,
+                      16,
+                      min: 12,
+                      max: 20,
+                    ),
                   ),
                   child: AppButton(
                     text: 'Add Property',
@@ -68,7 +78,12 @@ class AdminPropertiesScreen extends GetView<AdminPropertiesController> {
                     final property = controller.properties[index];
                     return Card(
                       margin: EdgeInsets.symmetric(
-                        vertical: AppResponsive.scaleSize(context, 8, min: 4, max: 12),
+                        vertical: AppResponsive.scaleSize(
+                          context,
+                          8,
+                          min: 4,
+                          max: 12,
+                        ),
                       ),
                       child: ListTile(
                         title: Text(property.title),
@@ -89,12 +104,13 @@ class AdminPropertiesScreen extends GetView<AdminPropertiesController> {
                             ),
                             IconButton(
                               icon: const Icon(Iconsax.edit),
-                              onPressed: () =>
-                                  controller.navigateToEditProperty(property.id!),
+                              onPressed: () => controller
+                                  .navigateToEditProperty(property.id!),
                             ),
                             IconButton(
                               icon: const Icon(Iconsax.trash),
-                              onPressed: () => controller.deleteProperty(property.id!),
+                              onPressed: () =>
+                                  controller.deleteProperty(property.id!),
                             ),
                           ],
                         ),

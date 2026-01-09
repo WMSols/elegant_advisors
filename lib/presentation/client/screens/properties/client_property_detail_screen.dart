@@ -5,7 +5,8 @@ import 'package:elegant_advisors/presentation/client/widgets/layout/app_header.d
 import 'package:elegant_advisors/presentation/client/widgets/layout/app_footer.dart';
 import 'package:elegant_advisors/core/widgets/app_loading_indicator.dart';
 
-class ClientPropertyDetailScreen extends GetView<ClientPropertyDetailController> {
+class ClientPropertyDetailScreen
+    extends GetView<ClientPropertyDetailController> {
   const ClientPropertyDetailScreen({super.key});
 
   @override

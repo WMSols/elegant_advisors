@@ -11,7 +11,7 @@ class AppColors {
   static const Color grey = Colors.grey;
   static const Color success = Colors.green;
   static const Color information = Colors.blue;
-  static const Color warning = Colors.yellow;
+  static const Color warning = Colors.orange;
   static const Color error = Colors.red;
 
   //light

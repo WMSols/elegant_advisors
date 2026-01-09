@@ -4,6 +4,8 @@ import 'package:elegant_advisors/presentation/admin/controllers/properties/admin
 class AdminPropertyFormBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<AdminPropertyFormController>(() => AdminPropertyFormController());
+    Get.lazyPut<AdminPropertyFormController>(
+      () => AdminPropertyFormController(),
+    );
   }
 }

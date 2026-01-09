@@ -29,13 +29,19 @@ class AdminInquiriesScreen extends GetView<AdminInquiriesController> {
                     () => DropdownButton<String>(
                       value: controller.selectedStatus.value,
                       items: const [
-                        DropdownMenuItem(value: 'all', child: Text('All Status')),
+                        DropdownMenuItem(
+                          value: 'all',
+                          child: Text('All Status'),
+                        ),
                         DropdownMenuItem(value: 'new', child: Text('New')),
                         DropdownMenuItem(
                           value: 'in_progress',
                           child: Text('In Progress'),
                         ),
-                        DropdownMenuItem(value: 'closed', child: Text('Closed')),
+                        DropdownMenuItem(
+                          value: 'closed',
+                          child: Text('Closed'),
+                        ),
                       ],
                       onChanged: (value) {
                         if (value != null) controller.filterByStatus(value);
@@ -68,7 +74,12 @@ class AdminInquiriesScreen extends GetView<AdminInquiriesController> {
           Expanded(
             child: Padding(
               padding: EdgeInsets.symmetric(
-                horizontal: AppResponsive.scaleSize(context, 16, min: 12, max: 20),
+                horizontal: AppResponsive.scaleSize(
+                  context,
+                  16,
+                  min: 12,
+                  max: 20,
+                ),
               ),
               child: Obx(() {
                 if (controller.isLoading.value) {
@@ -85,7 +96,12 @@ class AdminInquiriesScreen extends GetView<AdminInquiriesController> {
                     final inquiry = controller.inquiries[index];
                     return Card(
                       margin: EdgeInsets.symmetric(
-                        vertical: AppResponsive.scaleSize(context, 8, min: 4, max: 12),
+                        vertical: AppResponsive.scaleSize(
+                          context,
+                          8,
+                          min: 4,
+                          max: 12,
+                        ),
                       ),
                       child: ListTile(
                         title: Text(inquiry.name),
@@ -117,7 +133,10 @@ class AdminInquiriesScreen extends GetView<AdminInquiriesController> {
                           ],
                           onChanged: (value) {
                             if (value != null && inquiry.id != null) {
-                              controller.updateInquiryStatus(inquiry.id!, value);
+                              controller.updateInquiryStatus(
+                                inquiry.id!,
+                                value,
+                              );
                             }
                           },
                         ),

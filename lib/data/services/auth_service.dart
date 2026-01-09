@@ -36,22 +36,27 @@ class AuthService {
           errorMessage = 'Invalid email address format.';
           break;
         case 'user-disabled':
-          errorMessage = 'This account has been disabled. Please contact support.';
+          errorMessage =
+              'This account has been disabled. Please contact support.';
           break;
         case 'too-many-requests':
-          errorMessage = 'Too many failed login attempts. Please try again later.';
+          errorMessage =
+              'Too many failed login attempts. Please try again later.';
           break;
         case 'operation-not-allowed':
           errorMessage = 'Email/password sign-in is not enabled.';
           break;
         case 'network-request-failed':
-          errorMessage = 'Network error. Please check your internet connection.';
+          errorMessage =
+              'Network error. Please check your internet connection.';
           break;
         case 'invalid-credential':
-          errorMessage = 'Invalid email or password. Please check your credentials.';
+          errorMessage =
+              'Invalid email or password. Please check your credentials.';
           break;
         default:
-          errorMessage = 'Login failed: ${e.message ?? 'Unknown error occurred'}';
+          errorMessage =
+              'Login failed: ${e.message ?? 'Unknown error occurred'}';
       }
       throw Exception(errorMessage);
     } catch (e) {

@@ -12,10 +12,7 @@ class AdminLoginScreen extends GetView<AdminLoginController> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
-        children: [
-          const AdminLoginBackground(),
-          const AdminLoginOverlay(),
-        ],
+        children: [const AdminLoginBackground(), const AdminLoginOverlay()],
       ),
     );
   }

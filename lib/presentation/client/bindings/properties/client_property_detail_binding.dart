@@ -4,6 +4,8 @@ import 'package:elegant_advisors/presentation/client/controllers/properties/clie
 class ClientPropertyDetailBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<ClientPropertyDetailController>(() => ClientPropertyDetailController());
+    Get.lazyPut<ClientPropertyDetailController>(
+      () => ClientPropertyDetailController(),
+    );
   }
 }

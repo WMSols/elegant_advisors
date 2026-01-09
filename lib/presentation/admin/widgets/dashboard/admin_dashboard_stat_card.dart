@@ -8,19 +8,16 @@ class AdminDashboardStatCard extends StatelessWidget {
   final String title;
   final String value;
   final IconData icon;
-  final Color? iconColor;
 
   const AdminDashboardStatCard({
     super.key,
     required this.title,
     required this.value,
     required this.icon,
-    this.iconColor,
   });
 
   @override
   Widget build(BuildContext context) {
-    final finalIconColor = iconColor ?? AppColors.primary;
     final isMobile = AppResponsive.isMobile(context);
 
     final padding = isMobile
@@ -56,7 +53,7 @@ class AdminDashboardStatCard extends StatelessWidget {
           // Recalculate isMobile inside LayoutBuilder to ensure it updates
           // when screen size changes
           final currentIsMobile = AppResponsive.isMobile(context);
-          
+
           // Calculate responsive icon sizes based on screen size
           // These will update when screen size changes
           final baseIconContainerSize = currentIsMobile
@@ -69,104 +66,107 @@ class AdminDashboardStatCard extends StatelessWidget {
 
           // Scale icon based on available space if card is very small
           final cardWidth = constraints.maxWidth;
-          final scaleFactor = cardWidth > 0 
-              ? (cardWidth / 200).clamp(0.7, 1.0) 
+          final scaleFactor = cardWidth > 0
+              ? (cardWidth / 200).clamp(0.7, 1.0)
               : 1.0;
-          
+
           final iconContainerSize = baseIconContainerSize * scaleFactor;
           final iconSize = baseIconSize * scaleFactor;
 
           // Calculate available width for spacing to prevent overflow
           final availableWidth = constraints.maxWidth - iconContainerSize;
-          final actualSpacing = availableWidth > spacing 
-              ? spacing 
+          final actualSpacing = availableWidth > spacing
+              ? spacing
               : (availableWidth * 0.3).clamp(4.0, spacing);
-          
+
           return Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-                // Icon
-                AnimatedContainer(
-                  duration: const Duration(milliseconds: 300),
-                  curve: Curves.easeInOut,
-                  width: iconContainerSize,
-                  height: iconContainerSize,
-                  decoration: BoxDecoration(
-                    color: finalIconColor.withValues(alpha: 0.1),
-                    borderRadius: BorderRadius.circular(iconBorderRadius),
-                  ),
-                  child: Icon(icon, color: finalIconColor, size: iconSize),
+              // Icon
+              AnimatedContainer(
+                duration: const Duration(milliseconds: 300),
+                curve: Curves.easeInOut,
+                width: iconContainerSize,
+                height: iconContainerSize,
+                decoration: BoxDecoration(
+                  color: AppColors.primary.withValues(alpha: 0.1),
+                  borderRadius: BorderRadius.circular(iconBorderRadius),
                 ),
+                child: Icon(icon, color: AppColors.primary, size: iconSize),
+              ),
 
-                SizedBox(width: actualSpacing),
+              SizedBox(width: actualSpacing),
 
-                // Title and Value
-                Expanded(
-                  child: LayoutBuilder(
-                    builder: (context, textConstraints) {
-                      final maxHeight = textConstraints.maxHeight.isFinite 
-                          ? textConstraints.maxHeight 
-                          : double.infinity;
-                      
-                      // Calculate adaptive spacing based on available height
-                      // Reduce spacing when height is constrained to prevent overflow
-                      final baseSpacing = AppResponsive.scaleSize(context, 4, min: 2, max: 6);
-                      final adaptiveSpacing = maxHeight.isFinite && maxHeight < 50
-                          ? 0.0
-                          : maxHeight.isFinite && maxHeight < 100
-                              ? (baseSpacing * 0.3).clamp(0.0, baseSpacing)
-                              : baseSpacing;
-                      
-                      // Add small buffer to account for rounding errors
-                      // Only apply buffer if maxHeight is large enough to prevent negative values
-                      final safeMaxHeight = maxHeight.isFinite 
-                          ? (maxHeight > 1.0 ? maxHeight - 0.5 : maxHeight)
-                          : maxHeight;
-                      
-                      return ConstrainedBox(
-                        constraints: BoxConstraints(
-                          maxHeight: safeMaxHeight,
-                          minHeight: 0,
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Flexible(
-                              fit: FlexFit.loose,
-                              child: Text(
-                                value,
-                                style: AppTextStyles.headline(context).copyWith(
-                                  color: AppColors.primary,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                                overflow: TextOverflow.ellipsis,
-                                maxLines: 1,
-                                softWrap: false,
+              // Title and Value
+              Expanded(
+                child: LayoutBuilder(
+                  builder: (context, textConstraints) {
+                    final maxHeight = textConstraints.maxHeight.isFinite
+                        ? textConstraints.maxHeight
+                        : double.infinity;
+
+                    // Calculate adaptive spacing based on available height
+                    // Reduce spacing when height is constrained to prevent overflow
+                    final baseSpacing = AppResponsive.scaleSize(
+                      context,
+                      4,
+                      min: 2,
+                      max: 6,
+                    );
+                    final adaptiveSpacing = maxHeight.isFinite && maxHeight < 50
+                        ? 0.0
+                        : maxHeight.isFinite && maxHeight < 100
+                        ? (baseSpacing * 0.3).clamp(0.0, baseSpacing)
+                        : baseSpacing;
+
+                    // Add small buffer to account for rounding errors
+                    // Only apply buffer if maxHeight is large enough to prevent negative values
+                    final safeMaxHeight = maxHeight.isFinite
+                        ? (maxHeight > 1.0 ? maxHeight - 0.5 : maxHeight)
+                        : maxHeight;
+
+                    return ConstrainedBox(
+                      constraints: BoxConstraints(
+                        maxHeight: safeMaxHeight,
+                        minHeight: 0,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Flexible(
+                            fit: FlexFit.loose,
+                            child: Text(
+                              value,
+                              style: AppTextStyles.headline(context).copyWith(
+                                color: AppColors.primary,
+                                fontWeight: FontWeight.bold,
                               ),
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 1,
+                              softWrap: false,
                             ),
-                            if (adaptiveSpacing > 0)
-                              SizedBox(
-                                height: adaptiveSpacing,
-                              ),
-                            Flexible(
-                              fit: FlexFit.loose,
-                              child: Text(
-                                title,
-                                style: AppTextStyles.bodyText(context),
-                                maxLines: 2,
-                                overflow: TextOverflow.ellipsis,
-                              ),
+                          ),
+                          if (adaptiveSpacing > 0)
+                            SizedBox(height: adaptiveSpacing),
+                          Flexible(
+                            fit: FlexFit.loose,
+                            child: Text(
+                              title,
+                              style: AppTextStyles.bodyText(context),
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
                             ),
-                          ],
-                        ),
-                      );
-                    },
-                  ),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
                 ),
-              ],
-            );
+              ),
+            ],
+          );
         },
       ),
     );

@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:elegant_advisors/core/constants/admin_constants.dart';
+import 'package:elegant_advisors/presentation/admin/widgets/navigation/admin_transitions.dart';
 import 'package:elegant_advisors/presentation/admin/screens/login/admin_login_screen.dart';
 import 'package:elegant_advisors/presentation/admin/bindings/login/admin_login_binding.dart';
 import 'package:elegant_advisors/presentation/admin/screens/dashboard/admin_dashboard_screen.dart';
@@ -20,36 +21,42 @@ class AdminRoutes {
       name: AdminConstants.routeAdminLogin,
       page: () => const AdminLoginScreen(),
       binding: AdminLoginBinding(),
+      // Login screen doesn't need transition as it's the initial route
     ),
     GetPage(
       name: AdminConstants.routeAdminDashboard,
       page: () => const AdminDashboardScreen(),
       binding: AdminDashboardBinding(),
       middlewares: [AdminAuthMiddleware()],
+      customTransition: AdminTransitions.buildTransition,
     ),
     GetPage(
       name: AdminConstants.routeAdminProperties,
       page: () => const AdminPropertiesScreen(),
       binding: AdminPropertiesBinding(),
       middlewares: [AdminAuthMiddleware()],
+      customTransition: AdminTransitions.buildTransition,
     ),
     GetPage(
       name: AdminConstants.routeAdminPropertyAdd,
       page: () => const AdminPropertyFormScreen(),
       binding: AdminPropertyFormBinding(),
       middlewares: [AdminAuthMiddleware()],
+      customTransition: AdminTransitions.buildTransition,
     ),
     GetPage(
       name: AdminConstants.routeAdminPropertyEdit,
       page: () => const AdminPropertyFormScreen(),
       binding: AdminPropertyFormBinding(),
       middlewares: [AdminAuthMiddleware()],
+      customTransition: AdminTransitions.buildTransition,
     ),
     GetPage(
       name: AdminConstants.routeAdminInquiries,
       page: () => const AdminInquiriesScreen(),
       binding: AdminInquiriesBinding(),
       middlewares: [AdminAuthMiddleware()],
+      customTransition: AdminTransitions.buildTransition,
     ),
   ];
 }

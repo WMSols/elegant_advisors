@@ -61,5 +61,4 @@ class DefaultFirebaseOptions {
     storageBucket: 'elegant-2b05d.firebasestorage.app',
     measurementId: 'G-F0FFS4DJ9C',
   );
-
 }

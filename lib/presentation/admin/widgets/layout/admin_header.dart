@@ -12,10 +12,9 @@ class AdminHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       title,
-      style: AppTextStyles.headline(context).copyWith(
-        color: AppColors.white,
-        fontWeight: FontWeight.bold,
-      ),
+      style: AppTextStyles.headline(
+        context,
+      ).copyWith(color: AppColors.white, fontWeight: FontWeight.bold),
     );
   }
 }

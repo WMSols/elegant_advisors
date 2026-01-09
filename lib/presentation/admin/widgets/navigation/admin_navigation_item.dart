@@ -38,11 +38,14 @@ class AdminNavigationItem extends StatelessWidget {
           (route.isNotEmpty
               ? () {
                   // Replace current admin route with new one to keep layout consistent
+                  // Use smooth transition for navigation
                   Get.offNamedUntil(
                     route,
                     (route) =>
                         route.settings.name == AdminConstants.routeAdminLogin ||
                         route.settings.name == null,
+                    arguments: Get.arguments,
+                    // Transition is handled by route configuration
                   );
                 }
               : null),

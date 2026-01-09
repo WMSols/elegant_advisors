@@ -25,7 +25,11 @@ class AppErrorImageFallback extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(color: bgColor),
       child: Center(
-        child: Icon(Iconsax.image, size: defaultIconSize, color: iconColorValue),
+        child: Icon(
+          Iconsax.image,
+          size: defaultIconSize,
+          color: iconColorValue,
+        ),
       ),
     );
   }

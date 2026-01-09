@@ -31,11 +31,17 @@ class AdminPropertiesController extends BaseController {
   }
 
   void navigateToAddProperty() {
-    Get.toNamed(AdminConstants.routeAdminPropertyAdd);
+    Get.toNamed(
+      AdminConstants.routeAdminPropertyAdd,
+      // Transition is handled by route configuration for smooth navigation
+    );
   }
 
   void navigateToEditProperty(String propertyId) {
-    Get.toNamed(AdminConstants.routeAdminPropertyEdit.replaceAll(':id', propertyId));
+    Get.toNamed(
+      AdminConstants.routeAdminPropertyEdit.replaceAll(':id', propertyId),
+      // Transition is handled by route configuration for smooth navigation
+    );
   }
 
   Future<void> deleteProperty(String propertyId) async {

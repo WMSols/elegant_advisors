@@ -159,7 +159,8 @@ class AppTexts {
   static const String adminDashboardTodayVisitors = "Today's Visitors";
   static const String adminDashboardYesterdayVisitors = "Yesterday's Visitors";
   static const String adminDashboardTotalProperties = "Total Properties";
-  static const String adminDashboardPublishedProperties = "Published Properties";
+  static const String adminDashboardPublishedProperties =
+      "Published Properties";
   static const String adminDashboardTeamMembers = "Team Members";
   static const String adminDashboardNewInquiries = "New Inquiries";
 }

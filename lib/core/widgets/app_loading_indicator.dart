@@ -4,7 +4,7 @@ import 'package:elegant_advisors/core/utils/app_lotties/app_lotties.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 
 /// Reusable loading indicator widget using Lottie animations
-/// 
+///
 /// Supports two variants:
 /// - primary: Uses loadingIndicatorPrimary (default)
 /// - white: Uses loadingIndicatorWhite
@@ -33,10 +33,7 @@ class AppLoadingIndicator extends StatelessWidget {
     return SizedBox(
       width: indicatorSize,
       height: indicatorSize,
-      child: Lottie.asset(
-        lottieAsset,
-        fit: BoxFit.contain,
-      ),
+      child: Lottie.asset(lottieAsset, fit: BoxFit.contain),
     );
   }
 }

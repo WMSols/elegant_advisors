@@ -47,10 +47,17 @@ class AdminNavigationPanel extends StatelessWidget {
         color: AppColors.white,
         borderRadius: BorderRadius.circular(borderRadius),
       ),
-      child: AdminNavigationContent(
-        currentRoute: currentRoute,
-        adminName: adminName,
-        onLogout: onLogout,
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          return ConstrainedBox(
+            constraints: BoxConstraints(maxHeight: constraints.maxHeight),
+            child: AdminNavigationContent(
+              currentRoute: currentRoute,
+              adminName: adminName,
+              onLogout: onLogout,
+            ),
+          );
+        },
       ),
     );
   }

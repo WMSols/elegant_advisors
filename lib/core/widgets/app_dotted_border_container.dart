@@ -32,7 +32,7 @@ class AppDottedBorderContainer extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(borderRadius),
-          color: borderColor.withValues(alpha: 0.2)
+          color: borderColor.withValues(alpha: 0.2),
         ),
         child: child,
       ),

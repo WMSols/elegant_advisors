@@ -104,7 +104,8 @@ class HomeTopContentLarge extends StatelessWidget {
                 text: AppTexts.homeButtonConsultation,
                 backgroundColor: AppColors.lightGrey,
                 textColor: AppColors.black,
-                onPressed: () => Get.toNamed(ClientConstants.routeClientContact),
+                onPressed: () =>
+                    Get.toNamed(ClientConstants.routeClientContact),
               ),
             ),
           ],
