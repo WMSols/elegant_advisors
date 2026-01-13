@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_functions/cloud_functions.dart';
 import 'package:elegant_advisors/domain/models/admin_user_model.dart';
 import 'package:elegant_advisors/data/services/firestore_service.dart';
 
@@ -87,5 +88,81 @@ class AuthService {
     final user = currentUser;
     if (user == null) throw Exception('No authenticated user');
     await _firestoreService.createAdminUser(user.uid, adminUser);
+  }
+
+  /// Create a new admin user via Cloud Functions
+  /// This keeps the current admin logged in
+  Future<Map<String, dynamic>> createAdminUserViaFunction({
+    required String email,
+    required String password,
+    required String name,
+  }) async {
+    try {
+      final functions = FirebaseFunctions.instance;
+      final callable = functions.httpsCallable('createAdminUser');
+
+      final result = await callable.call({
+        'email': email.trim(),
+        'password': password,
+        'name': name.trim(),
+      });
+
+      return result.data as Map<String, dynamic>;
+    } on FirebaseFunctionsException catch (e) {
+      String errorMessage;
+      switch (e.code) {
+        case 'invalid-argument':
+          errorMessage = e.message ?? 'Invalid input provided';
+          break;
+        case 'already-exists':
+          errorMessage = 'A user with this email already exists';
+          break;
+        case 'permission-denied':
+          errorMessage = 'You do not have permission to perform this action';
+          break;
+        case 'unauthenticated':
+          errorMessage = 'You must be logged in to perform this action';
+          break;
+        default:
+          errorMessage = e.message ?? 'Failed to create admin user';
+      }
+      throw Exception(errorMessage);
+    } catch (e) {
+      throw Exception('Failed to create admin user: ${e.toString()}');
+    }
+  }
+
+  /// Delete an admin user via Cloud Functions
+  Future<Map<String, dynamic>> deleteAdminUserViaFunction(
+    String uid,
+  ) async {
+    try {
+      final functions = FirebaseFunctions.instance;
+      final callable = functions.httpsCallable('deleteAdminUser');
+
+      final result = await callable.call({'uid': uid});
+      return result.data as Map<String, dynamic>;
+    } on FirebaseFunctionsException catch (e) {
+      String errorMessage;
+      switch (e.code) {
+        case 'invalid-argument':
+          errorMessage = e.message ?? 'Invalid input provided';
+          break;
+        case 'not-found':
+          errorMessage = 'Admin user not found';
+          break;
+        case 'permission-denied':
+          errorMessage = e.message ?? 'You do not have permission to perform this action';
+          break;
+        case 'unauthenticated':
+          errorMessage = 'You must be logged in to perform this action';
+          break;
+        default:
+          errorMessage = e.message ?? 'Failed to delete admin user';
+      }
+      throw Exception(errorMessage);
+    } catch (e) {
+      throw Exception('Failed to delete admin user: ${e.toString()}');
+    }
   }
 }

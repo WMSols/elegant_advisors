@@ -11,6 +11,10 @@ import 'package:elegant_advisors/presentation/admin/screens/properties/admin_pro
 import 'package:elegant_advisors/presentation/admin/bindings/properties/admin_property_form_binding.dart';
 import 'package:elegant_advisors/presentation/admin/screens/inquiries/admin_inquiries_screen.dart';
 import 'package:elegant_advisors/presentation/admin/bindings/inquiries/admin_inquiries_binding.dart';
+import 'package:elegant_advisors/presentation/admin/screens/admins/admin_manage_admins_screen.dart';
+import 'package:elegant_advisors/presentation/admin/bindings/admins/admin_manage_admins_binding.dart';
+import 'package:elegant_advisors/presentation/admin/screens/admins/admin_create_edit_admin_screen.dart';
+import 'package:elegant_advisors/presentation/admin/bindings/admins/admin_create_edit_admin_binding.dart';
 import 'package:elegant_advisors/presentation/admin/middleware/admin_auth_middleware.dart';
 
 class AdminRoutes {
@@ -55,6 +59,27 @@ class AdminRoutes {
       name: AdminConstants.routeAdminInquiries,
       page: () => const AdminInquiriesScreen(),
       binding: AdminInquiriesBinding(),
+      middlewares: [AdminAuthMiddleware()],
+      customTransition: AdminTransitions.buildTransition,
+    ),
+    GetPage(
+      name: AdminConstants.routeAdminManageAdmins,
+      page: () => const AdminManageAdminsScreen(),
+      binding: AdminManageAdminsBinding(),
+      middlewares: [AdminAuthMiddleware()],
+      customTransition: AdminTransitions.buildTransition,
+    ),
+    GetPage(
+      name: AdminConstants.routeAdminCreateAdmin,
+      page: () => const AdminCreateEditAdminScreen(),
+      binding: AdminCreateEditAdminBinding(),
+      middlewares: [AdminAuthMiddleware()],
+      customTransition: AdminTransitions.buildTransition,
+    ),
+    GetPage(
+      name: AdminConstants.routeAdminEditAdmin,
+      page: () => const AdminCreateEditAdminScreen(),
+      binding: AdminCreateEditAdminBinding(),
       middlewares: [AdminAuthMiddleware()],
       customTransition: AdminTransitions.buildTransition,
     ),

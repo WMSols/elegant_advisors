@@ -132,6 +132,10 @@ class AdminNavigationContent extends StatelessWidget {
                       label: AppTexts.adminNavProperties,
                       route: AdminConstants.routeAdminProperties,
                       currentRoute: currentRoute,
+                      relatedRoutes: [
+                        AdminConstants.routeAdminPropertyAdd,
+                        AdminConstants.routeAdminPropertyEdit,
+                      ],
                     ),
                     AdminNavigationItem(
                       icon: Iconsax.sms,
@@ -142,15 +146,12 @@ class AdminNavigationContent extends StatelessWidget {
                     AdminNavigationItem(
                       icon: Iconsax.profile_2user,
                       label: AppTexts.adminNavManageAdmins,
-                      route: '',
+                      route: AdminConstants.routeAdminManageAdmins,
                       currentRoute: currentRoute,
-                      onTap: () {
-                        // TODO: Navigate to manage admins screen when implemented
-                        Get.snackbar(
-                          'Coming Soon',
-                          'Manage Admins feature will be available soon',
-                        );
-                      },
+                      relatedRoutes: [
+                        AdminConstants.routeAdminCreateAdmin,
+                        AdminConstants.routeAdminEditAdmin,
+                      ],
                     ),
                   ],
                 ),

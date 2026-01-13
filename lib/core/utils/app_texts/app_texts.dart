@@ -163,4 +163,38 @@ class AppTexts {
       "Published Properties";
   static const String adminDashboardTeamMembers = "Team Members";
   static const String adminDashboardNewInquiries = "New Inquiries";
+
+  // Admin Manage Admins
+  static const String adminManageAdminsSearchHint = "Search by name or email...";
+  static const String adminManageAdminsSortBy = "Sort By";
+  static const String adminManageAdminsSortByName = "Name";
+  static const String adminManageAdminsSortByEmail = "Email";
+  static const String adminManageAdminsSortByCreatedDate = "Created Date";
+  static const String adminManageAdminsAscending = "Ascending";
+  static const String adminManageAdminsDescending = "Descending";
+  static const String adminManageAdminsCreateNewAdmin = "Create New Admin";
+  static const String adminManageAdminsCreateFirstAdmin = "Create First Admin";
+  static const String adminManageAdminsNoAdminsFound = "No admins found";
+  static const String adminManageAdminsNoMatchFound = "No admins match your search";
+  static const String adminManageAdminsRole = "Admin";
+  static const String adminManageAdminsEdit = "Edit";
+  static const String adminManageAdminsDelete = "Delete";
+  static const String adminManageAdminsDeleteTitle = "Delete Admin";
+  static const String adminManageAdminsDeleteMessage =
+      "Are you sure you want to delete this admin? This action cannot be undone.";
+  static const String adminManageAdminsDeleteCancel = "Cancel";
+  static const String adminManageAdminsDeleteConfirm = "Delete";
+
+  // Admin Create/Edit Admin
+  static const String adminCreateAdminTitle = "Create Admin";
+  static const String adminEditAdminTitle = "Edit Admin";
+  static const String adminCreateAdminNameLabel = "Admin Name";
+  static const String adminCreateAdminNameHint = "Enter admin name";
+  static const String adminCreateAdminEmailLabel = "Email";
+  static const String adminCreateAdminEmailHint = "Enter email address";
+  static const String adminCreateAdminPasswordLabel = "Password";
+  static const String adminCreateAdminPasswordHint = "Enter password";
+  static const String adminEditAdminPasswordLabel = "Password (Optional)";
+  static const String adminCreateAdminButton = "Create Admin";
+  static const String adminUpdateAdminButton = "Update Admin";
 }

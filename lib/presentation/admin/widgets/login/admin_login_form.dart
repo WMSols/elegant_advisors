@@ -63,6 +63,7 @@ class AdminLoginForm extends GetView<AdminLoginController> {
                 hint: AppTexts.adminLoginPasswordHint,
                 controller: controller.passwordController,
                 obscureText: true,
+                showPasswordToggle: true,
                 textInputAction: TextInputAction.done,
                 prefixIcon: const Icon(Iconsax.lock),
                 validator: (value) {

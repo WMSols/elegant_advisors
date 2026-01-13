@@ -15,4 +15,7 @@ class AdminConstants {
   static const String routeAdminTeamEdit = '/admin-team/edit/:id';
   static const String routeAdminCMS = '/admin-cms';
   static const String routeAdminInquiries = '/admin-inquiries';
+  static const String routeAdminManageAdmins = '/admin-manage-admins';
+  static const String routeAdminCreateAdmin = '/admin-admins/add';
+  static const String routeAdminEditAdmin = '/admin-admins/edit/:id';
 }
