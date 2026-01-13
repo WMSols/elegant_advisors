@@ -21,7 +21,11 @@ class AdminPropertiesScreen extends GetView<AdminPropertiesController> {
         ),
         child: Obx(() {
           if (controller.isLoading.value) {
-            return const Center(child: AppLoadingIndicator());
+            return const Center(
+              child: AppLoadingIndicator(
+                variant: LoadingIndicatorVariant.white,
+              ),
+            );
           }
 
           if (controller.properties.isEmpty) {

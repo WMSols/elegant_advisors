@@ -16,7 +16,9 @@ class AdminPropertyFormScreen extends GetView<AdminPropertyFormController> {
       ),
       body: Obx(() {
         if (controller.isLoading.value && controller.isEditMode.value) {
-          return const Center(child: AppLoadingIndicator());
+          return const Center(
+            child: AppLoadingIndicator(variant: LoadingIndicatorVariant.white),
+          );
         }
 
         return SingleChildScrollView(

@@ -249,6 +249,30 @@ class FirestoreService {
         .set(adminUser.toJson());
   }
 
+  // Admin: Get all admin users
+  Stream<List<AdminUserModel>> getAllAdminUsers() {
+    return _firestore
+        .collection(adminUsersCollection)
+        .orderBy('createdAt', descending: true)
+        .snapshots()
+        .map(
+          (snapshot) => snapshot.docs
+              .map((doc) => AdminUserModel.fromJson(doc.data(), doc.id))
+              .toList(),
+        );
+  }
+
+  Future<void> updateAdminUser(String uid, AdminUserModel adminUser) async {
+    await _firestore
+        .collection(adminUsersCollection)
+        .doc(uid)
+        .update(adminUser.toJson());
+  }
+
+  Future<void> deleteAdminUser(String uid) async {
+    await _firestore.collection(adminUsersCollection).doc(uid).delete();
+  }
+
   // Analytics - Daily Visitors
   Future<void> incrementDailyVisitor() async {
     final today = DateTime.now();

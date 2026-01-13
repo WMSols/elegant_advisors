@@ -33,22 +33,16 @@ class AppButton extends StatelessWidget {
     // Build decoration
     final decoration = isDisabled
         ? BoxDecoration(
-            borderRadius: BorderRadius.circular(
-              AppResponsive.radius(context, factor: 5),
-            ),
+            borderRadius: BorderRadius.circular(AppResponsive.radius(context)),
             color: AppColors.grey.withValues(alpha: 0.5),
           )
         : backgroundColor != null
         ? BoxDecoration(
             color: backgroundColor,
-            borderRadius: BorderRadius.circular(
-              AppResponsive.radius(context, factor: 5),
-            ),
+            borderRadius: BorderRadius.circular(AppResponsive.radius(context)),
           )
         : BoxDecoration(
-            borderRadius: BorderRadius.circular(
-              AppResponsive.radius(context, factor: 5),
-            ),
+            borderRadius: BorderRadius.circular(AppResponsive.radius(context)),
           ).withAppGradient();
 
     // Determine text color
@@ -71,9 +65,10 @@ class AppButton extends StatelessWidget {
                 ? AppLoadingIndicator()
                 : Text(
                     text,
-                    style: AppTextStyles.buttonText(
-                      context,
-                    ).copyWith(color: finalTextColor),
+                    style: AppTextStyles.buttonText(context).copyWith(
+                      color: finalTextColor,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
           ),
         ),

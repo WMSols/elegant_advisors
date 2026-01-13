@@ -14,7 +14,9 @@ class ClientPropertyDetailScreen
     return Scaffold(
       body: Obx(() {
         if (controller.isLoading.value) {
-          return const Center(child: AppLoadingIndicator());
+          return const Center(
+            child: AppLoadingIndicator(variant: LoadingIndicatorVariant.white),
+          );
         }
 
         if (controller.property.value == null) {

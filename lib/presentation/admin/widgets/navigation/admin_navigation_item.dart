@@ -13,6 +13,7 @@ class AdminNavigationItem extends StatelessWidget {
   final String label;
   final String route;
   final String currentRoute;
+  final List<String>? relatedRoutes;
   final VoidCallback? onTap;
 
   const AdminNavigationItem({
@@ -21,12 +22,27 @@ class AdminNavigationItem extends StatelessWidget {
     required this.label,
     required this.route,
     required this.currentRoute,
+    this.relatedRoutes,
     this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    final isActive = currentRoute == route && route.isNotEmpty;
+    // Check if current route matches the main route or any related routes
+    bool isActive = currentRoute == route && route.isNotEmpty;
+    
+    if (!isActive && relatedRoutes != null) {
+      // Check if current route matches any related route pattern
+      for (final relatedRoute in relatedRoutes!) {
+        // Remove parameter placeholders (e.g., ':id') for matching
+        final routePattern = relatedRoute.split(':').first;
+        // Check if current route starts with the route pattern
+        if (currentRoute.startsWith(routePattern)) {
+          isActive = true;
+          break;
+        }
+      }
+    }
     final iconSize = AppResponsive.scaleSize(context, 20, min: 18, max: 24);
     final spacing = AppResponsive.scaleSize(context, 12, min: 8, max: 16);
     final padding = AppResponsive.scaleSize(context, 12, min: 8, max: 16);

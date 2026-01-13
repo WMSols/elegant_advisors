@@ -83,7 +83,11 @@ class AdminInquiriesScreen extends GetView<AdminInquiriesController> {
               ),
               child: Obx(() {
                 if (controller.isLoading.value) {
-                  return const Center(child: AppLoadingIndicator());
+                  return const Center(
+                    child: AppLoadingIndicator(
+                      variant: LoadingIndicatorVariant.white,
+                    ),
+                  );
                 }
 
                 if (controller.inquiries.isEmpty) {
