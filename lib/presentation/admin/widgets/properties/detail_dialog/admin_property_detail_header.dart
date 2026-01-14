@@ -39,10 +39,9 @@ class AdminPropertyDetailHeader extends StatelessWidget {
           Expanded(
             child: Text(
               property.title,
-              style: AppTextStyles.heading(context).copyWith(
-                color: AppColors.white,
-                fontWeight: FontWeight.bold,
-              ),
+              style: AppTextStyles.heading(
+                context,
+              ).copyWith(color: AppColors.white, fontWeight: FontWeight.bold),
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
             ),
@@ -56,9 +55,7 @@ class AdminPropertyDetailHeader extends StatelessWidget {
             backgroundColor: property.isPublished
                 ? AppColors.warning
                 : AppColors.success,
-            icon: property.isPublished
-                ? Iconsax.eye_slash
-                : Iconsax.eye,
+            icon: property.isPublished ? Iconsax.eye_slash : Iconsax.eye,
           ),
           AppSpacing.horizontal(context, 0.01),
           AppActionButton(

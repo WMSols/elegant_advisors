@@ -25,12 +25,10 @@ class AdminPropertyDetailDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     final isMobile = AppResponsive.isMobile(context);
     final screenWidth = AppResponsive.screenWidth(context);
-    
+
     // Calculate dialog width based on screen size
-    final dialogWidth = isMobile
-        ? screenWidth * 0.9
-        : screenWidth * 0.8;
-    
+    final dialogWidth = isMobile ? screenWidth * 0.9 : screenWidth * 0.8;
+
     // Calculate horizontal padding for mobile
     final horizontalPadding = isMobile
         ? AppResponsive.scaleSize(context, 16, min: 12, max: 24)
@@ -80,9 +78,7 @@ class AdminPropertyDetailDialog extends StatelessWidget {
                   ),
                   // Content
                   Flexible(
-                    child: AdminPropertyDetailContent(
-                      property: property,
-                    ),
+                    child: AdminPropertyDetailContent(property: property),
                   ),
                 ],
               ),

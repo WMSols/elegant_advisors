@@ -52,9 +52,9 @@ class AdminPropertyStatusSection extends GetView<AdminPropertyFormController> {
             () => CheckboxListTile(
               title: Text(
                 AppTexts.adminPropertyFormIsFeatured,
-                style: AppTextStyles.bodyText(context).copyWith(
-                  color: AppColors.white,
-                ),
+                style: AppTextStyles.bodyText(
+                  context,
+                ).copyWith(color: AppColors.white),
               ),
               value: controller.isFeatured.value,
               onChanged: (value) {
@@ -68,9 +68,9 @@ class AdminPropertyStatusSection extends GetView<AdminPropertyFormController> {
             () => CheckboxListTile(
               title: Text(
                 AppTexts.adminPropertyFormIsPublished,
-                style: AppTextStyles.bodyText(context).copyWith(
-                  color: AppColors.white,
-                ),
+                style: AppTextStyles.bodyText(
+                  context,
+                ).copyWith(color: AppColors.white),
               ),
               value: controller.isPublished.value,
               onChanged: (value) {

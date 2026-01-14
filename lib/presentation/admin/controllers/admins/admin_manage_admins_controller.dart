@@ -22,7 +22,7 @@ class AdminManageAdminsController extends BaseController {
   final sortOrder = 'asc'.obs; // 'asc', 'desc'
   final deletingAdminId = Rxn<String>(); // Track which admin is being deleted
   TextEditingController? _searchController;
-  
+
   /// Safely get the search controller - lazy initializes if needed
   TextEditingController get searchController {
     // Check if controller needs to be recreated
@@ -40,7 +40,7 @@ class AdminManageAdminsController extends BaseController {
     }
     return _searchController!;
   }
-  
+
   StreamSubscription<List<AdminUserModel>>? _adminsStreamSubscription;
   bool _isDisposed = false;
 
@@ -101,9 +101,9 @@ class AdminManageAdminsController extends BaseController {
       // Cancel existing subscription if any
       await _adminsStreamSubscription?.cancel();
       _adminsStreamSubscription = null;
-      
+
       setLoading(true);
-      
+
       // Create new stream subscription
       _adminsStreamSubscription = _firestoreService.getAllAdminUsers().listen(
         (adminList) {
@@ -199,9 +199,7 @@ class AdminManageAdminsController extends BaseController {
   }
 
   void navigateToEditAdmin(String adminId) {
-    Get.toNamed(
-      AdminConstants.routeAdminEditAdmin.replaceAll(':id', adminId),
-    );
+    Get.toNamed(AdminConstants.routeAdminEditAdmin.replaceAll(':id', adminId));
   }
 
   Future<void> deleteAdmin(String adminId) async {

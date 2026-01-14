@@ -28,16 +28,21 @@ class AdminPropertyImagesSection extends GetView<AdminPropertyFormController> {
           Obx(
             () => Text(
               '${controller.images.length + controller.imageFiles.length} / ${AdminPropertyFormController.maxImages} ${AppTexts.adminPropertyFormMaxImages}',
-              style: AppTextStyles.bodyText(context).copyWith(
-                color: AppColors.white,
-              ),
+              style: AppTextStyles.bodyText(
+                context,
+              ).copyWith(color: AppColors.white),
             ),
           ),
           AppSpacing.vertical(context, 0.02),
           Obx(
             () => (controller.images.isEmpty && controller.imageFiles.isEmpty)
                 ? Container(
-                    height: AppResponsive.scaleSize(context, 200, min: 150, max: 250),
+                    height: AppResponsive.scaleSize(
+                      context,
+                      200,
+                      min: 150,
+                      max: 250,
+                    ),
                     decoration: BoxDecoration(
                       color: AppColors.white.withValues(alpha: 0.1),
                       borderRadius: BorderRadius.circular(
@@ -50,7 +55,12 @@ class AdminPropertyImagesSection extends GetView<AdminPropertyFormController> {
                         children: [
                           Icon(
                             Iconsax.image,
-                            size: AppResponsive.scaleSize(context, 48, min: 40, max: 56),
+                            size: AppResponsive.scaleSize(
+                              context,
+                              48,
+                              min: 40,
+                              max: 56,
+                            ),
                             color: AppColors.white.withValues(alpha: 0.5),
                           ),
                           AppSpacing.vertical(context, 0.01),
@@ -69,99 +79,168 @@ class AdminPropertyImagesSection extends GetView<AdminPropertyFormController> {
                     physics: const NeverScrollableScrollPhysics(),
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 3,
-                      crossAxisSpacing: AppResponsive.scaleSize(context, 8, min: 4, max: 12),
-                      mainAxisSpacing: AppResponsive.scaleSize(context, 8, min: 4, max: 12),
+                      crossAxisSpacing: AppResponsive.scaleSize(
+                        context,
+                        8,
+                        min: 4,
+                        max: 12,
+                      ),
+                      mainAxisSpacing: AppResponsive.scaleSize(
+                        context,
+                        8,
+                        min: 4,
+                        max: 12,
+                      ),
                       childAspectRatio: 1,
                     ),
-                    itemCount: controller.images.length + controller.imageFiles.length,
+                    itemCount:
+                        controller.images.length + controller.imageFiles.length,
                     itemBuilder: (context, index) {
                       final isUploadedImage = index < controller.images.length;
-                      return Obx(
-                        () {
-                          // Rebuild when coverImageIndex changes
-                          final currentIsCover = controller.coverImageIndex.value == index;
-                          return Stack(
-                            fit: StackFit.expand,
-                            children: [
-                              isUploadedImage
-                                  ? AppNetworkImage(
-                                      imageUrl: controller.images[index],
-                                      fit: BoxFit.cover,
-                                      loadingVariant: LoadingIndicatorVariant.white,
-                                      maxWidthDiskCache: 800,
-                                      maxHeightDiskCache: 800,
-                                      borderRadius: AppResponsive.radius(context),
-                                      backgroundColor: AppColors.grey.withValues(alpha: 0.2),
-                                      iconColor: AppColors.white,
-                                      enableDebugLogging: true,
-                                    )
-                                  : FutureBuilder<Uint8List>(
-                                      future: controller.imageFiles[index - controller.images.length].readAsBytes(),
-                                      builder: (context, snapshot) {
-                                        if (snapshot.connectionState == ConnectionState.done && snapshot.hasData) {
-                                          return ClipRRect(
-                                            borderRadius: BorderRadius.circular(
-                                              AppResponsive.radius(context),
-                                            ),
-                                            child: Image.memory(
-                                              snapshot.data!,
-                                              fit: BoxFit.cover,
-                                            ),
-                                          );
-                                        }
-                                        return Container(
-                                          color: AppColors.grey.withValues(alpha: 0.2),
-                                          child: Center(
-                                            child: AppLoadingIndicator(
-                                              variant: LoadingIndicatorVariant.white,
-                                              size: AppResponsive.scaleSize(context, 40, min: 30, max: 50),
-                                            ),
+                      return Obx(() {
+                        // Rebuild when coverImageIndex changes
+                        final currentIsCover =
+                            controller.coverImageIndex.value == index;
+                        return Stack(
+                          fit: StackFit.expand,
+                          children: [
+                            isUploadedImage
+                                ? AppNetworkImage(
+                                    imageUrl: controller.images[index],
+                                    fit: BoxFit.cover,
+                                    loadingVariant:
+                                        LoadingIndicatorVariant.white,
+                                    maxWidthDiskCache: 800,
+                                    maxHeightDiskCache: 800,
+                                    borderRadius: AppResponsive.radius(context),
+                                    backgroundColor: AppColors.grey.withValues(
+                                      alpha: 0.2,
+                                    ),
+                                    iconColor: AppColors.white,
+                                    enableDebugLogging: true,
+                                  )
+                                : FutureBuilder<Uint8List>(
+                                    future: controller
+                                        .imageFiles[index -
+                                            controller.images.length]
+                                        .readAsBytes(),
+                                    builder: (context, snapshot) {
+                                      if (snapshot.connectionState ==
+                                              ConnectionState.done &&
+                                          snapshot.hasData) {
+                                        return ClipRRect(
+                                          borderRadius: BorderRadius.circular(
+                                            AppResponsive.radius(context),
+                                          ),
+                                          child: Image.memory(
+                                            snapshot.data!,
+                                            fit: BoxFit.cover,
                                           ),
                                         );
-                                      },
-                                    ),
-                              if (currentIsCover)
-                                Positioned(
-                                  top: AppResponsive.scaleSize(context, 4, min: 2, max: 8),
-                                  left: AppResponsive.scaleSize(context, 4, min: 2, max: 8),
-                                  child: AppPropertyStatusBadge(
-                                    text: AppTexts.adminPropertyFormCoverImage,
-                                    color: AppColors.warning,
-                                    icon: Iconsax.star,
+                                      }
+                                      return Container(
+                                        color: AppColors.grey.withValues(
+                                          alpha: 0.2,
+                                        ),
+                                        child: Center(
+                                          child: AppLoadingIndicator(
+                                            variant:
+                                                LoadingIndicatorVariant.white,
+                                            size: AppResponsive.scaleSize(
+                                              context,
+                                              40,
+                                              min: 30,
+                                              max: 50,
+                                            ),
+                                          ),
+                                        ),
+                                      );
+                                    },
                                   ),
-                                ),
+                            if (currentIsCover)
                               Positioned(
-                                top: AppResponsive.scaleSize(context, 4, min: 2, max: 8),
-                                right: AppResponsive.scaleSize(context, 4, min: 2, max: 8),
-                                child: AppIconButton(
-                                  icon: Iconsax.trash,
-                                  color: AppColors.error,
-                                  onPressed: () => controller.removeImage(index),
-                                  iconSize: AppResponsive.scaleSize(context, 20, min: 18, max: 24),
-                                  tooltip: 'Remove image',
+                                top: AppResponsive.scaleSize(
+                                  context,
+                                  4,
+                                  min: 2,
+                                  max: 8,
                                 ),
-                              ),
-                              // Show star button to make image cover
-                              Positioned(
-                                bottom: AppResponsive.scaleSize(context, 4, min: 2, max: 8),
-                                left: AppResponsive.scaleSize(context, 4, min: 2, max: 8),
-                                child: AppIconButton(
+                                left: AppResponsive.scaleSize(
+                                  context,
+                                  4,
+                                  min: 2,
+                                  max: 8,
+                                ),
+                                child: AppPropertyStatusBadge(
+                                  text: AppTexts.adminPropertyFormCoverImage,
+                                  color: AppColors.warning,
                                   icon: Iconsax.star,
-                                  color: currentIsCover ? AppColors.warning : AppColors.white,
-                                  backgroundColor: currentIsCover
-                                      ? AppColors.warning.withValues(alpha: 0.2)
-                                      : AppColors.black.withValues(alpha: 0.3),
-                                  onPressed: () => controller.setCoverImage(index),
-                                  iconSize: AppResponsive.scaleSize(context, 20, min: 18, max: 24),
-                                  tooltip: currentIsCover
-                                      ? 'Cover image'
-                                      : 'Set as cover image',
                                 ),
                               ),
-                            ],
-                          );
-                        },
-                      );
+                            Positioned(
+                              top: AppResponsive.scaleSize(
+                                context,
+                                4,
+                                min: 2,
+                                max: 8,
+                              ),
+                              right: AppResponsive.scaleSize(
+                                context,
+                                4,
+                                min: 2,
+                                max: 8,
+                              ),
+                              child: AppIconButton(
+                                icon: Iconsax.trash,
+                                color: AppColors.error,
+                                onPressed: () => controller.removeImage(index),
+                                iconSize: AppResponsive.scaleSize(
+                                  context,
+                                  20,
+                                  min: 18,
+                                  max: 24,
+                                ),
+                                tooltip: 'Remove image',
+                              ),
+                            ),
+                            // Show star button to make image cover
+                            Positioned(
+                              bottom: AppResponsive.scaleSize(
+                                context,
+                                4,
+                                min: 2,
+                                max: 8,
+                              ),
+                              left: AppResponsive.scaleSize(
+                                context,
+                                4,
+                                min: 2,
+                                max: 8,
+                              ),
+                              child: AppIconButton(
+                                icon: Iconsax.star,
+                                color: currentIsCover
+                                    ? AppColors.warning
+                                    : AppColors.white,
+                                backgroundColor: currentIsCover
+                                    ? AppColors.warning.withValues(alpha: 0.2)
+                                    : AppColors.black.withValues(alpha: 0.3),
+                                onPressed: () =>
+                                    controller.setCoverImage(index),
+                                iconSize: AppResponsive.scaleSize(
+                                  context,
+                                  20,
+                                  min: 18,
+                                  max: 24,
+                                ),
+                                tooltip: currentIsCover
+                                    ? 'Cover image'
+                                    : 'Set as cover image',
+                              ),
+                            ),
+                          ],
+                        );
+                      });
                     },
                   ),
           ),
@@ -169,7 +248,9 @@ class AdminPropertyImagesSection extends GetView<AdminPropertyFormController> {
           Obx(
             () => AppButton(
               text: AppTexts.adminPropertyFormAddImage,
-              onPressed: (controller.images.length + controller.imageFiles.length >= AdminPropertyFormController.maxImages)
+              onPressed:
+                  (controller.images.length + controller.imageFiles.length >=
+                      AdminPropertyFormController.maxImages)
                   ? null
                   : controller.pickImages,
               backgroundColor: AppColors.white,

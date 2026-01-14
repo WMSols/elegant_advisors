@@ -14,7 +14,7 @@ class StorageService {
     if (mimeType != null && mimeType.startsWith('image/')) {
       return mimeType;
     }
-    
+
     // Fallback to extension-based detection
     final path = file.path.toLowerCase();
     if (path.endsWith('.png')) {
@@ -26,7 +26,7 @@ class StorageService {
     } else if (path.endsWith('.webp')) {
       return 'image/webp';
     }
-    
+
     // Default to JPEG if unknown
     return 'image/jpeg';
   }
@@ -37,14 +37,14 @@ class StorageService {
     if (contentType == 'image/jpeg') return 'jpg';
     if (contentType == 'image/gif') return 'gif';
     if (contentType == 'image/webp') return 'webp';
-    
+
     // Fallback to extension from path
     final path = file.path.toLowerCase();
     if (path.endsWith('.png')) return 'png';
     if (path.endsWith('.jpg') || path.endsWith('.jpeg')) return 'jpg';
     if (path.endsWith('.gif')) return 'gif';
     if (path.endsWith('.webp')) return 'webp';
-    
+
     return 'jpg'; // Default
   }
 
@@ -53,22 +53,23 @@ class StorageService {
     final extension = _getFileExtension(contentType, imageFile);
     final fileName = '${_uuid.v4()}.$extension';
     final ref = _storage.ref().child('properties/$propertyId/$fileName');
-    
+
     // Read image bytes and compress before uploading
     final originalBytes = await imageFile.readAsBytes();
-    final compressedBytes = await ImageCompressionService.compressImageFromBytes(
-      imageBytes: originalBytes,
-      maxWidth: 1920,
-      maxHeight: 1080,
-      quality: 85,
-      maxFileSize: 500 * 1024, // 500KB
-    );
-    
+    final compressedBytes =
+        await ImageCompressionService.compressImageFromBytes(
+          imageBytes: originalBytes,
+          maxWidth: 1920,
+          maxHeight: 1080,
+          quality: 85,
+          maxFileSize: 500 * 1024, // 500KB
+        );
+
     final uploadTask = ref.putData(
       compressedBytes,
       SettableMetadata(contentType: contentType),
     );
-    
+
     final snapshot = await uploadTask;
     return await snapshot.ref.getDownloadURL();
   }
@@ -113,13 +114,13 @@ class StorageService {
     final extension = _getFileExtension(contentType, imageFile);
     final fileName = '${_uuid.v4()}.$extension';
     final ref = _storage.ref().child('team/$teamMemberId/$fileName');
-    
+
     final bytes = await imageFile.readAsBytes();
     final uploadTask = ref.putData(
       bytes,
       SettableMetadata(contentType: contentType),
     );
-    
+
     final snapshot = await uploadTask;
     return await snapshot.ref.getDownloadURL();
   }
@@ -141,13 +142,13 @@ class StorageService {
     final extension = _getFileExtension(contentType, imageFile);
     final fileName = '${_uuid.v4()}.$extension';
     final ref = _storage.ref().child('cms/$pageId/$sectionId/$fileName');
-    
+
     final bytes = await imageFile.readAsBytes();
     final uploadTask = ref.putData(
       bytes,
       SettableMetadata(contentType: contentType),
     );
-    
+
     final snapshot = await uploadTask;
     return await snapshot.ref.getDownloadURL();
   }

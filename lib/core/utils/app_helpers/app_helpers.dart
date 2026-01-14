@@ -111,10 +111,7 @@ class AppHelpers {
   }
 
   /// Format property location (simple - city and country only)
-  static String formatPropertyLocationSimple(
-    String city,
-    String country,
-  ) {
+  static String formatPropertyLocationSimple(String city, String country) {
     final parts = <String>[];
     if (city.isNotEmpty) parts.add(city);
     if (country.isNotEmpty) parts.add(country);

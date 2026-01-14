@@ -83,9 +83,27 @@ class AppDropdownField<T> extends StatelessWidget {
             filled: true,
             fillColor: AppColors.white,
           ),
-          style: AppTextStyles.bodyText(context).copyWith(
-            color: enabled ? AppColors.primary : AppColors.grey,
-          ),
+          style: AppTextStyles.bodyText(
+            context,
+          ).copyWith(color: enabled ? AppColors.primary : AppColors.grey),
+          selectedItemBuilder: (BuildContext context) {
+            return items.map<Widget>((DropdownMenuItem<T> item) {
+              // Extract text from the child widget
+              String text = '';
+              if (item.child is Text) {
+                text = (item.child as Text).data ?? '';
+              }
+
+              return Text(
+                text,
+                style: AppTextStyles.bodyText(
+                  context,
+                ).copyWith(color: enabled ? AppColors.primary : AppColors.grey),
+                overflow: TextOverflow.ellipsis,
+                maxLines: 1,
+              );
+            }).toList();
+          },
           items: items,
           onChanged: enabled ? onChanged : null,
           validator: validator,

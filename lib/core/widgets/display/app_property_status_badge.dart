@@ -6,7 +6,8 @@ import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
 
 /// Reusable status badge widget for properties and cover image status
 class AppPropertyStatusBadge extends StatelessWidget {
-  final String? status; // Property status (available, sold, etc.) or null for custom text
+  final String?
+  status; // Property status (available, sold, etc.) or null for custom text
   final String? text; // Custom text (for cover image status)
   final Color? color; // Custom color (for cover image status)
   final IconData? icon; // Optional icon (for cover image status)
@@ -18,14 +19,14 @@ class AppPropertyStatusBadge extends StatelessWidget {
     this.color,
     this.icon,
   }) : assert(
-          (status != null && text == null) || (status == null && text != null),
-          'Either status or text must be provided, but not both',
-        );
+         (status != null && text == null) || (status == null && text != null),
+         'Either status or text must be provided, but not both',
+       );
 
   Color _getStatusColor() {
     if (color != null) return color!;
     if (status == null) return AppColors.primary;
-    
+
     switch (status!) {
       case 'available':
         return Colors.green;
@@ -43,7 +44,7 @@ class AppPropertyStatusBadge extends StatelessWidget {
   String _getStatusText() {
     if (text != null) return text!;
     if (status == null) return '';
-    
+
     switch (status!) {
       case 'available':
         return AppTexts.adminPropertiesStatusAvailable;
@@ -62,18 +63,8 @@ class AppPropertyStatusBadge extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(
-        horizontal: AppResponsive.scaleSize(
-          context,
-          8,
-          min: 6,
-          max: 12,
-        ),
-        vertical: AppResponsive.scaleSize(
-          context,
-          4,
-          min: 2,
-          max: 6,
-        ),
+        horizontal: AppResponsive.scaleSize(context, 8, min: 6, max: 12),
+        vertical: AppResponsive.scaleSize(context, 4, min: 2, max: 6),
       ),
       decoration: BoxDecoration(
         color: _getStatusColor(),
@@ -90,7 +81,9 @@ class AppPropertyStatusBadge extends StatelessWidget {
               size: AppResponsive.scaleSize(context, 12, min: 10, max: 14),
               color: AppColors.white,
             ),
-            SizedBox(width: AppResponsive.scaleSize(context, 4, min: 2, max: 6)),
+            SizedBox(
+              width: AppResponsive.scaleSize(context, 4, min: 2, max: 6),
+            ),
           ],
           Text(
             _getStatusText(),

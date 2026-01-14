@@ -28,43 +28,46 @@ class LocationSearchService {
     }
 
     try {
-      final uri = Uri.parse('$_baseUrl/search').replace(queryParameters: {
-        'q': query,
-        'format': 'json',
-        'limit': '10',
-        'addressdetails': '1',
-        'extratags': '1',
-      });
+      final uri = Uri.parse('$_baseUrl/search').replace(
+        queryParameters: {
+          'q': query,
+          'format': 'json',
+          'limit': '10',
+          'addressdetails': '1',
+          'extratags': '1',
+        },
+      );
 
       final response = await http.get(
         uri,
-        headers: {
-          'User-Agent': 'ElegantAdvisors/1.0',
-        },
+        headers: {'User-Agent': 'ElegantAdvisors/1.0'},
       );
 
       if (response.statusCode == 200) {
         final dynamic decoded = json.decode(response.body);
         if (decoded is List) {
-          return decoded.map((item) {
-            try {
-              if (item is Map<String, dynamic>) {
-                final lat = item['lat'];
-                final lon = item['lon'];
-                if (lat != null && lon != null) {
-                  return LocationSearchResult(
-                    displayName: _formatDisplayName(item),
-                    latitude: double.tryParse(lat.toString()) ?? 0.0,
-                    longitude: double.tryParse(lon.toString()) ?? 0.0,
-                    type: item['type']?.toString(),
-                  );
+          return decoded
+              .map((item) {
+                try {
+                  if (item is Map<String, dynamic>) {
+                    final lat = item['lat'];
+                    final lon = item['lon'];
+                    if (lat != null && lon != null) {
+                      return LocationSearchResult(
+                        displayName: _formatDisplayName(item),
+                        latitude: double.tryParse(lat.toString()) ?? 0.0,
+                        longitude: double.tryParse(lon.toString()) ?? 0.0,
+                        type: item['type']?.toString(),
+                      );
+                    }
+                  }
+                } catch (e) {
+                  // Skip invalid items
                 }
-              }
-            } catch (e) {
-              // Skip invalid items
-            }
-            return null;
-          }).whereType<LocationSearchResult>().toList();
+                return null;
+              })
+              .whereType<LocationSearchResult>()
+              .toList();
         }
         return [];
       } else {
@@ -115,18 +118,18 @@ class LocationSearchService {
   /// Reverse geocode: Get location name from coordinates
   Future<String?> reverseGeocode(double lat, double lng) async {
     try {
-      final uri = Uri.parse('$_baseUrl/reverse').replace(queryParameters: {
-        'lat': lat.toString(),
-        'lon': lng.toString(),
-        'format': 'json',
-        'addressdetails': '1',
-      });
+      final uri = Uri.parse('$_baseUrl/reverse').replace(
+        queryParameters: {
+          'lat': lat.toString(),
+          'lon': lng.toString(),
+          'format': 'json',
+          'addressdetails': '1',
+        },
+      );
 
       final response = await http.get(
         uri,
-        headers: {
-          'User-Agent': 'ElegantAdvisors/1.0',
-        },
+        headers: {'User-Agent': 'ElegantAdvisors/1.0'},
       );
 
       if (response.statusCode == 200) {

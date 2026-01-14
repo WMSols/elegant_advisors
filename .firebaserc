@@ -1,5 +1,17 @@
 {
   "projects": {
     "default": "elegant-2b05d"
+  },
+  "targets": {
+    "elegant-2b05d": {
+      "hosting": {
+        "admin": [
+          "elegant-2b05d-admin"
+        ],
+        "client": [
+          "elegant-2b05d-client"
+        ]
+      }
+    }
   }
 }

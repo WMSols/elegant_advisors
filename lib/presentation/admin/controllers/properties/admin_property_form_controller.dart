@@ -44,8 +44,10 @@ class AdminPropertyFormController extends BaseController {
   final isPublished = false.obs;
   final features = <String>[].obs;
   final images = <String>[].obs; // URLs
-  final imageFiles = <XFile>[].obs; // Local files to upload (XFile works on web and mobile)
-  final deletedImages = <String>[].obs; // Track images deleted during editing to remove from storage
+  final imageFiles =
+      <XFile>[].obs; // Local files to upload (XFile works on web and mobile)
+  final deletedImages = <String>[]
+      .obs; // Track images deleted during editing to remove from storage
   final coverImageIndex = Rxn<int>();
   final slugChecking = false.obs;
   final slugError = Rxn<String>();
@@ -129,9 +131,11 @@ class AdminPropertyFormController extends BaseController {
     clearError();
 
     try {
-      final loadedProperty = await _firestoreService.getPropertyById(propertyId!);
+      final loadedProperty = await _firestoreService.getPropertyById(
+        propertyId!,
+      );
       if (loadedProperty != null) {
-      property.value = loadedProperty;
+        property.value = loadedProperty;
         _populateForm(loadedProperty);
       } else {
         AppSnackbar.showError('Property not found');
@@ -173,7 +177,7 @@ class AdminPropertyFormController extends BaseController {
     coverImageIndex.value = prop.coverImage != null && prop.images.isNotEmpty
         ? prop.images.indexOf(prop.coverImage!)
         : (prop.images.isNotEmpty ? 0 : null);
-    }
+  }
 
   void setLocationCoordinates(double? lat, double? lng) {
     locationLat.value = lat;
@@ -208,9 +212,11 @@ class AdminPropertyFormController extends BaseController {
         final remainingSlots = maxImages - (images.length + imageFiles.length);
         final filesToAdd = pickedFiles.take(remainingSlots).toList();
         imageFiles.addAll(filesToAdd);
-        
+
         if (pickedFiles.length > remainingSlots) {
-          AppSnackbar.showInfo('Only ${remainingSlots} image(s) added. Maximum $maxImages images allowed.');
+          AppSnackbar.showInfo(
+            'Only ${remainingSlots} image(s) added. Maximum $maxImages images allowed.',
+          );
         }
       }
     } catch (e) {
@@ -228,7 +234,8 @@ class AdminPropertyFormController extends BaseController {
       images.removeAt(index);
       if (coverImageIndex.value == index) {
         coverImageIndex.value = null;
-      } else if (coverImageIndex.value != null && coverImageIndex.value! > index) {
+      } else if (coverImageIndex.value != null &&
+          coverImageIndex.value! > index) {
         coverImageIndex.value = coverImageIndex.value! - 1;
       }
     } else {
@@ -248,23 +255,25 @@ class AdminPropertyFormController extends BaseController {
 
   Future<void> saveProperty() async {
     // Ensure slug is auto-generated from title if not in edit mode
-    if (!isEditMode.value && slugController.text.isEmpty && titleController.text.isNotEmpty) {
+    if (!isEditMode.value &&
+        slugController.text.isEmpty &&
+        titleController.text.isNotEmpty) {
       final slug = AppHelpers.generateSlug(titleController.text);
       slugController.text = slug;
       if (slug.isNotEmpty) {
         await _checkSlugUniqueness(slug);
       }
     }
-    
+
     // Collect all validation errors
     formValidationErrors.clear();
     final errors = collectValidationErrors();
-    
+
     // Check slug uniqueness
     if (slugError.value != null) {
       errors.add('Slug: ${slugError.value}');
     }
-    
+
     // If there are errors, show them and return
     if (errors.isNotEmpty) {
       formValidationErrors.assignAll(errors);
@@ -296,7 +305,9 @@ class AdminPropertyFormController extends BaseController {
       }
 
       // Delete removed images from storage (only in edit mode)
-      if (isEditMode.value && deletedImages.isNotEmpty && finalPropertyId != null) {
+      if (isEditMode.value &&
+          deletedImages.isNotEmpty &&
+          finalPropertyId != null) {
         await _storageService.deletePropertyImages(deletedImages);
         deletedImages.clear();
       }
@@ -307,7 +318,7 @@ class AdminPropertyFormController extends BaseController {
           imageFiles,
           finalPropertyId,
         );
-        
+
         // If cover image was set to a local file, update it to point to the uploaded image
         String? finalCoverImage;
         if (coverImageIndex.value != null) {
@@ -334,13 +345,16 @@ class AdminPropertyFormController extends BaseController {
           // No existing images, use first uploaded image
           finalCoverImage = uploadedUrls.first;
         }
-        
+
         // Update property with new image URLs and cover image
         final updatedProperty = propertyData.copyWith(
           images: [...images, ...uploadedUrls],
           coverImage: finalCoverImage,
         );
-        await _firestoreService.updateProperty(finalPropertyId, updatedProperty);
+        await _firestoreService.updateProperty(
+          finalPropertyId,
+          updatedProperty,
+        );
         imageFiles.clear();
       } else if (isEditMode.value && finalPropertyId != null) {
         // Even if no new images, update property in case images were deleted
@@ -356,7 +370,8 @@ class AdminPropertyFormController extends BaseController {
       // Navigate back
       Get.offNamedUntil(
         AdminConstants.routeAdminProperties,
-        (route) => route.settings.name == AdminConstants.routeAdminProperties ||
+        (route) =>
+            route.settings.name == AdminConstants.routeAdminProperties ||
             route.settings.name == AdminConstants.routeAdminDashboard ||
             route.settings.name == AdminConstants.routeAdminLogin ||
             route.settings.name == null,
@@ -374,8 +389,8 @@ class AdminPropertyFormController extends BaseController {
   PropertyModel _buildPropertyModel() {
     // Cover image can only be set from uploaded images (URLs), not local files
     // If cover image index points to a local file, use first uploaded image or null
-    final coverImage = coverImageIndex.value != null && 
-        coverImageIndex.value! < images.length
+    final coverImage =
+        coverImageIndex.value != null && coverImageIndex.value! < images.length
         ? images[coverImageIndex.value!]
         : (images.isNotEmpty ? images.first : null);
 
@@ -394,7 +409,9 @@ class AdminPropertyFormController extends BaseController {
         lng: locationLng.value,
       ),
       price: PropertyPrice(
-        amount: isOnRequest.value ? null : double.tryParse(priceAmountController.text),
+        amount: isOnRequest.value
+            ? null
+            : double.tryParse(priceAmountController.text),
         currency: currency.value,
         isOnRequest: isOnRequest.value,
       ),
@@ -414,10 +431,11 @@ class AdminPropertyFormController extends BaseController {
       createdAt: property.value?.createdAt,
       updatedAt: DateTime.now(),
     );
-    }
+  }
 
   // Validators
-  String? validateTitle(String? value) => AppValidators.validatePropertyTitle(value);
+  String? validateTitle(String? value) =>
+      AppValidators.validatePropertyTitle(value);
   String? validateSlug(String? value) {
     final result = AppValidators.validatePropertySlug(value);
     if (result != null) return result;
@@ -451,20 +469,22 @@ class AdminPropertyFormController extends BaseController {
   /// Collect all validation errors
   List<String> collectValidationErrors() {
     final errors = <String>[];
-    
+
     // Ensure slug is auto-generated from title if not in edit mode
-    if (!isEditMode.value && slugController.text.isEmpty && titleController.text.isNotEmpty) {
+    if (!isEditMode.value &&
+        slugController.text.isEmpty &&
+        titleController.text.isNotEmpty) {
       final slug = AppHelpers.generateSlug(titleController.text);
       slugController.text = slug;
       if (slug.isNotEmpty) {
         _checkSlugUniqueness(slug);
       }
     }
-    
+
     if (formKey.currentState != null) {
       formKey.currentState!.validate();
     }
-    
+
     // Check each field manually
     if (validateTitle(titleController.text) != null) {
       errors.add('Title: ${validateTitle(titleController.text)}');
@@ -476,10 +496,14 @@ class AdminPropertyFormController extends BaseController {
       errors.add('Slug: ${validateSlug(slugController.text)}');
     }
     if (validateShortDescription(shortDescriptionController.text) != null) {
-      errors.add('Short Description: ${validateShortDescription(shortDescriptionController.text)}');
+      errors.add(
+        'Short Description: ${validateShortDescription(shortDescriptionController.text)}',
+      );
     }
     if (validateFullDescription(fullDescriptionController.text) != null) {
-      errors.add('Full Description: ${validateFullDescription(fullDescriptionController.text)}');
+      errors.add(
+        'Full Description: ${validateFullDescription(fullDescriptionController.text)}',
+      );
     }
     if (validateCountry(countryController.text) != null) {
       errors.add('Country: ${validateCountry(countryController.text)}');
@@ -500,7 +524,9 @@ class AdminPropertyFormController extends BaseController {
       errors.add('Price: ${validatePrice(priceAmountController.text)}');
     }
     if (validatePropertyType(propertyTypeController.text) != null) {
-      errors.add('Property Type: ${validatePropertyType(propertyTypeController.text)}');
+      errors.add(
+        'Property Type: ${validatePropertyType(propertyTypeController.text)}',
+      );
     }
     if (validateBedrooms(bedroomsController.text) != null) {
       errors.add('Bedrooms: ${validateBedrooms(bedroomsController.text)}');
@@ -517,7 +543,7 @@ class AdminPropertyFormController extends BaseController {
     if (images.isEmpty && imageFiles.isEmpty) {
       errors.add('Images: At least one image is required');
     }
-    
+
     return errors;
   }
 }

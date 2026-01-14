@@ -77,15 +77,15 @@ class FirestoreService {
         .collection(propertiesCollection)
         .where('slug', isEqualTo: slug)
         .limit(1);
-    
+
     final snapshot = await query.get();
     if (snapshot.docs.isEmpty) return false;
-    
+
     // If excludeId is provided, check if the found document is different
     if (excludeId != null) {
       return snapshot.docs.first.id != excludeId;
     }
-    
+
     return true;
   }
 

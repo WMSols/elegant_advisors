@@ -76,9 +76,9 @@ class AdminPropertyPriceSection extends GetView<AdminPropertyFormController> {
                 CheckboxListTile(
                   title: Text(
                     AppTexts.adminPropertyFormPriceOnRequest,
-                    style: AppTextStyles.bodyText(context).copyWith(
-                      color: AppColors.white,
-                    ),
+                    style: AppTextStyles.bodyText(
+                      context,
+                    ).copyWith(color: AppColors.white),
                   ),
                   value: controller.isOnRequest.value,
                   onChanged: (value) {
@@ -89,7 +89,12 @@ class AdminPropertyPriceSection extends GetView<AdminPropertyFormController> {
                 ),
                 Padding(
                   padding: EdgeInsets.only(
-                    left: AppResponsive.scaleSize(context, 48, min: 40, max: 56),
+                    left: AppResponsive.scaleSize(
+                      context,
+                      48,
+                      min: 40,
+                      max: 56,
+                    ),
                     top: AppResponsive.scaleSize(context, 4, min: 2, max: 8),
                   ),
                   child: Text(
