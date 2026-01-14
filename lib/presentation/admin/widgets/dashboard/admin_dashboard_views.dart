@@ -5,8 +5,8 @@ import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/presentation/admin/controllers/dashboard/admin_dashboard_controller.dart';
 import 'package:elegant_advisors/presentation/admin/widgets/layout/admin_layout.dart';
-import 'package:elegant_advisors/presentation/admin/widgets/dashboard/admin_dashboard_stat_card.dart';
-import 'package:elegant_advisors/presentation/admin/widgets/dashboard/admin_dashboard_pie_chart.dart';
+import 'package:elegant_advisors/presentation/admin/widgets/dashboard/cards/admin_dashboard_stat_card.dart';
+import 'package:elegant_advisors/presentation/admin/widgets/dashboard/charts/admin_dashboard_pie_chart.dart';
 
 /// Reusable dashboard views widget containing both mobile and desktop views
 class AdminDashboardViews extends GetView<AdminDashboardController> {

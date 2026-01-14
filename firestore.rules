@@ -27,8 +27,17 @@ service cloud.firestore {
       // Public read access for published properties
       allow read: if resource.data.isPublished == true;
       
+      // Admin can read all properties (including unpublished)
+      allow read: if isAdmin();
+      
       // Admin-only write access
       allow create, update, delete: if isAdmin();
+    }
+    
+    // Properties Collection - Query access for admin
+    match /properties {
+      // Admin can query all properties
+      allow list: if isAdmin();
     }
     
     // Team Collection

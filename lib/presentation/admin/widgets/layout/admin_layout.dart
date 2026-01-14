@@ -4,11 +4,12 @@ import 'package:iconsax/iconsax.dart';
 import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
-import 'package:elegant_advisors/presentation/admin/widgets/layout/admin_background.dart';
-import 'package:elegant_advisors/presentation/admin/widgets/navigation/admin_navigation_panel.dart';
-import 'package:elegant_advisors/presentation/admin/widgets/layout/admin_header.dart';
+import 'package:elegant_advisors/presentation/admin/widgets/layout/backgrounds/admin_background.dart';
+import 'package:elegant_advisors/presentation/admin/widgets/navigation/panels/admin_navigation_panel.dart';
+import 'package:elegant_advisors/presentation/admin/widgets/layout/headers/admin_header.dart';
 import 'package:elegant_advisors/data/services/auth_service.dart';
 import 'package:elegant_advisors/core/constants/admin_constants.dart';
+import 'package:elegant_advisors/core/widgets/buttons/app_icon_button.dart';
 
 /// Shared admin layout with fixed navigation panel for all admin screens
 class AdminLayout extends StatefulWidget {
@@ -182,21 +183,20 @@ class _AdminLayoutState extends State<AdminLayout>
                                                   availableHeight < 200
                                                   ? availableHeight * 0.2
                                                   : null,
-                                              leading: IconButton(
-                                                icon: Icon(
-                                                  Iconsax.menu_1,
-                                                  color: AppColors.white,
-                                                  size: AppResponsive.scaleSize(
-                                                    context,
-                                                    24,
-                                                    min: 16,
-                                                    max: 28,
-                                                  ),
+                                              leading: AppIconButton(
+                                                icon: Iconsax.menu_1,
+                                                color: AppColors.white,
+                                                iconSize: AppResponsive.scaleSize(
+                                                  context,
+                                                  24,
+                                                  min: 16,
+                                                  max: 28,
                                                 ),
                                                 onPressed: () {
                                                   scaffoldKey.currentState
                                                       ?.openDrawer();
                                                 },
+                                                tooltip: 'Menu',
                                               ),
                                               title: Text(
                                                 widget.title,

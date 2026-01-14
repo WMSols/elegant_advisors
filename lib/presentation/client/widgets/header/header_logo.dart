@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:elegant_advisors/core/constants/client_constants.dart';
 import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
-import 'package:elegant_advisors/core/widgets/app_logo.dart';
+import 'package:elegant_advisors/core/widgets/display/app_logo.dart';
 
 class HeaderLogo extends StatelessWidget {
   const HeaderLogo({super.key});

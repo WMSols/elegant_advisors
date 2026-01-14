@@ -6,11 +6,11 @@ import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
 import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
 import 'package:elegant_advisors/presentation/admin/controllers/admins/admin_manage_admins_controller.dart';
 import 'package:elegant_advisors/presentation/admin/widgets/layout/admin_layout.dart';
-import 'package:elegant_advisors/core/widgets/app_loading_indicator.dart';
-import 'package:elegant_advisors/core/widgets/app_button.dart';
-import 'package:elegant_advisors/presentation/admin/widgets/admins/admin_search_and_filters.dart';
-import 'package:elegant_advisors/presentation/admin/widgets/admins/admin_admin_card.dart';
-import 'package:elegant_advisors/presentation/admin/widgets/admins/admin_empty_state.dart';
+import 'package:elegant_advisors/core/widgets/feedback/app_loading_indicator.dart';
+import 'package:elegant_advisors/core/widgets/buttons/app_button.dart';
+import 'package:elegant_advisors/presentation/admin/widgets/admins/filters/admin_search_and_filters.dart';
+import 'package:elegant_advisors/presentation/admin/widgets/admins/cards/admin_admin_card.dart';
+import 'package:elegant_advisors/presentation/admin/widgets/admins/states/admin_empty_state.dart';
 
 class AdminManageAdminsScreen extends GetView<AdminManageAdminsController> {
   const AdminManageAdminsScreen({super.key});

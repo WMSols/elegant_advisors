@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:elegant_advisors/presentation/client/controllers/properties/client_property_detail_controller.dart';
 import 'package:elegant_advisors/presentation/client/widgets/layout/app_header.dart';
 import 'package:elegant_advisors/presentation/client/widgets/layout/app_footer.dart';
-import 'package:elegant_advisors/core/widgets/app_loading_indicator.dart';
+import 'package:elegant_advisors/core/widgets/feedback/app_loading_indicator.dart';
 
 class ClientPropertyDetailScreen
     extends GetView<ClientPropertyDetailController> {

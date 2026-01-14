@@ -300,4 +300,198 @@ class AppValidators {
     }
     return null;
   }
+
+  /// Property title validation
+  static String? validatePropertyTitle(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Property title is required';
+    }
+    if (value.trim().length < 3) {
+      return 'Title must be at least 3 characters';
+    }
+    if (value.trim().length > 200) {
+      return 'Title must be less than 200 characters';
+    }
+    return null;
+  }
+
+  /// Property slug validation
+  static String? validatePropertySlug(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Slug is required';
+    }
+    if (!RegExp(r'^[a-z0-9]+(?:-[a-z0-9]+)*$').hasMatch(value)) {
+      return 'Slug must contain only lowercase letters, numbers, and hyphens';
+    }
+    if (value.length < 3) {
+      return 'Slug must be at least 3 characters';
+    }
+    if (value.length > 100) {
+      return 'Slug must be less than 100 characters';
+    }
+    return null;
+  }
+
+  /// Property description validation
+  static String? validatePropertyDescription(String? value, {bool isShort = false}) {
+    if (value == null || value.isEmpty) {
+      return isShort ? 'Short description is required' : 'Description is required';
+    }
+    if (isShort) {
+      if (value.trim().length < 10) {
+        return 'Short description must be at least 10 characters';
+      }
+      if (value.trim().length > 500) {
+        return 'Short description must be less than 500 characters';
+      }
+    } else {
+      if (value.trim().length < 20) {
+        return 'Description must be at least 20 characters';
+      }
+      if (value.trim().length > 5000) {
+        return 'Description must be less than 5000 characters';
+      }
+    }
+    return null;
+  }
+
+  /// Property location validation
+  static String? validatePropertyLocation(String? value, String fieldName) {
+    if (value == null || value.isEmpty) {
+      return '$fieldName is required';
+    }
+    if (value.trim().length < 2) {
+      return '$fieldName must be at least 2 characters';
+    }
+    if (value.trim().length > 100) {
+      return '$fieldName must be less than 100 characters';
+    }
+    return null;
+  }
+
+  /// Property price validation
+  static String? validatePropertyPrice(String? value, bool isOnRequest) {
+    if (isOnRequest) {
+      return null; // Price is optional if on request
+    }
+    if (value == null || value.isEmpty) {
+      return 'Price amount is required';
+    }
+    final price = double.tryParse(value);
+    if (price == null) {
+      return 'Please enter a valid number';
+    }
+    if (price < 0) {
+      return 'Price cannot be negative';
+    }
+    if (price > 999999999) {
+      return 'Price is too large';
+    }
+    return null;
+  }
+
+  /// Property type validation
+  static String? validatePropertyType(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Property type is required';
+    }
+    if (value.trim().length < 2) {
+      return 'Property type must be at least 2 characters';
+    }
+    if (value.trim().length > 50) {
+      return 'Property type must be less than 50 characters';
+    }
+    return null;
+  }
+
+  /// Property numeric field validation (bedrooms, bathrooms, area)
+  static String? validatePropertyNumeric(String? value, String fieldName, {int? max}) {
+    if (value == null || value.isEmpty) {
+      return null; // Optional field
+    }
+    final numeric = int.tryParse(value);
+    if (numeric == null) {
+      return 'Please enter a valid number';
+    }
+    if (numeric < 0) {
+      return '$fieldName cannot be negative';
+    }
+    if (max != null && numeric > max) {
+      return '$fieldName cannot exceed $max';
+    }
+    return null;
+  }
+
+  /// Property area size validation
+  static String? validatePropertyAreaSize(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Area size is required';
+    }
+    final area = double.tryParse(value);
+    if (area == null) {
+      return 'Please enter a valid number';
+    }
+    if (area < 0) {
+      return 'Area size cannot be negative';
+    }
+    if (area > 1000000) {
+      return 'Area size is too large';
+    }
+    return null;
+  }
+
+  /// Property area validation (neighborhood/area field)
+  static String? validatePropertyArea(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Area is required';
+    }
+    if (value.trim().length < 2) {
+      return 'Area must be at least 2 characters';
+    }
+    if (value.trim().length > 100) {
+      return 'Area must be less than 100 characters';
+    }
+    return null;
+  }
+
+  /// Property address validation
+  static String? validatePropertyAddress(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Address is required';
+    }
+    if (value.trim().length < 5) {
+      return 'Address must be at least 5 characters';
+    }
+    if (value.trim().length > 200) {
+      return 'Address must be less than 200 characters';
+    }
+    return null;
+  }
+
+  /// Property bedrooms validation (required)
+  static String? validatePropertyBedroomsRequired(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Bedrooms is required';
+    }
+    return validatePropertyNumeric(value, 'Bedrooms', max: 50);
+  }
+
+  /// Property bathrooms validation (required)
+  static String? validatePropertyBathroomsRequired(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Bathrooms is required';
+    }
+    return validatePropertyNumeric(value, 'Bathrooms', max: 50);
+  }
+
+  /// Property price validation (required when not on request)
+  static String? validatePropertyPriceRequired(String? value, bool isOnRequest) {
+    if (isOnRequest) {
+      return null; // Price is optional if on request
+    }
+    if (value == null || value.isEmpty) {
+      return 'Price amount is required';
+    }
+    return validatePropertyPrice(value, isOnRequest);
+  }
 }

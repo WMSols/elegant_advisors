@@ -84,7 +84,7 @@ class AdminDashboardController extends BaseController {
       final team = await _firestoreService.getAllTeam().first;
       teamCount.value = team.length;
     } catch (e) {
-      showError('Failed to load team count');
+      // showError('Failed to load team count');
     }
   }
 

@@ -6,7 +6,7 @@ import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
 import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
 import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
-import 'package:elegant_advisors/core/widgets/app_button.dart';
+import 'package:elegant_advisors/core/widgets/buttons/app_button.dart';
 
 class HomeTopContentSmall extends StatelessWidget {
   const HomeTopContentSmall({super.key});

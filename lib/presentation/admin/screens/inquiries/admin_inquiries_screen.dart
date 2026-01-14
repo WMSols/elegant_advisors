@@ -5,8 +5,9 @@ import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/presentation/admin/controllers/inquiries/admin_inquiries_controller.dart';
 import 'package:elegant_advisors/presentation/admin/widgets/layout/admin_layout.dart';
-import 'package:elegant_advisors/core/widgets/app_loading_indicator.dart';
-import 'package:elegant_advisors/core/widgets/app_button.dart';
+import 'package:elegant_advisors/core/widgets/feedback/app_loading_indicator.dart';
+import 'package:elegant_advisors/core/widgets/buttons/app_button.dart';
+import 'package:elegant_advisors/core/widgets/buttons/app_icon_button.dart';
 
 class AdminInquiriesScreen extends GetView<AdminInquiriesController> {
   const AdminInquiriesScreen({super.key});
@@ -62,8 +63,8 @@ class AdminInquiriesScreen extends GetView<AdminInquiriesController> {
                 SizedBox(
                   width: AppResponsive.scaleSize(context, 16, min: 12, max: 20),
                 ),
-                IconButton(
-                  icon: const Icon(Iconsax.document_download),
+                AppIconButton(
+                  icon: Iconsax.document_download,
                   onPressed: controller.exportInquiries,
                   tooltip: 'Export Inquiries',
                 ),
