@@ -1,14 +1,16 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:elegant_advisors/data/services/firestore_service.dart';
 import 'package:elegant_advisors/data/services/auth_service.dart';
 import 'package:elegant_advisors/domain/models/admin_user_model.dart';
 import 'package:elegant_advisors/core/base/base_controller/app_base_controller.dart';
 import 'package:elegant_advisors/core/constants/admin_constants.dart';
 import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
-import 'package:elegant_advisors/core/widgets/app_alert_dialog.dart';
-import 'package:elegant_advisors/core/widgets/app_snackbar.dart';
+import 'package:elegant_advisors/core/widgets/feedback/app_alert_dialog.dart';
+import 'package:elegant_advisors/core/widgets/feedback/app_snackbar.dart';
 
 class AdminManageAdminsController extends BaseController {
   final FirestoreService _firestoreService = FirestoreService();
@@ -112,6 +114,10 @@ class AdminManageAdminsController extends BaseController {
         },
         onError: (error) {
           setLoading(false);
+          // Ignore permission-denied errors if user is logged out (during logout)
+          if (_shouldIgnoreError(error)) {
+            return;
+          }
           AppSnackbar.showError('Failed to load admins: ${error.toString()}');
         },
         cancelOnError: false, // Keep listening even if there's an error
@@ -120,6 +126,20 @@ class AdminManageAdminsController extends BaseController {
       setLoading(false);
       AppSnackbar.showError('Failed to load admins');
     }
+  }
+
+  /// Check if error should be ignored (e.g., permission-denied during logout)
+  bool _shouldIgnoreError(dynamic error) {
+    // Check if it's a Firestore permission-denied error
+    if (error is FirebaseException && error.code == 'permission-denied') {
+      // Check if user is logged out (null current user)
+      final currentUser = FirebaseAuth.instance.currentUser;
+      if (currentUser == null) {
+        // User is logged out, ignore this error (expected during logout)
+        return true;
+      }
+    }
+    return false;
   }
 
   // Computed list of filtered and sorted admins - using computed for reactivity

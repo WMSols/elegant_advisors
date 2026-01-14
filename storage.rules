@@ -1,0 +1,39 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Helper function to check if user is authenticated
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    // Helper function to check if user is an admin
+    function isAdmin() {
+      return isAuthenticated() && 
+             firestore.exists(/databases/(default)/documents/admin_users/$(request.auth.uid));
+    }
+    
+    // Properties images - Admin only
+    match /properties/{propertyId}/{imageId} {
+      // Only admins can upload/delete property images
+      allow read: if true; // Public read access for images
+      allow write: if isAdmin();
+    }
+    
+    // Team photos - Admin only
+    match /team/{teamMemberId}/{imageId} {
+      allow read: if true; // Public read access
+      allow write: if isAdmin();
+    }
+    
+    // CMS images - Admin only
+    match /cms/{pageId}/{sectionId}/{imageId} {
+      allow read: if true; // Public read access
+      allow write: if isAdmin();
+    }
+    
+    // Deny all other access
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

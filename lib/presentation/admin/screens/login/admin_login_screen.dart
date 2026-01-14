@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:elegant_advisors/presentation/admin/controllers/login/admin_login_controller.dart';
-import 'package:elegant_advisors/presentation/admin/widgets/login/admin_login_background.dart';
-import 'package:elegant_advisors/presentation/admin/widgets/login/admin_login_overlay.dart';
+import 'package:elegant_advisors/presentation/admin/widgets/login/backgrounds/admin_login_background.dart';
+import 'package:elegant_advisors/presentation/admin/widgets/login/overlays/admin_login_overlay.dart';
 
 /// Admin login screen
 class AdminLoginScreen extends GetView<AdminLoginController> {

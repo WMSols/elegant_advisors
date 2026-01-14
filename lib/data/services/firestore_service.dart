@@ -71,6 +71,24 @@ class FirestoreService {
     return null;
   }
 
+  // Admin: Check if slug exists (for validation)
+  Future<bool> propertySlugExists(String slug, {String? excludeId}) async {
+    var query = _firestore
+        .collection(propertiesCollection)
+        .where('slug', isEqualTo: slug)
+        .limit(1);
+    
+    final snapshot = await query.get();
+    if (snapshot.docs.isEmpty) return false;
+    
+    // If excludeId is provided, check if the found document is different
+    if (excludeId != null) {
+      return snapshot.docs.first.id != excludeId;
+    }
+    
+    return true;
+  }
+
   // Admin: Properties CRUD
   Stream<List<PropertyModel>> getAllProperties() {
     return _firestore

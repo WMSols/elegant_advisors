@@ -6,9 +6,9 @@ import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
 import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
 import 'package:elegant_advisors/presentation/admin/controllers/admins/admin_create_edit_admin_controller.dart';
 import 'package:elegant_advisors/presentation/admin/widgets/layout/admin_layout.dart';
-import 'package:elegant_advisors/core/widgets/app_loading_indicator.dart';
-import 'package:elegant_advisors/core/widgets/app_text_field.dart';
-import 'package:elegant_advisors/core/widgets/app_button.dart';
+import 'package:elegant_advisors/core/widgets/feedback/app_loading_indicator.dart';
+import 'package:elegant_advisors/core/widgets/forms/app_text_field.dart';
+import 'package:elegant_advisors/core/widgets/buttons/app_button.dart';
 
 class AdminCreateEditAdminScreen
     extends GetView<AdminCreateEditAdminController> {

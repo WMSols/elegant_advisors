@@ -3,7 +3,7 @@ import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 import 'package:elegant_advisors/core/utils/app_images/app_images.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/presentation/client/widgets/header/header_language_option.dart';
-import 'package:elegant_advisors/core/widgets/app_error_image_fallback.dart';
+import 'package:elegant_advisors/core/widgets/images/app_error_image_fallback.dart';
 
 class HeaderLanguageSelector extends StatefulWidget {
   final String selectedLanguage;

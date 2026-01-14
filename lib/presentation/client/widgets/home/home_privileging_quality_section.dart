@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
-import 'package:elegant_advisors/core/widgets/app_fade_in_on_scroll.dart';
+import 'package:elegant_advisors/core/widgets/animations/app_fade_in_on_scroll.dart';
 import 'package:elegant_advisors/presentation/client/widgets/home/home_privileging_quality_content.dart';
 
 class HomePrivilegingQualitySection extends StatelessWidget {

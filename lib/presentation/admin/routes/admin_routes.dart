@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:elegant_advisors/core/constants/admin_constants.dart';
-import 'package:elegant_advisors/presentation/admin/widgets/navigation/admin_transitions.dart';
+import 'package:elegant_advisors/presentation/admin/widgets/navigation/transitions/admin_transitions.dart';
 import 'package:elegant_advisors/presentation/admin/screens/login/admin_login_screen.dart';
 import 'package:elegant_advisors/presentation/admin/bindings/login/admin_login_binding.dart';
 import 'package:elegant_advisors/presentation/admin/screens/dashboard/admin_dashboard_screen.dart';

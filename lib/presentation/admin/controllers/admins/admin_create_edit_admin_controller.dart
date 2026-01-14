@@ -6,7 +6,7 @@ import 'package:elegant_advisors/domain/models/admin_user_model.dart';
 import 'package:elegant_advisors/core/base/base_controller/app_base_controller.dart';
 import 'package:elegant_advisors/core/utils/app_validators/app_validators.dart';
 import 'package:elegant_advisors/core/constants/admin_constants.dart';
-import 'package:elegant_advisors/core/widgets/app_snackbar.dart';
+import 'package:elegant_advisors/core/widgets/feedback/app_snackbar.dart';
 
 class AdminCreateEditAdminController extends BaseController {
   final FirestoreService _firestoreService = FirestoreService();

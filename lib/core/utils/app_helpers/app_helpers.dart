@@ -60,4 +60,118 @@ class AppHelpers {
   static String generateId() {
     return DateTime.now().millisecondsSinceEpoch.toString();
   }
+
+  /// Format currency amount
+  static String formatCurrency(double amount, String currency) {
+    final formatter = NumberFormat.currency(
+      symbol: _getCurrencySymbol(currency),
+      decimalDigits: 0,
+    );
+    return formatter.format(amount);
+  }
+
+  /// Get currency symbol
+  static String _getCurrencySymbol(String currency) {
+    switch (currency.toUpperCase()) {
+      case 'EUR':
+        return '€';
+      case 'GBP':
+        return '£';
+      case 'USD':
+        return '\$';
+      default:
+        return currency;
+    }
+  }
+
+  /// Generate slug from title
+  static String generateSlug(String title) {
+    return title
+        .toLowerCase()
+        .trim()
+        .replaceAll(RegExp(r'[^\w\s-]'), '') // Remove special characters
+        .replaceAll(RegExp(r'\s+'), '-') // Replace spaces with hyphens
+        .replaceAll(RegExp(r'-+'), '-') // Replace multiple hyphens with single
+        .replaceAll(RegExp(r'^-|-$'), ''); // Remove leading/trailing hyphens
+  }
+
+  /// Format property price
+  static String formatPropertyPrice(
+    double? amount,
+    String currency,
+    bool isOnRequest,
+  ) {
+    if (isOnRequest) {
+      return 'Price on Request'; // Will be replaced with AppTexts in widgets
+    }
+    if (amount == null) {
+      return 'Price not set'; // Will be replaced with AppTexts in widgets
+    }
+    return formatCurrency(amount, currency);
+  }
+
+  /// Format property location (simple - city and country only)
+  static String formatPropertyLocationSimple(
+    String city,
+    String country,
+  ) {
+    final parts = <String>[];
+    if (city.isNotEmpty) parts.add(city);
+    if (country.isNotEmpty) parts.add(country);
+    return parts.join(', ');
+  }
+
+  /// Format property location (full - includes address and area)
+  static String formatPropertyLocationFull(
+    String country,
+    String city,
+    String? area,
+    String? address,
+  ) {
+    final parts = <String>[];
+    if (address != null && address.isNotEmpty) {
+      parts.add(address);
+    }
+    if (area != null && area.isNotEmpty) {
+      parts.add(area);
+    }
+    if (city.isNotEmpty) parts.add(city);
+    if (country.isNotEmpty) parts.add(country);
+    return parts.join(', ');
+  }
+
+  /// Format property specs
+  static String formatPropertySpecs(
+    String propertyType,
+    int? bedrooms,
+    int? bathrooms,
+    double? areaSize,
+    String? areaUnit,
+  ) {
+    final parts = <String>[];
+    if (bedrooms != null) parts.add('$bedrooms bed');
+    if (bathrooms != null) parts.add('$bathrooms bath');
+    if (areaSize != null && areaUnit != null) {
+      parts.add('$areaSize $areaUnit');
+    }
+    return parts.isEmpty ? propertyType : parts.join(' • ');
+  }
+
+  /// Format property specs for detail view (includes type label)
+  static String formatPropertySpecsDetail(
+    String propertyType,
+    int? bedrooms,
+    int? bathrooms,
+    double? areaSize,
+    String? areaUnit,
+  ) {
+    final parts = <String>[];
+    parts.add('Type: $propertyType');
+    if (bedrooms != null) parts.add('Bedrooms: $bedrooms');
+    if (bathrooms != null) parts.add('Bathrooms: $bathrooms');
+    if (areaSize != null && areaUnit != null) {
+      parts.add('Area: $areaSize $areaUnit');
+    }
+    return parts.join(' • ');
+  }
 }

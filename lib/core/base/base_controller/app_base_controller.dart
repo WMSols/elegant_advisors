@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:elegant_advisors/core/widgets/app_snackbar.dart';
+import 'package:elegant_advisors/core/widgets/feedback/app_snackbar.dart';
 
 /// Base controller that provides common functionality for all controllers
 abstract class BaseController extends GetxController {
