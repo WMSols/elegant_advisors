@@ -16,7 +16,7 @@ class AppTexts {
   // Home Page
   static const String homeTitle = "YOUR VISION, OUR EXPERTISE";
   static const String homeSubtitle =
-      "ORIA is a leading real estate advisory in Portugal in finding and securing properties for private individuals, family offices, and property investors.";
+      "Elegant is a leading real estate advisory in Portugal in finding and securing properties for private individuals, family offices, and property investors.";
   static const String homeButtonConsultation = "Request A Private Consultation";
   static const String homeMarketEducatedTitle =
       "MARKET EDUCATED,\nBUYER FOCUSED";
@@ -93,6 +93,52 @@ class AppTexts {
   static const String propertiesDescription =
       "Browse our curated selection of premium properties available for purchase.";
 
+  // Client Properties
+  static const String clientPropertiesShowMore = "Show More";
+  static const String clientPropertiesShowLess = "Show Less";
+  static const String clientPropertiesPriceOnRequest = "Price on Request";
+  static const String clientPropertiesViewDetails = "View Details";
+  static const String clientPropertiesNoPropertiesFound = "No properties found";
+  static const String clientPropertiesNoPropertiesMessage =
+      "We couldn't find any properties matching your criteria. Try adjusting your filters.";
+  static const String clientPropertiesClearFilters = "Clear Filters";
+  static const String clientPropertiesErrorLoading =
+      "Failed to load properties";
+  static const String clientPropertiesRetry = "Retry";
+  static const String clientPropertiesFilters = "Filters";
+  static const String clientPropertiesSortBy = "Sort By";
+  static const String clientPropertiesSortPriceLowHigh = "Price: Low to High";
+  static const String clientPropertiesSortPriceHighLow = "Price: High to Low";
+  static const String clientPropertiesSortNewest = "Newest First";
+  static const String clientPropertiesSortFeatured = "Featured First";
+  static const String clientPropertiesSortAlphabetical = "Alphabetical";
+  static const String clientPropertiesFilterPropertyType = "Property Type";
+  static const String clientPropertiesFilterLocation = "Location";
+  static const String clientPropertiesFilterCountry = "Country";
+  static const String clientPropertiesFilterCity = "City";
+  static const String clientPropertiesFilterPriceRange = "Price Range";
+  static const String clientPropertiesFilterBedrooms = "Bedrooms";
+  static const String clientPropertiesFilterBathrooms = "Bathrooms";
+  static const String clientPropertiesFilterStatus = "Status";
+  static const String clientPropertiesFilterFeatured = "Featured Only";
+  static const String clientPropertiesFilterAll = "All";
+  static const String clientPropertiesPaginationShowing = "Showing";
+  static const String clientPropertiesPaginationOf = "of";
+  static const String clientPropertiesPaginationResults = "results";
+
+  // Property Detail
+  static const String clientPropertyDetailInquire =
+      "Inquire About This Property";
+  static const String clientPropertyDetailSpecifications = "Specifications";
+  static const String clientPropertyDetailFeatures = "Features";
+  static const String clientPropertyDetailLocation = "Location";
+  static const String clientPropertyDetailDescription = "Description";
+  static const String clientPropertyDetailRelatedProperties =
+      "Related Properties";
+  static const String clientPropertyDetailNotFound = "Property not found";
+  static const String clientPropertyDetailBreadcrumbHome = "Home";
+  static const String clientPropertyDetailBreadcrumbProperties = "Properties";
+
   // Our Team Page
   static const String ourTeamTitle = "Our Team";
   static const String ourTeamSubtitle = "Meet Our Expert Advisors";
@@ -165,7 +211,8 @@ class AppTexts {
   static const String adminDashboardNewInquiries = "New Inquiries";
 
   // Admin Manage Admins
-  static const String adminManageAdminsSearchHint = "Search by name or email...";
+  static const String adminManageAdminsSearchHint =
+      "Search by name or email...";
   static const String adminManageAdminsSortBy = "Sort By";
   static const String adminManageAdminsSortByName = "Name";
   static const String adminManageAdminsSortByEmail = "Email";
@@ -175,7 +222,8 @@ class AppTexts {
   static const String adminManageAdminsCreateNewAdmin = "Create New Admin";
   static const String adminManageAdminsCreateFirstAdmin = "Create First Admin";
   static const String adminManageAdminsNoAdminsFound = "No admins found";
-  static const String adminManageAdminsNoMatchFound = "No admins match your search";
+  static const String adminManageAdminsNoMatchFound =
+      "No admins match your search";
   static const String adminManageAdminsRole = "Admin";
   static const String adminManageAdminsEdit = "Edit";
   static const String adminManageAdminsDelete = "Delete";
@@ -199,7 +247,8 @@ class AppTexts {
   static const String adminUpdateAdminButton = "Update Admin";
 
   // Admin Properties
-  static const String adminPropertiesSearchHint = "Search by title, description, or location...";
+  static const String adminPropertiesSearchHint =
+      "Search by title, description, or location...";
   static const String adminPropertiesSortBy = "Sort By";
   static const String adminPropertiesSortByTitle = "Title";
   static const String adminPropertiesSortByCreatedDate = "Created Date";
@@ -211,7 +260,8 @@ class AppTexts {
   static const String adminPropertiesCreateNewProperty = "Add Property";
   static const String adminPropertiesCreateFirstProperty = "Add First Property";
   static const String adminPropertiesNoPropertiesFound = "No properties found";
-  static const String adminPropertiesNoMatchFound = "No properties match your search";
+  static const String adminPropertiesNoMatchFound =
+      "No properties match your search";
   static const String adminPropertiesEdit = "Edit";
   static const String adminPropertiesDelete = "Delete";
   static const String adminPropertiesDeleteTitle = "Delete Property";
@@ -246,10 +296,14 @@ class AppTexts {
   static const String adminPropertyFormTitleHint = "Enter property title";
   static const String adminPropertyFormSlugLabel = "Slug (URL)";
   static const String adminPropertyFormSlugHint = "Auto-generated from title";
-  static const String adminPropertyFormShortDescriptionLabel = "Short Description";
-  static const String adminPropertyFormShortDescriptionHint = "Brief description (shown in listings)";
-  static const String adminPropertyFormFullDescriptionLabel = "Full Description";
-  static const String adminPropertyFormFullDescriptionHint = "Detailed description";
+  static const String adminPropertyFormShortDescriptionLabel =
+      "Short Description";
+  static const String adminPropertyFormShortDescriptionHint =
+      "Brief description (shown in listings)";
+  static const String adminPropertyFormFullDescriptionLabel =
+      "Full Description";
+  static const String adminPropertyFormFullDescriptionHint =
+      "Detailed description";
   static const String adminPropertyFormCountryLabel = "Country";
   static const String adminPropertyFormCountryHint = "Enter country";
   static const String adminPropertyFormCityLabel = "City";
@@ -263,7 +317,8 @@ class AppTexts {
   static const String adminPropertyFormCurrencyLabel = "Currency";
   static const String adminPropertyFormPriceOnRequest = "Price on Request";
   static const String adminPropertyFormPropertyTypeLabel = "Property Type";
-  static const String adminPropertyFormPropertyTypeHint = "e.g., Apartment, Villa, House";
+  static const String adminPropertyFormPropertyTypeHint =
+      "e.g., Apartment, Villa, House";
   static const String adminPropertyFormBedroomsLabel = "Bedrooms (Optional)";
   static const String adminPropertyFormBedroomsHint = "Number of bedrooms";
   static const String adminPropertyFormBathroomsLabel = "Bathrooms (Optional)";
@@ -290,7 +345,7 @@ class AppTexts {
   static const String adminPropertyFormCurrencyEUR = "EUR (€)";
   static const String adminPropertyFormCurrencyGBP = "GBP (£)";
   static const String adminPropertyFormCurrencyUSD = "USD (\$)";
-  
+
   // Admin Property Detail Dialog
   static const String adminPropertyDetailImages = "Images";
   static const String adminPropertyDetailLocation = "Location";
@@ -304,21 +359,23 @@ class AppTexts {
   static const String adminPropertyDetailCover = "Cover";
   static const String adminPropertyDetailPriceOnRequest = "Price on Request";
   static const String adminPropertyDetailPriceNotSet = "Price not set";
-  
+
   // Admin Property Card
   static const String adminPropertyCardPriceOnRequest = "Price on Request";
   static const String adminPropertyCardPriceNotSet = "Price not set";
   static const String adminPropertyCardCreated = "Created";
-  
+
   // Admin Property Search and Filters
   static const String adminPropertiesSortAllStatuses = "All Statuses";
   static const String adminPropertiesSortAll = "All";
-  
+
   // Admin Property Form
   static const String adminPropertyFormNoImagesAdded = "No images added";
   static const String adminPropertyFormNoFeaturesAdded = "No features added";
-  
+
   // Admin Property Map Picker
-  static const String adminPropertyMapPickerSearchHint = "Search for a location...";
-  static const String adminPropertyMapPickerSelectLocation = "Select Location on Map";
+  static const String adminPropertyMapPickerSearchHint =
+      "Search for a location...";
+  static const String adminPropertyMapPickerSelectLocation =
+      "Select Location on Map";
 }

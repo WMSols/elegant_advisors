@@ -29,15 +29,18 @@ class AppIconButton extends StatelessWidget {
   Widget build(BuildContext context) {
     // Responsive sizing for desktop and mobile
     final isDesktop = AppResponsive.isDesktop(context);
-    final finalIconSize = iconSize ??
+    final finalIconSize =
+        iconSize ??
         (isDesktop
             ? AppResponsive.scaleSize(context, 24, min: 20, max: 28)
             : AppResponsive.scaleSize(context, 20, min: 18, max: 24));
-    final finalButtonSize = buttonSize ??
+    final finalButtonSize =
+        buttonSize ??
         (isDesktop
             ? AppResponsive.scaleSize(context, 48, min: 40, max: 56)
             : AppResponsive.scaleSize(context, 40, min: 36, max: 48));
-    final finalPadding = padding ??
+    final finalPadding =
+        padding ??
         EdgeInsets.all(
           isDesktop
               ? AppResponsive.scaleSize(context, 12, min: 10, max: 14)
@@ -73,10 +76,7 @@ class AppIconButton extends StatelessWidget {
 
     // Wrap with Tooltip if tooltip text is provided
     if (tooltip != null && tooltip!.isNotEmpty) {
-      return Tooltip(
-        message: tooltip!,
-        child: button,
-      );
+      return Tooltip(message: tooltip!, child: button);
     }
 
     return button;

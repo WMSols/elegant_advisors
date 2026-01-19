@@ -15,10 +15,7 @@ import 'package:elegant_advisors/presentation/admin/widgets/properties/detail_di
 class AdminPropertyDetailContent extends StatelessWidget {
   final PropertyModel property;
 
-  const AdminPropertyDetailContent({
-    super.key,
-    required this.property,
-  });
+  const AdminPropertyDetailContent({super.key, required this.property});
 
   @override
   Widget build(BuildContext context) {
@@ -52,11 +49,11 @@ class AdminPropertyDetailContent extends StatelessWidget {
             value: property.price.isOnRequest
                 ? AppTexts.adminPropertyDetailPriceOnRequest
                 : property.price.amount == null
-                    ? AppTexts.adminPropertyDetailPriceNotSet
-                    : AppHelpers.formatCurrency(
-                        property.price.amount!,
-                        property.price.currency,
-                      ),
+                ? AppTexts.adminPropertyDetailPriceNotSet
+                : AppHelpers.formatCurrency(
+                    property.price.amount!,
+                    property.price.currency,
+                  ),
           ),
           AppSpacing.vertical(context, 0.02),
           // Specs
@@ -74,18 +71,8 @@ class AdminPropertyDetailContent extends StatelessWidget {
           AppSpacing.vertical(context, 0.02),
           // Status & Badges
           Wrap(
-            spacing: AppResponsive.scaleSize(
-              context,
-              8,
-              min: 6,
-              max: 12,
-            ),
-            runSpacing: AppResponsive.scaleSize(
-              context,
-              4,
-              min: 2,
-              max: 6,
-            ),
+            spacing: AppResponsive.scaleSize(context, 8, min: 6, max: 12),
+            runSpacing: AppResponsive.scaleSize(context, 4, min: 2, max: 6),
             children: [
               AppPropertyStatusBadge(status: property.status),
               if (property.isFeatured)
@@ -117,11 +104,7 @@ class AdminPropertyDetailContent extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    Icon(
-                      Iconsax.star,
-                      color: AppColors.white,
-                      size: 20,
-                    ),
+                    Icon(Iconsax.star, color: AppColors.white, size: 20),
                     AppSpacing.horizontal(context, 0.01),
                     Text(
                       AppTexts.adminPropertyDetailFeatures,
@@ -134,12 +117,7 @@ class AdminPropertyDetailContent extends StatelessWidget {
                 ),
                 AppSpacing.vertical(context, 0.01),
                 Wrap(
-                  spacing: AppResponsive.scaleSize(
-                    context,
-                    8,
-                    min: 6,
-                    max: 12,
-                  ),
+                  spacing: AppResponsive.scaleSize(context, 8, min: 6, max: 12),
                   runSpacing: AppResponsive.scaleSize(
                     context,
                     8,

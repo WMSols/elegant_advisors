@@ -11,7 +11,8 @@ import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
 
-class AdminPropertyFeaturesSection extends GetView<AdminPropertyFormController> {
+class AdminPropertyFeaturesSection
+    extends GetView<AdminPropertyFormController> {
   const AdminPropertyFeaturesSection({super.key});
 
   @override
@@ -48,22 +49,32 @@ class AdminPropertyFeaturesSection extends GetView<AdminPropertyFormController> 
             () => controller.features.isEmpty
                 ? Text(
                     AppTexts.adminPropertyFormNoFeaturesAdded,
-                    style: AppTextStyles.bodyText(context).copyWith(
-                      color: AppColors.white.withValues(alpha: 0.7),
-                    ),
+                    style: AppTextStyles.bodyText(
+                      context,
+                    ).copyWith(color: AppColors.white.withValues(alpha: 0.7)),
                   )
                 : Wrap(
-                    spacing: AppResponsive.scaleSize(context, 8, min: 6, max: 12),
-                    runSpacing: AppResponsive.scaleSize(context, 8, min: 6, max: 12),
+                    spacing: AppResponsive.scaleSize(
+                      context,
+                      8,
+                      min: 6,
+                      max: 12,
+                    ),
+                    runSpacing: AppResponsive.scaleSize(
+                      context,
+                      8,
+                      min: 6,
+                      max: 12,
+                    ),
                     children: controller.features.map((feature) {
                       return Chip(
                         label: Text(feature),
                         onDeleted: () => controller.removeFeature(feature),
                         deleteIcon: const Icon(Iconsax.close_circle, size: 18),
                         backgroundColor: AppColors.white,
-                        labelStyle: AppTextStyles.bodyText(context).copyWith(
-                          color: AppColors.primary,
-                        ),
+                        labelStyle: AppTextStyles.bodyText(
+                          context,
+                        ).copyWith(color: AppColors.primary),
                       );
                     }).toList(),
                   ),

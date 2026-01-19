@@ -34,14 +34,14 @@ class AppAlertDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     final isMobile = AppResponsive.isMobile(context);
     final screenWidth = AppResponsive.screenWidth(context);
-    
+
     // Calculate dialog width based on screen size
     // Mobile: 90% of screen width with min padding
     // Desktop: Fixed max width (500px) so it doesn't take full screen
     final dialogWidth = isMobile
         ? screenWidth * 0.9
         : AppResponsive.scaleSize(context, 500, min: 400, max: 600);
-    
+
     // Calculate horizontal padding for mobile
     final horizontalPadding = isMobile
         ? AppResponsive.scaleSize(context, 16, min: 12, max: 24)
@@ -86,9 +86,7 @@ class AppAlertDialog extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       // Logo
-                      AppLogo(
-                        color: AppColors.white,
-                      ),
+                      AppLogo(color: AppColors.white),
                       AppSpacing.vertical(context, 0.04),
                       // Title
                       Text(
@@ -103,9 +101,9 @@ class AppAlertDialog extends StatelessWidget {
                       // Subtitle
                       Text(
                         subtitle,
-                        style: AppTextStyles.bodyText(context).copyWith(
-                          color: AppColors.white,
-                        ),
+                        style: AppTextStyles.bodyText(
+                          context,
+                        ).copyWith(color: AppColors.white),
                         textAlign: TextAlign.center,
                         maxLines: 5,
                         overflow: TextOverflow.ellipsis,
@@ -120,7 +118,8 @@ class AppAlertDialog extends StatelessWidget {
                           Flexible(
                             child: AppActionButton(
                               label: cancelText,
-                              onPressed: onCancel ?? () => Get.back(result: false),
+                              onPressed:
+                                  onCancel ?? () => Get.back(result: false),
                               backgroundColor: AppColors.white,
                             ),
                           ),
@@ -130,9 +129,12 @@ class AppAlertDialog extends StatelessWidget {
                             Flexible(
                               child: AppActionButton(
                                 label: confirmText!,
-                                onPressed: onConfirm ?? () => Get.back(result: true),
+                                onPressed:
+                                    onConfirm ?? () => Get.back(result: true),
                                 isDestructive: isDestructive,
-                                icon: isDestructive ? Iconsax.trash : Iconsax.tick_circle,
+                                icon: isDestructive
+                                    ? Iconsax.trash
+                                    : Iconsax.tick_circle,
                               ),
                             ),
                           ],

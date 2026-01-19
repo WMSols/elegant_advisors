@@ -27,19 +27,13 @@ class AdminPropertyDetailImages extends StatelessWidget {
       children: [
         Text(
           AppTexts.adminPropertyDetailImages,
-          style: AppTextStyles.heading(context).copyWith(
-            color: AppColors.white,
-            fontWeight: FontWeight.bold,
-          ),
+          style: AppTextStyles.heading(
+            context,
+          ).copyWith(color: AppColors.white, fontWeight: FontWeight.bold),
         ),
         AppSpacing.vertical(context, 0.01),
         SizedBox(
-          height: AppResponsive.scaleSize(
-            context,
-            200,
-            min: 150,
-            max: 250,
-          ),
+          height: AppResponsive.scaleSize(context, 200, min: 150, max: 250),
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: images.length,
@@ -54,12 +48,7 @@ class AdminPropertyDetailImages extends StatelessWidget {
                   max: 250,
                 ),
                 margin: EdgeInsets.only(
-                  right: AppResponsive.scaleSize(
-                    context,
-                    8,
-                    min: 4,
-                    max: 12,
-                  ),
+                  right: AppResponsive.scaleSize(context, 8, min: 4, max: 12),
                 ),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(
@@ -75,9 +64,7 @@ class AdminPropertyDetailImages extends StatelessWidget {
                       loadingVariant: LoadingIndicatorVariant.white,
                       maxWidthDiskCache: 1000,
                       maxHeightDiskCache: 1000,
-                      borderRadius: AppResponsive.radius(
-                        context,
-                      ),
+                      borderRadius: AppResponsive.radius(context),
                       backgroundColor: AppColors.grey.withValues(alpha: 0.2),
                       iconColor: AppColors.white,
                     ),

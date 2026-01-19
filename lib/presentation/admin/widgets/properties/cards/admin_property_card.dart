@@ -31,7 +31,6 @@ class AdminPropertyCard extends StatelessWidget {
     this.isDeleting = false,
   });
 
-
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -67,10 +66,25 @@ class AdminPropertyCard extends StatelessWidget {
               // Property Image (if available)
               if (property.images.isNotEmpty)
                 Container(
-                  width: AppResponsive.scaleSize(context, 120, min: 80, max: 150),
-                  height: AppResponsive.scaleSize(context, 120, min: 80, max: 150),
+                  width: AppResponsive.scaleSize(
+                    context,
+                    120,
+                    min: 80,
+                    max: 150,
+                  ),
+                  height: AppResponsive.scaleSize(
+                    context,
+                    120,
+                    min: 80,
+                    max: 150,
+                  ),
                   margin: EdgeInsets.only(
-                    right: AppResponsive.scaleSize(context, 16, min: 12, max: 20),
+                    right: AppResponsive.scaleSize(
+                      context,
+                      16,
+                      min: 12,
+                      max: 20,
+                    ),
                   ),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(
@@ -88,17 +102,37 @@ class AdminPropertyCard extends StatelessWidget {
                     backgroundColor: AppColors.grey.withValues(alpha: 0.2),
                     errorWidget: Icon(
                       Iconsax.home,
-                      size: AppResponsive.scaleSize(context, 40, min: 30, max: 50),
+                      size: AppResponsive.scaleSize(
+                        context,
+                        40,
+                        min: 30,
+                        max: 50,
+                      ),
                       color: AppColors.primary,
                     ),
                   ),
                 )
               else
                 Container(
-                  width: AppResponsive.scaleSize(context, 120, min: 80, max: 150),
-                  height: AppResponsive.scaleSize(context, 120, min: 80, max: 150),
+                  width: AppResponsive.scaleSize(
+                    context,
+                    120,
+                    min: 80,
+                    max: 150,
+                  ),
+                  height: AppResponsive.scaleSize(
+                    context,
+                    120,
+                    min: 80,
+                    max: 150,
+                  ),
                   margin: EdgeInsets.only(
-                    right: AppResponsive.scaleSize(context, 16, min: 12, max: 20),
+                    right: AppResponsive.scaleSize(
+                      context,
+                      16,
+                      min: 12,
+                      max: 20,
+                    ),
                   ),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(
@@ -108,174 +142,199 @@ class AdminPropertyCard extends StatelessWidget {
                   ),
                   child: Icon(
                     Iconsax.image,
-                    size: AppResponsive.scaleSize(context, 40, min: 30, max: 50),
+                    size: AppResponsive.scaleSize(
+                      context,
+                      40,
+                      min: 30,
+                      max: 50,
+                    ),
                     color: AppColors.primary,
                   ),
                 ),
-            // Property Info
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // Title
-                  Text(
-                    property.title,
-                    style: AppTextStyles.heading(
-                      context,
-                    ).copyWith(fontWeight: FontWeight.bold),
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  AppSpacing.vertical(context, 0.005),
-                  // Location
-                  Text(
-                    AppHelpers.formatPropertyLocationSimple(
-                      property.location.city,
-                      property.location.country,
-                    ),
-                    style: AppTextStyles.bodyText(
-                      context,
-                    ).copyWith(color: AppColors.primary),
-                  ),
-                  AppSpacing.vertical(context, 0.005),
-                  // Price
-                  Text(
-                    property.price.isOnRequest
-                        ? AppTexts.adminPropertyCardPriceOnRequest
-                        : property.price.amount == null
-                            ? AppTexts.adminPropertyCardPriceNotSet
-                            : AppHelpers.formatCurrency(
-                                property.price.amount!,
-                                property.price.currency,
-                              ),
-                    style: AppTextStyles.heading(context).copyWith(
-                      color: AppColors.primary,
-                      fontSize: AppResponsive.fontSizeClamped(
+              // Property Info
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // Title
+                    Text(
+                      property.title,
+                      style: AppTextStyles.heading(
                         context,
-                        min: 14,
-                        max: 18,
+                      ).copyWith(fontWeight: FontWeight.bold),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    AppSpacing.vertical(context, 0.005),
+                    // Location
+                    Text(
+                      AppHelpers.formatPropertyLocationSimple(
+                        property.location.city,
+                        property.location.country,
                       ),
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  AppSpacing.vertical(context, 0.005),
-                  // Specs
-                  Text(
-                    AppHelpers.formatPropertySpecs(
-                      property.specs.propertyType,
-                      property.specs.bedrooms,
-                      property.specs.bathrooms,
-                      property.specs.areaSize,
-                      property.specs.areaUnit,
-                    ),
-                    style: AppTextStyles.bodyText(context).copyWith(
-                      color: AppColors.primary,
-                      fontSize: AppResponsive.fontSizeClamped(
+                      style: AppTextStyles.bodyText(
                         context,
-                        min: 12,
-                        max: 14,
+                      ).copyWith(color: AppColors.primary),
+                    ),
+                    AppSpacing.vertical(context, 0.005),
+                    // Price
+                    Text(
+                      property.price.isOnRequest
+                          ? AppTexts.adminPropertyCardPriceOnRequest
+                          : property.price.amount == null
+                          ? AppTexts.adminPropertyCardPriceNotSet
+                          : AppHelpers.formatCurrency(
+                              property.price.amount!,
+                              property.price.currency,
+                            ),
+                      style: AppTextStyles.heading(context).copyWith(
+                        color: AppColors.primary,
+                        fontSize: AppResponsive.fontSizeClamped(
+                          context,
+                          min: 14,
+                          max: 18,
+                        ),
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
-                  ),
-                  AppSpacing.vertical(context, 0.01),
-                  // Status and Badges
-                  Wrap(
-                    spacing: AppResponsive.scaleSize(context, 8, min: 6, max: 12),
-                    runSpacing: AppResponsive.scaleSize(context, 4, min: 2, max: 6),
-                    children: [
-                      AppPropertyStatusBadge(status: property.status),
-                      if (property.isFeatured)
-                        AppPropertyStatusBadge(
-                          text: AppTexts.adminPropertiesFeatured,
+                    AppSpacing.vertical(context, 0.005),
+                    // Specs
+                    Text(
+                      AppHelpers.formatPropertySpecs(
+                        property.specs.propertyType,
+                        property.specs.bedrooms,
+                        property.specs.bathrooms,
+                        property.specs.areaSize,
+                        property.specs.areaUnit,
+                      ),
+                      style: AppTextStyles.bodyText(context).copyWith(
+                        color: AppColors.primary,
+                        fontSize: AppResponsive.fontSizeClamped(
+                          context,
+                          min: 12,
+                          max: 14,
+                        ),
+                      ),
+                    ),
+                    AppSpacing.vertical(context, 0.01),
+                    // Status and Badges
+                    Wrap(
+                      spacing: AppResponsive.scaleSize(
+                        context,
+                        8,
+                        min: 6,
+                        max: 12,
+                      ),
+                      runSpacing: AppResponsive.scaleSize(
+                        context,
+                        4,
+                        min: 2,
+                        max: 6,
+                      ),
+                      children: [
+                        AppPropertyStatusBadge(status: property.status),
+                        if (property.isFeatured)
+                          AppPropertyStatusBadge(
+                            text: AppTexts.adminPropertiesFeatured,
+                            color: AppColors.primary,
+                          ),
+                      ],
+                    ),
+                    AppSpacing.vertical(context, 0.005),
+                    // Created Date
+                    Row(
+                      children: [
+                        Icon(
+                          Iconsax.calendar,
+                          size: AppResponsive.scaleSize(
+                            context,
+                            14,
+                            min: 12,
+                            max: 16,
+                          ),
                           color: AppColors.primary,
                         ),
-                    ],
-                  ),
-                  AppSpacing.vertical(context, 0.005),
-                  // Created Date
-                  Row(
-                    children: [
-                      Icon(
-                        Iconsax.calendar,
-                        size: AppResponsive.scaleSize(
-                          context,
-                          14,
-                          min: 12,
-                          max: 16,
-                        ),
-                        color: AppColors.primary,
-                      ),
-                      AppSpacing.horizontal(context, 0.005),
-                      Flexible(
-                        child: Text(
-                          '${AppTexts.adminPropertyCardCreated} ${AppHelpers.formatDateTime(property.createdAt)}',
-                          style: AppTextStyles.bodyText(context).copyWith(
-                            color: AppColors.primary,
-                            fontSize: AppResponsive.fontSizeClamped(
-                              context,
-                              min: 11,
-                              max: 13,
+                        AppSpacing.horizontal(context, 0.005),
+                        Flexible(
+                          child: Text(
+                            '${AppTexts.adminPropertyCardCreated} ${AppHelpers.formatDateTime(property.createdAt)}',
+                            style: AppTextStyles.bodyText(context).copyWith(
+                              color: AppColors.primary,
+                              fontSize: AppResponsive.fontSizeClamped(
+                                context,
+                                min: 11,
+                                max: 13,
+                              ),
+                              fontWeight: FontWeight.w500,
                             ),
-                            fontWeight: FontWeight.w500,
                           ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  AppSpacing.vertical(context, 0.01),
-                  // Action Buttons - Single Row with labels for better UX
-                  if (isDeleting)
-                    Padding(
-                      padding: EdgeInsets.all(
-                        AppResponsive.scaleSize(context, 8, min: 6, max: 12),
-                      ),
-                      child: AppLoadingIndicator(
-                        variant: LoadingIndicatorVariant.primary,
-                        size: AppResponsive.scaleSize(
-                          context,
-                          20,
-                          min: 16,
-                          max: 24,
-                        ),
-                      ),
-                    )
-                  else
-                    Wrap(
-                      spacing: AppResponsive.scaleSize(context, 8, min: 6, max: 12),
-                      runSpacing: AppResponsive.scaleSize(context, 4, min: 2, max: 6),
-                      children: [
-                        AppActionButton(
-                          label: property.isPublished
-                              ? AppTexts.adminPropertiesUnpublished
-                              : AppTexts.adminPropertiesPublished,
-                          onPressed: onTogglePublish,
-                          backgroundColor: property.isPublished
-                              ? AppColors.warning
-                              : AppColors.success,
-                          icon: property.isPublished
-                              ? Iconsax.eye_slash
-                              : Iconsax.eye,
-                        ),
-                        AppActionButton(
-                          label: AppTexts.adminPropertiesEdit,
-                          onPressed: onEdit,
-                          backgroundColor: AppColors.information,
-                          icon: Iconsax.edit,
-                        ),
-                        AppActionButton(
-                          label: AppTexts.adminPropertiesDelete,
-                          onPressed: onDelete,
-                          backgroundColor: AppColors.error,
-                          icon: Iconsax.trash,
                         ),
                       ],
                     ),
-                ],
+                    AppSpacing.vertical(context, 0.01),
+                    // Action Buttons - Single Row with labels for better UX
+                    if (isDeleting)
+                      Padding(
+                        padding: EdgeInsets.all(
+                          AppResponsive.scaleSize(context, 8, min: 6, max: 12),
+                        ),
+                        child: AppLoadingIndicator(
+                          variant: LoadingIndicatorVariant.primary,
+                          size: AppResponsive.scaleSize(
+                            context,
+                            20,
+                            min: 16,
+                            max: 24,
+                          ),
+                        ),
+                      )
+                    else
+                      Wrap(
+                        spacing: AppResponsive.scaleSize(
+                          context,
+                          8,
+                          min: 6,
+                          max: 12,
+                        ),
+                        runSpacing: AppResponsive.scaleSize(
+                          context,
+                          4,
+                          min: 2,
+                          max: 6,
+                        ),
+                        children: [
+                          AppActionButton(
+                            label: property.isPublished
+                                ? AppTexts.adminPropertiesUnpublished
+                                : AppTexts.adminPropertiesPublished,
+                            onPressed: onTogglePublish,
+                            backgroundColor: property.isPublished
+                                ? AppColors.warning
+                                : AppColors.success,
+                            icon: property.isPublished
+                                ? Iconsax.eye_slash
+                                : Iconsax.eye,
+                          ),
+                          AppActionButton(
+                            label: AppTexts.adminPropertiesEdit,
+                            onPressed: onEdit,
+                            backgroundColor: AppColors.information,
+                            icon: Iconsax.edit,
+                          ),
+                          AppActionButton(
+                            label: AppTexts.adminPropertiesDelete,
+                            onPressed: onDelete,
+                            backgroundColor: AppColors.error,
+                            icon: Iconsax.trash,
+                          ),
+                        ],
+                      ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-      ),
       ),
     );
   }

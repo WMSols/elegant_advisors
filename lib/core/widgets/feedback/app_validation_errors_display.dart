@@ -42,13 +42,8 @@ class AppValidationErrorsDisplay extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         color: AppColors.error.withValues(alpha: 0.2),
-        borderRadius: BorderRadius.circular(
-          AppResponsive.radius(context),
-        ),
-        border: Border.all(
-          color: AppColors.error,
-          width: 1,
-        ),
+        borderRadius: BorderRadius.circular(AppResponsive.radius(context)),
+        border: Border.all(color: AppColors.error, width: 1),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -97,9 +92,9 @@ class AppValidationErrorsDisplay extends StatelessWidget {
                     Expanded(
                       child: Text(
                         error,
-                        style: AppTextStyles.bodyText(context).copyWith(
-                          color: AppColors.white,
-                        ),
+                        style: AppTextStyles.bodyText(
+                          context,
+                        ).copyWith(color: AppColors.white),
                       ),
                     ),
                   ],

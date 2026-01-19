@@ -8,7 +8,8 @@ import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
 import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
 
-class AdminPropertyBasicInfoSection extends GetView<AdminPropertyFormController> {
+class AdminPropertyBasicInfoSection
+    extends GetView<AdminPropertyFormController> {
   const AdminPropertyBasicInfoSection({super.key});
 
   @override

@@ -186,12 +186,13 @@ class _AdminLayoutState extends State<AdminLayout>
                                               leading: AppIconButton(
                                                 icon: Iconsax.menu_1,
                                                 color: AppColors.white,
-                                                iconSize: AppResponsive.scaleSize(
-                                                  context,
-                                                  24,
-                                                  min: 16,
-                                                  max: 28,
-                                                ),
+                                                iconSize:
+                                                    AppResponsive.scaleSize(
+                                                      context,
+                                                      24,
+                                                      min: 16,
+                                                      max: 28,
+                                                    ),
                                                 onPressed: () {
                                                   scaffoldKey.currentState
                                                       ?.openDrawer();

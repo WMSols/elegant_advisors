@@ -35,23 +35,27 @@ class AdminNavigationContent extends StatelessWidget {
         final availableHeight = constraints.maxHeight;
 
         // Simplified responsive calculations
-        final _getPadding =
-            (double normal, double small, double verySmall, double extreme) {
-              if (availableHeight < 150) return extreme;
-              if (availableHeight < 500) return verySmall;
-              if (availableHeight < 600) return small;
-              return normal;
-            };
+        double getPadding(
+          double normal,
+          double small,
+          double verySmall,
+          double extreme,
+        ) {
+          if (availableHeight < 150) return extreme;
+          if (availableHeight < 500) return verySmall;
+          if (availableHeight < 600) return small;
+          return normal;
+        }
 
-        final logoVerticalPadding = _getPadding(
+        final logoVerticalPadding = getPadding(
           AppResponsive.scaleSize(context, 24, min: 16, max: 32),
           8.0,
           4.0,
           2.0,
         );
 
-        final bottomPadding = _getPadding(sidePadding, 6.0, 4.0, 2.0);
-        final spacingBetweenNameAndButton = _getPadding(
+        final bottomPadding = getPadding(sidePadding, 6.0, 4.0, 2.0);
+        final spacingBetweenNameAndButton = getPadding(
           AppResponsive.scaleSize(context, 8, min: 4, max: 12),
           4.0,
           2.0,
@@ -112,7 +116,7 @@ class AdminNavigationContent extends StatelessWidget {
                   clipBehavior: Clip.none,
                   padding: EdgeInsets.symmetric(
                     horizontal: sidePadding * 0.5,
-                    vertical: _getPadding(
+                    vertical: getPadding(
                       AppResponsive.scaleSize(context, 8, min: 4, max: 12),
                       6.0,
                       4.0,

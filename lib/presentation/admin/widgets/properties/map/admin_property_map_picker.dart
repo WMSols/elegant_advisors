@@ -36,7 +36,7 @@ class _AdminPropertyMapPickerState extends State<AdminPropertyMapPicker> {
   final TextEditingController _searchController = TextEditingController();
   final FocusNode _searchFocusNode = FocusNode();
   final GlobalKey _searchFieldKey = GlobalKey();
-  
+
   LatLng? _selectedLocation;
   List<LocationSearchResult> _searchResults = [];
   bool _isSearching = false;
@@ -55,7 +55,7 @@ class _AdminPropertyMapPickerState extends State<AdminPropertyMapPicker> {
     }
     // Don't call move() here - use initialCenter and initialZoom in MapOptions instead
     // The map needs to be rendered first before using MapController
-    
+
     _searchController.addListener(_onSearchChanged);
     _searchFocusNode.addListener(_onFocusChanged);
     _ensureMapReady();
@@ -65,7 +65,7 @@ class _AdminPropertyMapPickerState extends State<AdminPropertyMapPicker> {
     if (_searchDebounce?.isActive ?? false) {
       _searchDebounce!.cancel();
     }
-    
+
     _searchDebounce = Timer(const Duration(milliseconds: 500), () {
       _performSearch();
     });
@@ -75,12 +75,13 @@ class _AdminPropertyMapPickerState extends State<AdminPropertyMapPicker> {
     if (mounted) {
       setState(() {
         // Show suggestions when focused and we have results, or when we have text
-        _showSuggestions = _searchResults.isNotEmpty && 
-                          (_searchFocusNode.hasFocus || _searchController.text.isNotEmpty);
+        _showSuggestions =
+            _searchResults.isNotEmpty &&
+            (_searchFocusNode.hasFocus || _searchController.text.isNotEmpty);
       });
     }
   }
-  
+
   void _onMapReady() {
     if (mounted) {
       setState(() {
@@ -88,7 +89,7 @@ class _AdminPropertyMapPickerState extends State<AdminPropertyMapPicker> {
       });
     }
   }
-  
+
   void _ensureMapReady() {
     // Try to set map as ready after first frame
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -104,7 +105,7 @@ class _AdminPropertyMapPickerState extends State<AdminPropertyMapPicker> {
 
   Future<void> _performSearch() async {
     final query = _searchController.text.trim();
-    
+
     if (query.isEmpty) {
       setState(() {
         _searchResults = [];
@@ -141,20 +142,20 @@ class _AdminPropertyMapPickerState extends State<AdminPropertyMapPicker> {
 
   void _onLocationSelected(LocationSearchResult location) {
     final newLocation = LatLng(location.latitude, location.longitude);
-    
+
     setState(() {
       _selectedLocation = newLocation;
       _searchController.text = location.displayName;
       _showSuggestions = false;
     });
-    
+
     // Move map to selected location
     _moveMapToLocation(newLocation);
-    
+
     widget.onLocationSelected(location.latitude, location.longitude);
     _searchFocusNode.unfocus();
   }
-  
+
   void _moveMapToLocation(LatLng location) {
     if (_isMapReady) {
       // Map is ready, move immediately
@@ -200,10 +201,9 @@ class _AdminPropertyMapPickerState extends State<AdminPropertyMapPicker> {
       children: [
         Text(
           AppTexts.adminPropertyMapPickerSelectLocation,
-          style: AppTextStyles.bodyText(context).copyWith(
-            color: AppColors.white,
-            fontWeight: FontWeight.bold,
-          ),
+          style: AppTextStyles.bodyText(
+            context,
+          ).copyWith(color: AppColors.white, fontWeight: FontWeight.bold),
         ),
         AppSpacing.vertical(context, 0.01),
         // Search Field with Suggestions
@@ -235,18 +235,23 @@ class _AdminPropertyMapPickerState extends State<AdminPropertyMapPicker> {
                         ),
                       )
                     : _searchController.text.isNotEmpty
-                        ? AppIconButton(
-                            icon: Iconsax.close_circle,
-                            iconSize: AppResponsive.scaleSize(context, 20, min: 16, max: 24),
-                            onPressed: () {
-                              _searchController.clear();
-                              setState(() {
-                                _searchResults = [];
-                                _showSuggestions = false;
-                              });
-                            },
-                          )
-                        : null,
+                    ? AppIconButton(
+                        icon: Iconsax.close_circle,
+                        iconSize: AppResponsive.scaleSize(
+                          context,
+                          20,
+                          min: 16,
+                          max: 24,
+                        ),
+                        onPressed: () {
+                          _searchController.clear();
+                          setState(() {
+                            _searchResults = [];
+                            _showSuggestions = false;
+                          });
+                        },
+                      )
+                    : null,
                 focusNode: _searchFocusNode,
                 onChanged: (value) {
                   // Search is handled by listener
@@ -259,66 +264,77 @@ class _AdminPropertyMapPickerState extends State<AdminPropertyMapPicker> {
                     // Prevent closing when tapping on suggestions
                   },
                   child: Container(
-                margin: EdgeInsets.only(
-                  top: AppResponsive.scaleSize(context, 4, min: 2, max: 8),
-                ),
-                constraints: BoxConstraints(
-                  maxHeight: AppResponsive.scaleSize(context, 300, min: 200, max: 400),
-                ),
-                decoration: BoxDecoration(
-                  color: AppColors.white,
-                  borderRadius: BorderRadius.circular(
-                    AppResponsive.radius(context),
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: AppColors.black.withValues(alpha: 0.2),
-                      blurRadius: 10,
-                      offset: const Offset(0, 4),
+                    margin: EdgeInsets.only(
+                      top: AppResponsive.scaleSize(context, 4, min: 2, max: 8),
                     ),
-                  ],
-                ),
-                child: ListView.separated(
-                  shrinkWrap: true,
-                  padding: EdgeInsets.symmetric(
-                    vertical: AppResponsive.scaleSize(context, 8, min: 4, max: 12),
-                  ),
-                  itemCount: _searchResults.length,
-                  separatorBuilder: (context, index) => Divider(
-                    height: 1,
-                    color: AppColors.grey.withValues(alpha: 0.2),
-                  ),
-                  itemBuilder: (context, index) {
-                    final location = _searchResults[index];
-                    return InkWell(
-                      onTap: () => _onLocationSelected(location),
-                      child: Padding(
-                        padding: AppSpacing.all(context, factor: 0.4),
-                        child: Row(
-                          children: [
-                            Icon(
-                              Iconsax.location5,
-                              color: AppColors.error,
-                              size: 20,
-                            ),
-                            AppSpacing.horizontal(context, 0.01),
-                            Expanded(
-                              child: Text(
-                                location.displayName,
-                                style: AppTextStyles.bodyText(context).copyWith(
-                                  color: AppColors.black,
-                                  fontSize: 14,
-                                ),
-                                maxLines: 2,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            ),
-                          ],
+                    constraints: BoxConstraints(
+                      maxHeight: AppResponsive.scaleSize(
+                        context,
+                        300,
+                        min: 200,
+                        max: 400,
+                      ),
+                    ),
+                    decoration: BoxDecoration(
+                      color: AppColors.white,
+                      borderRadius: BorderRadius.circular(
+                        AppResponsive.radius(context),
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: AppColors.black.withValues(alpha: 0.2),
+                          blurRadius: 10,
+                          offset: const Offset(0, 4),
+                        ),
+                      ],
+                    ),
+                    child: ListView.separated(
+                      shrinkWrap: true,
+                      padding: EdgeInsets.symmetric(
+                        vertical: AppResponsive.scaleSize(
+                          context,
+                          8,
+                          min: 4,
+                          max: 12,
                         ),
                       ),
-                    );
-                  },
-                ),
+                      itemCount: _searchResults.length,
+                      separatorBuilder: (context, index) => Divider(
+                        height: 1,
+                        color: AppColors.grey.withValues(alpha: 0.2),
+                      ),
+                      itemBuilder: (context, index) {
+                        final location = _searchResults[index];
+                        return InkWell(
+                          onTap: () => _onLocationSelected(location),
+                          child: Padding(
+                            padding: AppSpacing.all(context, factor: 0.4),
+                            child: Row(
+                              children: [
+                                Icon(
+                                  Iconsax.location5,
+                                  color: AppColors.error,
+                                  size: 20,
+                                ),
+                                AppSpacing.horizontal(context, 0.01),
+                                Expanded(
+                                  child: Text(
+                                    location.displayName,
+                                    style: AppTextStyles.bodyText(context)
+                                        .copyWith(
+                                          color: AppColors.black,
+                                          fontSize: 14,
+                                        ),
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      },
+                    ),
                   ),
                 ),
             ],
@@ -328,18 +344,14 @@ class _AdminPropertyMapPickerState extends State<AdminPropertyMapPicker> {
         Container(
           height: AppResponsive.scaleSize(context, 400, min: 300, max: 500),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(
-              AppResponsive.radius(context),
-            ),
+            borderRadius: BorderRadius.circular(AppResponsive.radius(context)),
             border: Border.all(
               color: AppColors.white.withValues(alpha: 0.3),
               width: 2,
             ),
           ),
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(
-              AppResponsive.radius(context),
-            ),
+            borderRadius: BorderRadius.circular(AppResponsive.radius(context)),
             child: FlutterMap(
               mapController: _mapController,
               options: MapOptions(
@@ -348,7 +360,8 @@ class _AdminPropertyMapPickerState extends State<AdminPropertyMapPicker> {
                 minZoom: 3.0,
                 maxZoom: 18.0,
                 onTap: _onMapTap,
-                onMapReady: _onMapReady, // May not exist in all versions, but safe to include
+                onMapReady:
+                    _onMapReady, // May not exist in all versions, but safe to include
               ),
               children: [
                 TileLayer(
@@ -386,19 +399,14 @@ class _AdminPropertyMapPickerState extends State<AdminPropertyMapPicker> {
             ),
             child: Row(
               children: [
-                Icon(
-                  Iconsax.location,
-                  color: AppColors.white,
-                  size: 16,
-                ),
+                Icon(Iconsax.location, color: AppColors.white, size: 16),
                 AppSpacing.horizontal(context, 0.01),
                 Expanded(
                   child: Text(
                     'Lat: ${_selectedLocation!.latitude.toStringAsFixed(6)}, Lng: ${_selectedLocation!.longitude.toStringAsFixed(6)}',
-                    style: AppTextStyles.bodyText(context).copyWith(
-                      color: AppColors.white,
-                      fontSize: 12,
-                    ),
+                    style: AppTextStyles.bodyText(
+                      context,
+                    ).copyWith(color: AppColors.white, fontSize: 12),
                   ),
                 ),
               ],

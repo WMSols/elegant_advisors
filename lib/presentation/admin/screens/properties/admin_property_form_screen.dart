@@ -68,7 +68,7 @@ class AdminPropertyFormScreen extends GetView<AdminPropertyFormController> {
                     // Validation Errors Display
                     Obx(
                       () => AppValidationErrorsDisplay(
-                        errors: controller.formValidationErrors,
+                        errors: controller.formValidationErrors.toList(),
                       ),
                     ),
 

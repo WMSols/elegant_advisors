@@ -30,7 +30,7 @@ class AdminNavigationItem extends StatelessWidget {
   Widget build(BuildContext context) {
     // Check if current route matches the main route or any related routes
     bool isActive = currentRoute == route && route.isNotEmpty;
-    
+
     if (!isActive && relatedRoutes != null) {
       // Check if current route matches any related route pattern
       for (final relatedRoute in relatedRoutes!) {

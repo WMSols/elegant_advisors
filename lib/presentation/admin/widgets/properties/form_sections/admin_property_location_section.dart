@@ -9,7 +9,8 @@ import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
 import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
 import 'package:elegant_advisors/presentation/admin/widgets/properties/map/admin_property_map_picker.dart';
 
-class AdminPropertyLocationSection extends GetView<AdminPropertyFormController> {
+class AdminPropertyLocationSection
+    extends GetView<AdminPropertyFormController> {
   const AdminPropertyLocationSection({super.key});
 
   @override

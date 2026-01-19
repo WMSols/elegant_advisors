@@ -133,9 +133,7 @@ class AuthService {
   }
 
   /// Delete an admin user via Cloud Functions
-  Future<Map<String, dynamic>> deleteAdminUserViaFunction(
-    String uid,
-  ) async {
+  Future<Map<String, dynamic>> deleteAdminUserViaFunction(String uid) async {
     try {
       final functions = FirebaseFunctions.instance;
       final callable = functions.httpsCallable('deleteAdminUser');
@@ -152,7 +150,8 @@ class AuthService {
           errorMessage = 'Admin user not found';
           break;
         case 'permission-denied':
-          errorMessage = e.message ?? 'You do not have permission to perform this action';
+          errorMessage =
+              e.message ?? 'You do not have permission to perform this action';
           break;
         case 'unauthenticated':
           errorMessage = 'You must be logged in to perform this action';

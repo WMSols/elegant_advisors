@@ -19,7 +19,8 @@ class AdminPropertyFormSection extends StatefulWidget {
   });
 
   @override
-  State<AdminPropertyFormSection> createState() => _AdminPropertyFormSectionState();
+  State<AdminPropertyFormSection> createState() =>
+      _AdminPropertyFormSectionState();
 }
 
 class _AdminPropertyFormSectionState extends State<AdminPropertyFormSection> {

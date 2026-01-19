@@ -333,9 +333,14 @@ class AppValidators {
   }
 
   /// Property description validation
-  static String? validatePropertyDescription(String? value, {bool isShort = false}) {
+  static String? validatePropertyDescription(
+    String? value, {
+    bool isShort = false,
+  }) {
     if (value == null || value.isEmpty) {
-      return isShort ? 'Short description is required' : 'Description is required';
+      return isShort
+          ? 'Short description is required'
+          : 'Description is required';
     }
     if (isShort) {
       if (value.trim().length < 10) {
@@ -405,7 +410,11 @@ class AppValidators {
   }
 
   /// Property numeric field validation (bedrooms, bathrooms, area)
-  static String? validatePropertyNumeric(String? value, String fieldName, {int? max}) {
+  static String? validatePropertyNumeric(
+    String? value,
+    String fieldName, {
+    int? max,
+  }) {
     if (value == null || value.isEmpty) {
       return null; // Optional field
     }
@@ -485,7 +494,10 @@ class AppValidators {
   }
 
   /// Property price validation (required when not on request)
-  static String? validatePropertyPriceRequired(String? value, bool isOnRequest) {
+  static String? validatePropertyPriceRequired(
+    String? value,
+    bool isOnRequest,
+  ) {
     if (isOnRequest) {
       return null; // Price is optional if on request
     }

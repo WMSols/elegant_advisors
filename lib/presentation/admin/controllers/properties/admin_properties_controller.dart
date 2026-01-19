@@ -2,7 +2,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:elegant_advisors/data/services/firestore_service.dart';
 import 'package:elegant_advisors/data/services/storage_service.dart';
 import 'package:elegant_advisors/domain/models/property_model.dart';
@@ -18,14 +17,17 @@ class AdminPropertiesController extends BaseController {
 
   final properties = <PropertyModel>[].obs;
   final searchQuery = ''.obs;
-  final sortBy = 'createdAt'.obs; // 'title', 'createdAt', 'updatedAt', 'price', 'status'
+  final sortBy =
+      'createdAt'.obs; // 'title', 'createdAt', 'updatedAt', 'price', 'status'
   final sortOrder = 'desc'.obs; // 'asc', 'desc'
-  final statusFilter = Rxn<String>(); // null, 'available', 'sold', 'off_market', 'coming_soon'
+  final statusFilter =
+      Rxn<String>(); // null, 'available', 'sold', 'off_market', 'coming_soon'
   final publishedFilter = Rxn<bool>(); // null, true, false
   final featuredFilter = Rxn<bool>(); // null, true, false
-  final deletingPropertyId = Rxn<String>(); // Track which property is being deleted
+  final deletingPropertyId =
+      Rxn<String>(); // Track which property is being deleted
   TextEditingController? _searchController;
-  
+
   StreamSubscription<List<PropertyModel>>? _propertiesStreamSubscription;
   bool _isDisposed = false;
 
@@ -91,9 +93,9 @@ class AdminPropertiesController extends BaseController {
     try {
       await _propertiesStreamSubscription?.cancel();
       _propertiesStreamSubscription = null;
-      
+
       setLoading(true);
-      
+
       _propertiesStreamSubscription = _firestoreService.getAllProperties().listen(
         (propertyList) {
           properties.assignAll(propertyList);
@@ -105,7 +107,9 @@ class AdminPropertiesController extends BaseController {
           if (_shouldIgnoreError(error)) {
             return;
           }
-          AppSnackbar.showError('Failed to load properties: ${error.toString()}');
+          AppSnackbar.showError(
+            'Failed to load properties: ${error.toString()}',
+          );
         },
         cancelOnError: false,
       );
@@ -152,17 +156,23 @@ class AdminPropertiesController extends BaseController {
 
     // Apply status filter
     if (statusFilter.value != null) {
-      result = result.where((property) => property.status == statusFilter.value).toList();
+      result = result
+          .where((property) => property.status == statusFilter.value)
+          .toList();
     }
 
     // Apply published filter
     if (publishedFilter.value != null) {
-      result = result.where((property) => property.isPublished == publishedFilter.value).toList();
+      result = result
+          .where((property) => property.isPublished == publishedFilter.value)
+          .toList();
     }
 
     // Apply featured filter
     if (featuredFilter.value != null) {
-      result = result.where((property) => property.isFeatured == featuredFilter.value).toList();
+      result = result
+          .where((property) => property.isFeatured == featuredFilter.value)
+          .toList();
     }
 
     // Apply sorting
@@ -251,18 +261,18 @@ class AdminPropertiesController extends BaseController {
     try {
       // Get property to delete images
       final property = properties.firstWhere((p) => p.id == propertyId);
-      
+
       // Delete all images from storage (including cover image if it exists separately)
       final allImageUrls = <String>[...property.images];
-      if (property.coverImage != null && 
+      if (property.coverImage != null &&
           !allImageUrls.contains(property.coverImage)) {
         allImageUrls.add(property.coverImage!);
       }
-      
+
       if (allImageUrls.isNotEmpty) {
         await _storageService.deletePropertyImages(allImageUrls);
       }
-      
+
       // Delete property folder from storage (catches any remaining files)
       await _storageService.deletePropertyFolder(propertyId);
 

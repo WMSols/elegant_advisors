@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:elegant_advisors/data/services/firestore_service.dart';
 import 'package:elegant_advisors/data/services/analytics_service.dart';
 import 'package:elegant_advisors/data/services/email_service.dart';
@@ -22,6 +23,16 @@ class ClientContactController extends BaseController {
 
   final formKey = GlobalKey<FormState>();
   String? propertyId; // Optional: if inquiry is about a specific property
+
+  @override
+  void onInit() {
+    super.onInit();
+    // Get propertyId from route arguments if provided
+    final args = Get.arguments;
+    if (args is String) {
+      propertyId = args;
+    }
+  }
 
   @override
   void onClose() {

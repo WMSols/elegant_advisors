@@ -105,19 +105,20 @@ class AdminCreateEditAdminController extends BaseController {
     );
 
     AppSnackbar.showSuccess('Admin created successfully');
-    
+
     // Clear loading state before navigation
     setLoading(false);
-    
+
     // Small delay to ensure UI is ready before navigation
     await Future.delayed(const Duration(milliseconds: 100));
-    
+
     // Navigate back to manage admins screen
     // Use offNamedUntil to preserve the manage admins controller and its stream
     // This ensures real-time updates continue to work
     Get.offNamedUntil(
       AdminConstants.routeAdminManageAdmins,
-      (route) => route.settings.name == AdminConstants.routeAdminManageAdmins ||
+      (route) =>
+          route.settings.name == AdminConstants.routeAdminManageAdmins ||
           route.settings.name == AdminConstants.routeAdminDashboard ||
           route.settings.name == AdminConstants.routeAdminLogin ||
           route.settings.name == null,
@@ -149,19 +150,20 @@ class AdminCreateEditAdminController extends BaseController {
     await _firestoreService.updateAdminUser(adminId!, updatedAdmin);
 
     AppSnackbar.showSuccess('Admin updated successfully');
-    
+
     // Clear loading state before navigation
     setLoading(false);
-    
+
     // Small delay to ensure UI is ready before navigation
     await Future.delayed(const Duration(milliseconds: 100));
-    
+
     // Navigate back to manage admins screen
     // Use offNamedUntil to preserve the manage admins controller and its stream
     // This ensures real-time updates continue to work
     Get.offNamedUntil(
       AdminConstants.routeAdminManageAdmins,
-      (route) => route.settings.name == AdminConstants.routeAdminManageAdmins ||
+      (route) =>
+          route.settings.name == AdminConstants.routeAdminManageAdmins ||
           route.settings.name == AdminConstants.routeAdminDashboard ||
           route.settings.name == AdminConstants.routeAdminLogin ||
           route.settings.name == null,

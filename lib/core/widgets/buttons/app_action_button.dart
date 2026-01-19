@@ -23,8 +23,8 @@ class AppActionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final finalBackgroundColor = backgroundColor ??
-        (isDestructive ? AppColors.error : AppColors.white);
+    final finalBackgroundColor =
+        backgroundColor ?? (isDestructive ? AppColors.error : AppColors.white);
 
     // Responsive sizing for desktop and mobile
     final isDesktop = AppResponsive.isDesktop(context);

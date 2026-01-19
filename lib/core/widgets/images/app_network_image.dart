@@ -6,7 +6,7 @@ import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 
 /// Reusable network image widget with loading, error handling, and fallback
-/// 
+///
 /// Handles:
 /// - Cached network image loading
 /// - Loading states with responsive indicators
@@ -15,34 +15,34 @@ import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 class AppNetworkImage extends StatelessWidget {
   /// The image URL to load
   final String imageUrl;
-  
+
   /// How the image should be fitted
   final BoxFit fit;
-  
+
   /// Loading indicator variant
   final LoadingIndicatorVariant loadingVariant;
-  
+
   /// Custom placeholder widget (optional)
   final Widget? placeholder;
-  
+
   /// Custom error fallback widget (optional)
   final Widget? errorWidget;
-  
+
   /// Background color for loading/error states
   final Color? backgroundColor;
-  
+
   /// Icon color for error fallback
   final Color? iconColor;
-  
+
   /// Maximum width for disk cache
   final int? maxWidthDiskCache;
-  
+
   /// Maximum height for disk cache
   final int? maxHeightDiskCache;
-  
+
   /// Border radius for the image
   final double? borderRadius;
-  
+
   /// Whether to enable debug logging
   final bool enableDebugLogging;
 
@@ -65,7 +65,7 @@ class AppNetworkImage extends StatelessWidget {
   Widget build(BuildContext context) {
     final bgColor = backgroundColor ?? AppColors.grey.withValues(alpha: 0.2);
     final radius = borderRadius ?? AppResponsive.radius(context);
-    
+
     Widget imageWidget = CachedNetworkImage(
       imageUrl: imageUrl,
       fit: fit,
@@ -74,18 +74,20 @@ class AppNetworkImage extends StatelessWidget {
       maxHeightDiskCache: maxHeightDiskCache,
       fadeInDuration: const Duration(milliseconds: 300),
       fadeOutDuration: const Duration(milliseconds: 100),
-      placeholder: (context, url) => placeholder ?? _buildLoadingPlaceholder(context, bgColor),
+      placeholder: (context, url) =>
+          placeholder ?? _buildLoadingPlaceholder(context, bgColor),
       errorWidget: (context, url, error) {
         if (enableDebugLogging) {
           debugPrint('Image load error: $error');
           debugPrint('Image URL: $url');
           debugPrint('Error type: ${error.runtimeType}');
         }
-        return errorWidget ?? _buildErrorFallback(context, url, bgColor, iconColor);
+        return errorWidget ??
+            _buildErrorFallback(context, url, bgColor, iconColor);
       },
     );
 
-    if (this.borderRadius != null) {
+    if (borderRadius != null) {
       return ClipRRect(
         borderRadius: BorderRadius.circular(radius),
         child: imageWidget,
