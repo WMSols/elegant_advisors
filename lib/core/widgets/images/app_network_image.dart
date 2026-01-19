@@ -87,7 +87,7 @@ class AppNetworkImage extends StatelessWidget {
       },
     );
 
-    if (this.borderRadius != null) {
+    if (borderRadius != null) {
       return ClipRRect(
         borderRadius: BorderRadius.circular(radius),
         child: imageWidget,

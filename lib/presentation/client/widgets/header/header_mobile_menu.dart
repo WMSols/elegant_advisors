@@ -12,7 +12,7 @@ class HeaderMobileMenu extends StatelessWidget {
     return Builder(
       builder: (context) {
         return AppIconButton(
-          icon: Iconsax.menu,
+          icon: Iconsax.menu_14,
           color: AppColors.white,
           iconSize: AppResponsive.scaleSize(context, 24, min: 24, max: 28),
           onPressed: () {

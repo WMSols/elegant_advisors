@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
-import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
-import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
 import 'package:elegant_advisors/presentation/client/widgets/layout/app_footer.dart';
 import 'package:elegant_advisors/presentation/client/widgets/layout/app_header.dart';
+import 'package:elegant_advisors/presentation/client/widgets/header/header_mobile_drawer.dart';
 import 'package:elegant_advisors/presentation/client/controllers/properties/client_properties_controller.dart';
+import 'package:elegant_advisors/presentation/client/widgets/properties/header/properties_header_section.dart';
+import 'package:elegant_advisors/presentation/client/widgets/properties/filters/properties_filters_section.dart';
+import 'package:elegant_advisors/presentation/client/widgets/properties/listing/properties_listing_section.dart';
 
 class ClientPropertiesScreen extends GetView<ClientPropertiesController> {
   const ClientPropertiesScreen({super.key});
@@ -13,39 +14,38 @@ class ClientPropertiesScreen extends GetView<ClientPropertiesController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            const AppHeader(),
-            Container(
-              width: double.infinity,
-              padding: AppSpacing.symmetric(context, h: 0.04, v: 0.08),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    AppTexts.propertiesTitle,
-                    style: AppTextStyles.headline(context),
-                  ),
-                  AppSpacing.vertical(context, 0.04),
-                  Text(
-                    AppTexts.propertiesSubtitle,
-                    style: AppTextStyles.heading(context),
-                  ),
-                  AppSpacing.vertical(context, 0.04),
-                  Text(
-                    AppTexts.propertiesDescription,
-                    style: AppTextStyles.bodyText(context),
-                  ),
-                  AppSpacing.vertical(context, 0.04),
-                  // Property listings grid will be added here
-                  // This is where property cards will be displayed
-                ],
-              ),
+      drawer: HeaderMobileDrawer(onClose: () => Navigator.of(context).pop()),
+      body: Stack(
+        children: [
+          // Main scrollable content
+          SingleChildScrollView(
+            controller: controller.scrollController,
+            child: Column(
+              children: [
+                // Header Section
+                PropertiesHeaderSection(controller: controller),
+                // Filters Section
+                PropertiesFiltersSection(controller: controller),
+                // Properties Listing Section
+                PropertiesListingSection(
+                  sectionKey: controller.listingSectionKey,
+                  controller: controller,
+                ),
+                // Footer
+                const AppFooter(),
+              ],
             ),
-            const AppFooter(),
-          ],
-        ),
+          ),
+          // Header always visible, background animates on scroll
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            child: Obx(
+              () => AppHeader(showBackground: controller.showHeader.value),
+            ),
+          ),
+        ],
       ),
     );
   }

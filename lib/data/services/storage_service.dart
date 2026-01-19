@@ -94,7 +94,9 @@ class StorageService {
   }
 
   Future<void> deletePropertyImages(List<String> imageUrls) async {
-    for (final url in imageUrls) await deletePropertyImage(url);
+    for (final url in imageUrls) {
+      await deletePropertyImage(url);
+    }
   }
 
   Future<void> deletePropertyFolder(String propertyId) async {
@@ -103,7 +105,9 @@ class StorageService {
           .ref()
           .child('properties/$propertyId')
           .listAll();
-      for (final item in listResult.items) await item.delete();
+      for (final item in listResult.items) {
+        await item.delete();
+      }
     } catch (e) {
       print('Error deleting property folder: $e');
     }

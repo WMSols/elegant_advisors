@@ -8,6 +8,7 @@ class AdminInquiriesController extends BaseController {
   final FirestoreService _firestoreService = FirestoreService();
 
   final inquiries = <ContactSubmissionModel>[].obs;
+  @override
   final isLoading = false.obs;
   final selectedStatus = 'all'.obs; // all, new, in_progress, closed
   final selectedPropertyId = Rxn<String>();

@@ -4,6 +4,8 @@ import 'package:elegant_advisors/presentation/client/controllers/properties/clie
 class ClientPropertiesBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<ClientPropertiesController>(() => ClientPropertiesController());
+    // Use Get.put instead of Get.lazyPut to ensure a fresh instance for each route navigation
+    // This ensures the controller is created immediately and is route-specific
+    Get.put<ClientPropertiesController>(ClientPropertiesController(), permanent: false);
   }
 }

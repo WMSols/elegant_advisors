@@ -3,13 +3,17 @@ import 'package:elegant_advisors/data/services/firestore_service.dart';
 import 'package:elegant_advisors/data/services/analytics_service.dart';
 import 'package:elegant_advisors/domain/models/property_model.dart';
 import 'package:elegant_advisors/core/base/base_controller/app_base_controller.dart';
+import 'package:elegant_advisors/core/constants/client_constants.dart';
 
 class ClientPropertyDetailController extends BaseController {
   final FirestoreService _firestoreService = FirestoreService();
   final AnalyticsService _analyticsService = AnalyticsService();
 
   final property = Rxn<PropertyModel>();
+  final relatedProperties = <PropertyModel>[].obs;
+  @override
   final isLoading = false.obs;
+  final isLoadingRelated = false.obs;
   final currentImageIndex = 0.obs;
 
   String? get slug => Get.parameters['slug'];
@@ -32,6 +36,8 @@ class ClientPropertyDetailController extends BaseController {
         property.value = loadedProperty;
         // Track property visit
         await trackPropertyVisit(loadedProperty);
+        // Load related properties
+        loadRelatedProperties(loadedProperty);
       } else {
         showError('Property not found');
         Get.back();
@@ -40,6 +46,40 @@ class ClientPropertyDetailController extends BaseController {
       showError('Failed to load property');
     } finally {
       isLoading.value = false;
+    }
+  }
+
+  Future<void> loadRelatedProperties(PropertyModel currentProperty) async {
+    if (currentProperty.id == null) return;
+
+    isLoadingRelated.value = true;
+    try {
+      final allProperties = await _firestoreService.getPublishedPropertiesOnce();
+      
+      // Filter related properties: same location or same type, exclude current
+      final related = allProperties.where((p) {
+        if (p.id == currentProperty.id) return false;
+        
+        final sameLocation = p.location.city == currentProperty.location.city &&
+            p.location.country == currentProperty.location.country;
+        final sameType = p.specs.propertyType == currentProperty.specs.propertyType;
+        
+        return sameLocation || sameType;
+      }).toList();
+
+      // Sort by featured first, then limit to 2-4
+      related.sort((a, b) {
+        if (a.isFeatured && !b.isFeatured) return -1;
+        if (!a.isFeatured && b.isFeatured) return 1;
+        return 0;
+      });
+
+      relatedProperties.value = related.take(4).toList();
+    } catch (e) {
+      // Silently fail - related properties are not critical
+      print('Failed to load related properties: $e');
+    } finally {
+      isLoadingRelated.value = false;
     }
   }
 
@@ -68,7 +108,11 @@ class ClientPropertyDetailController extends BaseController {
   }
 
   void openInquiryForm() {
-    // TODO: Navigate to contact form with property ID pre-filled
-    // Get.toNamed(ClientConstants.routeClientContact, arguments: property.value?.id);
+    if (property.value?.id != null) {
+      Get.toNamed(
+        ClientConstants.routeClientContact,
+        arguments: property.value!.id,
+      );
+    }
   }
 }

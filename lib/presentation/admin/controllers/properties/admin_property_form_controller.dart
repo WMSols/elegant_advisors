@@ -215,7 +215,7 @@ class AdminPropertyFormController extends BaseController {
 
         if (pickedFiles.length > remainingSlots) {
           AppSnackbar.showInfo(
-            'Only ${remainingSlots} image(s) added. Maximum $maxImages images allowed.',
+            'Only $remainingSlots image(s) added. Maximum $maxImages images allowed.',
           );
         }
       }

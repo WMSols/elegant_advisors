@@ -15,7 +15,9 @@ class AppDropdownField<T> extends StatelessWidget {
   final String? Function(T?)? validator;
   final Widget? prefixIcon;
   final bool enabled;
+  final Color? labelColor;
   final Color? errorTextColor;
+  final Color? borderColor;
 
   const AppDropdownField({
     super.key,
@@ -27,7 +29,9 @@ class AppDropdownField<T> extends StatelessWidget {
     this.validator,
     this.prefixIcon,
     this.enabled = true,
+    this.labelColor = AppColors.primary,
     this.errorTextColor = AppColors.primary,
+    this.borderColor,
   });
 
   @override
@@ -39,14 +43,15 @@ class AppDropdownField<T> extends StatelessWidget {
           Text(
             label!,
             style: AppTextStyles.bodyText(context).copyWith(
-              color: AppColors.white,
+              color: labelColor,
               fontFamily: AppFonts.primaryFont,
+              fontWeight: FontWeight.w700,
             ),
           ),
           AppSpacing.vertical(context, 0.01),
         ],
         DropdownButtonFormField<T>(
-          value: value,
+          initialValue: value,
           isExpanded: true,
           decoration: InputDecoration(
             hintText: hint,
@@ -60,13 +65,13 @@ class AppDropdownField<T> extends StatelessWidget {
               borderRadius: BorderRadius.circular(
                 AppResponsive.radius(context),
               ),
-              borderSide: const BorderSide(color: Colors.transparent),
+              borderSide: BorderSide(color: borderColor ?? Colors.transparent),
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(
                 AppResponsive.radius(context),
               ),
-              borderSide: const BorderSide(color: Colors.transparent),
+              borderSide: BorderSide(color: borderColor ?? Colors.transparent),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(
