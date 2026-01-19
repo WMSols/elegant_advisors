@@ -7,10 +7,7 @@ import 'package:elegant_advisors/presentation/client/controllers/properties/clie
 class PropertiesFiltersContent extends StatelessWidget {
   final ClientPropertiesController controller;
 
-  const PropertiesFiltersContent({
-    super.key,
-    required this.controller,
-  });
+  const PropertiesFiltersContent({super.key, required this.controller});
 
   @override
   Widget build(BuildContext context) {

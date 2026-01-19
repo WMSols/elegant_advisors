@@ -54,11 +54,7 @@ class ClientPropertyDetailBreadcrumbs extends StatelessWidget {
         text,
         style: AppTextStyles.bodyText(context).copyWith(
           color: isActive ? AppColors.primary : AppColors.grey,
-          fontSize: AppResponsive.fontSizeClamped(
-            context,
-            min: 12,
-            max: 14,
-          ),
+          fontSize: AppResponsive.fontSizeClamped(context, min: 12, max: 14),
           fontWeight: isActive ? FontWeight.bold : FontWeight.normal,
         ),
       ),

@@ -8,11 +8,7 @@ class FooterContactItem extends StatelessWidget {
   final IconData icon;
   final String text;
 
-  const FooterContactItem({
-    super.key,
-    required this.icon,
-    required this.text,
-  });
+  const FooterContactItem({super.key, required this.icon, required this.text});
 
   @override
   Widget build(BuildContext context) {

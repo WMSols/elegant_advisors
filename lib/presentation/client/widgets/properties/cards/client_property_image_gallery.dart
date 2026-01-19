@@ -48,23 +48,20 @@ class _ClientPropertyImageGalleryState
   }
 
   void _startAutoScroll() {
-    _autoScrollTimer = Timer.periodic(
-      widget.autoScrollDuration,
-      (_) {
-        if (_pageController.hasClients) {
-          if (_currentIndex < widget.images.length - 1) {
-            _currentIndex++;
-          } else {
-            _currentIndex = 0;
-          }
-          _pageController.animateToPage(
-            _currentIndex,
-            duration: const Duration(milliseconds: 500),
-            curve: Curves.easeInOut,
-          );
+    _autoScrollTimer = Timer.periodic(widget.autoScrollDuration, (_) {
+      if (_pageController.hasClients) {
+        if (_currentIndex < widget.images.length - 1) {
+          _currentIndex++;
+        } else {
+          _currentIndex = 0;
         }
-      },
-    );
+        _pageController.animateToPage(
+          _currentIndex,
+          duration: const Duration(milliseconds: 500),
+          curve: Curves.easeInOut,
+        );
+      }
+    });
   }
 
   void _onPageChanged(int index) {
@@ -79,9 +76,7 @@ class _ClientPropertyImageGalleryState
       return Container(
         height: widget.height,
         color: AppColors.grey.withValues(alpha: 0.2),
-        child: const Center(
-          child: Icon(Icons.image, color: AppColors.primary),
-        ),
+        child: const Center(child: Icon(Icons.image, color: AppColors.primary)),
       );
     }
 
@@ -147,7 +142,9 @@ class _ClientPropertyImageGalleryState
           : AppResponsive.scaleSize(context, 8, min: 6, max: 10),
       height: AppResponsive.scaleSize(context, 8, min: 6, max: 10),
       decoration: BoxDecoration(
-        color: isActive ? AppColors.white : AppColors.white.withValues(alpha: 0.5),
+        color: isActive
+            ? AppColors.white
+            : AppColors.white.withValues(alpha: 0.5),
         borderRadius: BorderRadius.circular(
           AppResponsive.radius(context, factor: 2),
         ),

@@ -13,10 +13,7 @@ import 'package:elegant_advisors/presentation/client/controllers/properties/clie
 class PropertiesListingContent extends StatelessWidget {
   final ClientPropertiesController controller;
 
-  const PropertiesListingContent({
-    super.key,
-    required this.controller,
-  });
+  const PropertiesListingContent({super.key, required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +25,7 @@ class PropertiesListingContent extends StatelessWidget {
       if (isLoading) {
         return SizedBox(
           height: AppResponsive.screenHeight(context) * 0.5,
-          child: const Center(
-            child: AppLoadingIndicator(),
-          ),
+          child: const Center(child: AppLoadingIndicator()),
         );
       }
 
@@ -54,9 +49,7 @@ class PropertiesListingContent extends StatelessWidget {
 
       return Column(
         children: [
-          ClientPropertiesGrid(
-            properties: controller.displayedProperties,
-          ),
+          ClientPropertiesGrid(properties: controller.displayedProperties),
           AppSpacing.vertical(context, 0.04),
           ClientPropertiesPagination(
             currentPage: controller.currentPage.value,

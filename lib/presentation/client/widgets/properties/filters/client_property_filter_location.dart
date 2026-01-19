@@ -47,8 +47,7 @@ class ClientPropertyFilterLocation extends StatelessWidget {
             onChanged: onCountryChanged,
             borderColor: AppColors.primary.withValues(alpha: 0.5),
           ),
-        if (availableCountries.isNotEmpty)
-          AppSpacing.vertical(context, 0.015),
+        if (availableCountries.isNotEmpty) AppSpacing.vertical(context, 0.015),
         // City
         if (availableCities.isNotEmpty)
           AppDropdownField<String>(
@@ -60,10 +59,7 @@ class ClientPropertyFilterLocation extends StatelessWidget {
                 child: Text(AppTexts.clientPropertiesFilterAll),
               ),
               ...availableCities.map((city) {
-                return DropdownMenuItem<String>(
-                  value: city,
-                  child: Text(city),
-                );
+                return DropdownMenuItem<String>(value: city, child: Text(city));
               }),
             ],
             onChanged: onCityChanged,

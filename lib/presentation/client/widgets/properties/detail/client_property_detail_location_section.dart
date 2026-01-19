@@ -26,9 +26,7 @@ class ClientPropertyDetailLocationSection extends StatelessWidget {
         borderRadius: BorderRadius.circular(
           AppResponsive.radius(context, factor: 1.5),
         ),
-        border: Border.all(
-          color: AppColors.grey.withValues(alpha: 0.2),
-        ),
+        border: Border.all(color: AppColors.grey.withValues(alpha: 0.2)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -71,7 +69,8 @@ class ClientPropertyDetailLocationSection extends StatelessWidget {
             ),
           ),
           // Map placeholder - can be replaced with actual map widget
-          if (property.location.lat != null && property.location.lng != null) ...[
+          if (property.location.lat != null &&
+              property.location.lng != null) ...[
             AppSpacing.vertical(context, 0.02),
             Container(
               height: AppResponsive.screenHeight(context) * 0.3,
@@ -87,15 +86,20 @@ class ClientPropertyDetailLocationSection extends StatelessWidget {
                   children: [
                     Icon(
                       Iconsax.map,
-                      size: AppResponsive.scaleSize(context, 48, min: 40, max: 56),
+                      size: AppResponsive.scaleSize(
+                        context,
+                        48,
+                        min: 40,
+                        max: 56,
+                      ),
                       color: AppColors.primary,
                     ),
                     AppSpacing.vertical(context, 0.01),
                     Text(
                       'Map View',
-                      style: AppTextStyles.bodyText(context).copyWith(
-                        color: AppColors.grey,
-                      ),
+                      style: AppTextStyles.bodyText(
+                        context,
+                      ).copyWith(color: AppColors.grey),
                     ),
                     Text(
                       'Lat: ${property.location.lat}, Lng: ${property.location.lng}',

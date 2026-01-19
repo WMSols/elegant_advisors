@@ -25,14 +25,19 @@ class FooterTexts {
   static const String contactAddress = "123 Main Street, Lisbon, Portugal";
   static const String contactPhone = "+351 123 456 789";
   static const String contactEmail = "info@elegantadvisors.com";
-  static const String contactWorkingHours = "Monday - Friday: 9:00 AM - 6:00 PM";
+  static const String contactWorkingHours =
+      "Monday - Friday: 9:00 AM - 6:00 PM";
 
   // Social Media Section
   static const String socialTitle = "Follow Us";
-  static const String socialFacebookUrl = "https://www.facebook.com/elegantadvisors";
-  static const String socialInstagramUrl = "https://www.instagram.com/elegantadvisors";
-  static const String socialLinkedInUrl = "https://www.linkedin.com/company/elegantadvisors";
-  static const String socialTwitterUrl = "https://www.twitter.com/elegantadvisors";
+  static const String socialFacebookUrl =
+      "https://www.facebook.com/elegantadvisors";
+  static const String socialInstagramUrl =
+      "https://www.instagram.com/elegantadvisors";
+  static const String socialLinkedInUrl =
+      "https://www.linkedin.com/company/elegantadvisors";
+  static const String socialTwitterUrl =
+      "https://www.twitter.com/elegantadvisors";
 
   // Copyright
   static String copyright() =>

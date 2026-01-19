@@ -31,10 +31,7 @@ class ClientPropertyFilterPropertyType extends StatelessWidget {
           child: Text(AppTexts.clientPropertiesFilterAll),
         ),
         ...availableTypes.map((type) {
-          return DropdownMenuItem<String>(
-            value: type,
-            child: Text(type),
-          );
+          return DropdownMenuItem<String>(value: type, child: Text(type));
         }),
       ],
       onChanged: onChanged,

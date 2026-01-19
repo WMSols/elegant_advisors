@@ -8,11 +8,8 @@ import 'package:elegant_advisors/presentation/client/controllers/properties/clie
 /// Properties page header section
 class PropertiesHeaderSection extends StatelessWidget {
   final ClientPropertiesController controller;
-  
-  const PropertiesHeaderSection({
-    super.key,
-    required this.controller,
-  });
+
+  const PropertiesHeaderSection({super.key, required this.controller});
 
   @override
   Widget build(BuildContext context) {

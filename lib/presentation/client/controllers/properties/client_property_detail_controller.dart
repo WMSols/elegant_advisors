@@ -54,16 +54,19 @@ class ClientPropertyDetailController extends BaseController {
 
     isLoadingRelated.value = true;
     try {
-      final allProperties = await _firestoreService.getPublishedPropertiesOnce();
-      
+      final allProperties = await _firestoreService
+          .getPublishedPropertiesOnce();
+
       // Filter related properties: same location or same type, exclude current
       final related = allProperties.where((p) {
         if (p.id == currentProperty.id) return false;
-        
-        final sameLocation = p.location.city == currentProperty.location.city &&
+
+        final sameLocation =
+            p.location.city == currentProperty.location.city &&
             p.location.country == currentProperty.location.country;
-        final sameType = p.specs.propertyType == currentProperty.specs.propertyType;
-        
+        final sameType =
+            p.specs.propertyType == currentProperty.specs.propertyType;
+
         return sameLocation || sameType;
       }).toList();
 

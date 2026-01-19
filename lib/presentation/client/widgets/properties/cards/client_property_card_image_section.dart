@@ -10,10 +10,7 @@ import 'package:elegant_advisors/domain/models/property_model.dart';
 class ClientPropertyCardImageSection extends StatelessWidget {
   final PropertyModel property;
 
-  const ClientPropertyCardImageSection({
-    super.key,
-    required this.property,
-  });
+  const ClientPropertyCardImageSection({super.key, required this.property});
 
   @override
   Widget build(BuildContext context) {

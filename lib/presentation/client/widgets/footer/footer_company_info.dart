@@ -18,11 +18,7 @@ class FooterCompanyInfo extends StatelessWidget {
           style: AppTextStyles.heading(context).copyWith(
             color: AppColors.white,
             fontWeight: FontWeight.bold,
-            fontSize: AppResponsive.fontSizeClamped(
-              context,
-              min: 20,
-              max: 24,
-            ),
+            fontSize: AppResponsive.fontSizeClamped(context, min: 20, max: 24),
           ),
         ),
         AppSpacing.vertical(context, 0.01),
@@ -30,11 +26,7 @@ class FooterCompanyInfo extends StatelessWidget {
           FooterTexts.companyTagline,
           style: AppTextStyles.bodyText(context).copyWith(
             color: AppColors.white.withValues(alpha: 0.9),
-            fontSize: AppResponsive.fontSizeClamped(
-              context,
-              min: 12,
-              max: 14,
-            ),
+            fontSize: AppResponsive.fontSizeClamped(context, min: 12, max: 14),
           ),
         ),
         AppSpacing.vertical(context, 0.015),
@@ -42,11 +34,7 @@ class FooterCompanyInfo extends StatelessWidget {
           FooterTexts.companyDescription,
           style: AppTextStyles.bodyText(context).copyWith(
             color: AppColors.white.withValues(alpha: 0.7),
-            fontSize: AppResponsive.fontSizeClamped(
-              context,
-              min: 11,
-              max: 13,
-            ),
+            fontSize: AppResponsive.fontSizeClamped(context, min: 11, max: 13),
             height: 1.5,
           ),
         ),

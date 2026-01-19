@@ -11,10 +11,7 @@ import 'package:elegant_advisors/domain/models/property_model.dart';
 class ClientPropertyDetailSpecsSection extends StatelessWidget {
   final PropertyModel property;
 
-  const ClientPropertyDetailSpecsSection({
-    super.key,
-    required this.property,
-  });
+  const ClientPropertyDetailSpecsSection({super.key, required this.property});
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +22,7 @@ class ClientPropertyDetailSpecsSection extends StatelessWidget {
         borderRadius: BorderRadius.circular(
           AppResponsive.radius(context, factor: 1.5),
         ),
-        border: Border.all(
-          color: AppColors.grey.withValues(alpha: 0.2),
-        ),
+        border: Border.all(color: AppColors.grey.withValues(alpha: 0.2)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -69,7 +64,8 @@ class ClientPropertyDetailSpecsSection extends StatelessWidget {
                   'Bathrooms',
                   '${property.specs.bathrooms}',
                 ),
-              if (property.specs.areaSize != null && property.specs.areaUnit != null)
+              if (property.specs.areaSize != null &&
+                  property.specs.areaUnit != null)
                 _buildSpecItem(
                   context,
                   Iconsax.ruler,

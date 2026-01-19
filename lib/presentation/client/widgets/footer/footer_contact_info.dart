@@ -19,11 +19,7 @@ class FooterContactInfo extends StatelessWidget {
           style: AppTextStyles.heading(context).copyWith(
             color: AppColors.white,
             fontWeight: FontWeight.bold,
-            fontSize: AppResponsive.fontSizeClamped(
-              context,
-              min: 16,
-              max: 18,
-            ),
+            fontSize: AppResponsive.fontSizeClamped(context, min: 16, max: 18),
           ),
         ),
         AppSpacing.vertical(context, 0.015),
@@ -32,15 +28,9 @@ class FooterContactInfo extends StatelessWidget {
           text: FooterTexts.contactAddress,
         ),
         AppSpacing.vertical(context, 0.01),
-        FooterContactItem(
-          icon: Icons.phone,
-          text: FooterTexts.contactPhone,
-        ),
+        FooterContactItem(icon: Icons.phone, text: FooterTexts.contactPhone),
         AppSpacing.vertical(context, 0.01),
-        FooterContactItem(
-          icon: Icons.email,
-          text: FooterTexts.contactEmail,
-        ),
+        FooterContactItem(icon: Icons.email, text: FooterTexts.contactEmail),
         AppSpacing.vertical(context, 0.01),
         FooterContactItem(
           icon: Icons.access_time,

@@ -29,9 +29,7 @@ class ClientPropertyDetailFeaturesSection extends StatelessWidget {
         borderRadius: BorderRadius.circular(
           AppResponsive.radius(context, factor: 1.5),
         ),
-        border: Border.all(
-          color: AppColors.grey.withValues(alpha: 0.2),
-        ),
+        border: Border.all(color: AppColors.grey.withValues(alpha: 0.2)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -71,9 +69,7 @@ class ClientPropertyDetailFeaturesSection extends StatelessWidget {
         borderRadius: BorderRadius.circular(
           AppResponsive.radius(context, factor: 1.5),
         ),
-        border: Border.all(
-          color: AppColors.primary.withValues(alpha: 0.3),
-        ),
+        border: Border.all(color: AppColors.primary.withValues(alpha: 0.3)),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,

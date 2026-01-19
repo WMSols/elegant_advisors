@@ -20,11 +20,7 @@ class FooterSocialMedia extends StatelessWidget {
           style: AppTextStyles.heading(context).copyWith(
             color: AppColors.white,
             fontWeight: FontWeight.bold,
-            fontSize: AppResponsive.fontSizeClamped(
-              context,
-              min: 16,
-              max: 18,
-            ),
+            fontSize: AppResponsive.fontSizeClamped(context, min: 16, max: 18),
           ),
         ),
         AppSpacing.vertical(context, 0.015),

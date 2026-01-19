@@ -10,10 +10,7 @@ import 'package:elegant_advisors/core/widgets/buttons/app_button.dart';
 class PropertiesHeaderContent extends StatelessWidget {
   final VoidCallback? onButtonPressed;
 
-  const PropertiesHeaderContent({
-    super.key,
-    this.onButtonPressed,
-  });
+  const PropertiesHeaderContent({super.key, this.onButtonPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +29,11 @@ class PropertiesHeaderContent extends StatelessWidget {
               color: AppColors.white,
               fontWeight: FontWeight.w300,
               letterSpacing: 2,
-              fontSize: AppResponsive.fontSizeClamped(context, min: 28, max: 36),
+              fontSize: AppResponsive.fontSizeClamped(
+                context,
+                min: 28,
+                max: 36,
+              ),
             ),
             textAlign: TextAlign.left,
           ),
@@ -42,7 +43,11 @@ class PropertiesHeaderContent extends StatelessWidget {
             AppTexts.propertiesDescription,
             style: AppTextStyles.bodyText(context).copyWith(
               color: Colors.white.withValues(alpha: 0.8),
-              fontSize: AppResponsive.fontSizeClamped(context, min: 14, max: 18),
+              fontSize: AppResponsive.fontSizeClamped(
+                context,
+                min: 14,
+                max: 18,
+              ),
             ),
             textAlign: TextAlign.left,
           ),

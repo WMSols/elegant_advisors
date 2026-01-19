@@ -35,12 +35,17 @@ class AdminNavigationContent extends StatelessWidget {
         final availableHeight = constraints.maxHeight;
 
         // Simplified responsive calculations
-        double getPadding(double normal, double small, double verySmall, double extreme) {
-              if (availableHeight < 150) return extreme;
-              if (availableHeight < 500) return verySmall;
-              if (availableHeight < 600) return small;
-              return normal;
-            }
+        double getPadding(
+          double normal,
+          double small,
+          double verySmall,
+          double extreme,
+        ) {
+          if (availableHeight < 150) return extreme;
+          if (availableHeight < 500) return verySmall;
+          if (availableHeight < 600) return small;
+          return normal;
+        }
 
         final logoVerticalPadding = getPadding(
           AppResponsive.scaleSize(context, 24, min: 16, max: 32),

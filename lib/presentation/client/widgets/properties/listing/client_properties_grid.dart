@@ -21,7 +21,7 @@ class ClientPropertiesGrid extends StatelessWidget {
     }
 
     final spacing = AppResponsive.scaleSize(context, 24, min: 16, max: 32);
-    
+
     if (AppResponsive.isMobile(context)) {
       // Mobile: Single column with natural height
       return Column(

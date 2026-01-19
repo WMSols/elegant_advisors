@@ -52,11 +52,7 @@ class ClientPropertiesPagination extends StatelessWidget {
           '${AppTexts.clientPropertiesPaginationShowing} $startItem-$endItem ${AppTexts.clientPropertiesPaginationOf} $totalItems ${AppTexts.clientPropertiesPaginationResults}',
           style: AppTextStyles.bodyText(context).copyWith(
             color: AppColors.primary,
-            fontSize: AppResponsive.fontSizeClamped(
-              context,
-              min: 12,
-              max: 14,
-            ),
+            fontSize: AppResponsive.fontSizeClamped(context, min: 12, max: 14),
           ),
         ),
         AppSpacing.vertical(context, 0.02),
@@ -88,10 +84,7 @@ class ClientPropertiesPagination extends StatelessWidget {
                         max: 6,
                       ),
                     ),
-                    child: Text(
-                      '...',
-                      style: AppTextStyles.bodyText(context),
-                    ),
+                    child: Text('...', style: AppTextStyles.bodyText(context)),
                   );
                 }
 
@@ -99,8 +92,18 @@ class ClientPropertiesPagination extends StatelessWidget {
                 return GestureDetector(
                   onTap: () => onPageChanged(pageNum),
                   child: Container(
-                    width: AppResponsive.scaleSize(context, 40, min: 32, max: 48),
-                    height: AppResponsive.scaleSize(context, 40, min: 32, max: 48),
+                    width: AppResponsive.scaleSize(
+                      context,
+                      40,
+                      min: 32,
+                      max: 48,
+                    ),
+                    height: AppResponsive.scaleSize(
+                      context,
+                      40,
+                      min: 32,
+                      max: 48,
+                    ),
                     decoration: BoxDecoration(
                       color: isActive ? AppColors.primary : AppColors.white,
                       borderRadius: BorderRadius.circular(
@@ -117,7 +120,9 @@ class ClientPropertiesPagination extends StatelessWidget {
                         '$pageNum',
                         style: AppTextStyles.bodyText(context).copyWith(
                           color: isActive ? AppColors.white : AppColors.primary,
-                          fontWeight: isActive ? FontWeight.bold : FontWeight.normal,
+                          fontWeight: isActive
+                              ? FontWeight.bold
+                              : FontWeight.normal,
                           fontSize: AppResponsive.fontSizeClamped(
                             context,
                             min: 14,

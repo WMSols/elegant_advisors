@@ -6,6 +6,9 @@ class ClientPropertiesBinding extends Bindings {
   void dependencies() {
     // Use Get.put instead of Get.lazyPut to ensure a fresh instance for each route navigation
     // This ensures the controller is created immediately and is route-specific
-    Get.put<ClientPropertiesController>(ClientPropertiesController(), permanent: false);
+    Get.put<ClientPropertiesController>(
+      ClientPropertiesController(),
+      permanent: false,
+    );
   }
 }

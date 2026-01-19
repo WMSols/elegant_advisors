@@ -48,23 +48,20 @@ class _ClientPropertyDetailImageGalleryState
   }
 
   void _startAutoScroll() {
-    _autoScrollTimer = Timer.periodic(
-      widget.autoScrollDuration,
-      (_) {
-        if (_pageController.hasClients) {
-          if (_currentIndex < widget.images.length - 1) {
-            _currentIndex++;
-          } else {
-            _currentIndex = 0;
-          }
-          _pageController.animateToPage(
-            _currentIndex,
-            duration: const Duration(milliseconds: 500),
-            curve: Curves.easeInOut,
-          );
+    _autoScrollTimer = Timer.periodic(widget.autoScrollDuration, (_) {
+      if (_pageController.hasClients) {
+        if (_currentIndex < widget.images.length - 1) {
+          _currentIndex++;
+        } else {
+          _currentIndex = 0;
         }
-      },
-    );
+        _pageController.animateToPage(
+          _currentIndex,
+          duration: const Duration(milliseconds: 500),
+          curve: Curves.easeInOut,
+        );
+      }
+    });
   }
 
   void _onPageChanged(int index) {
@@ -190,7 +187,9 @@ class _ClientPropertyDetailImageGalleryState
           : AppResponsive.scaleSize(context, 10, min: 8, max: 12),
       height: AppResponsive.scaleSize(context, 10, min: 8, max: 12),
       decoration: BoxDecoration(
-        color: isActive ? AppColors.white : AppColors.white.withValues(alpha: 0.5),
+        color: isActive
+            ? AppColors.white
+            : AppColors.white.withValues(alpha: 0.5),
         borderRadius: BorderRadius.circular(
           AppResponsive.radius(context, factor: 2),
         ),
@@ -198,7 +197,11 @@ class _ClientPropertyDetailImageGalleryState
     );
   }
 
-  Widget _buildArrowButton(BuildContext context, IconData icon, VoidCallback onTap) {
+  Widget _buildArrowButton(
+    BuildContext context,
+    IconData icon,
+    VoidCallback onTap,
+  ) {
     return GestureDetector(
       onTap: onTap,
       child: Container(

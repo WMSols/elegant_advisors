@@ -31,11 +31,7 @@ class ClientPropertyDetailRelatedProperties extends StatelessWidget {
         Text(
           AppTexts.clientPropertyDetailRelatedProperties,
           style: AppTextStyles.heading(context).copyWith(
-            fontSize: AppResponsive.fontSizeClamped(
-              context,
-              min: 24,
-              max: 32,
-            ),
+            fontSize: AppResponsive.fontSizeClamped(context, min: 24, max: 32),
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -46,8 +42,8 @@ class ClientPropertyDetailRelatedProperties extends StatelessWidget {
             final crossAxisCount = AppResponsive.isMobile(context)
                 ? 1
                 : AppResponsive.isTablet(context)
-                    ? 2
-                    : 3;
+                ? 2
+                : 3;
 
             return GridView.builder(
               shrinkWrap: true,
@@ -76,8 +72,10 @@ class ClientPropertyDetailRelatedProperties extends StatelessWidget {
                   index: index,
                   onTap: () {
                     Get.toNamed(
-                      ClientConstants.routeClientPropertyDetail
-                          .replaceAll(':slug', property.slug),
+                      ClientConstants.routeClientPropertyDetail.replaceAll(
+                        ':slug',
+                        property.slug,
+                      ),
                     );
                   },
                 );

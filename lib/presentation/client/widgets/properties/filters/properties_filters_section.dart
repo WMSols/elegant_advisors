@@ -7,11 +7,8 @@ import 'package:elegant_advisors/presentation/client/controllers/properties/clie
 /// Properties filters and sort section
 class PropertiesFiltersSection extends StatelessWidget {
   final ClientPropertiesController controller;
-  
-  const PropertiesFiltersSection({
-    super.key,
-    required this.controller,
-  });
+
+  const PropertiesFiltersSection({super.key, required this.controller});
 
   @override
   Widget build(BuildContext context) {

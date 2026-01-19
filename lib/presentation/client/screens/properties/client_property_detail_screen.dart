@@ -73,9 +73,7 @@ class ClientPropertyDetailScreen
                     AppSpacing.vertical(context, 0.03),
                     // Image Gallery
                     ClientPropertyDetailImageGallery(
-                      images: property.images.isNotEmpty
-                          ? property.images
-                          : [],
+                      images: property.images.isNotEmpty ? property.images : [],
                       height: AppResponsive.screenHeight(context) * 0.5,
                     ),
                     AppSpacing.vertical(context, 0.04),

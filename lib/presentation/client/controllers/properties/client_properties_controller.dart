@@ -17,7 +17,7 @@ class ClientPropertiesController extends BaseController {
   final filteredProperties = <PropertyModel>[].obs;
   final displayedProperties = <PropertyModel>[].obs;
   final featuredProperties = <PropertyModel>[].obs;
-  
+
   // State
   final isLoadingProperties = false.obs;
   @override
@@ -25,18 +25,18 @@ class ClientPropertiesController extends BaseController {
   final scrollController = ScrollController();
   final showHeader = false.obs;
   final GlobalKey listingSectionKey = GlobalKey();
-  
+
   // Stream subscription
   StreamSubscription<List<PropertyModel>>? _propertiesSubscription;
-  
+
   // Filters & Sort
   final filters = PropertyFilters().obs;
   final sortOption = Rxn<PropertySortOption>();
-  
+
   // Pagination
   final currentPage = 1.obs;
   final itemsPerPage = 12;
-  
+
   // Available filter options
   final availablePropertyTypes = <String>[].obs;
   final availableCountries = <String>[].obs;
@@ -75,26 +75,29 @@ class ClientPropertiesController extends BaseController {
   Future<void> loadProperties() async {
     isLoadingProperties.value = true;
     errorMessage.value = '';
-    
+
     // Cancel existing subscription if any
     await _propertiesSubscription?.cancel();
-    
+
     try {
       // Use stream for real-time updates
-      _propertiesSubscription = _firestoreService.getPublishedProperties().listen(
-        (fetchedProperties) {
-          allProperties.value = fetchedProperties;
-          _extractFilterOptions();
-          applyFilters();
-          isLoadingProperties.value = false;
-          update(); // Notify GetBuilder to rebuild
-        },
-        onError: (error) {
-          errorMessage.value = 'Failed to load properties: ${error.toString()}';
-          showError('Failed to load properties');
-          isLoadingProperties.value = false;
-        },
-      );
+      _propertiesSubscription = _firestoreService
+          .getPublishedProperties()
+          .listen(
+            (fetchedProperties) {
+              allProperties.value = fetchedProperties;
+              _extractFilterOptions();
+              applyFilters();
+              isLoadingProperties.value = false;
+              update(); // Notify GetBuilder to rebuild
+            },
+            onError: (error) {
+              errorMessage.value =
+                  'Failed to load properties: ${error.toString()}';
+              showError('Failed to load properties');
+              isLoadingProperties.value = false;
+            },
+          );
     } catch (e) {
       errorMessage.value = 'Failed to load properties: ${e.toString()}';
       showError('Failed to load properties');
@@ -136,61 +139,89 @@ class ClientPropertiesController extends BaseController {
 
     // Apply filters
     final currentFilters = filters.value;
-    
+
     if (currentFilters.propertyType != null) {
-      filtered = filtered.where((p) =>
-          p.specs.propertyType == currentFilters.propertyType).toList();
+      filtered = filtered
+          .where((p) => p.specs.propertyType == currentFilters.propertyType)
+          .toList();
     }
 
     if (currentFilters.country != null) {
-      filtered = filtered.where((p) =>
-          p.location.country == currentFilters.country).toList();
+      filtered = filtered
+          .where((p) => p.location.country == currentFilters.country)
+          .toList();
     }
 
     if (currentFilters.city != null) {
-      filtered = filtered.where((p) =>
-          p.location.city == currentFilters.city).toList();
+      filtered = filtered
+          .where((p) => p.location.city == currentFilters.city)
+          .toList();
     }
 
     if (currentFilters.minPrice != null) {
-      filtered = filtered.where((p) =>
-          p.price.amount != null &&
-          p.price.amount! >= currentFilters.minPrice!).toList();
+      filtered = filtered
+          .where(
+            (p) =>
+                p.price.amount != null &&
+                p.price.amount! >= currentFilters.minPrice!,
+          )
+          .toList();
     }
 
     if (currentFilters.maxPrice != null) {
-      filtered = filtered.where((p) =>
-          p.price.amount != null &&
-          p.price.amount! <= currentFilters.maxPrice!).toList();
+      filtered = filtered
+          .where(
+            (p) =>
+                p.price.amount != null &&
+                p.price.amount! <= currentFilters.maxPrice!,
+          )
+          .toList();
     }
 
     if (currentFilters.minBedrooms != null) {
-      filtered = filtered.where((p) =>
-          p.specs.bedrooms != null &&
-          p.specs.bedrooms! >= currentFilters.minBedrooms!).toList();
+      filtered = filtered
+          .where(
+            (p) =>
+                p.specs.bedrooms != null &&
+                p.specs.bedrooms! >= currentFilters.minBedrooms!,
+          )
+          .toList();
     }
 
     if (currentFilters.maxBedrooms != null) {
-      filtered = filtered.where((p) =>
-          p.specs.bedrooms != null &&
-          p.specs.bedrooms! <= currentFilters.maxBedrooms!).toList();
+      filtered = filtered
+          .where(
+            (p) =>
+                p.specs.bedrooms != null &&
+                p.specs.bedrooms! <= currentFilters.maxBedrooms!,
+          )
+          .toList();
     }
 
     if (currentFilters.minBathrooms != null) {
-      filtered = filtered.where((p) =>
-          p.specs.bathrooms != null &&
-          p.specs.bathrooms! >= currentFilters.minBathrooms!).toList();
+      filtered = filtered
+          .where(
+            (p) =>
+                p.specs.bathrooms != null &&
+                p.specs.bathrooms! >= currentFilters.minBathrooms!,
+          )
+          .toList();
     }
 
     if (currentFilters.maxBathrooms != null) {
-      filtered = filtered.where((p) =>
-          p.specs.bathrooms != null &&
-          p.specs.bathrooms! <= currentFilters.maxBathrooms!).toList();
+      filtered = filtered
+          .where(
+            (p) =>
+                p.specs.bathrooms != null &&
+                p.specs.bathrooms! <= currentFilters.maxBathrooms!,
+          )
+          .toList();
     }
 
     if (currentFilters.statuses.isNotEmpty) {
-      filtered = filtered.where((p) =>
-          currentFilters.statuses.contains(p.status)).toList();
+      filtered = filtered
+          .where((p) => currentFilters.statuses.contains(p.status))
+          .toList();
     }
 
     if (currentFilters.featuredOnly) {
@@ -291,9 +322,9 @@ class ClientPropertiesController extends BaseController {
   }
 
   int get totalPages => AppPaginationHelper.calculateTotalPages(
-        filteredProperties.length,
-        itemsPerPage,
-      );
+    filteredProperties.length,
+    itemsPerPage,
+  );
 
   Future<void> viewProperty(PropertyModel property) async {
     await _analyticsService.logPropertyView(property.id ?? '', property.title);

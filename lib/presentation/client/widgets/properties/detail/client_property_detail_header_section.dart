@@ -12,10 +12,7 @@ import 'package:elegant_advisors/domain/models/property_model.dart';
 class ClientPropertyDetailHeaderSection extends StatelessWidget {
   final PropertyModel property;
 
-  const ClientPropertyDetailHeaderSection({
-    super.key,
-    required this.property,
-  });
+  const ClientPropertyDetailHeaderSection({super.key, required this.property});
 
   @override
   Widget build(BuildContext context) {
@@ -62,11 +59,11 @@ class ClientPropertyDetailHeaderSection extends StatelessWidget {
                 property.price.isOnRequest
                     ? AppTexts.clientPropertiesPriceOnRequest
                     : property.price.amount == null
-                        ? AppTexts.clientPropertiesPriceOnRequest
-                        : AppHelpers.formatCurrency(
-                            property.price.amount!,
-                            property.price.currency,
-                          ),
+                    ? AppTexts.clientPropertiesPriceOnRequest
+                    : AppHelpers.formatCurrency(
+                        property.price.amount!,
+                        property.price.currency,
+                      ),
                 style: AppTextStyles.heading(context).copyWith(
                   color: AppColors.primary,
                   fontSize: AppResponsive.fontSizeClamped(

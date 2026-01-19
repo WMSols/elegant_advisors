@@ -92,16 +92,18 @@ class AppTexts {
   static const String propertiesSubtitle = "Property Listings for Sale";
   static const String propertiesDescription =
       "Browse our curated selection of premium properties available for purchase.";
-  
+
   // Client Properties
   static const String clientPropertiesShowMore = "Show More";
   static const String clientPropertiesShowLess = "Show Less";
   static const String clientPropertiesPriceOnRequest = "Price on Request";
   static const String clientPropertiesViewDetails = "View Details";
   static const String clientPropertiesNoPropertiesFound = "No properties found";
-  static const String clientPropertiesNoPropertiesMessage = "We couldn't find any properties matching your criteria. Try adjusting your filters.";
+  static const String clientPropertiesNoPropertiesMessage =
+      "We couldn't find any properties matching your criteria. Try adjusting your filters.";
   static const String clientPropertiesClearFilters = "Clear Filters";
-  static const String clientPropertiesErrorLoading = "Failed to load properties";
+  static const String clientPropertiesErrorLoading =
+      "Failed to load properties";
   static const String clientPropertiesRetry = "Retry";
   static const String clientPropertiesFilters = "Filters";
   static const String clientPropertiesSortBy = "Sort By";
@@ -123,14 +125,16 @@ class AppTexts {
   static const String clientPropertiesPaginationShowing = "Showing";
   static const String clientPropertiesPaginationOf = "of";
   static const String clientPropertiesPaginationResults = "results";
-  
+
   // Property Detail
-  static const String clientPropertyDetailInquire = "Inquire About This Property";
+  static const String clientPropertyDetailInquire =
+      "Inquire About This Property";
   static const String clientPropertyDetailSpecifications = "Specifications";
   static const String clientPropertyDetailFeatures = "Features";
   static const String clientPropertyDetailLocation = "Location";
   static const String clientPropertyDetailDescription = "Description";
-  static const String clientPropertyDetailRelatedProperties = "Related Properties";
+  static const String clientPropertyDetailRelatedProperties =
+      "Related Properties";
   static const String clientPropertyDetailNotFound = "Property not found";
   static const String clientPropertyDetailBreadcrumbHome = "Home";
   static const String clientPropertyDetailBreadcrumbProperties = "Properties";

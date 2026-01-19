@@ -27,8 +27,8 @@ class AppFooter extends StatelessWidget {
             child: isMobile
                 ? _buildMobileLayout(context)
                 : isTablet
-                    ? _buildTabletLayout(context)
-                    : _buildDesktopLayout(context),
+                ? _buildTabletLayout(context)
+                : _buildDesktopLayout(context),
           ),
           // Copyright Bar
           const FooterCopyright(),
@@ -86,28 +86,16 @@ class AppFooter extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         // Company Info Column
-        const Expanded(
-          flex: 3,
-          child: FooterCompanyInfo(),
-        ),
+        const Expanded(flex: 3, child: FooterCompanyInfo()),
         AppSpacing.horizontal(context, 0.02),
         // Quick Links Column
-        const Expanded(
-          flex: 2,
-          child: FooterQuickLinks(),
-        ),
+        const Expanded(flex: 2, child: FooterQuickLinks()),
         AppSpacing.horizontal(context, 0.02),
         // Contact Column
-        const Expanded(
-          flex: 2,
-          child: FooterContactInfo(),
-        ),
+        const Expanded(flex: 2, child: FooterContactInfo()),
         AppSpacing.horizontal(context, 0.02),
         // Social Media Column
-        const Expanded(
-          flex: 2,
-          child: FooterSocialMedia(),
-        ),
+        const Expanded(flex: 2, child: FooterSocialMedia()),
       ],
     );
   }

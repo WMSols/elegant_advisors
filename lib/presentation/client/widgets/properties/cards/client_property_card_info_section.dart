@@ -94,7 +94,8 @@ class ClientPropertyCardInfoSection extends StatelessWidget {
           backgroundColor: AppColors.primary,
           textColor: AppColors.white,
           width: isMobile ? double.infinity : null,
-          onPressed: onTap ??
+          onPressed:
+              onTap ??
               () {
                 Get.toNamed(
                   ClientConstants.routeClientPropertyDetail.replaceAll(

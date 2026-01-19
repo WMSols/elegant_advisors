@@ -7,11 +7,7 @@ class FooterLink extends StatelessWidget {
   final String text;
   final VoidCallback onTap;
 
-  const FooterLink({
-    super.key,
-    required this.text,
-    required this.onTap,
-  });
+  const FooterLink({super.key, required this.text, required this.onTap});
 
   @override
   Widget build(BuildContext context) {

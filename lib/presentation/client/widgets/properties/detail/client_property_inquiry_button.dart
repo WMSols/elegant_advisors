@@ -9,10 +9,7 @@ import 'package:elegant_advisors/core/widgets/buttons/app_button.dart';
 class ClientPropertyInquiryButton extends StatelessWidget {
   final String? propertyId;
 
-  const ClientPropertyInquiryButton({
-    super.key,
-    this.propertyId,
-  });
+  const ClientPropertyInquiryButton({super.key, this.propertyId});
 
   @override
   Widget build(BuildContext context) {
@@ -20,10 +17,7 @@ class ClientPropertyInquiryButton extends StatelessWidget {
       text: AppTexts.clientPropertyDetailInquire,
       onPressed: () {
         // Navigate to contact page with propertyId
-        Get.toNamed(
-          ClientConstants.routeClientContact,
-          arguments: propertyId,
-        );
+        Get.toNamed(ClientConstants.routeClientContact, arguments: propertyId);
       },
       width: AppResponsive.screenWidth(context) * 0.4,
     );
