@@ -33,7 +33,7 @@ class AdminPropertyDetailContent extends StatelessWidget {
           // Location
           AdminPropertyDetailSection(
             label: AppTexts.adminPropertyDetailLocation,
-            icon: Iconsax.location,
+            icon: Icons.location_pin,
             value: AppHelpers.formatPropertyLocationFull(
               property.location.country,
               property.location.city,

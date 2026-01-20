@@ -9,14 +9,21 @@ import 'package:elegant_advisors/domain/models/property_model.dart';
 /// Property card image section with status badge overlay
 class ClientPropertyCardImageSection extends StatelessWidget {
   final PropertyModel property;
+  final double? fixedHeight; // Optional fixed height for constrained layouts
 
-  const ClientPropertyCardImageSection({super.key, required this.property});
+  const ClientPropertyCardImageSection({
+    super.key,
+    required this.property,
+    this.fixedHeight,
+  });
 
   @override
   Widget build(BuildContext context) {
-    final imageHeight = AppResponsive.isMobile(context)
-        ? AppResponsive.screenHeight(context) * 0.4
-        : AppResponsive.screenHeight(context) * 0.6;
+    final imageHeight =
+        fixedHeight ??
+        (AppResponsive.isMobile(context)
+            ? AppResponsive.screenHeight(context) * 0.4
+            : AppResponsive.screenHeight(context) * 0.6);
 
     if (property.images.isEmpty) {
       return Container(

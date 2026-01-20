@@ -13,13 +13,17 @@ class ClientPropertiesScreen extends GetView<ClientPropertiesController> {
 
   @override
   Widget build(BuildContext context) {
+    final scrollCtrl = controller.scrollController;
+    final listingKey = controller.listingSectionKey;
+
     return Scaffold(
       drawer: HeaderMobileDrawer(onClose: () => Navigator.of(context).pop()),
       body: Stack(
         children: [
           // Main scrollable content
           SingleChildScrollView(
-            controller: controller.scrollController,
+            key: controller.scrollViewKey,
+            controller: scrollCtrl,
             child: Column(
               children: [
                 // Header Section
@@ -28,7 +32,7 @@ class ClientPropertiesScreen extends GetView<ClientPropertiesController> {
                 PropertiesFiltersSection(controller: controller),
                 // Properties Listing Section
                 PropertiesListingSection(
-                  sectionKey: controller.listingSectionKey,
+                  key: listingKey,
                   controller: controller,
                 ),
                 // Footer

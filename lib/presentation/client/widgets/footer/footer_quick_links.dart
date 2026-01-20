@@ -7,6 +7,8 @@ import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
 import 'package:elegant_advisors/core/utils/app_texts/footer_texts.dart';
 import 'package:elegant_advisors/core/constants/client_constants.dart';
 import 'package:elegant_advisors/presentation/client/widgets/footer/footer_link.dart';
+import 'package:elegant_advisors/presentation/client/controllers/properties/client_properties_controller.dart';
+import 'package:elegant_advisors/presentation/client/controllers/properties/client_property_detail_controller.dart';
 
 class FooterQuickLinks extends StatelessWidget {
   const FooterQuickLinks({super.key});
@@ -41,7 +43,16 @@ class FooterQuickLinks extends StatelessWidget {
             if (FooterTexts.onPropertiesTap != null) {
               FooterTexts.onPropertiesTap!();
             } else {
-              Get.toNamed(ClientConstants.routeClientProperties);
+              // Delete both controllers to ensure clean state
+              if (Get.isRegistered<ClientPropertyDetailController>()) {
+                Get.delete<ClientPropertyDetailController>(force: true);
+              }
+              if (Get.isRegistered<ClientPropertiesController>()) {
+                Get.delete<ClientPropertiesController>(force: true);
+              }
+              // Use offNamed to replace current route, ensuring old route is fully removed
+              // This prevents both widget trees from existing simultaneously
+              Get.offNamed(ClientConstants.routeClientProperties);
             }
           },
         ),

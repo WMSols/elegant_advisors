@@ -1,3 +1,4 @@
+import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:elegant_advisors/core/constants/client_constants.dart';
@@ -13,13 +14,20 @@ class ClientPropertyInquiryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppButton(
-      text: AppTexts.clientPropertyDetailInquire,
-      onPressed: () {
-        // Navigate to contact page with propertyId
-        Get.toNamed(ClientConstants.routeClientContact, arguments: propertyId);
-      },
-      width: AppResponsive.screenWidth(context) * 0.4,
+    return Center(
+      child: AppButton(
+        text: AppTexts.clientPropertyDetailInquire,
+        onPressed: () {
+          // Navigate to contact page with propertyId
+          Get.toNamed(
+            ClientConstants.routeClientContact,
+            arguments: propertyId,
+          );
+        },
+        width: AppResponsive.screenWidth(context) * 0.4,
+        backgroundColor: AppColors.primary,
+        textColor: AppColors.white,
+      ),
     );
   }
 }

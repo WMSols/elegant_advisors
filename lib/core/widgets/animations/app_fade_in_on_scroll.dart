@@ -43,8 +43,23 @@ class _AppFadeInOnScrollState extends State<AppFadeInOnScroll>
     try {
       final homeController = Get.find<ClientHomeController>();
       _scrollController = homeController.scrollController;
-      _lastScrollPosition = _scrollController?.position.pixels ?? 0.0;
-      _scrollController?.addListener(_checkVisibility);
+      // Only access position if the controller has clients (is attached to a scroll view)
+      if (_scrollController != null && _scrollController!.hasClients) {
+        _lastScrollPosition = _scrollController!.position.pixels;
+        _scrollController!.addListener(_checkVisibility);
+      } else {
+        // If not attached yet, set initial position to 0 and wait for attachment
+        _lastScrollPosition = 0.0;
+        // Try to add listener after a delay to allow scroll view to attach
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (mounted &&
+              _scrollController != null &&
+              _scrollController!.hasClients) {
+            _lastScrollPosition = _scrollController!.position.pixels;
+            _scrollController!.addListener(_checkVisibility);
+          }
+        });
+      }
       // Check initial visibility after widget is fully laid out
       WidgetsBinding.instance.addPostFrameCallback((_) {
         // Multiple checks to ensure we catch the visibility state
@@ -89,7 +104,16 @@ class _AppFadeInOnScrollState extends State<AppFadeInOnScroll>
         position.dy + size.height > -widget.offset;
 
     // Get current scroll position to determine scroll direction
-    final currentScrollPosition = _scrollController?.position.pixels ?? 0.0;
+    // Only access position if the controller has clients (is attached to a scroll view)
+    double currentScrollPosition = 0.0;
+    if (_scrollController != null && _scrollController!.hasClients) {
+      try {
+        currentScrollPosition = _scrollController!.position.pixels;
+      } catch (e) {
+        // Scroll controller might be disposed or detached, use last known position
+        currentScrollPosition = _lastScrollPosition;
+      }
+    }
     final isScrollingDown = currentScrollPosition > _lastScrollPosition;
     _lastScrollPosition = currentScrollPosition;
 

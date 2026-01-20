@@ -26,11 +26,18 @@ class ClientPropertyCardSpecItem extends StatelessWidget {
           color: AppColors.primary,
         ),
         AppSpacing.horizontal(context, 0.01),
-        Text(
-          text,
-          style: AppTextStyles.bodyText(context).copyWith(
-            color: AppColors.black.withValues(alpha: 0.7),
-            fontSize: AppResponsive.fontSizeClamped(context, min: 14, max: 16),
+        Flexible(
+          child: Text(
+            text,
+            style: AppTextStyles.bodyText(context).copyWith(
+              color: AppColors.black.withValues(alpha: 0.7),
+              fontSize: AppResponsive.fontSizeClamped(
+                context,
+                min: 14,
+                max: 16,
+              ),
+            ),
+            overflow: TextOverflow.ellipsis,
           ),
         ),
       ],

@@ -8,6 +8,8 @@ import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
 import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
 import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
 import 'package:elegant_advisors/core/widgets/buttons/app_icon_button.dart';
+import 'package:elegant_advisors/presentation/client/controllers/properties/client_properties_controller.dart';
+import 'package:elegant_advisors/presentation/client/controllers/properties/client_property_detail_controller.dart';
 
 class HeaderMobileDrawer extends StatelessWidget {
   final VoidCallback onClose;
@@ -109,7 +111,21 @@ class _MobileDrawerItemState extends State<_MobileDrawerItem> {
           onExit: (_) => setState(() => _isHovered = false),
           child: InkWell(
             onTap: () {
-              Get.toNamed(widget.route);
+              // Special handling for properties route to prevent GlobalKey/ScrollController conflicts
+              if (widget.route == ClientConstants.routeClientProperties) {
+                // Delete both controllers to ensure clean state
+                if (Get.isRegistered<ClientPropertyDetailController>()) {
+                  Get.delete<ClientPropertyDetailController>(force: true);
+                }
+                if (Get.isRegistered<ClientPropertiesController>()) {
+                  Get.delete<ClientPropertiesController>(force: true);
+                }
+                // Use offNamed to replace current route, ensuring old route is fully removed
+                // This prevents both widget trees from existing simultaneously
+                Get.offNamed(ClientConstants.routeClientProperties);
+              } else {
+                Get.toNamed(widget.route);
+              }
               widget.onTap();
             },
             child: Container(

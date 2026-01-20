@@ -23,25 +23,10 @@ class FooterSocialIcon extends StatelessWidget {
             // launchUrl(Uri.parse(url));
           }
         },
-        child: Container(
-          padding: EdgeInsets.all(
-            AppResponsive.scaleSize(context, 10, min: 8, max: 12),
-          ),
-          decoration: BoxDecoration(
-            color: AppColors.white.withValues(alpha: 0.1),
-            borderRadius: BorderRadius.circular(
-              AppResponsive.radius(context, factor: 0.5),
-            ),
-            border: Border.all(
-              color: AppColors.white.withValues(alpha: 0.2),
-              width: 1,
-            ),
-          ),
-          child: FaIcon(
-            icon,
-            size: AppResponsive.scaleSize(context, 18, min: 16, max: 20),
-            color: AppColors.white,
-          ),
+        child: FaIcon(
+          icon,
+          size: AppResponsive.scaleSize(context, 18, min: 16, max: 20),
+          color: AppColors.white,
         ),
       ),
     );

@@ -46,7 +46,7 @@ class AdminPropertyLocationSection
             hint: AppTexts.adminPropertyFormAreaHint,
             controller: controller.areaController,
             textInputAction: TextInputAction.next,
-            prefixIcon: const Icon(Iconsax.location),
+            prefixIcon: const Icon(Icons.location_pin),
             errorTextColor: AppColors.white,
             validator: controller.validateArea,
             maxLines: 1,

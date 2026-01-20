@@ -20,6 +20,7 @@ class ClientHomeScreen extends GetView<ClientHomeController> {
         children: [
           // Main scrollable content
           SingleChildScrollView(
+            key: controller.scrollViewKey,
             controller: controller.scrollController,
             child: Column(
               children: [

@@ -137,7 +137,7 @@ class ClientContactScreen extends GetView<ClientContactController> {
         AppSpacing.vertical(context, 0.02),
         _buildInfoItem(
           context,
-          icon: Iconsax.location,
+          icon: Icons.location_pin,
           title: AppTexts.contactOfficeAddress,
           value: AppTexts.contactOfficeAddressValue,
         ),

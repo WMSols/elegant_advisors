@@ -181,7 +181,7 @@ class _SnackbarContent extends StatelessWidget {
                               ),
                               fontWeight: FontWeight.w700,
                               letterSpacing: 0.5,
-                              color: AppColors.black.withOpacity(0.85),
+                              color: AppColors.black.withValues(alpha: 0.85),
                             ),
                           ),
                           Text(
