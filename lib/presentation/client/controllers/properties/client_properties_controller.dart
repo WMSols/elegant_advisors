@@ -22,9 +22,39 @@ class ClientPropertiesController extends BaseController {
   final isLoadingProperties = false.obs;
   @override
   final errorMessage = ''.obs;
-  final scrollController = ScrollController();
+  ScrollController? _scrollController;
   final showHeader = false.obs;
-  final GlobalKey listingSectionKey = GlobalKey();
+  int _keyCounter = 0;
+  GlobalKey?
+  _listingSectionKey; // Keep as GlobalKey for scrollToListing functionality
+  final String _instanceId = DateTime.now().millisecondsSinceEpoch
+      .toString(); // Unique ID per controller instance
+
+  // Use ValueKey for scroll view to avoid duplicate key issues
+  Key get scrollViewKey => ValueKey('properties_scroll_${_keyCounter}');
+
+  // Keep listingSectionKey as GlobalKey for scrollToListing functionality
+  GlobalKey get listingSectionKey {
+    // Only create if null - use instance ID to ensure uniqueness
+    if (_listingSectionKey == null) {
+      _listingSectionKey = GlobalKey(
+        debugLabel: 'properties_listing_${_keyCounter}_$_instanceId',
+      );
+    }
+    return _listingSectionKey!;
+  }
+
+  // Store the listener function so we can remove it properly
+  VoidCallback? _scrollListener;
+
+  // Getter for scroll controller - returns existing or creates new one
+  ScrollController get scrollController {
+    if (_scrollController == null) {
+      _scrollController = ScrollController();
+      _setupScrollListener();
+    }
+    return _scrollController!;
+  }
 
   // Stream subscription
   StreamSubscription<List<PropertyModel>>? _propertiesSubscription;
@@ -43,32 +73,104 @@ class ClientPropertiesController extends BaseController {
   final availableCities = <String>[].obs;
   final maxPrice = Rxn<double>();
 
+  void _disposeScrollController() {
+    if (_scrollController != null) {
+      // Remove listener first
+      if (_scrollListener != null) {
+        try {
+          _scrollController!.removeListener(_scrollListener!);
+        } catch (e) {
+          // Ignore errors during removal - controller might already be disposed
+        }
+      }
+
+      // Dispose the controller
+      try {
+        _scrollController!.dispose();
+      } catch (e) {
+        // Ignore disposal errors - controller might already be disposed
+      }
+
+      _scrollController = null;
+      _scrollListener = null;
+    }
+  }
+
   @override
   void onInit() {
     super.onInit();
-    _setupScrollListener();
+
+    // Always dispose any existing scroll controller and GlobalKey first
+    // This ensures clean state when navigating from other screens
+    _disposeScrollController();
+
+    // Reset GlobalKey - but don't create new one yet
+    // Wait for next frame to ensure old widget tree is disposed
+    _listingSectionKey = null;
+
+    // Increment key counter to ensure unique keys for each navigation
+    _keyCounter++;
+
+    // Don't create GlobalKey here - create it lazily in the getter
+    // This ensures old widget tree is fully disposed before new key is created
+
+    // Create scroll controller - will be created in getter when needed
+    // Don't create here to avoid timing issues during widget build
     loadProperties();
   }
 
   void _setupScrollListener() {
-    scrollController.addListener(() {
-      // Show header background when scrolled down
-      if (scrollController.offset > 100) {
-        if (!showHeader.value) {
-          showHeader.value = true;
+    if (_scrollController == null) return;
+
+    _scrollListener = () {
+      // Check for multiple positions - this indicates the controller is attached to multiple ScrollViews
+      if (_scrollController != null && _scrollController!.hasClients) {
+        final positionsCount = _scrollController!.positions.length;
+        if (positionsCount > 1) {
+          // Schedule disposal after current frame to avoid disposing during notifyListeners
+          // This prevents the "dispose() called during notifyListeners()" error
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            if (_scrollController != null &&
+                _scrollController!.hasClients &&
+                _scrollController!.positions.length > 1) {
+              _disposeScrollController();
+              _scrollController = ScrollController();
+              _setupScrollListener();
+            }
+          });
+          return;
         }
-      } else {
-        if (showHeader.value) {
-          showHeader.value = false;
+
+        // Only access position if controller has exactly one client
+        if (_scrollController != null && positionsCount == 1) {
+          try {
+            final offset = _scrollController!.offset;
+            // Show header background when scrolled down
+            if (offset > 100) {
+              if (!showHeader.value) {
+                showHeader.value = true;
+              }
+            } else {
+              if (showHeader.value) {
+                showHeader.value = false;
+              }
+            }
+          } catch (e) {
+            // Controller might be disposed or have issues, ignore
+          }
         }
       }
-    });
+    };
+
+    _scrollController!.addListener(_scrollListener!);
   }
 
   @override
   void onClose() {
     _propertiesSubscription?.cancel();
-    scrollController.dispose();
+    // Dispose the scroll controller
+    _disposeScrollController();
+    _listingSectionKey = null;
     super.onClose();
   }
 

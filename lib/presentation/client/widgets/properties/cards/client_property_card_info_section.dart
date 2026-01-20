@@ -1,3 +1,4 @@
+import 'package:elegant_advisors/core/utils/app_fonts/app_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -10,6 +11,7 @@ import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
 import 'package:elegant_advisors/core/widgets/buttons/app_button.dart';
 import 'package:elegant_advisors/domain/models/property_model.dart';
 import 'package:elegant_advisors/presentation/client/widgets/properties/cards/client_property_card_spec_item.dart';
+import 'package:elegant_advisors/presentation/client/controllers/properties/client_property_detail_controller.dart';
 
 /// Property card info section (title, description, specs, button)
 class ClientPropertyCardInfoSection extends StatelessWidget {
@@ -37,7 +39,7 @@ class ClientPropertyCardInfoSection extends StatelessWidget {
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisSize: MainAxisSize.min,
       children: [
         // Title
         Text(
@@ -45,12 +47,15 @@ class ClientPropertyCardInfoSection extends StatelessWidget {
           style: AppTextStyles.bodyText(context).copyWith(
             color: AppColors.primary,
             fontWeight: FontWeight.bold,
+            fontFamily: AppFonts.primaryFont,
             fontSize: AppResponsive.fontSizeClamped(context, min: 26, max: 30),
           ),
           textAlign: TextAlign.left,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
         ),
-        AppSpacing.vertical(context, 0.04),
-        // Description
+        AppSpacing.vertical(context, 0.02),
+        // Description - limit length to prevent overflow
         if (description.isNotEmpty)
           Text(
             description,
@@ -59,6 +64,8 @@ class ClientPropertyCardInfoSection extends StatelessWidget {
               height: 1.6,
             ),
             textAlign: TextAlign.left,
+            maxLines: 3,
+            overflow: TextOverflow.ellipsis,
           ),
         if (description.isNotEmpty) AppSpacing.vertical(context, 0.04),
         // Specs
@@ -85,9 +92,9 @@ class ClientPropertyCardInfoSection extends StatelessWidget {
                 ),
             ],
           ),
-          AppSpacing.vertical(context, 0.06),
+          AppSpacing.vertical(context, 0.02),
         ] else
-          AppSpacing.vertical(context, 0.06),
+          AppSpacing.vertical(context, 0.02),
         // Show More Button
         AppButton(
           text: AppTexts.clientPropertiesShowMore,
@@ -97,6 +104,10 @@ class ClientPropertyCardInfoSection extends StatelessWidget {
           onPressed:
               onTap ??
               () {
+                // Delete existing controller to ensure clean state when navigating
+                if (Get.isRegistered<ClientPropertyDetailController>()) {
+                  Get.delete<ClientPropertyDetailController>(force: true);
+                }
                 Get.toNamed(
                   ClientConstants.routeClientPropertyDetail.replaceAll(
                     ':slug',

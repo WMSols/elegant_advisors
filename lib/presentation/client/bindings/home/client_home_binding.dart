@@ -4,6 +4,11 @@ import 'package:elegant_advisors/presentation/client/controllers/home/client_hom
 class ClientHomeBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<ClientHomeController>(() => ClientHomeController());
+    // Use lazyPut with fenix: true to recreate controller when needed
+    // This ensures proper browser navigation support - controller is recreated when navigating back
+    Get.lazyPut<ClientHomeController>(
+      () => ClientHomeController(),
+      fenix: true, // Recreate controller when it's removed and accessed again
+    );
   }
 }

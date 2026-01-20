@@ -1,4 +1,6 @@
+import 'dart:async';
 import 'package:get/get.dart';
+import 'package:flutter/material.dart';
 import 'package:elegant_advisors/data/services/firestore_service.dart';
 import 'package:elegant_advisors/data/services/analytics_service.dart';
 import 'package:elegant_advisors/domain/models/property_model.dart';
@@ -15,15 +17,115 @@ class ClientPropertyDetailController extends BaseController {
   final isLoading = false.obs;
   final isLoadingRelated = false.obs;
   final currentImageIndex = 0.obs;
+  ScrollController? _scrollController;
+  final showHeader = false.obs;
+  int _keyCounter = 0;
+  String? _currentSlug; // Track current slug to detect changes
+
+  // Use ValueKey instead of GlobalKey to avoid duplicate key issues
+  // ValueKey with a counter ensures unique keys without GlobalKey conflicts
+  Key get scrollViewKey =>
+      ValueKey('property_detail_scroll_${_keyCounter}_${slug ?? 'unknown'}');
+
+  // Store the listener function so we can remove it properly
+  VoidCallback? _scrollListener;
+
+  // Getter for scroll controller - returns existing or creates new one
+  ScrollController get scrollController {
+    if (_scrollController == null) {
+      _scrollController = ScrollController();
+      _setupScrollListener();
+    }
+    return _scrollController!;
+  }
 
   String? get slug => Get.parameters['slug'];
+
+  void _disposeScrollController() {
+    if (_scrollController != null) {
+      // Remove listener first
+      if (_scrollListener != null) {
+        try {
+          _scrollController!.removeListener(_scrollListener!);
+        } catch (e) {
+          // Ignore errors during removal - controller might already be disposed
+        }
+      }
+
+      // Dispose the controller
+      try {
+        _scrollController!.dispose();
+      } catch (e) {
+        // Ignore disposal errors - controller might already be disposed
+      }
+
+      _scrollController = null;
+      _scrollListener = null;
+    }
+  }
 
   @override
   void onInit() {
     super.onInit();
+
+    // Always dispose any existing scroll controller first
+    // This ensures clean state when navigating between properties
+    _disposeScrollController();
+
+    // Reset property data to ensure fresh load
+    property.value = null;
+    relatedProperties.clear();
+
+    // Update current slug
+    _currentSlug = slug;
+
+    // Increment key counter to ensure unique key for each navigation
+    _keyCounter++;
+
+    // Always show header background (primary color) in property detail screen
+    showHeader.value = true;
+
+    // Create new scroll controller - will be created in getter when needed
+    // Don't create here to avoid timing issues during widget build
     if (slug != null) {
       loadProperty();
     }
+  }
+
+  @override
+  void onReady() {
+    super.onReady();
+    // Reload property in case slug changed or wasn't available in onInit
+    // This ensures property is loaded even if route parameters weren't ready in onInit
+    final currentSlug = slug;
+    if (currentSlug != null &&
+        (property.value == null || _currentSlug != currentSlug)) {
+      _currentSlug = currentSlug;
+      loadProperty();
+    }
+  }
+
+  void _setupScrollListener() {
+    if (_scrollController == null) return;
+
+    _scrollListener = () {
+      // Property detail screen always shows header with primary color
+      // No need to change based on scroll position
+      // Keep showHeader always true
+      if (!showHeader.value) {
+        showHeader.value = true;
+      }
+    };
+
+    _scrollController!.addListener(_scrollListener!);
+  }
+
+  @override
+  void onClose() {
+    // Dispose the scroll controller
+    _disposeScrollController();
+    _currentSlug = null;
+    super.onClose();
   }
 
   Future<void> loadProperty() async {
@@ -102,7 +204,12 @@ class ClientPropertyDetailController extends BaseController {
       );
     } catch (e) {
       // Silently fail - analytics shouldn't break the page
-      print('Failed to track property visit: $e');
+      // Check if it's a permission error and suppress the error message
+      final errorString = e.toString();
+      if (!errorString.contains('permission-denied')) {
+        // Only log non-permission errors for debugging
+        print('Failed to track property visit: $e');
+      }
     }
   }
 

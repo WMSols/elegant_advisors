@@ -33,7 +33,7 @@ class _AppHeaderState extends State<AppHeader> {
           padding: AppSpacing.symmetric(context, h: 0.04, v: 0.02),
           decoration: BoxDecoration(
             color: widget.showBackground
-                ? AppColors.primary.withValues(alpha: 0.95)
+                ? AppColors.primary
                 : Colors.transparent,
           ),
           child: Row(

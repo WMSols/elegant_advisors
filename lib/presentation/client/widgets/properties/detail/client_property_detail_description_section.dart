@@ -6,26 +6,23 @@ import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
 import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
 import 'package:elegant_advisors/domain/models/property_model.dart';
 
-/// Property features section widget
-class ClientPropertyDetailFeaturesSection extends StatelessWidget {
+/// Property description section widget
+class ClientPropertyDetailDescriptionSection extends StatelessWidget {
   final PropertyModel property;
 
-  const ClientPropertyDetailFeaturesSection({
+  const ClientPropertyDetailDescriptionSection({
     super.key,
     required this.property,
   });
 
   @override
   Widget build(BuildContext context) {
-    if (property.features.isEmpty) {
-      return const SizedBox.shrink();
-    }
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        AppSpacing.horizontal(context, 0.02),
         Text(
-          AppTexts.clientPropertyDetailFeatures,
+          AppTexts.clientPropertyDetailDescription,
           style: AppTextStyles.heading(context).copyWith(
             fontSize: AppResponsive.fontSizeClamped(context, min: 24, max: 30),
             fontWeight: FontWeight.bold,
@@ -33,23 +30,15 @@ class ClientPropertyDetailFeaturesSection extends StatelessWidget {
           ),
         ),
         AppSpacing.vertical(context, 0.03),
-        Wrap(
-          spacing: AppResponsive.scaleSize(context, 16, min: 12, max: 20),
-          runSpacing: AppResponsive.scaleSize(context, 16, min: 12, max: 20),
-          children: property.features.map((feature) {
-            return Text(
-              feature,
-              style: AppTextStyles.bodyText(context).copyWith(
-                color: AppColors.white,
-                fontSize: AppResponsive.fontSizeClamped(
-                  context,
-                  min: 15,
-                  max: 17,
-                ),
-                fontWeight: FontWeight.w600,
-              ),
-            );
-          }).toList(),
+        Text(
+          property.fullDescription.isNotEmpty
+              ? property.fullDescription
+              : property.shortDescription,
+          style: AppTextStyles.bodyText(context).copyWith(
+            fontSize: AppResponsive.fontSizeClamped(context, min: 16, max: 18),
+            height: 1.8,
+            color: AppColors.white,
+          ),
         ),
       ],
     );

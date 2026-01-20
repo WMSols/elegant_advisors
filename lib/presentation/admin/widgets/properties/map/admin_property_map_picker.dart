@@ -312,7 +312,7 @@ class _AdminPropertyMapPickerState extends State<AdminPropertyMapPicker> {
                             child: Row(
                               children: [
                                 Icon(
-                                  Iconsax.location5,
+                                  Icons.location_pin,
                                   color: AppColors.error,
                                   size: 20,
                                 ),
@@ -376,7 +376,7 @@ class _AdminPropertyMapPickerState extends State<AdminPropertyMapPicker> {
                         width: 40,
                         height: 40,
                         child: Icon(
-                          Iconsax.location5,
+                          Icons.location_pin,
                           color: AppColors.error,
                           size: 40,
                         ),
@@ -399,7 +399,7 @@ class _AdminPropertyMapPickerState extends State<AdminPropertyMapPicker> {
             ),
             child: Row(
               children: [
-                Icon(Iconsax.location, color: AppColors.white, size: 16),
+                Icon(Icons.location_pin, color: AppColors.white, size: 16),
                 AppSpacing.horizontal(context, 0.01),
                 Expanded(
                   child: Text(

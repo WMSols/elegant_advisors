@@ -33,6 +33,7 @@ class ClientPropertyDetailHeaderSection extends StatelessWidget {
                     max: 36,
                   ),
                   fontWeight: FontWeight.bold,
+                  color: AppColors.white,
                 ),
               ),
               AppSpacing.vertical(context, 0.01),
@@ -45,7 +46,7 @@ class ClientPropertyDetailHeaderSection extends StatelessWidget {
                   property.location.address,
                 ),
                 style: AppTextStyles.bodyText(context).copyWith(
-                  color: AppColors.primary,
+                  color: AppColors.white,
                   fontSize: AppResponsive.fontSizeClamped(
                     context,
                     min: 16,
@@ -65,7 +66,7 @@ class ClientPropertyDetailHeaderSection extends StatelessWidget {
                         property.price.currency,
                       ),
                 style: AppTextStyles.heading(context).copyWith(
-                  color: AppColors.primary,
+                  color: AppColors.white,
                   fontSize: AppResponsive.fontSizeClamped(
                     context,
                     min: 24,
