@@ -9,6 +9,8 @@ import 'package:elegant_advisors/core/constants/client_constants.dart';
 import 'package:elegant_advisors/presentation/client/widgets/footer/footer_link.dart';
 import 'package:elegant_advisors/presentation/client/controllers/properties/client_properties_controller.dart';
 import 'package:elegant_advisors/presentation/client/controllers/properties/client_property_detail_controller.dart';
+import 'package:elegant_advisors/presentation/client/controllers/contact/client_contact_controller.dart';
+import 'package:elegant_advisors/presentation/client/controllers/contact/my_contacts/client_my_contacts_controller.dart';
 
 class FooterQuickLinks extends StatelessWidget {
   const FooterQuickLinks({super.key});
@@ -82,7 +84,15 @@ class FooterQuickLinks extends StatelessWidget {
             if (FooterTexts.onContactTap != null) {
               FooterTexts.onContactTap!();
             } else {
-              Get.toNamed(ClientConstants.routeClientContact);
+              // Delete both contact controllers to ensure clean state and prevent GlobalKey conflicts
+              if (Get.isRegistered<ClientMyContactsController>()) {
+                Get.delete<ClientMyContactsController>(force: true);
+              }
+              if (Get.isRegistered<ClientContactController>()) {
+                Get.delete<ClientContactController>(force: true);
+              }
+              // Use offNamed to replace current route, ensuring old route is fully removed
+              Get.offNamed(ClientConstants.routeClientContact);
             }
           },
         ),

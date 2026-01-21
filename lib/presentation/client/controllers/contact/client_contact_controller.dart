@@ -23,15 +23,33 @@ class ClientContactController extends BaseController {
   final subjectController = TextEditingController();
   final honeypotController = TextEditingController(); // Spam protection
 
-  final formKey = GlobalKey<FormState>();
   String? propertyId; // Optional: if inquiry is about a specific property
   final scrollController = ScrollController();
-  final scrollViewKey = GlobalKey();
   final showHeader = false.obs;
+  int _keyCounter = 0;
+  GlobalKey<FormState>? _formKey;
+
+  // Recreate formKey on each onInit to avoid duplicate GlobalKey issues
+  // This ensures a fresh key when navigating to this screen
+  GlobalKey<FormState> get formKey {
+    if (_formKey == null) {
+      _formKey = GlobalKey<FormState>();
+    }
+    return _formKey!;
+  }
+
+  // Use ValueKey instead of GlobalKey to avoid duplicate key issues
+  // ValueKey with a counter ensures unique keys without GlobalKey conflicts
+  Key get scrollViewKey => ValueKey('contact_scroll_${_keyCounter}');
 
   @override
   void onInit() {
     super.onInit();
+    // Reset formKey to ensure fresh key for each navigation
+    // This prevents duplicate GlobalKey errors when navigating between screens
+    _formKey = null;
+    // Increment key counter to ensure unique key for each navigation
+    _keyCounter++;
     scrollController.addListener(_onScroll);
     // Get propertyId from route arguments if provided
     final args = Get.arguments;
@@ -49,6 +67,8 @@ class ClientContactController extends BaseController {
     subjectController.dispose();
     scrollController.removeListener(_onScroll);
     scrollController.dispose();
+    // Clear formKey to ensure clean state
+    _formKey = null;
     super.onClose();
   }
 
@@ -150,8 +170,13 @@ class ClientContactController extends BaseController {
 
           // Navigate to my contacts page with email after a delay
           // Use longer delay and add retry mechanism for Firestore eventual consistency
-          // Use offNamed to replace current route and ensure fresh controller instance
+          // Delete contact controller to ensure clean state and prevent GlobalKey conflicts
           Future.delayed(const Duration(milliseconds: 2000), () {
+            // Delete contact controller to ensure clean state
+            if (Get.isRegistered<ClientContactController>()) {
+              Get.delete<ClientContactController>(force: true);
+            }
+            // Use offNamed to replace current route and ensure fresh controller instance
             Get.offNamed(
               ClientConstants.routeClientContacts,
               arguments: submittedEmail,

@@ -10,6 +10,8 @@ import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
 import 'package:elegant_advisors/core/widgets/buttons/app_icon_button.dart';
 import 'package:elegant_advisors/presentation/client/controllers/properties/client_properties_controller.dart';
 import 'package:elegant_advisors/presentation/client/controllers/properties/client_property_detail_controller.dart';
+import 'package:elegant_advisors/presentation/client/controllers/contact/client_contact_controller.dart';
+import 'package:elegant_advisors/presentation/client/controllers/contact/my_contacts/client_my_contacts_controller.dart';
 
 class HeaderMobileDrawer extends StatelessWidget {
   final VoidCallback onClose;
@@ -135,6 +137,17 @@ class _MobileDrawerItemState extends State<_MobileDrawerItem> {
           }
           if (Get.isRegistered<ClientPropertiesController>()) {
             Get.delete<ClientPropertiesController>(force: true);
+          }
+        }
+        
+        // Special handling for contact route to prevent GlobalKey conflicts
+        if (widget.route == ClientConstants.routeClientContact) {
+          // Delete both contact controllers to ensure clean state
+          if (Get.isRegistered<ClientMyContactsController>()) {
+            Get.delete<ClientMyContactsController>(force: true);
+          }
+          if (Get.isRegistered<ClientContactController>()) {
+            Get.delete<ClientContactController>(force: true);
           }
         }
         

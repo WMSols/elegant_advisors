@@ -10,16 +10,34 @@ class ClientMyContactsController extends BaseController {
 
   final contacts = <ContactSubmissionModel>[].obs;
   final emailController = TextEditingController();
-  final formKey = GlobalKey<FormState>();
   final selectedStatus = 'all'.obs;
   final userEmail = Rxn<String>();
   final scrollController = ScrollController();
-  final scrollViewKey = GlobalKey();
   final showHeader = false.obs;
+  int _keyCounter = 0;
+  GlobalKey<FormState>? _formKey;
+
+  // Recreate formKey on each onInit to avoid duplicate GlobalKey issues
+  // This ensures a fresh key when navigating to this screen
+  GlobalKey<FormState> get formKey {
+    if (_formKey == null) {
+      _formKey = GlobalKey<FormState>();
+    }
+    return _formKey!;
+  }
+
+  // Use ValueKey instead of GlobalKey to avoid duplicate key issues
+  // ValueKey with a counter ensures unique keys without GlobalKey conflicts
+  Key get scrollViewKey => ValueKey('my_contacts_scroll_${_keyCounter}');
 
   @override
   void onInit() {
     super.onInit();
+    // Reset formKey to ensure fresh key for each navigation
+    // This prevents duplicate GlobalKey errors when navigating between screens
+    _formKey = null;
+    // Increment key counter to ensure unique key for each navigation
+    _keyCounter++;
     scrollController.addListener(_onScroll);
     // Check if email is passed from route arguments
     final args = Get.arguments;
@@ -52,6 +70,8 @@ class ClientMyContactsController extends BaseController {
     emailController.dispose();
     scrollController.removeListener(_onScroll);
     scrollController.dispose();
+    // Clear formKey to ensure clean state
+    _formKey = null;
     super.onClose();
   }
 
