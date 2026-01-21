@@ -86,6 +86,16 @@ class FooterQuickLinks extends StatelessWidget {
             }
           },
         ),
+        FooterLink(
+          text: FooterTexts.linkMyContacts,
+          onTap: () {
+            if (FooterTexts.onMyContactsTap != null) {
+              FooterTexts.onMyContactsTap!();
+            } else {
+              Get.toNamed(ClientConstants.routeClientContacts);
+            }
+          },
+        ),
         AppSpacing.vertical(context, 0.01),
         Divider(color: AppColors.white.withValues(alpha: 0.2), thickness: 1),
         AppSpacing.vertical(context, 0.01),

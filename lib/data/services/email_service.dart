@@ -1,3 +1,4 @@
+import 'package:cloud_functions/cloud_functions.dart';
 import 'package:elegant_advisors/domain/models/contact_submission_model.dart';
 import 'package:elegant_advisors/domain/models/property_model.dart';
 
@@ -8,20 +9,65 @@ import 'package:elegant_advisors/domain/models/property_model.dart';
 /// - Admin alerts
 /// - Confirmation emails to users (optional)
 ///
-/// Note: Implementation depends on email provider (SendGrid, Mailgun, etc.)
+/// Uses Firebase Cloud Functions for email delivery
 class EmailService {
-  // TODO: Configure email provider (SendGrid, Mailgun, AWS SES, etc.)
+  final FirebaseFunctions _functions = FirebaseFunctions.instance;
 
   /// Send inquiry notification email to admin
   Future<void> sendInquiryNotification(
     ContactSubmissionModel inquiry,
     PropertyModel? property,
   ) async {
-    // TODO: Implement email sending logic
-    // - Format inquiry details
-    // - Include property info if available
-    // - Send to admin email(s)
-    throw UnimplementedError('Email notification not implemented');
+    try {
+      final callable = _functions.httpsCallable('sendInquiryNotification');
+
+      // Convert models to JSON for Cloud Function
+      final inquiryData = {
+        'id': inquiry.id,
+        'name': inquiry.name,
+        'email': inquiry.email,
+        'phone': inquiry.phone,
+        'subject': inquiry.subject,
+        'message': inquiry.message,
+        'propertyId': inquiry.propertyId,
+        'status': inquiry.status,
+        'ipAddress': inquiry.ipAddress,
+        'createdAt': inquiry.createdAt.toIso8601String(),
+      };
+
+      Map<String, dynamic>? propertyData;
+      if (property != null) {
+        propertyData = {
+          'id': property.id,
+          'title': property.title,
+          'slug': property.slug,
+          'shortDescription': property.shortDescription,
+          'location': {
+            'country': property.location.country,
+            'city': property.location.city,
+            'area': property.location.area,
+            'address': property.location.address,
+          },
+          'price': {
+            'amount': property.price.amount,
+            'currency': property.price.currency,
+            'isOnRequest': property.price.isOnRequest,
+          },
+        };
+      }
+
+      await callable.call({
+        'inquiry': inquiryData,
+        'property': propertyData,
+      });
+    } on FirebaseFunctionsException catch (e) {
+      // Log error but don't throw - email failure shouldn't break the flow
+      print('Failed to send inquiry notification: ${e.code} - ${e.message}');
+      rethrow;
+    } catch (e) {
+      print('Error sending inquiry notification: $e');
+      rethrow;
+    }
   }
 
   /// Send admin alert (e.g., new property added, system errors)
@@ -30,24 +76,73 @@ class EmailService {
     required String message,
     String? priority,
   }) async {
-    // TODO: Implement admin alert email
-    throw UnimplementedError('Admin alert email not implemented');
+    try {
+      final callable = _functions.httpsCallable('sendAdminAlert');
+
+      await callable.call({
+        'subject': subject,
+        'message': message,
+        'priority': priority ?? 'medium',
+      });
+    } on FirebaseFunctionsException catch (e) {
+      String errorMessage;
+      switch (e.code) {
+        case 'invalid-argument':
+          errorMessage = e.message ?? 'Invalid input provided';
+          break;
+        case 'permission-denied':
+          errorMessage = 'You do not have permission to send admin alerts';
+          break;
+        case 'unauthenticated':
+          errorMessage = 'You must be logged in to send admin alerts';
+          break;
+        default:
+          errorMessage = e.message ?? 'Failed to send admin alert';
+      }
+      throw Exception(errorMessage);
+    } catch (e) {
+      throw Exception('Failed to send admin alert: ${e.toString()}');
+    }
   }
 
   /// Send confirmation email to user after inquiry submission
   Future<void> sendInquiryConfirmation(ContactSubmissionModel inquiry) async {
-    // TODO: Implement confirmation email
-    // - Thank user for inquiry
-    // - Provide inquiry reference if needed
-    throw UnimplementedError('Confirmation email not implemented');
+    try {
+      final callable = _functions.httpsCallable('sendInquiryConfirmation');
+
+      // Convert model to JSON for Cloud Function
+      final inquiryData = {
+        'id': inquiry.id,
+        'name': inquiry.name,
+        'email': inquiry.email,
+        'phone': inquiry.phone,
+        'subject': inquiry.subject,
+        'message': inquiry.message,
+        'propertyId': inquiry.propertyId,
+        'status': inquiry.status,
+        'ipAddress': inquiry.ipAddress,
+        'createdAt': inquiry.createdAt.toIso8601String(),
+      };
+
+      await callable.call({
+        'inquiry': inquiryData,
+      });
+    } on FirebaseFunctionsException catch (e) {
+      // Log error but don't throw - confirmation email failure shouldn't break the flow
+      print('Failed to send confirmation email: ${e.code} - ${e.message}');
+      rethrow;
+    } catch (e) {
+      print('Error sending confirmation email: $e');
+      rethrow;
+    }
   }
 
   /// Send property inquiry notification (when inquiry is about specific property)
+  /// This is a convenience method that calls sendInquiryNotification with property
   Future<void> sendPropertyInquiryNotification(
     ContactSubmissionModel inquiry,
     PropertyModel property,
   ) async {
-    // TODO: Implement property-specific inquiry notification
-    throw UnimplementedError('Property inquiry notification not implemented');
+    return sendInquiryNotification(inquiry, property);
   }
 }

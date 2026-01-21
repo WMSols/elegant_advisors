@@ -52,6 +52,11 @@ class HeaderMobileDrawer extends StatelessWidget {
                 padding: EdgeInsets.zero,
                 children: [
                   _MobileDrawerItem(
+                    label: AppTexts.navHome,
+                    route: ClientConstants.routeClientHome,
+                    onTap: onClose,
+                  ),
+                  _MobileDrawerItem(
                     label: AppTexts.navProperties,
                     route: ClientConstants.routeClientProperties,
                     onTap: onClose,
@@ -98,37 +103,73 @@ class _MobileDrawerItem extends StatefulWidget {
 
 class _MobileDrawerItemState extends State<_MobileDrawerItem> {
   bool _isHovered = false;
+  bool _isNavigating = false;
 
   @override
   Widget build(BuildContext context) {
     final currentRoute = Get.currentRoute;
     final isActive = currentRoute == widget.route;
 
+    void handleNavigation() {
+      // Prevent double execution if both GestureDetector and InkWell fire
+      if (_isNavigating) {
+        return;
+      }
+      _isNavigating = true;
+      
+      try {
+        final currentRoute = Get.currentRoute;
+        
+        // If already on the target route, just close the drawer
+        if (currentRoute == widget.route) {
+          widget.onTap();
+          _isNavigating = false;
+          return;
+        }
+        
+        // Special handling for properties route to prevent GlobalKey/ScrollController conflicts
+        if (widget.route == ClientConstants.routeClientProperties) {
+          // Delete both controllers to ensure clean state
+          if (Get.isRegistered<ClientPropertyDetailController>()) {
+            Get.delete<ClientPropertyDetailController>(force: true);
+          }
+          if (Get.isRegistered<ClientPropertiesController>()) {
+            Get.delete<ClientPropertiesController>(force: true);
+          }
+        }
+        
+        // Close drawer first, then navigate immediately
+        // The drawer needs to close before navigation to avoid context issues
+        Navigator.of(context).pop();
+        
+        // Use offNamedUntil like admin side - this replaces the Scaffold
+        // Keep routes until we reach home route (or null for initial route)
+        Get.offNamedUntil(
+          widget.route,
+          (route) => route.settings.name == ClientConstants.routeClientHome || route.settings.name == null,
+        );
+        
+      } catch (e) {
+        _isNavigating = false;
+      } finally {
+        // Reset flag after a short delay to allow navigation to complete
+        Future.delayed(const Duration(milliseconds: 300), () {
+          _isNavigating = false;
+        });
+      }
+    }
+
     return Column(
       children: [
         MouseRegion(
           onEnter: (_) => setState(() => _isHovered = true),
           onExit: (_) => setState(() => _isHovered = false),
-          child: InkWell(
-            onTap: () {
-              // Special handling for properties route to prevent GlobalKey/ScrollController conflicts
-              if (widget.route == ClientConstants.routeClientProperties) {
-                // Delete both controllers to ensure clean state
-                if (Get.isRegistered<ClientPropertyDetailController>()) {
-                  Get.delete<ClientPropertyDetailController>(force: true);
-                }
-                if (Get.isRegistered<ClientPropertiesController>()) {
-                  Get.delete<ClientPropertiesController>(force: true);
-                }
-                // Use offNamed to replace current route, ensuring old route is fully removed
-                // This prevents both widget trees from existing simultaneously
-                Get.offNamed(ClientConstants.routeClientProperties);
-              } else {
-                Get.toNamed(widget.route);
-              }
-              widget.onTap();
-            },
-            child: Container(
+          child: GestureDetector(
+            onTap: handleNavigation,
+            behavior: HitTestBehavior.opaque,
+            child: InkWell(
+              onTap: handleNavigation,
+              child: Container(
               padding: EdgeInsets.symmetric(
                 horizontal: AppResponsive.screenWidth(context) * 0.04,
                 vertical: AppResponsive.screenHeight(context) * 0.02,
@@ -159,6 +200,7 @@ class _MobileDrawerItemState extends State<_MobileDrawerItem> {
                   ),
                 ],
               ),
+            ),
             ),
           ),
         ),

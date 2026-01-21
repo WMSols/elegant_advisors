@@ -229,6 +229,58 @@ class FirestoreService {
     return docRef.id;
   }
 
+  // Client: Get contact submissions by email
+  Stream<List<ContactSubmissionModel>> getContactSubmissionsByEmail(
+    String email,
+  ) {
+    return _firestore
+        .collection(contactSubmissionsCollection)
+        .where('email', isEqualTo: email.trim().toLowerCase())
+        .orderBy('createdAt', descending: true)
+        .snapshots()
+        .map(
+          (snapshot) => snapshot.docs
+              .map((doc) => ContactSubmissionModel.fromJson(doc.data(), doc.id))
+              .toList(),
+        );
+  }
+
+  // Client: Get contact submissions by email (one-time fetch)
+  Future<List<ContactSubmissionModel>> getContactSubmissionsByEmailOnce(
+    String email,
+  ) async {
+    try {
+      // Try query with orderBy first (requires composite index)
+      final snapshot = await _firestore
+          .collection(contactSubmissionsCollection)
+          .where('email', isEqualTo: email.trim().toLowerCase())
+          .orderBy('createdAt', descending: true)
+          .get();
+      return snapshot.docs
+          .map((doc) => ContactSubmissionModel.fromJson(doc.data(), doc.id))
+          .toList();
+    } catch (e) {
+      // If index error, fall back to query without orderBy and sort in memory
+      final errorString = e.toString().toLowerCase();
+      if (errorString.contains('index') || 
+          errorString.contains('requires an index')) {
+        // Fallback: query without orderBy and sort in memory
+        final snapshot = await _firestore
+            .collection(contactSubmissionsCollection)
+            .where('email', isEqualTo: email.trim().toLowerCase())
+            .get();
+        final contacts = snapshot.docs
+            .map((doc) => ContactSubmissionModel.fromJson(doc.data(), doc.id))
+            .toList();
+        // Sort by createdAt descending
+        contacts.sort((a, b) => b.createdAt.compareTo(a.createdAt));
+        return contacts;
+      }
+      // Re-throw if it's not an index error
+      rethrow;
+    }
+  }
+
   // Admin: Contact Submissions
   Stream<List<ContactSubmissionModel>> getAllContactSubmissions() {
     return _firestore

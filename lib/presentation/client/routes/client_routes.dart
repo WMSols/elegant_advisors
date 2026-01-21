@@ -12,6 +12,8 @@ import 'package:elegant_advisors/presentation/client/bindings/about_us/client_ab
 import 'package:elegant_advisors/presentation/client/screens/about_us/client_about_us_screen.dart';
 import 'package:elegant_advisors/presentation/client/bindings/contact/client_contact_binding.dart';
 import 'package:elegant_advisors/presentation/client/screens/contact/client_contact_screen.dart';
+import 'package:elegant_advisors/presentation/client/bindings/contact/my_contacts/client_my_contacts_binding.dart';
+import 'package:elegant_advisors/presentation/client/screens/contact/my_contacts/client_my_contacts_screen.dart';
 
 class ClientRoutes {
   ClientRoutes._();
@@ -46,6 +48,11 @@ class ClientRoutes {
       name: ClientConstants.routeClientContact,
       page: () => const ClientContactScreen(),
       binding: ClientContactBinding(),
+    ),
+    GetPage(
+      name: ClientConstants.routeClientContacts,
+      page: () => const ClientMyContactsScreen(),
+      binding: ClientMyContactsBinding(),
     ),
   ];
 }

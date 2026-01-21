@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
-import 'package:elegant_advisors/core/utils/app_images/app_images.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
-import 'package:elegant_advisors/presentation/client/widgets/properties/header/properties_header_content.dart';
+import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
+import 'package:elegant_advisors/core/widgets/buttons/app_button.dart';
+import 'package:elegant_advisors/presentation/client/widgets/common/client_hero_header_section.dart';
+import 'package:elegant_advisors/presentation/client/widgets/common/client_hero_header_content.dart';
 import 'package:elegant_advisors/presentation/client/controllers/properties/client_properties_controller.dart';
 
 /// Properties page header section
@@ -13,40 +15,24 @@ class PropertiesHeaderSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: AppResponsive.screenHeight(context),
-      decoration: BoxDecoration(
-        color: AppColors.primary, // Fallback color
-        image: const DecorationImage(
-          image: AssetImage(AppImages.homeBackground),
-          fit: BoxFit.cover,
-          onError: null,
+    return ClientHeroHeaderSection(
+      child: ClientHeroHeaderContent(
+        title: AppTexts.propertiesTitle,
+        description: AppTexts.propertiesDescription,
+        textAlign: AppResponsive.isMobile(context) ? TextAlign.left : TextAlign.center,
+        titleFontWeight: FontWeight.w300,
+        letterSpacing: 2,
+        titleFontSizeMin: AppResponsive.isMobile(context) ? 28 : 36,
+        titleFontSizeMax: AppResponsive.isMobile(context) ? 36 : 48,
+        actionButton: AppButton(
+          text: 'View Properties',
+          backgroundColor: AppColors.lightGrey,
+          textColor: AppColors.black,
+          width: AppResponsive.isMobile(context)
+              ? AppResponsive.screenWidth(context) * 0.9
+              : null,
+          onPressed: () => controller.scrollToListing(),
         ),
-      ),
-      child: LayoutBuilder(
-        builder: (context, constraints) {
-          final isSmallScreen = constraints.maxWidth < 600;
-          final headerHeight = AppResponsive.screenHeight(context) * 0.08;
-
-          return Padding(
-            padding: EdgeInsets.only(
-              top: headerHeight,
-              left: isSmallScreen
-                  ? AppResponsive.screenWidth(context) * 0.05
-                  : AppResponsive.screenWidth(context) * 0.1,
-              right: isSmallScreen
-                  ? AppResponsive.screenWidth(context) * 0.05
-                  : AppResponsive.screenWidth(context) * 0.1,
-              bottom: AppResponsive.screenHeight(context) * 0.05,
-            ),
-            child: Center(
-              child: PropertiesHeaderContent(
-                onButtonPressed: () => controller.scrollToListing(),
-              ),
-            ),
-          );
-        },
       ),
     );
   }

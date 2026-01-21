@@ -279,17 +279,79 @@ class AppValidators {
     return null;
   }
 
-  /// Message validation
+  /// Phone number validation with international format support
+  static String? validatePhone(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Phone number is required';
+    }
+
+    final trimmedValue = value.trim();
+
+    // Check for only spaces
+    if (trimmedValue.isEmpty) {
+      return 'Phone number cannot be only spaces';
+    }
+
+    // Remove common phone formatting characters for validation
+    final cleanedPhone = trimmedValue
+        .replaceAll(RegExp(r'[\s\-\(\)\+]'), ''); // Remove spaces, dashes, parentheses, plus
+
+    // Check if phone contains only digits after cleaning
+    if (!RegExp(r'^\d+$').hasMatch(cleanedPhone)) {
+      return 'Phone number can only contain digits, spaces, dashes, parentheses, and +';
+    }
+
+    // Minimum length check (at least 7 digits, typical minimum for phone numbers)
+    if (cleanedPhone.length < 7) {
+      return 'Phone number must be at least 7 digits';
+    }
+
+    // Maximum length check (15 digits is ITU-T E.164 standard max)
+    if (cleanedPhone.length > 15) {
+      return 'Phone number is too long (maximum 15 digits)';
+    }
+
+    // Check for all same digits (e.g., 1111111)
+    if (cleanedPhone.split('').every((char) => char == cleanedPhone[0])) {
+      return 'Please enter a valid phone number';
+    }
+
+    return null;
+  }
+
+  /// Message validation with enhanced checks
   static String? validateMessage(String? value) {
     if (value == null || value.isEmpty) {
+      return 'Message is required';
+    }
+
+    final trimmedValue = value.trim();
+
+    // Check for only spaces
+    if (trimmedValue.isEmpty) {
       return 'Message cannot be empty';
     }
-    if (value.trim().isEmpty) {
-      return 'Message cannot be empty';
+
+    // Minimum length check
+    if (trimmedValue.length < 10) {
+      return 'Message must be at least 10 characters long';
     }
-    if (value.length > 1000) {
+
+    // Maximum length check
+    if (trimmedValue.length > 1000) {
       return 'Message must be less than 1000 characters';
     }
+
+    // Check for only whitespace characters
+    if (trimmedValue.split('').every((char) => char == ' ' || char == '\n' || char == '\t')) {
+      return 'Message cannot contain only spaces';
+    }
+
+    // Check for excessive consecutive spaces
+    if (trimmedValue.contains('   ')) {
+      return 'Message cannot contain excessive spaces';
+    }
+
     return null;
   }
 

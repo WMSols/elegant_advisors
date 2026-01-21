@@ -39,4 +39,8 @@ class AppImages {
   static const String englandFlag = 'assets/images/home/england_flag.png';
   static const String portugalFlag = 'assets/images/home/portugal_flag.png';
   static const String franceFlag = 'assets/images/home/france_flag.png';
+
+  //states
+  static const String emptyState = 'assets/images/state/empty_state.png';
+  static const String errorState = 'assets/images/state/error_state.png';
 }

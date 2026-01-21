@@ -63,8 +63,25 @@ service cloud.firestore {
       // Anyone can create contact submissions
       allow create: if true;
       
-      // Only admins can read, update, or delete submissions
-      allow read, update, delete: if isAdmin();
+      // Allow read access to individual documents (for client-side access)
+      // Note: This allows reading any contact submission by ID
+      // For email-based queries, see list rule below
+      allow read: if true;
+      
+      // Admins can update or delete any submission
+      allow update, delete: if isAdmin();
+    }
+    
+    // Contact Submissions Collection - Query access
+    match /contact_submissions {
+      // Allow list queries (needed for email-based filtering)
+      // SECURITY NOTE: Firestore rules cannot verify email in where() clauses
+      // This allows querying contacts, but results are filtered by email in the query
+      // For better security, consider using a Cloud Function proxy
+      allow list: if request.query.limit <= 100; // Limit query size
+      
+      // Admins can query all contacts without limit
+      allow list: if isAdmin();
     }
     
     // Analytics Collection - Admin only
