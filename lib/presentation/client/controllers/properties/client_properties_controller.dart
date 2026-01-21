@@ -5,8 +5,8 @@ import 'package:elegant_advisors/data/services/firestore_service.dart';
 import 'package:elegant_advisors/data/services/analytics_service.dart';
 import 'package:elegant_advisors/domain/models/property_model.dart';
 import 'package:elegant_advisors/core/base/base_controller/app_base_controller.dart';
-import 'package:elegant_advisors/core/utils/app_property_filters.dart';
-import 'package:elegant_advisors/core/utils/app_pagination_helper.dart';
+import 'package:elegant_advisors/core/utils/client_property_filters.dart';
+import 'package:elegant_advisors/core/utils/app_helpers/app_pagination_helper.dart';
 
 class ClientPropertiesController extends BaseController {
   final FirestoreService _firestoreService = FirestoreService();
@@ -60,7 +60,7 @@ class ClientPropertiesController extends BaseController {
   StreamSubscription<List<PropertyModel>>? _propertiesSubscription;
 
   // Filters & Sort
-  final filters = PropertyFilters().obs;
+  final filters = ClientPorpertyFilters().obs;
   final sortOption = Rxn<PropertySortOption>();
 
   // Pagination
@@ -400,7 +400,7 @@ class ClientPropertiesController extends BaseController {
     );
   }
 
-  void updateFilters(PropertyFilters newFilters) {
+  void updateFilters(ClientPorpertyFilters newFilters) {
     filters.value = newFilters;
     currentPage.value = 1; // Reset to first page
     applyFilters();

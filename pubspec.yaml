@@ -97,6 +97,7 @@ flutter:
     - assets/lotties/
     - assets/images/logo/
     - assets/images/home/
+    - assets/images/state/
     - assets/images/admin/
   # assets:
   #   - images/a_dot_burr.jpeg

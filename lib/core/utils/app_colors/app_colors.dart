@@ -12,7 +12,7 @@ class AppColors {
   static const Color success = Colors.green;
   static const Color information = Colors.blue;
   static const Color warning = Colors.orange;
-  static const Color error = Colors.red;
+  static const Color error = Color(0xFFF44336);
 
   //light
   static const Color lightBackground = Color(0xFFFFFFFF);

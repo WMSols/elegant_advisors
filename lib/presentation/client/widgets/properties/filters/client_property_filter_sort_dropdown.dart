@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
-import 'package:elegant_advisors/core/utils/app_property_filters.dart';
+import 'package:elegant_advisors/core/utils/client_property_filters.dart';
 import 'package:elegant_advisors/core/widgets/forms/app_dropdown_field.dart';
 
 /// Sort dropdown filter field

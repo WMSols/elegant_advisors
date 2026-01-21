@@ -15,6 +15,7 @@ class FooterTexts {
   static const String linkOurTeam = "Our Team";
   static const String linkAboutUs = "About Us";
   static const String linkContact = "Contact";
+  static const String linkMyContacts = "View My Contacts";
 
   // Legal Links
   static const String linkPrivacyPolicy = "Privacy Policy";
@@ -49,6 +50,7 @@ class FooterTexts {
   static void Function()? onOurTeamTap;
   static void Function()? onAboutUsTap;
   static void Function()? onContactTap;
+  static void Function()? onMyContactsTap;
   static void Function()? onPrivacyPolicyTap;
   static void Function()? onTermsOfServiceTap;
 

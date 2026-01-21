@@ -4,7 +4,7 @@ import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
 import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
 import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
-import 'package:elegant_advisors/core/utils/app_property_filters.dart';
+import 'package:elegant_advisors/core/utils/client_property_filters.dart';
 import 'package:elegant_advisors/presentation/client/widgets/properties/filters/client_property_filter_sort_dropdown.dart';
 import 'package:elegant_advisors/presentation/client/widgets/properties/filters/client_property_filter_property_type.dart';
 import 'package:elegant_advisors/presentation/client/widgets/properties/filters/client_property_filter_location.dart';
@@ -16,8 +16,8 @@ import 'package:elegant_advisors/presentation/client/widgets/properties/filters/
 
 /// Filter panel widget for properties
 class ClientPropertiesFilterPanel extends StatefulWidget {
-  final PropertyFilters filters;
-  final Function(PropertyFilters) onFiltersChanged;
+  final ClientPorpertyFilters filters;
+  final Function(ClientPorpertyFilters) onFiltersChanged;
   final PropertySortOption? sortOption;
   final Function(PropertySortOption?) onSortChanged;
   final List<String> availablePropertyTypes;
@@ -44,12 +44,12 @@ class ClientPropertiesFilterPanel extends StatefulWidget {
 
 class _ClientPropertiesFilterPanelState
     extends State<ClientPropertiesFilterPanel> {
-  late PropertyFilters _currentFilters;
+  late ClientPorpertyFilters _currentFilters;
 
   @override
   void initState() {
     super.initState();
-    _currentFilters = PropertyFilters(
+    _currentFilters = ClientPorpertyFilters(
       propertyType: widget.filters.propertyType,
       country: widget.filters.country,
       city: widget.filters.city,

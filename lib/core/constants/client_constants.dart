@@ -11,4 +11,5 @@ class ClientConstants {
   static const String routeClientOurTeam = '/our-team';
   static const String routeClientAboutUs = '/about-us';
   static const String routeClientContact = '/contact';
+  static const String routeClientContacts = '/my-contacts';
 }

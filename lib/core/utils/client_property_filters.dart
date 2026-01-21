@@ -1,5 +1,5 @@
 /// Property filter model and helper class
-class PropertyFilters {
+class ClientPorpertyFilters {
   String? propertyType;
   String? country;
   String? city;
@@ -12,7 +12,7 @@ class PropertyFilters {
   List<String> statuses; // available, sold, coming_soon, off_market
   bool featuredOnly;
 
-  PropertyFilters({
+  ClientPorpertyFilters({
     this.propertyType,
     this.country,
     this.city,
@@ -26,7 +26,7 @@ class PropertyFilters {
     this.featuredOnly = false,
   });
 
-  PropertyFilters copyWith({
+  ClientPorpertyFilters copyWith({
     String? propertyType,
     String? country,
     String? city,
@@ -39,7 +39,7 @@ class PropertyFilters {
     List<String>? statuses,
     bool? featuredOnly,
   }) {
-    return PropertyFilters(
+    return ClientPorpertyFilters(
       propertyType: propertyType ?? this.propertyType,
       country: country ?? this.country,
       city: city ?? this.city,

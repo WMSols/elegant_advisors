@@ -161,15 +161,9 @@ class AppTexts {
   static const String contactFormButton = "Send Message";
   static const String contactOfficeTitle = "Elegant Advisors Office";
   static const String contactOfficeAddress = "Address";
-  static const String contactOfficeAddressValue =
-      "Office address will be displayed here";
   static const String contactOfficePhone = "Phone";
-  static const String contactOfficePhoneValue = "+1 234 567 8900";
   static const String contactOfficeEmail = "Email";
-  static const String contactOfficeEmailValue = "info@elegantadvisors.com";
   static const String contactOfficeHours = "Working Hours";
-  static const String contactOfficeHoursValue =
-      "Monday - Friday: 9:00 AM - 6:00 PM";
 
   // Footer
   static const String footerTagline =
@@ -182,6 +176,34 @@ class AppTexts {
   static const String contactSuccessMessage =
       "Your message has been sent successfully!";
   static const String contactSuccessTitle = "Success";
+
+  // My Contacts Page (Client-side)
+  static const String myContactsTitle = "My Contacts";
+  static const String myContactsSubtitle = "View Your Contact Submissions";
+  static const String myContactsDescription =
+      "Track the status of your contact submissions and inquiries.";
+  static const String myContactsEnterEmail = "Enter Your Email";
+  static const String myContactsEnterEmailHint = "Enter email address";
+  static const String myContactsViewContacts = "View My Contacts";
+  static const String myContactsNoContactsFound = "No contacts found";
+  static const String myContactsNoContactsMessage =
+      "You haven't submitted any contact forms yet, or no contacts match your email address.";
+  static const String myContactsFilterAll = "All";
+  static const String myContactsFilterNew = "New";
+  static const String myContactsFilterInProgress = "In Progress";
+  static const String myContactsFilterClosed = "Closed";
+  static const String myContactsStatusNew = "New";
+  static const String myContactsStatusInProgress = "In Progress";
+  static const String myContactsStatusClosed = "Closed";
+  static const String myContactsDate = "Date";
+  static const String myContactsSubject = "Subject";
+  static const String myContactsMessage = "Message";
+  static const String myContactsProperty = "Property";
+  static const String myContactsNoProperty = "General Inquiry";
+  static const String myContactsErrorLoading = "Failed to load contacts";
+  static const String myContactsRetry = "Retry";
+  static const String myContactsClearFilters = "Clear Filters";
+  static const String myContactsFilters = "Filters";
 
   // Admin Login
   static const String adminLoginTitle = "Admin login";

@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
+import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
 import 'package:elegant_advisors/presentation/client/widgets/properties/listing/client_properties_grid.dart';
 import 'package:elegant_advisors/presentation/client/widgets/properties/listing/client_properties_pagination.dart';
-import 'package:elegant_advisors/presentation/client/widgets/properties/states/client_properties_empty_state.dart';
-import 'package:elegant_advisors/presentation/client/widgets/properties/states/client_properties_error_state.dart';
+import 'package:elegant_advisors/presentation/client/widgets/common/client_empty_state.dart';
+import 'package:elegant_advisors/presentation/client/widgets/common/client_error_state.dart';
 import 'package:elegant_advisors/core/widgets/feedback/app_loading_indicator.dart';
 import 'package:elegant_advisors/presentation/client/controllers/properties/client_properties_controller.dart';
 
@@ -30,15 +31,22 @@ class PropertiesListingContent extends StatelessWidget {
       }
 
       if (errorMsg.isNotEmpty) {
-        return ClientPropertiesErrorState(
-          errorMessage: errorMsg,
+        return ClientErrorState(
+          title: AppTexts.clientPropertiesErrorLoading,
+          message: errorMsg,
           onRetry: controller.loadProperties,
+          retryButtonText: AppTexts.clientPropertiesRetry,
         );
       }
 
       if (displayedCount == 0) {
-        return ClientPropertiesEmptyState(
-          onClearFilters: controller.filters.value.hasActiveFilters
+        return ClientEmptyState(
+          title: AppTexts.clientPropertiesNoPropertiesFound,
+          message: AppTexts.clientPropertiesNoPropertiesMessage,
+          buttonText: controller.filters.value.hasActiveFilters
+              ? AppTexts.clientPropertiesClearFilters
+              : null,
+          onButtonPressed: controller.filters.value.hasActiveFilters
               ? () {
                   controller.filters.value.clear();
                   controller.updateFilters(controller.filters.value);
