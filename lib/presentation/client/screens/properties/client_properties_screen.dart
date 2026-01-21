@@ -23,10 +23,7 @@ class ClientPropertiesScreen extends GetView<ClientPropertiesController> {
         // Filters Section
         PropertiesFiltersSection(controller: controller),
         // Properties Listing Section
-        PropertiesListingSection(
-          key: listingKey,
-          controller: controller,
-        ),
+        PropertiesListingSection(key: listingKey, controller: controller),
       ],
     );
   }

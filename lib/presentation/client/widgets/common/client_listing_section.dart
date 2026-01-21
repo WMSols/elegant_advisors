@@ -28,14 +28,13 @@ class ClientListingSection extends StatelessWidget {
     return Container(
       width: double.infinity,
       constraints: minHeight != null
-          ? BoxConstraints(
-              minHeight: minHeight!,
-            )
+          ? BoxConstraints(minHeight: minHeight!)
           : BoxConstraints(
               minHeight: AppResponsive.screenHeight(context) * 0.5,
             ),
       color: backgroundColor ?? AppColors.white,
-      padding: padding ??
+      padding:
+          padding ??
           AppSpacing.symmetric(
             context,
             h: horizontalPadding ?? 0.1,

@@ -8,10 +8,7 @@ import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
 class ClientMyContactStatusBadge extends StatelessWidget {
   final String status; // new, in_progress, closed
 
-  const ClientMyContactStatusBadge({
-    super.key,
-    required this.status,
-  });
+  const ClientMyContactStatusBadge({super.key, required this.status});
 
   Color _getStatusColor() {
     switch (status) {
@@ -56,11 +53,7 @@ class ClientMyContactStatusBadge extends StatelessWidget {
         _getStatusText(),
         style: AppTextStyles.heading(context).copyWith(
           color: AppColors.white,
-          fontSize: AppResponsive.fontSizeClamped(
-            context,
-            min: 10,
-            max: 12,
-          ),
+          fontSize: AppResponsive.fontSizeClamped(context, min: 10, max: 12),
         ),
       ),
     );

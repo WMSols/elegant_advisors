@@ -19,7 +19,9 @@ class PropertiesHeaderSection extends StatelessWidget {
       child: ClientHeroHeaderContent(
         title: AppTexts.propertiesTitle,
         description: AppTexts.propertiesDescription,
-        textAlign: AppResponsive.isMobile(context) ? TextAlign.left : TextAlign.center,
+        textAlign: AppResponsive.isMobile(context)
+            ? TextAlign.left
+            : TextAlign.center,
         titleFontWeight: FontWeight.w300,
         letterSpacing: 2,
         titleFontSizeMin: AppResponsive.isMobile(context) ? 28 : 36,

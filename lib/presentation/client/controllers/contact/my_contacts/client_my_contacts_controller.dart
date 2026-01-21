@@ -76,14 +76,17 @@ class ClientMyContactsController extends BaseController {
   }
 
   void _onScroll() {
-    final show = scrollController.hasClients &&
-        scrollController.offset > 100;
+    final show = scrollController.hasClients && scrollController.offset > 100;
     if (showHeader.value != show) {
       showHeader.value = show;
     }
   }
 
-  void loadContacts(String email, {int retryCount = 0, int maxRetries = 3}) async {
+  void loadContacts(
+    String email, {
+    int retryCount = 0,
+    int maxRetries = 3,
+  }) async {
     if (email.trim().isEmpty) {
       showError('Please enter a valid email address');
       return;
@@ -99,7 +102,7 @@ class ClientMyContactsController extends BaseController {
       try {
         final normalizedEmail = email.trim().toLowerCase();
         userEmail.value = normalizedEmail;
-        
+
         final fetchedContacts = await _firestoreService
             .getContactSubmissionsByEmailOnce(normalizedEmail);
 
@@ -116,14 +119,19 @@ class ClientMyContactsController extends BaseController {
       } catch (e) {
         // Retry logic for eventual consistency (if we haven't exceeded max retries)
         if (retryCount < maxRetries) {
-          final delayMs = (retryCount + 1) * 1000; // Exponential backoff: 1s, 2s, 3s
+          final delayMs =
+              (retryCount + 1) * 1000; // Exponential backoff: 1s, 2s, 3s
           await Future.delayed(Duration(milliseconds: delayMs));
-          return loadContacts(email, retryCount: retryCount + 1, maxRetries: maxRetries);
+          return loadContacts(
+            email,
+            retryCount: retryCount + 1,
+            maxRetries: maxRetries,
+          );
         }
-        
+
         // Check if it's a Firestore index error
         final errorString = e.toString().toLowerCase();
-        if (errorString.contains('index') || 
+        if (errorString.contains('index') ||
             errorString.contains('requires an index')) {
           showError(
             'Failed to load contacts. Please ensure Firestore indexes are created. '

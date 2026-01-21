@@ -293,8 +293,10 @@ class AppValidators {
     }
 
     // Remove common phone formatting characters for validation
-    final cleanedPhone = trimmedValue
-        .replaceAll(RegExp(r'[\s\-\(\)\+]'), ''); // Remove spaces, dashes, parentheses, plus
+    final cleanedPhone = trimmedValue.replaceAll(
+      RegExp(r'[\s\-\(\)\+]'),
+      '',
+    ); // Remove spaces, dashes, parentheses, plus
 
     // Check if phone contains only digits after cleaning
     if (!RegExp(r'^\d+$').hasMatch(cleanedPhone)) {
@@ -343,7 +345,9 @@ class AppValidators {
     }
 
     // Check for only whitespace characters
-    if (trimmedValue.split('').every((char) => char == ' ' || char == '\n' || char == '\t')) {
+    if (trimmedValue
+        .split('')
+        .every((char) => char == ' ' || char == '\n' || char == '\t')) {
       return 'Message cannot contain only spaces';
     }
 

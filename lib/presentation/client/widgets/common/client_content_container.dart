@@ -23,7 +23,8 @@ class ClientContentContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: customPadding ??
+      padding:
+          customPadding ??
           AppSpacing.symmetric(
             context,
             h: horizontalPadding ?? 0.04,

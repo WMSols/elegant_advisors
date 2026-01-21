@@ -118,17 +118,17 @@ class _MobileDrawerItemState extends State<_MobileDrawerItem> {
         return;
       }
       _isNavigating = true;
-      
+
       try {
         final currentRoute = Get.currentRoute;
-        
+
         // If already on the target route, just close the drawer
         if (currentRoute == widget.route) {
           widget.onTap();
           _isNavigating = false;
           return;
         }
-        
+
         // Special handling for properties route to prevent GlobalKey/ScrollController conflicts
         if (widget.route == ClientConstants.routeClientProperties) {
           // Delete both controllers to ensure clean state
@@ -139,7 +139,7 @@ class _MobileDrawerItemState extends State<_MobileDrawerItem> {
             Get.delete<ClientPropertiesController>(force: true);
           }
         }
-        
+
         // Special handling for contact route to prevent GlobalKey conflicts
         if (widget.route == ClientConstants.routeClientContact) {
           // Delete both contact controllers to ensure clean state
@@ -150,18 +150,19 @@ class _MobileDrawerItemState extends State<_MobileDrawerItem> {
             Get.delete<ClientContactController>(force: true);
           }
         }
-        
+
         // Close drawer first, then navigate immediately
         // The drawer needs to close before navigation to avoid context issues
         Navigator.of(context).pop();
-        
+
         // Use offNamedUntil like admin side - this replaces the Scaffold
         // Keep routes until we reach home route (or null for initial route)
         Get.offNamedUntil(
           widget.route,
-          (route) => route.settings.name == ClientConstants.routeClientHome || route.settings.name == null,
+          (route) =>
+              route.settings.name == ClientConstants.routeClientHome ||
+              route.settings.name == null,
         );
-        
       } catch (e) {
         _isNavigating = false;
       } finally {
@@ -183,37 +184,37 @@ class _MobileDrawerItemState extends State<_MobileDrawerItem> {
             child: InkWell(
               onTap: handleNavigation,
               child: Container(
-              padding: EdgeInsets.symmetric(
-                horizontal: AppResponsive.screenWidth(context) * 0.04,
-                vertical: AppResponsive.screenHeight(context) * 0.02,
+                padding: EdgeInsets.symmetric(
+                  horizontal: AppResponsive.screenWidth(context) * 0.04,
+                  vertical: AppResponsive.screenHeight(context) * 0.02,
+                ),
+                child: Row(
+                  children: [
+                    // Vertical line indicator (appears on hover)
+                    AnimatedContainer(
+                      duration: const Duration(milliseconds: 200),
+                      width: _isHovered || isActive ? 2 : 0,
+                      height: AppResponsive.screenHeight(context) * 0.03,
+                      margin: EdgeInsets.only(
+                        right: _isHovered || isActive ? 12 : 0,
+                      ),
+                      decoration: BoxDecoration(
+                        color: AppColors.white,
+                        borderRadius: BorderRadius.circular(1),
+                      ),
+                    ),
+                    // Menu item text
+                    Expanded(
+                      child: Text(
+                        widget.label,
+                        style: AppTextStyles.bodyText(
+                          context,
+                        ).copyWith(color: AppColors.white, letterSpacing: 0.5),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-              child: Row(
-                children: [
-                  // Vertical line indicator (appears on hover)
-                  AnimatedContainer(
-                    duration: const Duration(milliseconds: 200),
-                    width: _isHovered || isActive ? 2 : 0,
-                    height: AppResponsive.screenHeight(context) * 0.03,
-                    margin: EdgeInsets.only(
-                      right: _isHovered || isActive ? 12 : 0,
-                    ),
-                    decoration: BoxDecoration(
-                      color: AppColors.white,
-                      borderRadius: BorderRadius.circular(1),
-                    ),
-                  ),
-                  // Menu item text
-                  Expanded(
-                    child: Text(
-                      widget.label,
-                      style: AppTextStyles.bodyText(
-                        context,
-                      ).copyWith(color: AppColors.white, letterSpacing: 0.5),
-                    ),
-                  ),
-                ],
-              ),
-            ),
             ),
           ),
         ),

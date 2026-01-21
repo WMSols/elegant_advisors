@@ -25,7 +25,10 @@ class ContactContentSection extends StatelessWidget {
                   children: [
                     Expanded(flex: 1, child: const ContactFormSection()),
                     AppSpacing.horizontal(context, 0.04),
-                    Expanded(flex: 1, child: const ContactOfficeDetailsSection()),
+                    Expanded(
+                      flex: 1,
+                      child: const ContactOfficeDetailsSection(),
+                    ),
                   ],
                 );
               } else {

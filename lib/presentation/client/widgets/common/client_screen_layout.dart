@@ -25,7 +25,7 @@ class ClientScreenLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<Widget> contentChildren = List.from(children);
-    
+
     // Add footer if needed
     if (includeFooter) {
       contentChildren.add(const AppFooter());
@@ -39,9 +39,7 @@ class ClientScreenLayout extends StatelessWidget {
           SingleChildScrollView(
             key: scrollViewKey,
             controller: scrollController,
-            child: Column(
-              children: contentChildren,
-            ),
+            child: Column(children: contentChildren),
           ),
           // Header always visible, background animates on scroll
           Positioned(
@@ -49,9 +47,7 @@ class ClientScreenLayout extends StatelessWidget {
             left: 0,
             right: 0,
             child: showHeader != null
-                ? Obx(
-                    () => AppHeader(showBackground: showHeader!.value),
-                  )
+                ? Obx(() => AppHeader(showBackground: showHeader!.value))
                 : const AppHeader(),
           ),
         ],

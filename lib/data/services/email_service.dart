@@ -56,10 +56,7 @@ class EmailService {
         };
       }
 
-      await callable.call({
-        'inquiry': inquiryData,
-        'property': propertyData,
-      });
+      await callable.call({'inquiry': inquiryData, 'property': propertyData});
     } on FirebaseFunctionsException catch (e) {
       // Log error but don't throw - email failure shouldn't break the flow
       print('Failed to send inquiry notification: ${e.code} - ${e.message}');
@@ -124,9 +121,7 @@ class EmailService {
         'createdAt': inquiry.createdAt.toIso8601String(),
       };
 
-      await callable.call({
-        'inquiry': inquiryData,
-      });
+      await callable.call({'inquiry': inquiryData});
     } on FirebaseFunctionsException catch (e) {
       // Log error but don't throw - confirmation email failure shouldn't break the flow
       print('Failed to send confirmation email: ${e.code} - ${e.message}');

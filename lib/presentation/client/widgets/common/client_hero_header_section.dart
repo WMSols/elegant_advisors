@@ -27,9 +27,7 @@ class ClientHeroHeaderSection extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.primary, // Fallback color
         image: DecorationImage(
-          image: AssetImage(
-            backgroundImage ?? AppImages.homeBackground,
-          ),
+          image: AssetImage(backgroundImage ?? AppImages.homeBackground),
           fit: BoxFit.cover,
           onError: null,
         ),
@@ -40,7 +38,8 @@ class ClientHeroHeaderSection extends StatelessWidget {
           final headerHeight = AppResponsive.screenHeight(context) * 0.08;
 
           return Padding(
-            padding: customPadding ??
+            padding:
+                customPadding ??
                 EdgeInsets.only(
                   top: headerHeight,
                   left: isSmallScreen

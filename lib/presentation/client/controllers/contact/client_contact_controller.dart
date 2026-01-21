@@ -73,8 +73,7 @@ class ClientContactController extends BaseController {
   }
 
   void _onScroll() {
-    final show = scrollController.hasClients &&
-        scrollController.offset > 100;
+    final show = scrollController.hasClients && scrollController.offset > 100;
     if (showHeader.value != show) {
       showHeader.value = show;
     }
@@ -128,7 +127,9 @@ class ClientContactController extends BaseController {
           // Create contact submission
           final submission = ContactSubmissionModel(
             name: nameController.text.trim(),
-            email: emailController.text.trim().toLowerCase(), // Store in lowercase for consistent queries
+            email: emailController.text
+                .trim()
+                .toLowerCase(), // Store in lowercase for consistent queries
             phone: phoneController.text.trim(),
             subject: subject,
             message: messageController.text.trim(),
@@ -140,7 +141,6 @@ class ClientContactController extends BaseController {
 
           // Send email notifications
           try {
-
             // Send notification to admin
             await _emailService.sendInquiryNotification(submission, property);
 

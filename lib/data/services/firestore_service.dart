@@ -262,7 +262,7 @@ class FirestoreService {
     } catch (e) {
       // If index error, fall back to query without orderBy and sort in memory
       final errorString = e.toString().toLowerCase();
-      if (errorString.contains('index') || 
+      if (errorString.contains('index') ||
           errorString.contains('requires an index')) {
         // Fallback: query without orderBy and sort in memory
         final snapshot = await _firestore

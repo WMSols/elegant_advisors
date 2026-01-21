@@ -71,11 +71,7 @@ class ClientMyContactsFilterChips extends StatelessWidget {
       checkmarkColor: AppColors.white,
       labelStyle: AppTextStyles.bodyText(context).copyWith(
         color: isSelected ? AppColors.white : AppColors.black,
-        fontSize: AppResponsive.fontSizeClamped(
-          context,
-          min: 12,
-          max: 14,
-        ),
+        fontSize: AppResponsive.fontSizeClamped(context, min: 12, max: 14),
         fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
       ),
       padding: EdgeInsets.symmetric(
@@ -83,7 +79,9 @@ class ClientMyContactsFilterChips extends StatelessWidget {
         vertical: AppResponsive.scaleSize(context, 8, min: 6, max: 10),
       ),
       side: BorderSide(
-        color: isSelected ? AppColors.primary : AppColors.grey.withValues(alpha: 0.3),
+        color: isSelected
+            ? AppColors.primary
+            : AppColors.grey.withValues(alpha: 0.3),
         width: 1,
       ),
     );

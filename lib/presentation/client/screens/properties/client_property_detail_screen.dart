@@ -59,91 +59,81 @@ class ClientPropertyDetailScreen
       final relatedProperties = controller.relatedProperties;
 
       return ClientScreenLayout(
-          scrollController: controller.scrollController,
-          scrollViewKey: controller.scrollViewKey,
-          showHeader: controller.showHeader,
-          children: [
-            // Spacer to account for fixed header and breadcrumbs height
-            SizedBox(
-              height: AppResponsive.scaleSize(
-                context,
-                100,
-                min: 70,
-                max: 130,
-              ),
+        scrollController: controller.scrollController,
+        scrollViewKey: controller.scrollViewKey,
+        showHeader: controller.showHeader,
+        children: [
+          // Spacer to account for fixed header and breadcrumbs height
+          SizedBox(
+            height: AppResponsive.scaleSize(context, 100, min: 70, max: 130),
+          ),
+          ClientContentContainer(
+            horizontalPadding: 0.04,
+            verticalPadding: 0.04,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Breadcrumbs positioned under header with background
+                Obx(
+                  () => controller.property.value != null
+                      ? ClientPropertyDetailBreadcrumbs(
+                          propertyTitle: controller.property.value!.title,
+                        )
+                      : const SizedBox.shrink(),
+                ),
+                AppSpacing.vertical(context, 0.02),
+                // Image Gallery
+                ClientPropertyDetailImageGallery(
+                  images: property.images.isNotEmpty ? property.images : [],
+                  height: AppResponsive.screenHeight(context) * 0.75,
+                ),
+              ],
             ),
-            ClientContentContainer(
-              horizontalPadding: 0.04,
-              verticalPadding: 0.04,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // Breadcrumbs positioned under header with background
-                  Obx(
-                    () => controller.property.value != null
-                        ? ClientPropertyDetailBreadcrumbs(
-                            propertyTitle:
-                                controller.property.value!.title,
-                          )
-                        : const SizedBox.shrink(),
-                  ),
-                  AppSpacing.vertical(context, 0.02),
-                  // Image Gallery
-                  ClientPropertyDetailImageGallery(
-                    images: property.images.isNotEmpty
-                        ? property.images
-                        : [],
-                    height: AppResponsive.screenHeight(context) * 0.75,
-                  ),
-                ],
-              ),
+          ),
+          // Sections with background (full width)
+          ClientBackgroundSection(
+            horizontalPadding: 0.04,
+            verticalPadding: 0.04,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Property Header
+                ClientPropertyDetailHeaderSection(property: property),
+                AppSpacing.vertical(context, 0.04),
+                // Specifications
+                ClientPropertyDetailSpecsSection(property: property),
+                AppSpacing.vertical(context, 0.03),
+                // Description
+                ClientPropertyDetailDescriptionSection(property: property),
+                AppSpacing.vertical(context, 0.03),
+                // Features
+                ClientPropertyDetailFeaturesSection(property: property),
+                AppSpacing.vertical(context, 0.03),
+                // Location
+                ClientPropertyDetailLocationSection(property: property),
+              ],
             ),
-            // Sections with background (full width)
-            ClientBackgroundSection(
-              horizontalPadding: 0.04,
-              verticalPadding: 0.04,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // Property Header
-                  ClientPropertyDetailHeaderSection(property: property),
-                  AppSpacing.vertical(context, 0.04),
-                  // Specifications
-                  ClientPropertyDetailSpecsSection(property: property),
-                  AppSpacing.vertical(context, 0.03),
-                  // Description
-                  ClientPropertyDetailDescriptionSection(
-                    property: property,
-                  ),
-                  AppSpacing.vertical(context, 0.03),
-                  // Features
-                  ClientPropertyDetailFeaturesSection(property: property),
-                  AppSpacing.vertical(context, 0.03),
-                  // Location
-                  ClientPropertyDetailLocationSection(property: property),
-                ],
-              ),
+          ),
+          // Inquiry Button and Related Properties
+          ClientContentContainer(
+            horizontalPadding: 0.04,
+            verticalPadding: 0.04,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Inquiry Button
+                ClientPropertyInquiryButton(propertyId: property.id),
+                AppSpacing.vertical(context, 0.04),
+                // Related Properties
+                ClientPropertyDetailRelatedProperties(
+                  relatedProperties: relatedProperties,
+                  currentPropertyId: property.id ?? '',
+                ),
+              ],
             ),
-            // Inquiry Button and Related Properties
-            ClientContentContainer(
-              horizontalPadding: 0.04,
-              verticalPadding: 0.04,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // Inquiry Button
-                  ClientPropertyInquiryButton(propertyId: property.id),
-                  AppSpacing.vertical(context, 0.04),
-                  // Related Properties
-                  ClientPropertyDetailRelatedProperties(
-                    relatedProperties: relatedProperties,
-                    currentPropertyId: property.id ?? '',
-                  ),
-                ],
-              ),
-            ),
-          ],
-        );
+          ),
+        ],
+      );
     });
   }
 }
