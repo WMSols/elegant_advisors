@@ -43,7 +43,7 @@ class HeaderMobileDrawer extends StatelessWidget {
                     icon: Iconsax.close_circle,
                     color: AppColors.white,
                     onPressed: onClose,
-                    tooltip: 'Close',
+                    tooltip: AppTexts.commonClose,
                   ),
                 ],
               ),

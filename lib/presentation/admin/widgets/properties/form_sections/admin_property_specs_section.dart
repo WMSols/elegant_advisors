@@ -82,6 +82,7 @@ class AdminPropertySpecsSection extends GetView<AdminPropertyFormController> {
                 child: Obx(
                   () => AppDropdownField<String>(
                     label: AppTexts.adminPropertyFormAreaUnitLabel,
+                    labelColor: AppColors.white,
                     value: controller.areaUnit.value,
                     items: [
                       DropdownMenuItem(

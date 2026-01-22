@@ -4,28 +4,20 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
 import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
-import 'package:elegant_advisors/core/widgets/forms/app_search_field.dart';
 import 'package:elegant_advisors/core/widgets/buttons/app_icon_button.dart';
 import 'package:elegant_advisors/core/widgets/buttons/app_button.dart';
 import 'package:elegant_advisors/core/widgets/forms/app_dropdown_field.dart';
 import 'package:elegant_advisors/presentation/admin/controllers/properties/admin_properties_controller.dart';
 
-/// Reusable search and filters widget for property management
-class AdminPropertySearchAndFilters extends GetView<AdminPropertiesController> {
-  const AdminPropertySearchAndFilters({super.key});
+/// Reusable filters widget for property management
+class AdminPropertyFilters extends GetView<AdminPropertiesController> {
+  const AdminPropertyFilters({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        // Search Field
-        AppSearchField(
-          controller: controller.searchController,
-          hint: AppTexts.adminPropertiesSearchHint,
-          onFieldSubmitted: controller.updateSearchQuery,
-        ),
-        AppSpacing.vertical(context, 0.015),
         // Filters Row
         Row(
           crossAxisAlignment: CrossAxisAlignment.end,
@@ -35,6 +27,7 @@ class AdminPropertySearchAndFilters extends GetView<AdminPropertiesController> {
               child: Obx(
                 () => AppDropdownField<String>(
                   label: AppTexts.adminPropertiesSortBy,
+                  labelColor: AppColors.white,
                   value: controller.sortBy.value,
                   items: [
                     DropdownMenuItem(
@@ -90,6 +83,7 @@ class AdminPropertySearchAndFilters extends GetView<AdminPropertiesController> {
               child: Obx(
                 () => AppDropdownField<String?>(
                   label: AppTexts.adminPropertiesStatusFilter,
+                  labelColor: AppColors.white,
                   value: controller.statusFilter.value,
                   items: [
                     DropdownMenuItem(
@@ -123,6 +117,7 @@ class AdminPropertySearchAndFilters extends GetView<AdminPropertiesController> {
               child: Obx(
                 () => AppDropdownField<bool?>(
                   label: AppTexts.adminPropertiesPublishedFilter,
+                  labelColor: AppColors.white,
                   value: controller.publishedFilter.value,
                   items: [
                     DropdownMenuItem(
@@ -148,6 +143,7 @@ class AdminPropertySearchAndFilters extends GetView<AdminPropertiesController> {
               child: Obx(
                 () => AppDropdownField<bool?>(
                   label: AppTexts.adminPropertiesFeaturedFilter,
+                  labelColor: AppColors.white,
                   value: controller.featuredFilter.value,
                   items: [
                     DropdownMenuItem(

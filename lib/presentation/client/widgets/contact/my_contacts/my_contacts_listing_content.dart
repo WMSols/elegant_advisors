@@ -12,7 +12,8 @@ import 'package:elegant_advisors/core/widgets/feedback/app_loading_indicator.dar
 import 'package:elegant_advisors/presentation/client/controllers/contact/my_contacts/client_my_contacts_controller.dart';
 import 'package:elegant_advisors/presentation/client/widgets/contact/my_contacts/client_my_contact_card.dart';
 import 'package:elegant_advisors/presentation/client/widgets/contact/my_contacts/client_my_contacts_filter_chips.dart';
-import 'package:elegant_advisors/presentation/client/widgets/common/client_empty_state.dart';
+import 'package:elegant_advisors/core/widgets/feedback/app_empty_state.dart';
+import 'package:elegant_advisors/core/widgets/feedback/app_error_state.dart';
 
 /// My contacts listing content section
 class MyContactsListingContent extends StatelessWidget {
@@ -171,30 +172,18 @@ class MyContactsListingContent extends StatelessWidget {
           }
 
           if (controller.hasError.value) {
-            return Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    AppTexts.myContactsErrorLoading,
-                    style: AppTextStyles.bodyText(
-                      context,
-                    ).copyWith(color: AppColors.white),
-                  ),
-                  AppSpacing.vertical(context, 0.02),
-                  AppButton(
-                    text: AppTexts.myContactsRetry,
-                    onPressed: controller.refreshContacts,
-                    backgroundColor: AppColors.primary,
-                    textColor: AppColors.white,
-                  ),
-                ],
-              ),
+            return AppErrorState(
+              title: AppTexts.myContactsErrorLoading,
+              onRetry: controller.refreshContacts,
+              retryButtonText: AppTexts.myContactsRetry,
+              titleColor: AppColors.white,
+              buttonBackgroundColor: AppColors.primary,
+              buttonTextColor: AppColors.white,
             );
           }
 
           if (controller.contacts.isEmpty) {
-            return ClientEmptyState(
+            return AppEmptyState(
               title: AppTexts.myContactsNoContactsFound,
               titleColor: AppColors.white,
               message: AppTexts.myContactsNoContactsMessage,

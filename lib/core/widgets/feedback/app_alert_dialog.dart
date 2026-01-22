@@ -4,6 +4,7 @@ import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
 import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
 import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
+import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
 import 'package:elegant_advisors/core/widgets/display/app_logo.dart';
 import 'package:elegant_advisors/core/widgets/buttons/app_action_button.dart';
 import 'package:iconsax/iconsax.dart';
@@ -23,7 +24,7 @@ class AppAlertDialog extends StatelessWidget {
     super.key,
     required this.title,
     required this.subtitle,
-    this.cancelText = 'Cancel',
+    this.cancelText = AppTexts.commonCancel,
     this.confirmText,
     this.onCancel,
     this.onConfirm,
@@ -121,6 +122,7 @@ class AppAlertDialog extends StatelessWidget {
                               onPressed:
                                   onCancel ?? () => Get.back(result: false),
                               backgroundColor: AppColors.white,
+                              labelColor: AppColors.primary,
                             ),
                           ),
                           if (confirmText != null) ...[
@@ -155,7 +157,7 @@ class AppAlertDialog extends StatelessWidget {
   static Future<bool?> show({
     required String title,
     required String subtitle,
-    String cancelText = 'Cancel',
+    String cancelText = AppTexts.commonCancel,
     String? confirmText,
     VoidCallback? onCancel,
     VoidCallback? onConfirm,

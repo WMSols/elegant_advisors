@@ -7,6 +7,7 @@ import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
 /// Used in AdminPropertyCard and other admin widgets
 class AppActionButton extends StatelessWidget {
   final String label;
+  final Color? labelColor;
   final VoidCallback? onPressed;
   final bool isDestructive; // For delete/destructive actions
   final Color? backgroundColor;
@@ -15,6 +16,7 @@ class AppActionButton extends StatelessWidget {
   const AppActionButton({
     super.key,
     required this.label,
+    this.labelColor = AppColors.white,
     this.onPressed,
     this.isDestructive = false,
     this.backgroundColor,
@@ -63,7 +65,7 @@ class AppActionButton extends StatelessWidget {
               Text(
                 label,
                 style: AppTextStyles.bodyText(context).copyWith(
-                  color: AppColors.white,
+                  color: labelColor,
                   fontSize: AppResponsive.fontSizeClamped(
                     context,
                     min: 12,

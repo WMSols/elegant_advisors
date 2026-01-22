@@ -300,6 +300,10 @@ class FirestoreService {
     });
   }
 
+  Future<void> deleteContactSubmission(String id) async {
+    await _firestore.collection(contactSubmissionsCollection).doc(id).delete();
+  }
+
   // Admin Users
   Future<AdminUserModel?> getAdminUser(String uid) async {
     final doc = await _firestore

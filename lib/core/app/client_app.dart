@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:elegant_advisors/core/theme/app_theme.dart';
 import 'package:elegant_advisors/core/constants/client_constants.dart';
+import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
 import 'package:elegant_advisors/presentation/client/routes/client_routes.dart';
 
 /// Client-facing application
@@ -11,7 +12,7 @@ class ClientApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Elegant Advisors',
+      title: AppTexts.appTitleClient,
       debugShowCheckedModeBanner: false,
       theme: AppTheme.theme,
       initialRoute: ClientConstants.routeClientHome,
@@ -32,12 +33,12 @@ class ClientApp extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text('Page Not Found'),
+                Text(AppTexts.commonPageNotFound),
                 const SizedBox(height: 16),
                 ElevatedButton(
                   onPressed: () =>
                       Get.offAllNamed(ClientConstants.routeClientHome),
-                  child: const Text('Go Home'),
+                  child: Text(AppTexts.commonGoHome),
                 ),
               ],
             ),

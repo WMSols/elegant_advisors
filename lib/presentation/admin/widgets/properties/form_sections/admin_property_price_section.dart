@@ -42,6 +42,7 @@ class AdminPropertyPriceSection extends GetView<AdminPropertyFormController> {
                 child: Obx(
                   () => AppDropdownField<String>(
                     label: AppTexts.adminPropertyFormCurrencyLabel,
+                    labelColor: AppColors.white,
                     value: controller.currency.value,
                     items: [
                       DropdownMenuItem(

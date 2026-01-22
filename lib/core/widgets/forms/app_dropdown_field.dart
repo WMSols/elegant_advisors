@@ -30,7 +30,7 @@ class AppDropdownField<T> extends StatelessWidget {
     this.prefixIcon,
     this.enabled = true,
     this.labelColor = AppColors.primary,
-    this.errorTextColor = AppColors.primary,
+    this.errorTextColor = AppColors.error,
     this.borderColor,
   });
 
