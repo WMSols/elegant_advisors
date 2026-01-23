@@ -75,11 +75,7 @@ class AppEmptyState extends StatelessWidget {
           message,
           style: AppTextStyles.bodyText(context).copyWith(
             color: messageColor ?? AppColors.grey,
-            fontSize: AppResponsive.fontSizeClamped(
-              context,
-              min: 14,
-              max: 16,
-            ),
+            fontSize: AppResponsive.fontSizeClamped(context, min: 14, max: 16),
           ),
           textAlign: TextAlign.center,
         ),
@@ -96,9 +92,7 @@ class AppEmptyState extends StatelessWidget {
     );
 
     if (centerContent) {
-      return Center(
-        child: content,
-      );
+      return Center(child: content);
     }
 
     return Container(

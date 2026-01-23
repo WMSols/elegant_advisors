@@ -71,9 +71,10 @@ class AdminInquiryDetailHeader extends StatelessWidget {
                   children: [
                     Text(
                       inquiry.name,
-                      style: AppTextStyles.heading(
-                        context,
-                      ).copyWith(color: AppColors.white, fontWeight: FontWeight.bold),
+                      style: AppTextStyles.heading(context).copyWith(
+                        color: AppColors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -97,12 +98,7 @@ class AdminInquiryDetailHeader extends StatelessWidget {
                     min: 8,
                     max: 16,
                   ),
-                  vertical: AppResponsive.scaleSize(
-                    context,
-                    6,
-                    min: 4,
-                    max: 8,
-                  ),
+                  vertical: AppResponsive.scaleSize(context, 6, min: 4, max: 8),
                 ),
                 decoration: BoxDecoration(
                   color: _getStatusColor(inquiry.status),

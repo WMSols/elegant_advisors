@@ -79,24 +79,23 @@ class AdminInquiriesScreen extends GetView<AdminInquiriesController> {
                               centerContent: true,
                             )
                           : Column(
-                              children: filteredInquiries
-                                  .map((inquiry) {
-                                    final isDeleting =
-                                        controller.isDeleting(inquiry.id ?? '');
-                                    return AdminInquiryCard(
-                                      inquiry: inquiry,
-                                      controller: controller,
-                                      onReply: () =>
-                                          controller.replyToInquiry(inquiry),
-                                      onDelete: () {
-                                        if (inquiry.id != null) {
-                                          controller.deleteInquiry(inquiry.id!);
-                                        }
-                                      },
-                                      isDeleting: isDeleting,
-                                    );
-                                  })
-                                  .toList(),
+                              children: filteredInquiries.map((inquiry) {
+                                final isDeleting = controller.isDeleting(
+                                  inquiry.id ?? '',
+                                );
+                                return AdminInquiryCard(
+                                  inquiry: inquiry,
+                                  controller: controller,
+                                  onReply: () =>
+                                      controller.replyToInquiry(inquiry),
+                                  onDelete: () {
+                                    if (inquiry.id != null) {
+                                      controller.deleteInquiry(inquiry.id!);
+                                    }
+                                  },
+                                  isDeleting: isDeleting,
+                                );
+                              }).toList(),
                             ),
                     ],
                   ),

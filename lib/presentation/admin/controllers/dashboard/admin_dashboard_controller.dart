@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:flutter/foundation.dart';
 import 'package:elegant_advisors/data/services/firestore_service.dart';
 import 'package:elegant_advisors/data/services/auth_service.dart';
 import 'package:elegant_advisors/core/base/base_controller/app_base_controller.dart';
@@ -73,13 +74,10 @@ class AdminDashboardController extends BaseController {
 
   Future<void> loadVisitorTrackingStats() async {
     try {
-      await Future.wait([
-        _loadTotalVisitors(),
-        _loadPropertyVisitStats(),
-      ]);
+      await Future.wait([_loadTotalVisitors(), _loadPropertyVisitStats()]);
     } catch (e) {
       // Silently fail - visitor tracking stats are not critical
-      print('Failed to load visitor tracking stats: $e');
+      debugPrint('Failed to load visitor tracking stats: $e');
     }
   }
 
@@ -87,7 +85,7 @@ class AdminDashboardController extends BaseController {
     try {
       totalVisitors.value = await _firestoreService.getTotalVisitorsCount();
     } catch (e) {
-      print('Error loading total visitors: $e');
+      debugPrint('Error loading total visitors: $e');
     }
   }
 
@@ -100,7 +98,7 @@ class AdminDashboardController extends BaseController {
       totalPropertyVisits.value = results[0];
       totalUniqueVisits.value = results[1];
     } catch (e) {
-      print('Error loading property visit stats: $e');
+      debugPrint('Error loading property visit stats: $e');
     }
   }
 

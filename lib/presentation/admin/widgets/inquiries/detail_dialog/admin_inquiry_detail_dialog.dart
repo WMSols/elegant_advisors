@@ -1,13 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 import 'package:elegant_advisors/core/utils/app_images/app_images.dart';
-import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
-import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
-import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
-import 'package:elegant_advisors/core/utils/app_helpers/app_helpers.dart';
 import 'package:elegant_advisors/domain/models/contact_submission_model.dart';
 import 'package:elegant_advisors/presentation/admin/widgets/inquiries/detail_dialog/admin_inquiry_detail_header.dart';
 import 'package:elegant_advisors/presentation/admin/widgets/inquiries/detail_dialog/admin_inquiry_detail_content.dart';
@@ -83,9 +77,7 @@ class AdminInquiryDetailDialog extends StatelessWidget {
                     onViewProperty: onViewProperty,
                   ),
                   // Content
-                  Flexible(
-                    child: AdminInquiryDetailContent(inquiry: inquiry),
-                  ),
+                  Flexible(child: AdminInquiryDetailContent(inquiry: inquiry)),
                 ],
               ),
             ],

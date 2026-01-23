@@ -82,25 +82,23 @@ class AdminPropertiesScreen extends GetView<AdminPropertiesController> {
                               centerContent: true,
                             )
                           : Column(
-                              children: filteredProperties
-                                  .map((property) {
-                                    final isDeleting =
-                                        deletingPropertyId == property.id;
-                                    return AdminPropertyCard(
-                                      property: property,
-                                      onEdit: () => controller
-                                          .navigateToEditProperty(property.id!),
-                                      onDelete: () =>
-                                          controller.deleteProperty(property.id!),
-                                      onTogglePublish: () =>
-                                          controller.togglePropertyStatus(
-                                            property.id!,
-                                            property.isPublished,
-                                          ),
-                                      isDeleting: isDeleting,
-                                    );
-                                  })
-                                  .toList(),
+                              children: filteredProperties.map((property) {
+                                final isDeleting =
+                                    deletingPropertyId == property.id;
+                                return AdminPropertyCard(
+                                  property: property,
+                                  onEdit: () => controller
+                                      .navigateToEditProperty(property.id!),
+                                  onDelete: () =>
+                                      controller.deleteProperty(property.id!),
+                                  onTogglePublish: () =>
+                                      controller.togglePropertyStatus(
+                                        property.id!,
+                                        property.isPublished,
+                                      ),
+                                  isDeleting: isDeleting,
+                                );
+                              }).toList(),
                             ),
                     ],
                   ),

@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import 'package:elegant_advisors/domain/models/property_model.dart';
 import 'package:elegant_advisors/domain/models/team_model.dart';
 import 'package:elegant_advisors/domain/models/site_content_model.dart';
@@ -465,7 +466,7 @@ class FirestoreService {
     // Always create visitor record FIRST (before checking tracking document)
     // This ensures visitor record is created even if tracking document check fails
     bool isUniqueVisit = false;
-    
+
     try {
       // Get additional visitor information
       final userAgent = AppIPHelper.getUserAgent();
@@ -479,7 +480,7 @@ class FirestoreService {
         pagePath: '/properties/$propertyId',
         visitedAt: DateTime.now(),
       );
-      
+
       await createVisitor(visitor);
     } catch (e) {
       // Silently fail - visitor creation is not critical
@@ -593,7 +594,7 @@ class FirestoreService {
     try {
       final today = DateTime.now();
       final startOfDay = DateTime(today.year, today.month, today.day);
-      
+
       final snapshot = await _firestore
           .collection(visitorsCollection)
           .where(
@@ -602,7 +603,7 @@ class FirestoreService {
           )
           .count()
           .get();
-      
+
       return snapshot.count ?? 0;
     } catch (e) {
       return 0;
@@ -615,7 +616,7 @@ class FirestoreService {
       final snapshot = await _firestore
           .collection(visitTrackingCollection)
           .get();
-      
+
       int total = 0;
       for (var doc in snapshot.docs) {
         final data = doc.data();
@@ -624,10 +625,10 @@ class FirestoreService {
           total += (visits as num).toInt();
         }
       }
-      
+
       return total;
     } catch (e) {
-      print('Error getting total property visits: $e');
+      debugPrint('Error getting total property visits: $e');
       return 0;
     }
   }
@@ -638,7 +639,7 @@ class FirestoreService {
       final snapshot = await _firestore
           .collection(visitTrackingCollection)
           .get();
-      
+
       int total = 0;
       for (var doc in snapshot.docs) {
         final data = doc.data();
@@ -647,7 +648,7 @@ class FirestoreService {
           total += (visits as num).toInt();
         }
       }
-      
+
       return total;
     } catch (e) {
       return 0;

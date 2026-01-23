@@ -14,15 +14,14 @@ class ClientPropertyDetailController extends BaseController {
 
   final property = Rxn<PropertyModel>();
   final relatedProperties = <PropertyModel>[].obs;
-  @override
-  final isLoading = false.obs;
   final isLoadingRelated = false.obs;
   final currentImageIndex = 0.obs;
   ScrollController? _scrollController;
   final showHeader = false.obs;
   int _keyCounter = 0;
   String? _currentSlug; // Track current slug to detect changes
-  String? _lastTrackedPropertyId; // Track last property ID that was tracked to prevent duplicates
+  String?
+  _lastTrackedPropertyId; // Track last property ID that was tracked to prevent duplicates
 
   // Use ValueKey instead of GlobalKey to avoid duplicate key issues
   // ValueKey with a counter ensures unique keys without GlobalKey conflicts
@@ -77,7 +76,8 @@ class ClientPropertyDetailController extends BaseController {
     // Reset property data to ensure fresh load
     property.value = null;
     relatedProperties.clear();
-    _lastTrackedPropertyId = null; // Reset tracking when navigating to new property
+    _lastTrackedPropertyId =
+        null; // Reset tracking when navigating to new property
 
     // Update current slug
     _currentSlug = slug;
@@ -206,19 +206,13 @@ class ClientPropertyDetailController extends BaseController {
       _lastTrackedPropertyId = property.id;
 
       // Log analytics
-      await _analyticsService.logPropertyView(
-        property.id!,
-        property.title,
-      );
+      await _analyticsService.logPropertyView(property.id!, property.title);
 
       // Get IP address for visit tracking
       final ipAddress = await AppIPHelper.getClientIp();
 
       // Increment visit counter with IP address
-      await _firestoreService.incrementPropertyVisit(
-        property.id!,
-        ipAddress,
-      );
+      await _firestoreService.incrementPropertyVisit(property.id!, ipAddress);
     } catch (e) {
       // Silently fail - analytics shouldn't break the page
       final errorString = e.toString();

@@ -90,13 +90,16 @@ class _AppFadeInOnScrollState extends State<AppFadeInOnScroll>
   void _checkVisibility() {
     if (!mounted) return;
 
-    final RenderObject? renderObject = _key.currentContext?.findRenderObject();
+    final currentContext = _key.currentContext;
+    if (currentContext == null) return;
+
+    final RenderObject? renderObject = currentContext.findRenderObject();
     if (renderObject == null || renderObject is! RenderBox) return;
 
     final RenderBox renderBox = renderObject;
     final position = renderBox.localToGlobal(Offset.zero);
     final size = renderBox.size;
-    final screenHeight = MediaQuery.of(context).size.height;
+    final screenHeight = MediaQuery.of(currentContext).size.height;
 
     // Check if widget is in viewport (with offset buffer)
     final isVisible =
@@ -156,24 +159,36 @@ class _AppFadeInOnScrollState extends State<AppFadeInOnScroll>
         if (mounted &&
             _controller.value == 0.0 &&
             _controller.status != AnimationStatus.forward) {
-          Future.delayed(const Duration(milliseconds: 300), () {
-            if (mounted) {
-              final RenderObject? renderObject = _key.currentContext
-                  ?.findRenderObject();
-              if (renderObject != null && renderObject is RenderBox) {
-                final RenderBox renderBox = renderObject;
-                final position = renderBox.localToGlobal(Offset.zero);
-                final size = renderBox.size;
-                final screenHeight = MediaQuery.of(context).size.height;
-                final isVisible =
-                    position.dy < screenHeight + widget.offset &&
-                    position.dy + size.height > -widget.offset;
+          // Capture context and render object before async gap
+          final currentContext = _key.currentContext;
+          if (currentContext == null || !mounted) return;
 
-                if (isVisible) {
-                  _controller.forward();
-                  _wasVisible = true;
-                }
-              }
+          // Capture screen height before async gap to avoid BuildContext issues
+          final screenHeight = MediaQuery.of(currentContext).size.height;
+
+          // Capture render object before async gap
+          final renderObject = currentContext.findRenderObject();
+          if (renderObject == null || renderObject is! RenderBox) return;
+
+          Future.delayed(const Duration(milliseconds: 300), () {
+            if (!mounted) return;
+            // Verify the render object is still valid
+            final currentRenderObject = _key.currentContext?.findRenderObject();
+            if (currentRenderObject == null ||
+                currentRenderObject is! RenderBox) {
+              return;
+            }
+            final RenderBox renderBox = currentRenderObject;
+            final position = renderBox.localToGlobal(Offset.zero);
+            final size = renderBox.size;
+            // Use the captured screen height from before the async gap
+            final isVisible =
+                position.dy < screenHeight + widget.offset &&
+                position.dy + size.height > -widget.offset;
+
+            if (isVisible) {
+              _controller.forward();
+              _wasVisible = true;
             }
           });
         }

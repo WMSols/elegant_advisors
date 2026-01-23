@@ -224,7 +224,9 @@ class _AdminInquiryReplyDialogState extends State<AdminInquiryReplyDialog> {
                             AppActionButton(
                               label: AppTexts.adminInquiryReplyCancel,
                               onPressed: () => Get.back(),
-                              backgroundColor: AppColors.white.withValues(alpha: 0.2),
+                              backgroundColor: AppColors.white.withValues(
+                                alpha: 0.2,
+                              ),
                               labelColor: AppColors.white,
                             ),
                             AppSpacing.horizontal(context, 0.02),

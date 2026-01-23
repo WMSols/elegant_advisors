@@ -343,7 +343,8 @@ class AppTexts {
   static const String adminInquiriesDeleteConfirm = "Delete";
   static const String adminInquiryReplyTitle = "Reply to Inquiry";
   static const String adminInquiryReplyMessageLabel = "Reply Message";
-  static const String adminInquiryReplyMessageHint = "Enter your reply message...";
+  static const String adminInquiryReplyMessageHint =
+      "Enter your reply message...";
   static const String adminInquiryReplySend = "Send Reply";
   static const String adminInquiryReplyCancel = "Cancel";
   static const String adminInquiryReplySuccess = "Reply sent successfully";
@@ -481,6 +482,5 @@ class AppTexts {
   static const String adminPropertyImageSetCover = "Set as cover image";
 
   // Location
-  static const String locationGoogleMapsError =
-      "Could not open Google Maps";
+  static const String locationGoogleMapsError = "Could not open Google Maps";
 }

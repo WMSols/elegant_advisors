@@ -32,10 +32,9 @@ class AdminInquiryDetailSection extends StatelessWidget {
             AppSpacing.horizontal(context, 0.01),
             Text(
               label,
-              style: AppTextStyles.heading(context).copyWith(
-                color: AppColors.white,
-                fontWeight: FontWeight.bold,
-              ),
+              style: AppTextStyles.heading(
+                context,
+              ).copyWith(color: AppColors.white, fontWeight: FontWeight.bold),
             ),
           ],
         ),

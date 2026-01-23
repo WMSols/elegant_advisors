@@ -20,18 +20,20 @@ class AdminInquiriesController extends BaseController {
   final EmailService _emailService = EmailService();
 
   final inquiries = <ContactSubmissionModel>[].obs;
-  @override
-  final isLoading = false.obs;
   final searchQuery = ''.obs;
-  final sortBy = 'createdAt'.obs; // 'name', 'email', 'subject', 'status', 'createdAt'
+  final sortBy =
+      'createdAt'.obs; // 'name', 'email', 'subject', 'status', 'createdAt'
   final sortOrder = 'desc'.obs; // 'asc', 'desc'
   final statusFilter = Rxn<String>(); // null, 'new', 'in_progress', 'closed'
   final selectedPropertyId = Rxn<String>();
   final dateFilter = Rxn<DateTime>();
-  final deletingInquiryId = Rxn<String>(); // Track which inquiry is being deleted
-  final propertyNames = <String, String>{}.obs; // Cache property names: propertyId -> propertyName
+  final deletingInquiryId =
+      Rxn<String>(); // Track which inquiry is being deleted
+  final propertyNames = <String, String>{}
+      .obs; // Cache property names: propertyId -> propertyName
   TextEditingController? _searchController;
-  StreamSubscription<List<ContactSubmissionModel>>? _inquiriesStreamSubscription;
+  StreamSubscription<List<ContactSubmissionModel>>?
+  _inquiriesStreamSubscription;
   bool _isDisposed = false;
 
   /// Safely get the search controller - lazy initializes if needed
@@ -103,18 +105,18 @@ class AdminInquiriesController extends BaseController {
       _inquiriesStreamSubscription = _firestoreService
           .getAllContactSubmissions()
           .listen(
-        (inquiryList) async {
-          inquiries.assignAll(inquiryList);
-          // Load property names for inquiries with propertyId
-          await _loadPropertyNames(inquiryList);
-          setLoading(false);
-        },
-        onError: (error) {
-          setLoading(false);
-          showError('Failed to load inquiries: ${error.toString()}');
-        },
-        cancelOnError: false,
-      );
+            (inquiryList) async {
+              inquiries.assignAll(inquiryList);
+              // Load property names for inquiries with propertyId
+              await _loadPropertyNames(inquiryList);
+              setLoading(false);
+            },
+            onError: (error) {
+              setLoading(false);
+              showError('Failed to load inquiries: ${error.toString()}');
+            },
+            cancelOnError: false,
+          );
     } catch (e) {
       setLoading(false);
       showError('Failed to load inquiries');
@@ -137,7 +139,7 @@ class AdminInquiriesController extends BaseController {
             inquiry.email.toLowerCase().contains(query) ||
             inquiry.subject.toLowerCase().contains(query) ||
             inquiry.message.toLowerCase().contains(query) ||
-            (inquiry.phone?.toLowerCase().contains(query) ?? false);
+            inquiry.phone.toLowerCase().contains(query);
       }).toList();
     }
 
@@ -302,7 +304,7 @@ class AdminInquiriesController extends BaseController {
     try {
       final result = await executeAsync(() async {
         await _emailService.sendInquiryReply(inquiry, replyMessage);
-        
+
         // Optionally update inquiry status to "in_progress" if it's "new"
         if (inquiry.status == 'new' && inquiry.id != null) {
           await _firestoreService.updateContactSubmissionStatus(
@@ -312,7 +314,7 @@ class AdminInquiriesController extends BaseController {
         }
         return true; // Return a value to indicate success
       });
-      
+
       // Only show success if executeAsync completed successfully (not null)
       if (result != null) {
         // Show success message immediately
@@ -329,9 +331,7 @@ class AdminInquiriesController extends BaseController {
       // Only show error if it hasn't been shown already
       if (errorMessage != AppTexts.adminInquiryReplyError) {
         showError(
-          errorMessage.isEmpty
-              ? AppTexts.adminInquiryReplyError
-              : errorMessage,
+          errorMessage.isEmpty ? AppTexts.adminInquiryReplyError : errorMessage,
         );
       }
       rethrow;
@@ -424,10 +424,7 @@ class AdminInquiriesController extends BaseController {
     });
   }
 
-  Future<void> togglePropertyStatus(
-    String propertyId,
-    bool isPublished,
-  ) async {
+  Future<void> togglePropertyStatus(String propertyId, bool isPublished) async {
     executeAsync(() async {
       try {
         final property = await _firestoreService.getPropertyById(propertyId);

@@ -19,33 +19,37 @@ class AppSnackbar {
   /// Show success snackbar
   static void showSuccess(String message, {String? title}) {
     _show(
-        title: title ?? AppTexts.commonSuccess,
-        message: message,
-        type: SnackbarType.success);
+      title: title ?? AppTexts.commonSuccess,
+      message: message,
+      type: SnackbarType.success,
+    );
   }
 
   /// Show error snackbar
   static void showError(String message, {String? title}) {
     _show(
-        title: title ?? AppTexts.commonError,
-        message: message,
-        type: SnackbarType.error);
+      title: title ?? AppTexts.commonError,
+      message: message,
+      type: SnackbarType.error,
+    );
   }
 
   /// Show info snackbar
   static void showInfo(String message, {String? title}) {
     _show(
-        title: title ?? AppTexts.commonInfo,
-        message: message,
-        type: SnackbarType.info);
+      title: title ?? AppTexts.commonInfo,
+      message: message,
+      type: SnackbarType.info,
+    );
   }
 
   /// Show warning snackbar
   static void showWarning(String message, {String? title}) {
     _show(
-        title: title ?? AppTexts.commonWarning,
-        message: message,
-        type: SnackbarType.warning);
+      title: title ?? AppTexts.commonWarning,
+      message: message,
+      type: SnackbarType.warning,
+    );
   }
 
   static void _show({

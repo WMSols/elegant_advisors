@@ -9,7 +9,7 @@ class ClientAboutUsController extends BaseController {
 
   // Use ValueKey instead of GlobalKey to avoid duplicate key issues
   // ValueKey with a counter ensures unique keys without GlobalKey conflicts
-  Key get scrollViewKey => ValueKey('about_us_scroll_${_keyCounter}');
+  Key get scrollViewKey => ValueKey('about_us_scroll_$_keyCounter');
 
   @override
   void onInit() {

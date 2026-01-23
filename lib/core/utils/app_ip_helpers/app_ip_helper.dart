@@ -1,5 +1,6 @@
-import 'dart:html' as html;
 import 'package:http/http.dart' as http;
+import 'app_ip_helper_stub.dart'
+    if (dart.library.html) 'app_ip_helper_web.dart';
 
 /// Helper utility for getting client IP address and browser information
 ///
@@ -36,9 +37,7 @@ class AppIPHelper {
       // Use ipify.org API - free, simple, and reliable
       // Timeout after 5 seconds to avoid blocking
       final response = await http
-          .get(
-            Uri.parse('https://api.ipify.org?format=text'),
-          )
+          .get(Uri.parse('https://api.ipify.org?format=text'))
           .timeout(
             const Duration(seconds: 5),
             onTimeout: () {
@@ -66,14 +65,10 @@ class AppIPHelper {
   /// Validate IP address format (basic validation)
   static bool _isValidIpAddress(String ip) {
     // Basic IPv4 validation
-    final ipv4Regex = RegExp(
-      r'^(\d{1,3}\.){3}\d{1,3}$',
-    );
-    
+    final ipv4Regex = RegExp(r'^(\d{1,3}\.){3}\d{1,3}$');
+
     // Basic IPv6 validation (simplified)
-    final ipv6Regex = RegExp(
-      r'^([0-9a-fA-F]{0,4}:){2,7}[0-9a-fA-F]{0,4}$',
-    );
+    final ipv6Regex = RegExp(r'^([0-9a-fA-F]{0,4}:){2,7}[0-9a-fA-F]{0,4}$');
 
     if (ipv4Regex.hasMatch(ip)) {
       // Validate each octet is 0-255
@@ -95,12 +90,7 @@ class AppIPHelper {
   /// Returns the user agent string from the browser's navigator object.
   /// Returns null if not available (e.g., not running on web).
   static String? getUserAgent() {
-    try {
-      return html.window.navigator.userAgent;
-    } catch (e) {
-      // Not available (e.g., not running on web)
-      return null;
-    }
+    return AppIPHelperWeb.getUserAgent();
   }
 
   /// Get referrer URL
@@ -108,13 +98,7 @@ class AppIPHelper {
   /// Returns the referrer URL from the browser's document object.
   /// Returns null if not available or if the page was accessed directly.
   static String? getReferrer() {
-    try {
-      final referrer = html.document.referrer;
-      return referrer.isEmpty ? null : referrer;
-    } catch (e) {
-      // Not available (e.g., not running on web)
-      return null;
-    }
+    return AppIPHelperWeb.getReferrer();
   }
 
   /// Clear cached IP address

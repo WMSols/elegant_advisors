@@ -112,7 +112,8 @@ class AdminInquiryFilters extends GetView<AdminInquiriesController> {
         ),
         // Clear Filters Button
         Obx(() {
-          final hasFilters = controller.statusFilter.value != null ||
+          final hasFilters =
+              controller.statusFilter.value != null ||
               controller.selectedPropertyId.value != null ||
               controller.dateFilter.value != null;
           if (!hasFilters) return const SizedBox.shrink();

@@ -1,6 +1,6 @@
-import 'dart:html' as html;
-import 'dart:convert';
 import 'package:elegant_advisors/domain/models/contact_submission_model.dart';
+import 'export_service_stub.dart'
+    if (dart.library.html) 'export_service_web.dart';
 
 /// Service for exporting data (CSV, Excel, etc.)
 class ExportService {
@@ -81,21 +81,10 @@ class ExportService {
     required String filename,
     required String mimeType,
   }) async {
-    // Convert content to bytes
-    final bytes = utf8.encode(content);
-    final blob = html.Blob([bytes], mimeType);
-    final url = html.Url.createObjectUrlFromBlob(blob);
-    
-    // Create anchor element and trigger download
-    final anchor = html.AnchorElement(href: url)
-      ..setAttribute('download', filename)
-      ..style.display = 'none';
-    
-    html.document.body?.append(anchor);
-    anchor.click();
-    anchor.remove();
-    
-    // Clean up
-    html.Url.revokeObjectUrl(url);
+    return ExportServiceWeb.downloadFile(
+      content: content,
+      filename: filename,
+      mimeType: mimeType,
+    );
   }
 }

@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
-import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
-import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
 import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
 import 'package:elegant_advisors/core/utils/app_helpers/app_helpers.dart';
@@ -36,12 +33,12 @@ class AdminInquiryDetailContent extends StatelessWidget {
             icon: Iconsax.sms,
             value: inquiry.email,
           ),
-          if (inquiry.phone != null && inquiry.phone!.isNotEmpty) ...[
+          if (inquiry.phone.isNotEmpty) ...[
             AppSpacing.vertical(context, 0.02),
             AdminInquiryDetailSection(
               label: AppTexts.adminInquiryDetailPhone,
               icon: Iconsax.call,
-              value: inquiry.phone!,
+              value: inquiry.phone,
             ),
           ],
           AppSpacing.vertical(context, 0.02),
@@ -63,8 +60,9 @@ class AdminInquiryDetailContent extends StatelessWidget {
           if (inquiry.propertyId != null)
             GetBuilder<AdminInquiriesController>(
               builder: (controller) {
-                final propertyName =
-                    controller.getPropertyName(inquiry.propertyId);
+                final propertyName = controller.getPropertyName(
+                  inquiry.propertyId,
+                );
                 return AdminInquiryDetailSection(
                   label: AppTexts.adminInquiryCardProperty,
                   icon: Iconsax.home,
@@ -72,17 +70,15 @@ class AdminInquiryDetailContent extends StatelessWidget {
                 );
               },
             ),
-          if (inquiry.propertyId != null)
-            AppSpacing.vertical(context, 0.02),
+          if (inquiry.propertyId != null) AppSpacing.vertical(context, 0.02),
           // IP Address (if available)
           if (inquiry.ipAddress != null)
             AdminInquiryDetailSection(
               label: AppTexts.adminInquiryDetailIpAddress,
               icon: Iconsax.global,
-              value: inquiry.ipAddress!,
+              value: inquiry.ipAddress ?? '',
             ),
-          if (inquiry.ipAddress != null)
-            AppSpacing.vertical(context, 0.02),
+          if (inquiry.ipAddress != null) AppSpacing.vertical(context, 0.02),
           // Created Date
           AdminInquiryDetailSection(
             label: AppTexts.adminInquiryCardCreated,
