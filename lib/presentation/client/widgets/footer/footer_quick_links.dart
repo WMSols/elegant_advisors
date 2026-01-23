@@ -11,6 +11,9 @@ import 'package:elegant_advisors/presentation/client/controllers/properties/clie
 import 'package:elegant_advisors/presentation/client/controllers/properties/client_property_detail_controller.dart';
 import 'package:elegant_advisors/presentation/client/controllers/contact/client_contact_controller.dart';
 import 'package:elegant_advisors/presentation/client/controllers/contact/my_contacts/client_my_contacts_controller.dart';
+import 'package:elegant_advisors/presentation/client/controllers/home/client_home_controller.dart';
+import 'package:elegant_advisors/presentation/client/controllers/our_team/client_our_team_controller.dart';
+import 'package:elegant_advisors/presentation/client/controllers/about_us/client_about_us_controller.dart';
 
 class FooterQuickLinks extends StatelessWidget {
   const FooterQuickLinks({super.key});
@@ -35,7 +38,11 @@ class FooterQuickLinks extends StatelessWidget {
             if (FooterTexts.onHomeTap != null) {
               FooterTexts.onHomeTap!();
             } else {
-              Get.toNamed(ClientConstants.routeClientHome);
+              // Delete home controller to ensure clean state
+              if (Get.isRegistered<ClientHomeController>()) {
+                Get.delete<ClientHomeController>(force: true);
+              }
+              Get.offNamed(ClientConstants.routeClientHome);
             }
           },
         ),
@@ -64,7 +71,11 @@ class FooterQuickLinks extends StatelessWidget {
             if (FooterTexts.onOurTeamTap != null) {
               FooterTexts.onOurTeamTap!();
             } else {
-              Get.toNamed(ClientConstants.routeClientOurTeam);
+              // Delete our team controller to ensure clean state
+              if (Get.isRegistered<ClientOurTeamController>()) {
+                Get.delete<ClientOurTeamController>(force: true);
+              }
+              Get.offNamed(ClientConstants.routeClientOurTeam);
             }
           },
         ),
@@ -74,7 +85,11 @@ class FooterQuickLinks extends StatelessWidget {
             if (FooterTexts.onAboutUsTap != null) {
               FooterTexts.onAboutUsTap!();
             } else {
-              Get.toNamed(ClientConstants.routeClientAboutUs);
+              // Delete about us controller to ensure clean state
+              if (Get.isRegistered<ClientAboutUsController>()) {
+                Get.delete<ClientAboutUsController>(force: true);
+              }
+              Get.offNamed(ClientConstants.routeClientAboutUs);
             }
           },
         ),

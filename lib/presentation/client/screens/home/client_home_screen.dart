@@ -5,7 +5,7 @@ import 'package:elegant_advisors/presentation/client/widgets/home/home_market_ed
 import 'package:elegant_advisors/presentation/client/widgets/home/home_our_discerning_clientele_section.dart';
 import 'package:elegant_advisors/presentation/client/widgets/home/home_unparalleled_expertise_section.dart';
 import 'package:elegant_advisors/presentation/client/widgets/home/home_privileging_quality_section.dart';
-import 'package:elegant_advisors/presentation/client/widgets/home/home_top_section.dart';
+import 'package:elegant_advisors/presentation/client/widgets/home/header/home_header_section.dart';
 import 'package:elegant_advisors/presentation/client/controllers/home/client_home_controller.dart';
 
 class ClientHomeScreen extends GetView<ClientHomeController> {
@@ -17,10 +17,10 @@ class ClientHomeScreen extends GetView<ClientHomeController> {
       scrollController: controller.scrollController,
       scrollViewKey: controller.scrollViewKey,
       showHeader: controller.showHeader,
-      includeFooter: false,
+      includeFooter: true,
       children: [
-        // Top Section with Background Image
-        const HomeTopSection(),
+        // Header Section
+        HomeHeaderSection(controller: controller),
         // Market Educated Section
         const HomeMarketEducatedSection(),
         // Our Discerning Clientele Section

@@ -8,10 +8,14 @@ import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
 import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
 import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
 import 'package:elegant_advisors/core/widgets/buttons/app_icon_button.dart';
+import 'package:elegant_advisors/core/widgets/display/app_logo.dart';
 import 'package:elegant_advisors/presentation/client/controllers/properties/client_properties_controller.dart';
 import 'package:elegant_advisors/presentation/client/controllers/properties/client_property_detail_controller.dart';
 import 'package:elegant_advisors/presentation/client/controllers/contact/client_contact_controller.dart';
 import 'package:elegant_advisors/presentation/client/controllers/contact/my_contacts/client_my_contacts_controller.dart';
+import 'package:elegant_advisors/presentation/client/controllers/home/client_home_controller.dart';
+import 'package:elegant_advisors/presentation/client/controllers/our_team/client_our_team_controller.dart';
+import 'package:elegant_advisors/presentation/client/controllers/about_us/client_about_us_controller.dart';
 
 class HeaderMobileDrawer extends StatelessWidget {
   final VoidCallback onClose;
@@ -33,12 +37,13 @@ class HeaderMobileDrawer extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Close button in header
+            // Logo at the top
             Padding(
               padding: AppSpacing.symmetric(context, h: 0.04, v: 0.02),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  const AppLogo(color: AppColors.white),
                   AppIconButton(
                     icon: Iconsax.close_circle,
                     color: AppColors.white,
@@ -148,6 +153,27 @@ class _MobileDrawerItemState extends State<_MobileDrawerItem> {
           }
           if (Get.isRegistered<ClientContactController>()) {
             Get.delete<ClientContactController>(force: true);
+          }
+        }
+
+        // Special handling for home route to prevent ScrollController conflicts
+        if (widget.route == ClientConstants.routeClientHome) {
+          if (Get.isRegistered<ClientHomeController>()) {
+            Get.delete<ClientHomeController>(force: true);
+          }
+        }
+
+        // Special handling for our team route to prevent ScrollController conflicts
+        if (widget.route == ClientConstants.routeClientOurTeam) {
+          if (Get.isRegistered<ClientOurTeamController>()) {
+            Get.delete<ClientOurTeamController>(force: true);
+          }
+        }
+
+        // Special handling for about us route to prevent ScrollController conflicts
+        if (widget.route == ClientConstants.routeClientAboutUs) {
+          if (Get.isRegistered<ClientAboutUsController>()) {
+            Get.delete<ClientAboutUsController>(force: true);
           }
         }
 
