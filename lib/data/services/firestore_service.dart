@@ -6,6 +6,7 @@ import 'package:elegant_advisors/domain/models/contact_submission_model.dart';
 import 'package:elegant_advisors/domain/models/admin_user_model.dart';
 import 'package:elegant_advisors/domain/models/visitor_model.dart';
 import 'package:elegant_advisors/domain/models/visit_tracking_model.dart';
+import 'package:elegant_advisors/core/utils/app_ip_helpers/app_ip_helper.dart';
 
 class FirestoreService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -392,10 +393,15 @@ class FirestoreService {
 
   // Visitor Tracking
   Future<String> createVisitor(VisitorModel visitor) async {
-    final docRef = await _firestore
-        .collection(visitorsCollection)
-        .add(visitor.toJson());
-    return docRef.id;
+    try {
+      final visitorData = visitor.toJson();
+      final docRef = await _firestore
+          .collection(visitorsCollection)
+          .add(visitorData);
+      return docRef.id;
+    } catch (e) {
+      rethrow; // Re-throw to be caught by caller
+    }
   }
 
   Stream<List<VisitorModel>> getVisitors({
@@ -447,30 +453,42 @@ class FirestoreService {
     String propertyId,
     String? ipAddress,
   ) async {
+    // Validate propertyId
+    if (propertyId.isEmpty) {
+      return;
+    }
+
     final today = DateTime.now();
     final dateKey =
         '${today.year}-${today.month.toString().padLeft(2, '0')}-${today.day.toString().padLeft(2, '0')}';
 
-    final trackingDocRef = _firestore
-        .collection(visitTrackingCollection)
-        .doc(propertyId);
+    // Always create visitor record FIRST (before checking tracking document)
+    // This ensures visitor record is created even if tracking document check fails
+    bool isUniqueVisit = false;
+    
+    try {
+      // Get additional visitor information
+      final userAgent = AppIPHelper.getUserAgent();
+      final referrer = AppIPHelper.getReferrer();
 
-    final trackingDoc = await trackingDocRef.get();
-
-    if (trackingDoc.exists) {
-      final currentData = trackingDoc.data() as Map<String, dynamic>;
-      final currentTotal = currentData['totalVisits'] ?? 0;
-      final currentUnique = currentData['uniqueVisits'] ?? 0;
-      final visitsByDate = Map<String, int>.from(
-        currentData['visitsByDate'] ?? {},
+      final visitor = VisitorModel(
+        ipAddress: ipAddress,
+        userAgent: userAgent,
+        referrer: referrer,
+        propertyId: propertyId,
+        pagePath: '/properties/$propertyId',
+        visitedAt: DateTime.now(),
       );
+      
+      await createVisitor(visitor);
+    } catch (e) {
+      // Silently fail - visitor creation is not critical
+    }
 
-      // Increment total visits
-      final newTotal = currentTotal + 1;
-
-      // Check if this is a unique visit (by IP)
-      int newUnique = currentUnique;
-      if (ipAddress != null) {
+    // Check if this is a unique visit (by IP) for unique visit counting
+    // Note: This query might fail due to permissions, but we'll try anyway
+    if (ipAddress != null && ipAddress.isNotEmpty) {
+      try {
         // Check if this IP visited this property today
         final todayVisits = await _firestore
             .collection(visitorsCollection)
@@ -482,34 +500,50 @@ class FirestoreService {
                 DateTime(today.year, today.month, today.day),
               ),
             )
+            .limit(1) // Only need to know if any exist
             .get();
 
-        if (todayVisits.docs.isEmpty) {
-          newUnique = currentUnique + 1;
-        }
+        isUniqueVisit = todayVisits.docs.isEmpty;
+      } catch (e) {
+        // Default to not unique if we can't check
+        isUniqueVisit = false;
+      }
+    } else {
+      isUniqueVisit = false;
+    }
+
+    // Update visit tracking using set with merge (no read permission needed)
+    // This will create the document if it doesn't exist, or update if it does
+    final trackingDocRef = _firestore
+        .collection(visitTrackingCollection)
+        .doc(propertyId);
+
+    try {
+      // Use set with merge to create or update
+      // Use FieldValue.increment for counters (works even if field doesn't exist)
+      final updateData = <String, dynamic>{
+        'propertyId': propertyId,
+        'totalVisits': FieldValue.increment(1),
+        'lastVisitedAt': FieldValue.serverTimestamp(),
+        'updatedAt': FieldValue.serverTimestamp(),
+      };
+
+      // For unique visits, we need to increment only if it's unique
+      // Since we can't read the current value, we'll use a transaction-like approach
+      // But since we can't use transactions without read, we'll just set it
+      // The unique visit count will be approximate (might be slightly off)
+      if (isUniqueVisit) {
+        updateData['uniqueVisits'] = FieldValue.increment(1);
       }
 
-      // Update date-wise tracking
-      visitsByDate[dateKey] = (visitsByDate[dateKey] ?? 0) + 1;
+      // For date-wise tracking, we need to merge the visitsByDate map
+      // Since we can't read, we'll use set with merge and increment
+      // Note: This is approximate since we can't read current value
+      updateData['visitsByDate.$dateKey'] = FieldValue.increment(1);
 
-      await trackingDocRef.update({
-        'totalVisits': newTotal,
-        'uniqueVisits': newUnique,
-        'visitsByDate': visitsByDate,
-        'lastVisitedAt': FieldValue.serverTimestamp(),
-        'updatedAt': FieldValue.serverTimestamp(),
-      });
-    } else {
-      // Create new tracking document
-      final visitsByDate = {dateKey: 1};
-      await trackingDocRef.set({
-        'propertyId': propertyId,
-        'totalVisits': 1,
-        'uniqueVisits': ipAddress != null ? 1 : 0,
-        'visitsByDate': visitsByDate,
-        'lastVisitedAt': FieldValue.serverTimestamp(),
-        'updatedAt': FieldValue.serverTimestamp(),
-      });
+      await trackingDocRef.set(updateData, SetOptions(merge: true));
+    } catch (e) {
+      // Don't throw - visitor record is already created, which is the main goal
     }
   }
 
@@ -538,5 +572,85 @@ class FirestoreService {
               .map((doc) => VisitTrackingModel.fromJson(doc.data(), doc.id))
               .toList(),
         );
+  }
+
+  // Visitor Tracking Statistics
+  /// Get total number of visitors (from visitors collection)
+  Future<int> getTotalVisitorsCount() async {
+    try {
+      final snapshot = await _firestore
+          .collection(visitorsCollection)
+          .count()
+          .get();
+      return snapshot.count ?? 0;
+    } catch (e) {
+      return 0;
+    }
+  }
+
+  /// Get today's visitors count (from visitors collection)
+  Future<int> getTodayVisitorsCount() async {
+    try {
+      final today = DateTime.now();
+      final startOfDay = DateTime(today.year, today.month, today.day);
+      
+      final snapshot = await _firestore
+          .collection(visitorsCollection)
+          .where(
+            'visitedAt',
+            isGreaterThanOrEqualTo: Timestamp.fromDate(startOfDay),
+          )
+          .count()
+          .get();
+      
+      return snapshot.count ?? 0;
+    } catch (e) {
+      return 0;
+    }
+  }
+
+  /// Get total property visits (sum of all totalVisits from visit_tracking)
+  Future<int> getTotalPropertyVisits() async {
+    try {
+      final snapshot = await _firestore
+          .collection(visitTrackingCollection)
+          .get();
+      
+      int total = 0;
+      for (var doc in snapshot.docs) {
+        final data = doc.data();
+        final visits = data['totalVisits'];
+        if (visits != null) {
+          total += (visits as num).toInt();
+        }
+      }
+      
+      return total;
+    } catch (e) {
+      print('Error getting total property visits: $e');
+      return 0;
+    }
+  }
+
+  /// Get total unique property visits (sum of all uniqueVisits from visit_tracking)
+  Future<int> getTotalUniquePropertyVisits() async {
+    try {
+      final snapshot = await _firestore
+          .collection(visitTrackingCollection)
+          .get();
+      
+      int total = 0;
+      for (var doc in snapshot.docs) {
+        final data = doc.data();
+        final visits = data['uniqueVisits'];
+        if (visits != null) {
+          total += (visits as num).toInt();
+        }
+      }
+      
+      return total;
+    } catch (e) {
+      return 0;
+    }
   }
 }

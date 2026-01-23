@@ -226,6 +226,9 @@ class AppTexts {
   static const String adminDashboardTitle = "Dashboard";
   static const String adminDashboardTodayVisitors = "Today's Visitors";
   static const String adminDashboardYesterdayVisitors = "Yesterday's Visitors";
+  static const String adminDashboardTotalVisitors = "Total Visitors";
+  static const String adminDashboardTotalPropertyVisits = "Property Visits";
+  static const String adminDashboardUniqueVisits = "Unique Visits";
   static const String adminDashboardTotalProperties = "Total Properties";
   static const String adminDashboardPublishedProperties =
       "Published Properties";
@@ -338,6 +341,14 @@ class AppTexts {
       "Are you sure you want to delete this inquiry? This action cannot be undone.";
   static const String adminInquiriesDeleteCancel = "Cancel";
   static const String adminInquiriesDeleteConfirm = "Delete";
+  static const String adminInquiryReplyTitle = "Reply to Inquiry";
+  static const String adminInquiryReplyMessageLabel = "Reply Message";
+  static const String adminInquiryReplyMessageHint = "Enter your reply message...";
+  static const String adminInquiryReplySend = "Send Reply";
+  static const String adminInquiryReplyCancel = "Cancel";
+  static const String adminInquiryReplySuccess = "Reply sent successfully";
+  static const String adminInquiryReplyError = "Failed to send reply";
+  static const String adminInquiryReplyEmpty = "Please enter a reply message";
   static const String adminInquiryDetailName = "Name";
   static const String adminInquiryDetailEmail = "Email";
   static const String adminInquiryDetailPhone = "Phone";

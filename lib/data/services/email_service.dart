@@ -140,4 +140,52 @@ class EmailService {
   ) async {
     return sendInquiryNotification(inquiry, property);
   }
+
+  /// Send reply email to user for an inquiry
+  /// Requires admin authentication
+  Future<void> sendInquiryReply(
+    ContactSubmissionModel inquiry,
+    String replyMessage,
+  ) async {
+    try {
+      final callable = _functions.httpsCallable('sendInquiryReply');
+
+      // Convert model to JSON for Cloud Function
+      final inquiryData = {
+        'id': inquiry.id,
+        'name': inquiry.name,
+        'email': inquiry.email,
+        'phone': inquiry.phone,
+        'subject': inquiry.subject,
+        'message': inquiry.message,
+        'propertyId': inquiry.propertyId,
+        'status': inquiry.status,
+        'ipAddress': inquiry.ipAddress,
+        'createdAt': inquiry.createdAt.toIso8601String(),
+      };
+
+      await callable.call({
+        'inquiry': inquiryData,
+        'replyMessage': replyMessage.trim(),
+      });
+    } on FirebaseFunctionsException catch (e) {
+      String errorMessage;
+      switch (e.code) {
+        case 'invalid-argument':
+          errorMessage = e.message ?? 'Invalid input provided';
+          break;
+        case 'permission-denied':
+          errorMessage = 'You do not have permission to send replies';
+          break;
+        case 'unauthenticated':
+          errorMessage = 'You must be logged in to send replies';
+          break;
+        default:
+          errorMessage = e.message ?? 'Failed to send reply email';
+      }
+      throw Exception(errorMessage);
+    } catch (e) {
+      throw Exception('Failed to send reply email: ${e.toString()}');
+    }
+  }
 }

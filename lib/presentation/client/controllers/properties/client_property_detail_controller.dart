@@ -6,6 +6,7 @@ import 'package:elegant_advisors/data/services/analytics_service.dart';
 import 'package:elegant_advisors/domain/models/property_model.dart';
 import 'package:elegant_advisors/core/base/base_controller/app_base_controller.dart';
 import 'package:elegant_advisors/core/constants/client_constants.dart';
+import 'package:elegant_advisors/core/utils/app_ip_helpers/app_ip_helper.dart';
 
 class ClientPropertyDetailController extends BaseController {
   final FirestoreService _firestoreService = FirestoreService();
@@ -21,6 +22,7 @@ class ClientPropertyDetailController extends BaseController {
   final showHeader = false.obs;
   int _keyCounter = 0;
   String? _currentSlug; // Track current slug to detect changes
+  String? _lastTrackedPropertyId; // Track last property ID that was tracked to prevent duplicates
 
   // Use ValueKey instead of GlobalKey to avoid duplicate key issues
   // ValueKey with a counter ensures unique keys without GlobalKey conflicts
@@ -75,6 +77,7 @@ class ClientPropertyDetailController extends BaseController {
     // Reset property data to ensure fresh load
     property.value = null;
     relatedProperties.clear();
+    _lastTrackedPropertyId = null; // Reset tracking when navigating to new property
 
     // Update current slug
     _currentSlug = slug;
@@ -182,7 +185,6 @@ class ClientPropertyDetailController extends BaseController {
       relatedProperties.value = related.take(4).toList();
     } catch (e) {
       // Silently fail - related properties are not critical
-      print('Failed to load related properties: $e');
     } finally {
       isLoadingRelated.value = false;
     }
@@ -190,25 +192,42 @@ class ClientPropertyDetailController extends BaseController {
 
   Future<void> trackPropertyVisit(PropertyModel property) async {
     try {
+      // Validate property has an ID
+      if (property.id == null || property.id!.isEmpty) {
+        return;
+      }
+
+      // Prevent duplicate tracking for the same property in the same session
+      if (_lastTrackedPropertyId == property.id) {
+        return;
+      }
+
+      // Mark this property as tracked
+      _lastTrackedPropertyId = property.id;
+
       // Log analytics
       await _analyticsService.logPropertyView(
-        property.id ?? '',
+        property.id!,
         property.title,
       );
 
-      // Increment visit counter
-      // TODO: Get IP address from request
+      // Get IP address for visit tracking
+      final ipAddress = await AppIPHelper.getClientIp();
+
+      // Increment visit counter with IP address
       await _firestoreService.incrementPropertyVisit(
-        property.id ?? '',
-        null, // IP address - to be implemented
+        property.id!,
+        ipAddress,
       );
     } catch (e) {
       // Silently fail - analytics shouldn't break the page
-      // Check if it's a permission error and suppress the error message
       final errorString = e.toString();
       if (!errorString.contains('permission-denied')) {
         // Only log non-permission errors for debugging
-        print('Failed to track property visit: $e');
+      }
+      // Reset tracking flag on error so it can be retried
+      if (_lastTrackedPropertyId == property.id) {
+        _lastTrackedPropertyId = null;
       }
     }
   }

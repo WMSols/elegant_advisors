@@ -14,6 +14,15 @@ class AppColors {
   static const Color warning = Colors.orange;
   static const Color error = Color(0xFFF44336);
 
+  //dashboard chart
+  static const Color totalVisits = Color(0XFF070922);
+  static const Color propertyVisits = Colors.green;
+  static const Color uniqueVisits = Colors.blue;
+  static const Color totalProperties = Color(0XFF6C5CE7);
+  static const Color publishedProperties = Color(0xFF00B894);
+  static const Color teamMembers = Color(0xFF0984E3);
+  static const Color newInquiries = Colors.orange;
+
   //light
   static const Color lightBackground = Color(0xFFFFFFFF);
   static const Color lightColor = Colors.white;

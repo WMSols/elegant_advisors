@@ -537,3 +537,148 @@ exports.sendAdminAlert = functions.https.onCall(async (data, context) => {
     );
   }
 });
+
+/**
+ * Send reply email to user for an inquiry
+ * Requires: { inquiry, replyMessage }
+ * Admin-only callable
+ */
+exports.sendInquiryReply = functions.https.onCall(async (data, context) => {
+  try {
+    // Verify the caller is an admin
+    await verifyAdmin(context);
+
+    const { inquiry, replyMessage } = data;
+
+    // Validate input
+    if (!inquiry || !inquiry.email) {
+      throw new functions.https.HttpsError(
+        'invalid-argument',
+        'Inquiry data with email is required'
+      );
+    }
+
+    if (!replyMessage || replyMessage.trim().length === 0) {
+      throw new functions.https.HttpsError(
+        'invalid-argument',
+        'Reply message is required'
+      );
+    }
+
+    const emailConfig = getEmailConfig();
+    const transporter = createTransporter();
+
+    // Parse createdAt - handle both Firestore Timestamp (seconds) and ISO8601 string
+    let createdAtDate;
+    if (inquiry.createdAt) {
+      if (typeof inquiry.createdAt === 'object' && inquiry.createdAt.seconds) {
+        // Firestore Timestamp format
+        createdAtDate = new Date(inquiry.createdAt.seconds * 1000);
+      } else if (typeof inquiry.createdAt === 'string') {
+        // ISO8601 string format
+        createdAtDate = new Date(inquiry.createdAt);
+      } else {
+        createdAtDate = new Date();
+      }
+    } else {
+      createdAtDate = new Date();
+    }
+
+    // Format original inquiry details for context
+    const originalInquiryInfo = `
+      <div style="background-color: #f0f0f0; padding: 15px; margin: 20px 0; border-left: 4px solid #2c3e50;">
+        <h3 style="margin-top: 0; color: #2c3e50;">Original Inquiry:</h3>
+        <p><strong>Subject:</strong> ${inquiry.subject || 'General Inquiry'}</p>
+        <p><strong>Your Message:</strong></p>
+        <p style="white-space: pre-wrap;">${inquiry.message.replace(/\n/g, '<br>')}</p>
+        <p><small>Submitted: ${createdAtDate.toLocaleString()}</small></p>
+      </div>
+    `;
+
+    const emailHtml = `
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <meta charset="utf-8">
+          <style>
+            body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+            .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+            .header { background-color: #2c3e50; color: white; padding: 20px; text-align: center; }
+            .content { background-color: #f9f9f9; padding: 20px; margin-top: 20px; }
+            .reply-message { background-color: white; padding: 15px; margin: 20px 0; border-left: 4px solid #2c3e50; white-space: pre-wrap; }
+            .footer { margin-top: 20px; padding-top: 20px; border-top: 1px solid #ddd; font-size: 12px; color: #777; }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <div class="header">
+              <h1>Reply to Your Inquiry</h1>
+            </div>
+            <div class="content">
+              <p>Dear ${inquiry.name || 'Valued Client'},</p>
+              <p>Thank you for contacting Elegant Advisors. We have received your inquiry and are pleased to respond.</p>
+              ${originalInquiryInfo}
+              <h3>Our Response:</h3>
+              <div class="reply-message">${replyMessage.replace(/\n/g, '<br>')}</div>
+              <p>If you have any further questions or need additional assistance, please don't hesitate to contact us.</p>
+              <p>Best regards,<br>The Elegant Advisors Team</p>
+            </div>
+            <div class="footer">
+              <p>This email was sent in response to your inquiry submitted on ${createdAtDate.toLocaleString()}.</p>
+            </div>
+          </div>
+        </body>
+      </html>
+    `;
+
+    const emailText = `
+Reply to Your Inquiry
+
+Dear ${inquiry.name || 'Valued Client'},
+
+Thank you for contacting Elegant Advisors. We have received your inquiry and are pleased to respond.
+
+Original Inquiry:
+Subject: ${inquiry.subject || 'General Inquiry'}
+Your Message:
+${inquiry.message}
+Submitted: ${createdAtDate.toLocaleString()}
+
+Our Response:
+${replyMessage}
+
+If you have any further questions or need additional assistance, please don't hesitate to contact us.
+
+Best regards,
+The Elegant Advisors Team
+
+---
+This email was sent in response to your inquiry submitted on ${createdAtDate.toLocaleString()}.
+    `;
+
+    const mailOptions = {
+      from: emailConfig.from,
+      to: inquiry.email,
+      subject: `Re: ${inquiry.subject || 'Your Inquiry'} - Elegant Advisors`,
+      text: emailText,
+      html: emailHtml,
+      replyTo: emailConfig.admin, // Allow user to reply back to admin
+    };
+
+    await transporter.sendMail(mailOptions);
+
+    return {
+      success: true,
+      message: 'Reply email sent successfully',
+    };
+  } catch (error) {
+    console.error('Error sending inquiry reply:', error);
+    if (error instanceof functions.https.HttpsError) {
+      throw error;
+    }
+    throw new functions.https.HttpsError(
+      'internal',
+      'Failed to send inquiry reply: ' + error.message
+    );
+  }
+});

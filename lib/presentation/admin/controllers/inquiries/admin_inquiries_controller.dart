@@ -1,22 +1,23 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:elegant_advisors/core/base/base_controller/app_base_controller.dart';
 import 'package:elegant_advisors/data/services/firestore_service.dart';
 import 'package:elegant_advisors/data/services/storage_service.dart';
 import 'package:elegant_advisors/data/services/export_service.dart';
+import 'package:elegant_advisors/data/services/email_service.dart';
 import 'package:elegant_advisors/domain/models/contact_submission_model.dart';
-import 'package:elegant_advisors/domain/models/property_model.dart';
 import 'package:elegant_advisors/core/widgets/feedback/app_alert_dialog.dart';
 import 'package:elegant_advisors/core/widgets/feedback/app_snackbar.dart';
 import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
 import 'package:elegant_advisors/core/constants/admin_constants.dart';
 import 'package:elegant_advisors/presentation/admin/widgets/properties/detail_dialog/admin_property_detail_dialog.dart';
+import 'package:elegant_advisors/presentation/admin/widgets/inquiries/detail_dialog/admin_inquiry_reply_dialog.dart';
 
 class AdminInquiriesController extends BaseController {
   final FirestoreService _firestoreService = FirestoreService();
   final StorageService _storageService = StorageService();
+  final EmailService _emailService = EmailService();
 
   final inquiries = <ContactSubmissionModel>[].obs;
   @override
@@ -284,23 +285,56 @@ class AdminInquiriesController extends BaseController {
   }
 
   Future<void> replyToInquiry(ContactSubmissionModel inquiry) async {
-    try {
-      // Create mailto URL with pre-filled subject and body
-      final subject = Uri.encodeComponent('Re: ${inquiry.subject}');
-      final body = Uri.encodeComponent(
-        '\n\n---\nOriginal inquiry:\nFrom: ${inquiry.name} (${inquiry.email})\nSubject: ${inquiry.subject}\nMessage: ${inquiry.message}',
-      );
-      final mailtoUri = Uri.parse(
-        'mailto:${inquiry.email}?subject=$subject&body=$body',
-      );
+    Get.dialog(
+      AdminInquiryReplyDialog(
+        inquiry: inquiry,
+        onSend: (replyMessage) async {
+          return _sendReplyEmail(inquiry, replyMessage);
+        },
+      ),
+    );
+  }
 
-      if (await canLaunchUrl(mailtoUri)) {
-        await launchUrl(mailtoUri, mode: LaunchMode.externalApplication);
+  Future<void> _sendReplyEmail(
+    ContactSubmissionModel inquiry,
+    String replyMessage,
+  ) async {
+    try {
+      final result = await executeAsync(() async {
+        await _emailService.sendInquiryReply(inquiry, replyMessage);
+        
+        // Optionally update inquiry status to "in_progress" if it's "new"
+        if (inquiry.status == 'new' && inquiry.id != null) {
+          await _firestoreService.updateContactSubmissionStatus(
+            inquiry.id!,
+            'in_progress',
+          );
+        }
+        return true; // Return a value to indicate success
+      });
+      
+      // Only show success if executeAsync completed successfully (not null)
+      if (result != null) {
+        // Show success message immediately
+        showSuccess(AppTexts.adminInquiryReplySuccess);
+        // Wait a bit to ensure message is visible
+        await Future.delayed(const Duration(milliseconds: 500));
       } else {
-        showError('Could not open email client');
+        // executeAsync returned null, indicating an error occurred
+        showError(AppTexts.adminInquiryReplyError);
+        throw Exception(AppTexts.adminInquiryReplyError);
       }
     } catch (e) {
-      showError('Failed to open email client: ${e.toString()}');
+      final errorMessage = e.toString().replaceFirst('Exception: ', '');
+      // Only show error if it hasn't been shown already
+      if (errorMessage != AppTexts.adminInquiryReplyError) {
+        showError(
+          errorMessage.isEmpty
+              ? AppTexts.adminInquiryReplyError
+              : errorMessage,
+        );
+      }
+      rethrow;
     }
   }
 

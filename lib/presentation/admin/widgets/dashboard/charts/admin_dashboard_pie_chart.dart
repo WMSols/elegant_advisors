@@ -19,6 +19,9 @@ class AdminDashboardPieChart extends GetView<AdminDashboardController> {
     final padding = AppResponsive.scaleSize(context, 20, min: 16, max: 24);
 
     return Obx(() {
+      final totalVisitors = controller.totalVisitors.value;
+      final totalPropertyVisits = controller.totalPropertyVisits.value;
+      final totalUniqueVisits = controller.totalUniqueVisits.value;
       final totalProperties = controller.propertiesCount.value;
       final publishedProperties = controller.publishedPropertiesCount.value;
       final teamMembers = controller.teamCount.value;
@@ -27,23 +30,38 @@ class AdminDashboardPieChart extends GetView<AdminDashboardController> {
       // Prepare pie chart data
       final pieChartData = [
         _PieChartData(
+          value: totalVisitors.toDouble(),
+          color: AppColors.totalVisits,
+          label: AppTexts.adminDashboardTotalVisitors,
+        ),
+        _PieChartData(
+          value: totalPropertyVisits.toDouble(),
+          color: AppColors.propertyVisits,
+          label: AppTexts.adminDashboardTotalPropertyVisits,
+        ),
+        _PieChartData(
+          value: totalUniqueVisits.toDouble(),
+          color: AppColors.uniqueVisits,
+          label: AppTexts.adminDashboardUniqueVisits,
+        ),
+        _PieChartData(
           value: totalProperties.toDouble(),
-          color: AppColors.primary,
+          color: AppColors.totalProperties,
           label: AppTexts.adminDashboardTotalProperties,
         ),
         _PieChartData(
           value: publishedProperties.toDouble(),
-          color: AppColors.success,
+          color: AppColors.publishedProperties,
           label: AppTexts.adminDashboardPublishedProperties,
         ),
         _PieChartData(
           value: teamMembers.toDouble(),
-          color: AppColors.information,
+          color: AppColors.teamMembers,
           label: AppTexts.adminDashboardTeamMembers,
         ),
         _PieChartData(
           value: newInquiries.toDouble(),
-          color: AppColors.warning,
+          color: AppColors.newInquiries,
           label: AppTexts.adminDashboardNewInquiries,
         ),
       ];

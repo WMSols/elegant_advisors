@@ -10,6 +10,9 @@ class AdminDashboardController extends BaseController {
 
   final todayVisitors = 0.obs;
   final yesterdayVisitors = 0.obs;
+  final totalVisitors = 0.obs;
+  final totalPropertyVisits = 0.obs;
+  final totalUniqueVisits = 0.obs;
   final propertiesCount = 0.obs;
   final publishedPropertiesCount = 0.obs;
   final teamCount = 0.obs;
@@ -48,6 +51,7 @@ class AdminDashboardController extends BaseController {
   Future<void> loadDashboardData() async {
     await Future.wait([
       loadVisitorStats(),
+      loadVisitorTrackingStats(),
       loadPropertiesCount(),
       loadTeamCount(),
       loadInquiriesCount(),
@@ -64,6 +68,39 @@ class AdminDashboardController extends BaseController {
       yesterdayVisitors.value = stats[yesterdayKey] ?? 0;
     } catch (e) {
       showError('Failed to load visitor stats');
+    }
+  }
+
+  Future<void> loadVisitorTrackingStats() async {
+    try {
+      await Future.wait([
+        _loadTotalVisitors(),
+        _loadPropertyVisitStats(),
+      ]);
+    } catch (e) {
+      // Silently fail - visitor tracking stats are not critical
+      print('Failed to load visitor tracking stats: $e');
+    }
+  }
+
+  Future<void> _loadTotalVisitors() async {
+    try {
+      totalVisitors.value = await _firestoreService.getTotalVisitorsCount();
+    } catch (e) {
+      print('Error loading total visitors: $e');
+    }
+  }
+
+  Future<void> _loadPropertyVisitStats() async {
+    try {
+      final results = await Future.wait([
+        _firestoreService.getTotalPropertyVisits(),
+        _firestoreService.getTotalUniquePropertyVisits(),
+      ]);
+      totalPropertyVisits.value = results[0];
+      totalUniqueVisits.value = results[1];
+    } catch (e) {
+      print('Error loading property visit stats: $e');
     }
   }
 
