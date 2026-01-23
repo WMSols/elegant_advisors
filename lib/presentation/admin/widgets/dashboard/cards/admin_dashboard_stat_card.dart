@@ -8,30 +8,28 @@ class AdminDashboardStatCard extends StatelessWidget {
   final String title;
   final String value;
   final IconData icon;
+  final Color? color;
 
   const AdminDashboardStatCard({
     super.key,
     required this.title,
     required this.value,
     required this.icon,
+    this.color,
   });
 
   @override
   Widget build(BuildContext context) {
     final isMobile = AppResponsive.isMobile(context);
+    final cardColor = color ?? AppColors.primary;
 
     final padding = isMobile
         ? AppResponsive.scaleSize(context, 16, min: 12, max: 20)
         : AppResponsive.scaleSize(context, 20, min: 16, max: 24);
 
     final spacing = AppResponsive.scaleSize(context, 12, min: 8, max: 16);
-    final borderRadius = AppResponsive.scaleSize(context, 12, min: 8, max: 16);
-    final iconBorderRadius = AppResponsive.scaleSize(
-      context,
-      10,
-      min: 8,
-      max: 12,
-    );
+    final borderRadius = AppResponsive.radius(context);
+    final iconBorderRadius = AppResponsive.radius(context);
 
     return AnimatedContainer(
       duration: const Duration(milliseconds: 300),
@@ -40,13 +38,6 @@ class AdminDashboardStatCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.white,
         borderRadius: BorderRadius.circular(borderRadius),
-        boxShadow: [
-          BoxShadow(
-            color: AppColors.grey.withValues(alpha: 0.1),
-            blurRadius: 8,
-            offset: const Offset(0, 2),
-          ),
-        ],
       ),
       child: LayoutBuilder(
         builder: (context, constraints) {
@@ -89,10 +80,10 @@ class AdminDashboardStatCard extends StatelessWidget {
                 width: iconContainerSize,
                 height: iconContainerSize,
                 decoration: BoxDecoration(
-                  color: AppColors.primary.withValues(alpha: 0.1),
+                  color: cardColor.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(iconBorderRadius),
                 ),
-                child: Icon(icon, color: AppColors.primary, size: iconSize),
+                child: Icon(icon, color: cardColor, size: iconSize),
               ),
 
               SizedBox(width: actualSpacing),
@@ -140,7 +131,7 @@ class AdminDashboardStatCard extends StatelessWidget {
                             child: Text(
                               value,
                               style: AppTextStyles.headline(context).copyWith(
-                                color: AppColors.primary,
+                                color: cardColor,
                                 fontWeight: FontWeight.bold,
                               ),
                               overflow: TextOverflow.ellipsis,
@@ -154,7 +145,14 @@ class AdminDashboardStatCard extends StatelessWidget {
                             fit: FlexFit.loose,
                             child: Text(
                               title,
-                              style: AppTextStyles.bodyText(context),
+                              style: AppTextStyles.headline(context).copyWith(
+                                fontSize: AppResponsive.scaleSize(
+                                  context,
+                                  14,
+                                  min: 12,
+                                  max: 18,
+                                ),
+                              ),
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,
                             ),

@@ -226,6 +226,9 @@ class AppTexts {
   static const String adminDashboardTitle = "Dashboard";
   static const String adminDashboardTodayVisitors = "Today's Visitors";
   static const String adminDashboardYesterdayVisitors = "Yesterday's Visitors";
+  static const String adminDashboardTotalVisitors = "Total Visitors";
+  static const String adminDashboardTotalPropertyVisits = "Property Visits";
+  static const String adminDashboardUniqueVisits = "Unique Visits";
   static const String adminDashboardTotalProperties = "Total Properties";
   static const String adminDashboardPublishedProperties =
       "Published Properties";
@@ -303,6 +306,54 @@ class AppTexts {
   static const String adminPropertiesUnpublished = "Unpublished";
   static const String adminPropertiesFeatured = "Featured";
   static const String adminPropertiesNotFeatured = "Not Featured";
+
+  // Admin Inquiries
+  static const String adminInquiriesSearchHint =
+      "Search by name, email, subject, or message...";
+  static const String adminInquiriesSortBy = "Sort By";
+  static const String adminInquiriesSortByName = "Name";
+  static const String adminInquiriesSortByEmail = "Email";
+  static const String adminInquiriesSortBySubject = "Subject";
+  static const String adminInquiriesSortByStatus = "Status";
+  static const String adminInquiriesSortByCreatedDate = "Created Date";
+  static const String adminInquiriesAscending = "Ascending";
+  static const String adminInquiriesDescending = "Descending";
+  static const String adminInquiriesStatusFilter = "Status";
+  static const String adminInquiriesSortAllStatuses = "All Statuses";
+  static const String adminInquiriesStatusNew = "New";
+  static const String adminInquiriesStatusInProgress = "In Progress";
+  static const String adminInquiriesStatusClosed = "Closed";
+  static const String adminInquiriesClearFilters = "Clear Filters";
+  static const String adminInquiriesNoInquiriesFound = "No inquiries found";
+  static const String adminInquiriesNoMatchFound =
+      "No inquiries match your search";
+  static const String adminInquiryCardSubject = "Subject";
+  static const String adminInquiryCardMessage = "Message";
+  static const String adminInquiryCardPropertyId = "Property ID";
+  static const String adminInquiryCardProperty = "Property";
+  static const String adminInquiryCardCreated = "Created";
+  static const String adminInquiriesViewDetails = "View Details";
+  static const String adminInquiriesReply = "Reply";
+  static const String adminInquiriesViewProperty = "View Property";
+  static const String adminInquiriesDelete = "Delete";
+  static const String adminInquiriesDeleteTitle = "Delete Inquiry";
+  static const String adminInquiriesDeleteMessage =
+      "Are you sure you want to delete this inquiry? This action cannot be undone.";
+  static const String adminInquiriesDeleteCancel = "Cancel";
+  static const String adminInquiriesDeleteConfirm = "Delete";
+  static const String adminInquiryReplyTitle = "Reply to Inquiry";
+  static const String adminInquiryReplyMessageLabel = "Reply Message";
+  static const String adminInquiryReplyMessageHint =
+      "Enter your reply message...";
+  static const String adminInquiryReplySend = "Send Reply";
+  static const String adminInquiryReplyCancel = "Cancel";
+  static const String adminInquiryReplySuccess = "Reply sent successfully";
+  static const String adminInquiryReplyError = "Failed to send reply";
+  static const String adminInquiryReplyEmpty = "Please enter a reply message";
+  static const String adminInquiryDetailName = "Name";
+  static const String adminInquiryDetailEmail = "Email";
+  static const String adminInquiryDetailPhone = "Phone";
+  static const String adminInquiryDetailIpAddress = "IP Address";
 
   // Admin Property Form
   static const String adminPropertyFormCreateTitle = "Create Property";
@@ -400,4 +451,36 @@ class AppTexts {
       "Search for a location...";
   static const String adminPropertyMapPickerSelectLocation =
       "Select Location on Map";
+
+  // Common UI Elements
+  static const String commonGoBack = "Go Back";
+  static const String commonGoHome = "Go Home";
+  static const String commonMenu = "Menu";
+  static const String commonClose = "Close";
+  static const String commonRetry = "Retry";
+  static const String commonCancel = "Cancel";
+  static const String commonPageNotFound = "Page Not Found";
+  static const String commonSuccess = "Success";
+  static const String commonError = "Error";
+  static const String commonInfo = "Info";
+  static const String commonWarning = "Warning";
+
+  // App Titles
+  static const String appTitleClient = "Elegant Advisors";
+  static const String appTitleAdmin = "Elegant Advisors - Admin";
+
+  // Property Detail
+  static const String clientPropertyDetailNotFoundMessage =
+      "The property you are looking for could not be found.";
+
+  // Admin Inquiries
+  static const String adminInquiriesExport = "Export Inquiries";
+
+  // Admin Property Images
+  static const String adminPropertyImageRemove = "Remove image";
+  static const String adminPropertyImageCover = "Cover image";
+  static const String adminPropertyImageSetCover = "Set as cover image";
+
+  // Location
+  static const String locationGoogleMapsError = "Could not open Google Maps";
 }

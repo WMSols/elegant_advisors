@@ -1,4 +1,5 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:flutter/foundation.dart';
 import 'firestore_service.dart';
 
 class AnalyticsService {
@@ -13,7 +14,7 @@ class AnalyticsService {
       );
       await _firestoreService.incrementDailyVisitor();
     } catch (e) {
-      print('Analytics error: $e');
+      debugPrint('Analytics error: $e');
     }
   }
 
@@ -27,7 +28,7 @@ class AnalyticsService {
         },
       );
     } catch (e) {
-      print('Analytics error: $e');
+      debugPrint('Analytics error: $e');
     }
   }
 
@@ -35,7 +36,7 @@ class AnalyticsService {
     try {
       await _analytics.logEvent(name: 'contact_submit', parameters: {});
     } catch (e) {
-      print('Analytics error: $e');
+      debugPrint('Analytics error: $e');
     }
   }
 
@@ -46,7 +47,7 @@ class AnalyticsService {
     try {
       await _analytics.logEvent(name: eventName, parameters: parameters);
     } catch (e) {
-      print('Analytics error: $e');
+      debugPrint('Analytics error: $e');
     }
   }
 }

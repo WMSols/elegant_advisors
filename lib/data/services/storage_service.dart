@@ -1,6 +1,7 @@
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:uuid/uuid.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:flutter/foundation.dart';
 import 'package:elegant_advisors/data/services/image_compression_service.dart';
 
 class StorageService {
@@ -89,7 +90,7 @@ class StorageService {
     try {
       await _storage.refFromURL(imageUrl).delete();
     } catch (e) {
-      print('Error deleting image: $e');
+      debugPrint('Error deleting image: $e');
     }
   }
 
@@ -109,7 +110,7 @@ class StorageService {
         await item.delete();
       }
     } catch (e) {
-      print('Error deleting property folder: $e');
+      debugPrint('Error deleting property folder: $e');
     }
   }
 
@@ -133,7 +134,7 @@ class StorageService {
     try {
       await _storage.refFromURL(imageUrl).delete();
     } catch (e) {
-      print('Error deleting team photo: $e');
+      debugPrint('Error deleting team photo: $e');
     }
   }
 
@@ -161,7 +162,7 @@ class StorageService {
     try {
       await _storage.refFromURL(imageUrl).delete();
     } catch (e) {
-      print('Error deleting CMS image: $e');
+      debugPrint('Error deleting CMS image: $e');
     }
   }
 }

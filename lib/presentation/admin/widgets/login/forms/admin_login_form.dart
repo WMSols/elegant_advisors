@@ -42,7 +42,7 @@ class AdminLoginForm extends GetView<AdminLoginController> {
                 child: Text(
                   AppTexts.adminLoginTitle,
                   style: AppTextStyles.heading(context).copyWith(
-                    color: AppColors.black,
+                    color: AppColors.primary,
                     fontWeight: FontWeight.w500,
                   ),
                 ),

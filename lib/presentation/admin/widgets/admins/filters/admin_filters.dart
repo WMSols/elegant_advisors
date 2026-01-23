@@ -2,29 +2,20 @@ import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
 import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
-import 'package:elegant_advisors/core/widgets/forms/app_search_field.dart';
 import 'package:elegant_advisors/core/widgets/buttons/app_icon_button.dart';
 import 'package:elegant_advisors/core/widgets/forms/app_dropdown_field.dart';
 import 'package:elegant_advisors/presentation/admin/controllers/admins/admin_manage_admins_controller.dart';
 
-/// Reusable search and filters widget for admin management
-class AdminSearchAndFilters extends GetView<AdminManageAdminsController> {
-  const AdminSearchAndFilters({super.key});
+/// Reusable filters widget for admin management
+class AdminFilters extends GetView<AdminManageAdminsController> {
+  const AdminFilters({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        // Search Field
-        AppSearchField(
-          controller: controller.searchController,
-          hint: AppTexts.adminManageAdminsSearchHint,
-          onFieldSubmitted: controller.updateSearchQuery,
-        ),
-        AppSpacing.vertical(context, 0.015),
         // Filters Row
         Row(
           crossAxisAlignment: CrossAxisAlignment.end,
@@ -34,6 +25,7 @@ class AdminSearchAndFilters extends GetView<AdminManageAdminsController> {
               child: Obx(
                 () => AppDropdownField<String>(
                   label: AppTexts.adminManageAdminsSortBy,
+                  labelColor: AppColors.white,
                   value: controller.sortBy.value,
                   items: [
                     DropdownMenuItem(

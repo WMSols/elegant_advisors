@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:elegant_advisors/core/theme/app_theme.dart';
 import 'package:elegant_advisors/core/constants/admin_constants.dart';
+import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
 import 'package:elegant_advisors/presentation/admin/routes/admin_routes.dart';
 
 /// Admin/management application
@@ -11,7 +12,7 @@ class AdminApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Elegant Advisors - Admin',
+      title: AppTexts.appTitleAdmin,
       debugShowCheckedModeBanner: false,
       theme: AppTheme.theme,
       initialRoute: AdminConstants.routeAdminLogin,

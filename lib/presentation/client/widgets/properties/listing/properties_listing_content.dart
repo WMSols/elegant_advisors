@@ -5,9 +5,9 @@ import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
 import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
 import 'package:elegant_advisors/presentation/client/widgets/properties/listing/client_properties_grid.dart';
 import 'package:elegant_advisors/presentation/client/widgets/properties/listing/client_properties_pagination.dart';
-import 'package:elegant_advisors/presentation/client/widgets/common/client_empty_state.dart';
-import 'package:elegant_advisors/presentation/client/widgets/common/client_error_state.dart';
 import 'package:elegant_advisors/core/widgets/feedback/app_loading_indicator.dart';
+import 'package:elegant_advisors/core/widgets/feedback/app_empty_state.dart';
+import 'package:elegant_advisors/core/widgets/feedback/app_error_state.dart';
 import 'package:elegant_advisors/presentation/client/controllers/properties/client_properties_controller.dart';
 
 /// Responsive listing content widget (replaces desktop/mobile duplicates)
@@ -31,7 +31,7 @@ class PropertiesListingContent extends StatelessWidget {
       }
 
       if (errorMsg.isNotEmpty) {
-        return ClientErrorState(
+        return AppErrorState(
           title: AppTexts.clientPropertiesErrorLoading,
           message: errorMsg,
           onRetry: controller.loadProperties,
@@ -40,7 +40,7 @@ class PropertiesListingContent extends StatelessWidget {
       }
 
       if (displayedCount == 0) {
-        return ClientEmptyState(
+        return AppEmptyState(
           title: AppTexts.clientPropertiesNoPropertiesFound,
           message: AppTexts.clientPropertiesNoPropertiesMessage,
           buttonText: controller.filters.value.hasActiveFilters

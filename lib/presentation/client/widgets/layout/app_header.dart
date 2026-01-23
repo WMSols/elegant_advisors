@@ -53,6 +53,10 @@ class _AppHeaderState extends State<AppHeader> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           HeaderNavItem(
+                            label: AppTexts.navHome,
+                            route: ClientConstants.routeClientHome,
+                          ),
+                          HeaderNavItem(
                             label: AppTexts.navProperties,
                             route: ClientConstants.routeClientProperties,
                           ),

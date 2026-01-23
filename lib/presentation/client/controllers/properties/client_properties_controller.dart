@@ -20,8 +20,6 @@ class ClientPropertiesController extends BaseController {
 
   // State
   final isLoadingProperties = false.obs;
-  @override
-  final errorMessage = ''.obs;
   ScrollController? _scrollController;
   final showHeader = false.obs;
   int _keyCounter = 0;
@@ -31,16 +29,14 @@ class ClientPropertiesController extends BaseController {
       .toString(); // Unique ID per controller instance
 
   // Use ValueKey for scroll view to avoid duplicate key issues
-  Key get scrollViewKey => ValueKey('properties_scroll_${_keyCounter}');
+  Key get scrollViewKey => ValueKey('properties_scroll_$_keyCounter');
 
   // Keep listingSectionKey as GlobalKey for scrollToListing functionality
   GlobalKey get listingSectionKey {
     // Only create if null - use instance ID to ensure uniqueness
-    if (_listingSectionKey == null) {
-      _listingSectionKey = GlobalKey(
-        debugLabel: 'properties_listing_${_keyCounter}_$_instanceId',
-      );
-    }
+    _listingSectionKey ??= GlobalKey(
+      debugLabel: 'properties_listing_${_keyCounter}_$_instanceId',
+    );
     return _listingSectionKey!;
   }
 

@@ -4,22 +4,34 @@ import 'package:elegant_advisors/core/utils/app_images/app_images.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
 import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
+import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
 import 'package:elegant_advisors/core/widgets/buttons/app_button.dart';
 
 /// Reusable error state widget
 /// Displays error image, title, optional message, and retry button
-class ClientErrorState extends StatelessWidget {
+/// Can be used in both client and admin sides
+class AppErrorState extends StatelessWidget {
   final String title;
   final String? message;
   final VoidCallback onRetry;
   final String? retryButtonText;
+  final Color? titleColor;
+  final Color? messageColor;
+  final Color? buttonBackgroundColor;
+  final Color? buttonTextColor;
+  final double? buttonWidth;
 
-  const ClientErrorState({
+  const AppErrorState({
     super.key,
     required this.title,
     this.message,
     required this.onRetry,
     this.retryButtonText,
+    this.titleColor,
+    this.messageColor,
+    this.buttonBackgroundColor,
+    this.buttonTextColor,
+    this.buttonWidth,
   });
 
   @override
@@ -38,7 +50,7 @@ class ClientErrorState extends StatelessWidget {
               return Icon(
                 Icons.error_outline,
                 size: AppResponsive.scaleSize(context, 80, min: 60, max: 100),
-                color: AppColors.error,
+                color: titleColor ?? AppColors.error,
               );
             },
           ),
@@ -51,7 +63,7 @@ class ClientErrorState extends StatelessWidget {
                 min: 20,
                 max: 28,
               ),
-              color: AppColors.error,
+              color: titleColor ?? AppColors.error,
             ),
             textAlign: TextAlign.center,
           ),
@@ -60,7 +72,7 @@ class ClientErrorState extends StatelessWidget {
             Text(
               message!,
               style: AppTextStyles.bodyText(context).copyWith(
-                color: AppColors.grey,
+                color: messageColor ?? AppColors.grey,
                 fontSize: AppResponsive.fontSizeClamped(
                   context,
                   min: 14,
@@ -72,11 +84,11 @@ class ClientErrorState extends StatelessWidget {
           ],
           AppSpacing.vertical(context, 0.03),
           AppButton(
-            text: retryButtonText ?? 'Retry',
+            text: retryButtonText ?? AppTexts.commonRetry,
             onPressed: onRetry,
-            width: AppResponsive.screenWidth(context) * 0.3,
-            backgroundColor: AppColors.error,
-            textColor: AppColors.white,
+            width: buttonWidth ?? AppResponsive.screenWidth(context) * 0.3,
+            backgroundColor: buttonBackgroundColor ?? AppColors.error,
+            textColor: buttonTextColor ?? AppColors.white,
           ),
         ],
       ),

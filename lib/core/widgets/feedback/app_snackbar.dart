@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
+import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
 import 'package:iconsax/iconsax.dart';
 
 /// Reusable snackbar widget matching the design specification
@@ -16,23 +17,39 @@ class AppSnackbar {
   AppSnackbar._();
 
   /// Show success snackbar
-  static void showSuccess(String message, {String title = 'Success'}) {
-    _show(title: title, message: message, type: SnackbarType.success);
+  static void showSuccess(String message, {String? title}) {
+    _show(
+      title: title ?? AppTexts.commonSuccess,
+      message: message,
+      type: SnackbarType.success,
+    );
   }
 
   /// Show error snackbar
-  static void showError(String message, {String title = 'Error'}) {
-    _show(title: title, message: message, type: SnackbarType.error);
+  static void showError(String message, {String? title}) {
+    _show(
+      title: title ?? AppTexts.commonError,
+      message: message,
+      type: SnackbarType.error,
+    );
   }
 
   /// Show info snackbar
-  static void showInfo(String message, {String title = 'Info'}) {
-    _show(title: title, message: message, type: SnackbarType.info);
+  static void showInfo(String message, {String? title}) {
+    _show(
+      title: title ?? AppTexts.commonInfo,
+      message: message,
+      type: SnackbarType.info,
+    );
   }
 
   /// Show warning snackbar
-  static void showWarning(String message, {String title = 'Warning'}) {
-    _show(title: title, message: message, type: SnackbarType.warning);
+  static void showWarning(String message, {String? title}) {
+    _show(
+      title: title ?? AppTexts.commonWarning,
+      message: message,
+      type: SnackbarType.warning,
+    );
   }
 
   static void _show({

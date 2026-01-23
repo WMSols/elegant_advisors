@@ -1,13 +1,17 @@
+import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
-import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
+import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
 import 'package:elegant_advisors/presentation/admin/controllers/inquiries/admin_inquiries_controller.dart';
 import 'package:elegant_advisors/presentation/admin/widgets/layout/admin_layout.dart';
 import 'package:elegant_advisors/core/widgets/feedback/app_loading_indicator.dart';
-import 'package:elegant_advisors/core/widgets/buttons/app_button.dart';
+import 'package:elegant_advisors/core/widgets/feedback/app_empty_state.dart';
 import 'package:elegant_advisors/core/widgets/buttons/app_icon_button.dart';
+import 'package:elegant_advisors/presentation/admin/widgets/inquiries/filters/admin_inquiry_filters.dart';
+import 'package:elegant_advisors/presentation/admin/widgets/inquiries/cards/admin_inquiry_card.dart';
+import 'package:elegant_advisors/core/widgets/forms/app_search_field.dart';
 
 class AdminInquiriesScreen extends GetView<AdminInquiriesController> {
   const AdminInquiriesScreen({super.key});
@@ -16,147 +20,90 @@ class AdminInquiriesScreen extends GetView<AdminInquiriesController> {
   Widget build(BuildContext context) {
     return AdminLayout(
       title: AppTexts.adminNavInquiries,
-      child: Column(
-        children: [
-          // Filters
-          Container(
-            padding: EdgeInsets.all(
-              AppResponsive.scaleSize(context, 16, min: 12, max: 20),
-            ),
-            child: Row(
-              children: [
-                Expanded(
-                  child: Obx(
-                    () => DropdownButton<String>(
-                      value: controller.selectedStatus.value,
-                      items: const [
-                        DropdownMenuItem(
-                          value: 'all',
-                          child: Text('All Status'),
+      child: Padding(
+        padding: AppSpacing.all(context, factor: 1.2),
+        child: Obx(() {
+          if (controller.isLoading.value && controller.inquiries.isEmpty) {
+            return const Center(
+              child: AppLoadingIndicator(
+                variant: LoadingIndicatorVariant.white,
+              ),
+            );
+          }
+
+          final filteredInquiries = controller.filteredInquiries;
+
+          if (controller.inquiries.isEmpty) {
+            return AppEmptyState(
+              message: AppTexts.adminInquiriesNoInquiriesFound,
+              messageColor: AppColors.white,
+              showImage: false,
+              centerContent: true,
+            );
+          }
+
+          return Column(
+            children: [
+              // Search Field (Static)
+              AppSearchField(
+                controller: controller.searchController,
+                hint: AppTexts.adminInquiriesSearchHint,
+                onFieldSubmitted: controller.updateSearchQuery,
+              ),
+              AppSpacing.vertical(context, 0.02),
+              // Scrollable Content: Filters, Button, and Cards
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      // Filters Section
+                      const AdminInquiryFilters(),
+                      AppSpacing.vertical(context, 0.02),
+                      // Export Button
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: AppIconButton(
+                          icon: Iconsax.document_download,
+                          backgroundColor: AppColors.white,
+                          onPressed: controller.exportInquiries,
+                          tooltip: AppTexts.adminInquiriesExport,
                         ),
-                        DropdownMenuItem(value: 'new', child: Text('New')),
-                        DropdownMenuItem(
-                          value: 'in_progress',
-                          child: Text('In Progress'),
-                        ),
-                        DropdownMenuItem(
-                          value: 'closed',
-                          child: Text('Closed'),
-                        ),
-                      ],
-                      onChanged: (value) {
-                        if (value != null) controller.filterByStatus(value);
-                      },
-                    ),
+                      ),
+                      AppSpacing.vertical(context, 0.02),
+                      // Inquiries List
+                      filteredInquiries.isEmpty
+                          ? AppEmptyState(
+                              message: AppTexts.adminInquiriesNoMatchFound,
+                              messageColor: AppColors.white,
+                              showImage: false,
+                              centerContent: true,
+                            )
+                          : Column(
+                              children: filteredInquiries.map((inquiry) {
+                                final isDeleting = controller.isDeleting(
+                                  inquiry.id ?? '',
+                                );
+                                return AdminInquiryCard(
+                                  inquiry: inquiry,
+                                  controller: controller,
+                                  onReply: () =>
+                                      controller.replyToInquiry(inquiry),
+                                  onDelete: () {
+                                    if (inquiry.id != null) {
+                                      controller.deleteInquiry(inquiry.id!);
+                                    }
+                                  },
+                                  isDeleting: isDeleting,
+                                );
+                              }).toList(),
+                            ),
+                    ],
                   ),
-                ),
-                SizedBox(
-                  width: AppResponsive.scaleSize(context, 16, min: 12, max: 20),
-                ),
-                Expanded(
-                  child: AppButton(
-                    text: 'Clear Filters',
-                    onPressed: controller.clearFilters,
-                    backgroundColor: Colors.grey,
-                  ),
-                ),
-                SizedBox(
-                  width: AppResponsive.scaleSize(context, 16, min: 12, max: 20),
-                ),
-                AppIconButton(
-                  icon: Iconsax.document_download,
-                  onPressed: controller.exportInquiries,
-                  tooltip: 'Export Inquiries',
-                ),
-              ],
-            ),
-          ),
-          // Inquiries List
-          Expanded(
-            child: Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: AppResponsive.scaleSize(
-                  context,
-                  16,
-                  min: 12,
-                  max: 20,
                 ),
               ),
-              child: Obx(() {
-                if (controller.isLoading.value) {
-                  return const Center(
-                    child: AppLoadingIndicator(
-                      variant: LoadingIndicatorVariant.white,
-                    ),
-                  );
-                }
-
-                if (controller.inquiries.isEmpty) {
-                  return const Center(child: Text('No inquiries found'));
-                }
-
-                return ListView.builder(
-                  itemCount: controller.inquiries.length,
-                  itemBuilder: (context, index) {
-                    final inquiry = controller.inquiries[index];
-                    return Card(
-                      margin: EdgeInsets.symmetric(
-                        vertical: AppResponsive.scaleSize(
-                          context,
-                          8,
-                          min: 4,
-                          max: 12,
-                        ),
-                      ),
-                      child: ListTile(
-                        title: Text(inquiry.name),
-                        subtitle: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text('Email: ${inquiry.email}'),
-                            Text('Subject: ${inquiry.subject}'),
-                            Text('Status: ${inquiry.status}'),
-                            if (inquiry.propertyId != null)
-                              Text('Property ID: ${inquiry.propertyId}'),
-                            Text(
-                              'Date: ${inquiry.createdAt.toLocal().toString()}',
-                            ),
-                          ],
-                        ),
-                        trailing: DropdownButton<String>(
-                          value: inquiry.status,
-                          items: const [
-                            DropdownMenuItem(value: 'new', child: Text('New')),
-                            DropdownMenuItem(
-                              value: 'in_progress',
-                              child: Text('In Progress'),
-                            ),
-                            DropdownMenuItem(
-                              value: 'closed',
-                              child: Text('Closed'),
-                            ),
-                          ],
-                          onChanged: (value) {
-                            if (value != null && inquiry.id != null) {
-                              controller.updateInquiryStatus(
-                                inquiry.id!,
-                                value,
-                              );
-                            }
-                          },
-                        ),
-                        isThreeLine: true,
-                        onTap: () {
-                          // TODO: Show inquiry details dialog
-                        },
-                      ),
-                    );
-                  },
-                );
-              }),
-            ),
-          ),
-        ],
+            ],
+          );
+        }),
       ),
     );
   }

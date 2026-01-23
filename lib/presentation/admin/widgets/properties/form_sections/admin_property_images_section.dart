@@ -200,7 +200,7 @@ class AdminPropertyImagesSection extends GetView<AdminPropertyFormController> {
                                   min: 18,
                                   max: 24,
                                 ),
-                                tooltip: 'Remove image',
+                                tooltip: AppTexts.adminPropertyImageRemove,
                               ),
                             ),
                             // Show star button to make image cover
@@ -234,8 +234,8 @@ class AdminPropertyImagesSection extends GetView<AdminPropertyFormController> {
                                   max: 24,
                                 ),
                                 tooltip: currentIsCover
-                                    ? 'Cover image'
-                                    : 'Set as cover image',
+                                    ? AppTexts.adminPropertyImageCover
+                                    : AppTexts.adminPropertyImageSetCover,
                               ),
                             ),
                           ],

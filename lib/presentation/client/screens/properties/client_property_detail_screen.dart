@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
-import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
 import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
 import 'package:elegant_advisors/presentation/client/controllers/properties/client_property_detail_controller.dart';
 import 'package:elegant_advisors/presentation/client/widgets/common/client_screen_layout.dart';
 import 'package:elegant_advisors/presentation/client/widgets/common/client_background_section.dart';
 import 'package:elegant_advisors/presentation/client/widgets/common/client_content_container.dart';
 import 'package:elegant_advisors/core/widgets/feedback/app_loading_indicator.dart';
+import 'package:elegant_advisors/core/widgets/feedback/app_empty_state.dart';
 import 'package:elegant_advisors/presentation/client/widgets/properties/detail/client_property_detail_breadcrumbs.dart';
 import 'package:elegant_advisors/presentation/client/widgets/properties/detail/client_property_detail_image_gallery.dart';
 import 'package:elegant_advisors/presentation/client/widgets/properties/detail/client_property_detail_specs_section.dart';
@@ -36,21 +36,12 @@ class ClientPropertyDetailScreen
 
       if (controller.property.value == null) {
         return Scaffold(
-          body: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  AppTexts.clientPropertyDetailNotFound,
-                  style: AppTextStyles.heading(context),
-                ),
-                const SizedBox(height: 16),
-                ElevatedButton(
-                  onPressed: () => Get.back(),
-                  child: const Text('Go Back'),
-                ),
-              ],
-            ),
+          body: AppEmptyState(
+            title: AppTexts.clientPropertyDetailNotFound,
+            message: AppTexts.clientPropertyDetailNotFoundMessage,
+            buttonText: AppTexts.commonGoBack,
+            onButtonPressed: () => Get.back(),
+            centerContent: true,
           ),
         );
       }

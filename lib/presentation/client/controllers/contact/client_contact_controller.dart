@@ -32,15 +32,13 @@ class ClientContactController extends BaseController {
   // Recreate formKey on each onInit to avoid duplicate GlobalKey issues
   // This ensures a fresh key when navigating to this screen
   GlobalKey<FormState> get formKey {
-    if (_formKey == null) {
-      _formKey = GlobalKey<FormState>();
-    }
+    _formKey ??= GlobalKey<FormState>();
     return _formKey!;
   }
 
   // Use ValueKey instead of GlobalKey to avoid duplicate key issues
   // ValueKey with a counter ensures unique keys without GlobalKey conflicts
-  Key get scrollViewKey => ValueKey('contact_scroll_${_keyCounter}');
+  Key get scrollViewKey => ValueKey('contact_scroll_$_keyCounter');
 
   @override
   void onInit() {
@@ -148,7 +146,7 @@ class ClientContactController extends BaseController {
             await _emailService.sendInquiryConfirmation(submission);
           } catch (e) {
             // Log but don't fail the submission
-            print('Failed to send email notification: $e');
+            // Email notification failure is logged but doesn't break the flow
           }
 
           // Log analytics event

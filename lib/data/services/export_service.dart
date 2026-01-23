@@ -1,4 +1,6 @@
 import 'package:elegant_advisors/domain/models/contact_submission_model.dart';
+import 'export_service_stub.dart'
+    if (dart.library.html) 'export_service_web.dart';
 
 /// Service for exporting data (CSV, Excel, etc.)
 class ExportService {
@@ -73,14 +75,16 @@ class ExportService {
   }
 
   /// Download file (for web)
-  /// This would typically trigger a browser download
+  /// This triggers a browser download
   static Future<void> downloadFile({
     required String content,
     required String filename,
     required String mimeType,
   }) async {
-    // TODO: Implement file download for web
-    // This would use dart:html or a package like file_picker
-    throw UnimplementedError('File download not implemented');
+    return ExportServiceWeb.downloadFile(
+      content: content,
+      filename: filename,
+      mimeType: mimeType,
+    );
   }
 }

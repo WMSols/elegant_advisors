@@ -9,6 +9,7 @@ import 'package:elegant_advisors/presentation/admin/widgets/navigation/panels/ad
 import 'package:elegant_advisors/presentation/admin/widgets/layout/headers/admin_header.dart';
 import 'package:elegant_advisors/data/services/auth_service.dart';
 import 'package:elegant_advisors/core/constants/admin_constants.dart';
+import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
 import 'package:elegant_advisors/core/widgets/buttons/app_icon_button.dart';
 
 /// Shared admin layout with fixed navigation panel for all admin screens
@@ -31,7 +32,7 @@ class AdminLayout extends StatefulWidget {
 class _AdminLayoutState extends State<AdminLayout>
     with AutomaticKeepAliveClientMixin {
   final AuthService _authService = AuthService();
-  final adminName = 'Admin'.obs;
+  final adminName = AppTexts.adminManageAdminsRole.obs;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   // Cache admin name to prevent reloading on every navigation
@@ -68,9 +69,9 @@ class _AdminLayoutState extends State<AdminLayout>
       } else {
         final user = _authService.currentUser;
         if (user != null) {
-          name = user.email?.split('@').first ?? 'Admin';
+          name = user.email?.split('@').first ?? AppTexts.adminManageAdminsRole;
         } else {
-          name = 'Admin';
+          name = AppTexts.adminManageAdminsRole;
         }
       }
 
@@ -82,9 +83,9 @@ class _AdminLayoutState extends State<AdminLayout>
       final user = _authService.currentUser;
       String name;
       if (user != null) {
-        name = user.email?.split('@').first ?? 'Admin';
+        name = user.email?.split('@').first ?? AppTexts.adminManageAdminsRole;
       } else {
-        name = 'Admin';
+        name = AppTexts.adminManageAdminsRole;
       }
 
       // Cache the fallback name
@@ -197,7 +198,7 @@ class _AdminLayoutState extends State<AdminLayout>
                                                   scaffoldKey.currentState
                                                       ?.openDrawer();
                                                 },
-                                                tooltip: 'Menu',
+                                                tooltip: AppTexts.commonMenu,
                                               ),
                                               title: Text(
                                                 widget.title,

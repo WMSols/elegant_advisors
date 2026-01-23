@@ -20,15 +20,13 @@ class ClientMyContactsController extends BaseController {
   // Recreate formKey on each onInit to avoid duplicate GlobalKey issues
   // This ensures a fresh key when navigating to this screen
   GlobalKey<FormState> get formKey {
-    if (_formKey == null) {
-      _formKey = GlobalKey<FormState>();
-    }
+    _formKey ??= GlobalKey<FormState>();
     return _formKey!;
   }
 
   // Use ValueKey instead of GlobalKey to avoid duplicate key issues
   // ValueKey with a counter ensures unique keys without GlobalKey conflicts
-  Key get scrollViewKey => ValueKey('my_contacts_scroll_${_keyCounter}');
+  Key get scrollViewKey => ValueKey('my_contacts_scroll_$_keyCounter');
 
   @override
   void onInit() {

@@ -41,7 +41,7 @@ class ClientPropertyDetailLocationSection extends StatelessWidget {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Could not open Google Maps: $e'),
+            content: Text('${AppTexts.locationGoogleMapsError}: $e'),
             backgroundColor: AppColors.error,
           ),
         );

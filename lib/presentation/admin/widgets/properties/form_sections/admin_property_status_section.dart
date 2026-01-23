@@ -20,6 +20,7 @@ class AdminPropertyStatusSection extends GetView<AdminPropertyFormController> {
           Obx(
             () => AppDropdownField<String>(
               label: AppTexts.adminPropertyFormStatusLabel,
+              labelColor: AppColors.white,
               value: controller.status.value,
               items: [
                 DropdownMenuItem(
