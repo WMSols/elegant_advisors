@@ -1,5 +1,8 @@
+import 'package:flutter/material.dart';
+import 'package:elegant_advisors/core/utils/app_helpers/language/app_localizations_helper.dart';
+
 /// Property filter model and helper class
-class ClientPorpertyFilters {
+class ClientPropertyFilters {
   String? propertyType;
   String? country;
   String? city;
@@ -12,7 +15,7 @@ class ClientPorpertyFilters {
   List<String> statuses; // available, sold, coming_soon, off_market
   bool featuredOnly;
 
-  ClientPorpertyFilters({
+  ClientPropertyFilters({
     this.propertyType,
     this.country,
     this.city,
@@ -26,7 +29,7 @@ class ClientPorpertyFilters {
     this.featuredOnly = false,
   });
 
-  ClientPorpertyFilters copyWith({
+  ClientPropertyFilters copyWith({
     String? propertyType,
     String? country,
     String? city,
@@ -39,7 +42,7 @@ class ClientPorpertyFilters {
     List<String>? statuses,
     bool? featuredOnly,
   }) {
-    return ClientPorpertyFilters(
+    return ClientPropertyFilters(
       propertyType: propertyType ?? this.propertyType,
       country: country ?? this.country,
       city: city ?? this.city,
@@ -93,18 +96,20 @@ enum PropertySortOption {
 }
 
 extension PropertySortOptionExtension on PropertySortOption {
-  String get displayName {
+  /// Get localized display name for sort option
+  /// Requires BuildContext to access translations
+  String getDisplayName(BuildContext context) {
     switch (this) {
       case PropertySortOption.priceLowHigh:
-        return 'Price: Low to High';
+        return context.l10n.clientPropertiesSortPriceLowHigh;
       case PropertySortOption.priceHighLow:
-        return 'Price: High to Low';
+        return context.l10n.clientPropertiesSortPriceHighLow;
       case PropertySortOption.newestFirst:
-        return 'Newest First';
+        return context.l10n.clientPropertiesSortNewest;
       case PropertySortOption.featuredFirst:
-        return 'Featured First';
+        return context.l10n.clientPropertiesSortFeatured;
       case PropertySortOption.alphabetical:
-        return 'Alphabetical';
+        return context.l10n.clientPropertiesSortAlphabetical;
     }
   }
 }

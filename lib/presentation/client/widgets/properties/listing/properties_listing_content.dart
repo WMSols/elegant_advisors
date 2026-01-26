@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
-import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
+import 'package:elegant_advisors/core/utils/app_helpers/language/app_localizations_helper.dart';
 import 'package:elegant_advisors/presentation/client/widgets/properties/listing/client_properties_grid.dart';
 import 'package:elegant_advisors/presentation/client/widgets/properties/listing/client_properties_pagination.dart';
 import 'package:elegant_advisors/core/widgets/feedback/app_loading_indicator.dart';
@@ -32,19 +32,19 @@ class PropertiesListingContent extends StatelessWidget {
 
       if (errorMsg.isNotEmpty) {
         return AppErrorState(
-          title: AppTexts.clientPropertiesErrorLoading,
+          title: context.l10n.clientPropertiesErrorLoading,
           message: errorMsg,
           onRetry: controller.loadProperties,
-          retryButtonText: AppTexts.clientPropertiesRetry,
+          retryButtonText: context.l10n.clientPropertiesRetry,
         );
       }
 
       if (displayedCount == 0) {
         return AppEmptyState(
-          title: AppTexts.clientPropertiesNoPropertiesFound,
-          message: AppTexts.clientPropertiesNoPropertiesMessage,
+          title: context.l10n.clientPropertiesNoPropertiesFound,
+          message: context.l10n.clientPropertiesNoPropertiesMessage,
           buttonText: controller.filters.value.hasActiveFilters
-              ? AppTexts.clientPropertiesClearFilters
+              ? context.l10n.clientPropertiesClearFilters
               : null,
           onButtonPressed: controller.filters.value.hasActiveFilters
               ? () {

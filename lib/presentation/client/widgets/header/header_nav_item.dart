@@ -109,17 +109,18 @@ class _HeaderNavItemState extends State<HeaderNavItem> {
             children: [
               Text(
                 widget.label,
-                style: AppTextStyles.bodyText(
-                  context,
-                ).copyWith(color: AppColors.white, letterSpacing: 0.5),
+                style: AppTextStyles.bodyText(context).copyWith(
+                  color: AppColors.white,
+                  letterSpacing: 0.5,
+                  fontWeight: (_isHovered || isActive)
+                      ? FontWeight.w500
+                      : FontWeight.normal,
+                ),
                 overflow: TextOverflow.ellipsis,
               ),
               if (_isHovered || isActive)
                 Container(
-                  margin: EdgeInsets.only(
-                    top: AppResponsive.scaleSize(context, 4, min: 4, max: 6),
-                  ),
-                  height: 1,
+                  height: 2,
                   width: AppResponsive.scaleSize(context, 20, min: 15, max: 25),
                   color: AppColors.white,
                 ),

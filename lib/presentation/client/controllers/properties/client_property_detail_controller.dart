@@ -6,7 +6,8 @@ import 'package:elegant_advisors/data/services/analytics_service.dart';
 import 'package:elegant_advisors/domain/models/property_model.dart';
 import 'package:elegant_advisors/core/base/base_controller/app_base_controller.dart';
 import 'package:elegant_advisors/core/constants/client_constants.dart';
-import 'package:elegant_advisors/core/utils/app_ip_helpers/app_ip_helper.dart';
+import 'package:elegant_advisors/core/utils/app_helpers/ip_address/app_ip_helper.dart';
+import 'package:elegant_advisors/core/utils/app_helpers/language/app_localizations_helper.dart';
 
 class ClientPropertyDetailController extends BaseController {
   final FirestoreService _firestoreService = FirestoreService();
@@ -144,11 +145,15 @@ class ClientPropertyDetailController extends BaseController {
         // Load related properties
         loadRelatedProperties(loadedProperty);
       } else {
-        showError('Property not found');
+        final l10n = AppLocalizationsHelper.getLocalizations();
+        showError(l10n?.clientPropertyDetailNotFound ?? 'Property not found');
         Get.back();
       }
     } catch (e) {
-      showError('Failed to load property');
+      final l10n = AppLocalizationsHelper.getLocalizations();
+      showError(
+        l10n?.clientPropertyDetailErrorLoading ?? 'Failed to load property',
+      );
     } finally {
       isLoading.value = false;
     }

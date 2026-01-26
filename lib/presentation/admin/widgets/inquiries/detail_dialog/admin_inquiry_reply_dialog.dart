@@ -202,6 +202,7 @@ class _AdminInquiryReplyDialogState extends State<AdminInquiryReplyDialog> {
                         minLines: 5,
                         keyboardType: TextInputType.multiline,
                         enabled: !_isSending,
+                        isAdmin: true,
                         validator: (value) {
                           if (value == null || value.trim().isEmpty) {
                             return AppTexts.adminInquiryReplyEmpty;

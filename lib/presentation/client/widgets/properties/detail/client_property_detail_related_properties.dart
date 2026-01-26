@@ -4,7 +4,7 @@ import 'package:elegant_advisors/core/constants/client_constants.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
 import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
-import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
+import 'package:elegant_advisors/core/utils/app_helpers/language/app_localizations_helper.dart';
 import 'package:elegant_advisors/domain/models/property_model.dart';
 import 'package:elegant_advisors/presentation/client/widgets/properties/cards/client_property_card.dart';
 import 'package:elegant_advisors/presentation/client/controllers/properties/client_property_detail_controller.dart';
@@ -33,7 +33,7 @@ class ClientPropertyDetailRelatedProperties extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          AppTexts.clientPropertyDetailRelatedProperties,
+          context.l10n.clientPropertyDetailRelatedProperties,
           style: AppTextStyles.heading(context).copyWith(
             fontSize: AppResponsive.fontSizeClamped(context, min: 24, max: 32),
             fontWeight: FontWeight.bold,

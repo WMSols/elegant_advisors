@@ -46,6 +46,7 @@ class AdminPropertyStatusSection extends GetView<AdminPropertyFormController> {
                 }
               },
               errorTextColor: AppColors.white,
+              isAdmin: true,
             ),
           ),
           AppSpacing.vertical(context, 0.02),

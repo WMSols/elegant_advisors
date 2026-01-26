@@ -6,7 +6,7 @@ import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
 import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
-import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
+import 'package:elegant_advisors/core/utils/app_helpers/language/app_localizations_helper.dart';
 import 'package:elegant_advisors/core/widgets/buttons/app_icon_button.dart';
 import 'package:elegant_advisors/core/widgets/display/app_logo.dart';
 import 'package:elegant_advisors/presentation/client/controllers/properties/client_properties_controller.dart';
@@ -48,7 +48,7 @@ class HeaderMobileDrawer extends StatelessWidget {
                     icon: Iconsax.close_circle,
                     color: AppColors.white,
                     onPressed: onClose,
-                    tooltip: AppTexts.commonClose,
+                    tooltip: context.l10n.commonClose,
                   ),
                 ],
               ),
@@ -59,27 +59,27 @@ class HeaderMobileDrawer extends StatelessWidget {
                 padding: EdgeInsets.zero,
                 children: [
                   _MobileDrawerItem(
-                    label: AppTexts.navHome,
+                    label: context.l10n.navHome,
                     route: ClientConstants.routeClientHome,
                     onTap: onClose,
                   ),
                   _MobileDrawerItem(
-                    label: AppTexts.navProperties,
+                    label: context.l10n.navProperties,
                     route: ClientConstants.routeClientProperties,
                     onTap: onClose,
                   ),
                   _MobileDrawerItem(
-                    label: AppTexts.navOurTeam,
+                    label: context.l10n.navOurTeam,
                     route: ClientConstants.routeClientOurTeam,
                     onTap: onClose,
                   ),
                   _MobileDrawerItem(
-                    label: AppTexts.navAboutUs,
+                    label: context.l10n.navAboutUs,
                     route: ClientConstants.routeClientAboutUs,
                     onTap: onClose,
                   ),
                   _MobileDrawerItem(
-                    label: AppTexts.navContact,
+                    label: context.l10n.navContact,
                     route: ClientConstants.routeClientContact,
                     onTap: onClose,
                   ),
@@ -224,10 +224,7 @@ class _MobileDrawerItemState extends State<_MobileDrawerItem> {
                       margin: EdgeInsets.only(
                         right: _isHovered || isActive ? 12 : 0,
                       ),
-                      decoration: BoxDecoration(
-                        color: AppColors.white,
-                        borderRadius: BorderRadius.circular(1),
-                      ),
+                      decoration: BoxDecoration(color: AppColors.white),
                     ),
                     // Menu item text
                     Expanded(

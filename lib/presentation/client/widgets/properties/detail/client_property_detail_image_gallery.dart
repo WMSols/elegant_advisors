@@ -190,9 +190,6 @@ class _ClientPropertyDetailImageGalleryState
         color: isActive
             ? AppColors.white
             : AppColors.white.withValues(alpha: 0.5),
-        borderRadius: BorderRadius.circular(
-          AppResponsive.radius(context, factor: 2),
-        ),
       ),
     );
   }

@@ -57,6 +57,7 @@ class AdminLoginForm extends GetView<AdminLoginController> {
                 validator: (value) {
                   return AppValidators.validateEmail(value);
                 },
+                isAdmin: true,
               ),
               AppSpacing.vertical(context, 0.02),
               AppTextField(
@@ -75,6 +76,7 @@ class AdminLoginForm extends GetView<AdminLoginController> {
                     controller.login();
                   }
                 },
+                isAdmin: true,
               ),
               AppSpacing.vertical(context, 0.04),
               Obx(
@@ -85,6 +87,7 @@ class AdminLoginForm extends GetView<AdminLoginController> {
                       ? null
                       : controller.login,
                   backgroundColor: AppColors.primary,
+                  isAdmin: true,
                   textColor: AppColors.white,
                   width: double.infinity,
                 ),

@@ -3,7 +3,7 @@ import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
 import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
-import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
+import 'package:elegant_advisors/core/utils/app_helpers/language/app_localizations_helper.dart';
 import 'package:elegant_advisors/core/widgets/buttons/app_button.dart';
 import 'package:elegant_advisors/core/widgets/display/app_category_card.dart';
 
@@ -62,7 +62,7 @@ class _ClienteleHeader extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Text(
-          AppTexts.homeOurDiscerningClienteleTitle,
+          context.l10n.homeOurDiscerningClienteleTitle,
           style: AppTextStyles.bodyText(context).copyWith(
             color: AppColors.primary,
             fontWeight: FontWeight.bold,
@@ -72,7 +72,7 @@ class _ClienteleHeader extends StatelessWidget {
         ),
         AppSpacing.vertical(context, 0.04),
         Text(
-          AppTexts.homeOurDiscerningClienteleDescription,
+          context.l10n.homeOurDiscerningClienteleDescription,
           style: AppTextStyles.bodyText(context).copyWith(
             color: AppColors.black.withValues(alpha: 0.7),
             height: 1.6,
@@ -96,18 +96,22 @@ class _ClienteleCategoriesGrid extends StatelessWidget {
           children: [
             Expanded(
               child: AppCategoryCard(
-                title:
-                    AppTexts.homeOurDiscerningClientelePropertyInvestorsTitle,
-                description: AppTexts
+                title: context
+                    .l10n
+                    .homeOurDiscerningClientelePropertyInvestorsTitle,
+                description: context
+                    .l10n
                     .homeOurDiscerningClientelePropertyInvestorsDescription,
               ),
             ),
             AppSpacing.horizontal(context, 0.03),
             Expanded(
               child: AppCategoryCard(
-                title:
-                    AppTexts.homeOurDiscerningClienteleCitizenshipClientsTitle,
-                description: AppTexts
+                title: context
+                    .l10n
+                    .homeOurDiscerningClienteleCitizenshipClientsTitle,
+                description: context
+                    .l10n
                     .homeOurDiscerningClienteleCitizenshipClientsDescription,
               ),
             ),
@@ -119,18 +123,22 @@ class _ClienteleCategoriesGrid extends StatelessWidget {
           children: [
             Expanded(
               child: AppCategoryCard(
-                title:
-                    AppTexts.homeOurDiscerningClienteleLifestyleHomeBuyersTitle,
-                description: AppTexts
+                title: context
+                    .l10n
+                    .homeOurDiscerningClienteleLifestyleHomeBuyersTitle,
+                description: context
+                    .l10n
                     .homeOurDiscerningClienteleLifestyleHomeBuyersDescription,
               ),
             ),
             AppSpacing.horizontal(context, 0.03),
             Expanded(
               child: AppCategoryCard(
-                title: AppTexts
+                title: context
+                    .l10n
                     .homeOurDiscerningClienteleLuxuryPropertyOwnersTitle,
-                description: AppTexts
+                description: context
+                    .l10n
                     .homeOurDiscerningClienteleLuxuryPropertyOwnersDescription,
               ),
             ),
@@ -149,26 +157,32 @@ class _ClienteleCategoriesList extends StatelessWidget {
     return Column(
       children: [
         AppCategoryCard(
-          title: AppTexts.homeOurDiscerningClientelePropertyInvestorsTitle,
-          description:
-              AppTexts.homeOurDiscerningClientelePropertyInvestorsDescription,
+          title: context.l10n.homeOurDiscerningClientelePropertyInvestorsTitle,
+          description: context
+              .l10n
+              .homeOurDiscerningClientelePropertyInvestorsDescription,
         ),
         AppSpacing.vertical(context, 0.04),
         AppCategoryCard(
-          title: AppTexts.homeOurDiscerningClienteleCitizenshipClientsTitle,
-          description:
-              AppTexts.homeOurDiscerningClienteleCitizenshipClientsDescription,
+          title: context.l10n.homeOurDiscerningClienteleCitizenshipClientsTitle,
+          description: context
+              .l10n
+              .homeOurDiscerningClienteleCitizenshipClientsDescription,
         ),
         AppSpacing.vertical(context, 0.04),
         AppCategoryCard(
-          title: AppTexts.homeOurDiscerningClienteleLifestyleHomeBuyersTitle,
-          description:
-              AppTexts.homeOurDiscerningClienteleLifestyleHomeBuyersDescription,
+          title:
+              context.l10n.homeOurDiscerningClienteleLifestyleHomeBuyersTitle,
+          description: context
+              .l10n
+              .homeOurDiscerningClienteleLifestyleHomeBuyersDescription,
         ),
         AppSpacing.vertical(context, 0.04),
         AppCategoryCard(
-          title: AppTexts.homeOurDiscerningClienteleLuxuryPropertyOwnersTitle,
-          description: AppTexts
+          title:
+              context.l10n.homeOurDiscerningClienteleLuxuryPropertyOwnersTitle,
+          description: context
+              .l10n
               .homeOurDiscerningClienteleLuxuryPropertyOwnersDescription,
         ),
       ],
@@ -184,7 +198,7 @@ class _ClienteleButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppButton(
-      text: AppTexts.homeOurDiscerningClienteleButton,
+      text: context.l10n.homeOurDiscerningClienteleButton,
       backgroundColor: AppColors.primary,
       textColor: AppColors.white,
       width: fullWidth ? double.infinity : null,

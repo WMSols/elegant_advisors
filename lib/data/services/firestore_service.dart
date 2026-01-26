@@ -7,7 +7,7 @@ import 'package:elegant_advisors/domain/models/contact_submission_model.dart';
 import 'package:elegant_advisors/domain/models/admin_user_model.dart';
 import 'package:elegant_advisors/domain/models/visitor_model.dart';
 import 'package:elegant_advisors/domain/models/visit_tracking_model.dart';
-import 'package:elegant_advisors/core/utils/app_ip_helpers/app_ip_helper.dart';
+import 'package:elegant_advisors/core/utils/app_helpers/ip_address/app_ip_helper.dart';
 
 class FirestoreService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;

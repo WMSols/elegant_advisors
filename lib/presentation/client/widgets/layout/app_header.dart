@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
-import 'package:elegant_advisors/core/utils/app_images/app_images.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
-import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
+import 'package:elegant_advisors/core/utils/app_helpers/language/app_localizations_helper.dart';
 import 'package:elegant_advisors/presentation/client/widgets/header/header_language_selector.dart';
 import 'package:elegant_advisors/presentation/client/widgets/header/header_logo.dart';
 import 'package:elegant_advisors/presentation/client/widgets/header/header_mobile_menu.dart';
@@ -19,8 +18,6 @@ class AppHeader extends StatefulWidget {
 }
 
 class _AppHeaderState extends State<AppHeader> {
-  String _selectedLanguage = AppImages.englandFlag;
-
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
@@ -53,19 +50,19 @@ class _AppHeaderState extends State<AppHeader> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           HeaderNavItem(
-                            label: AppTexts.navHome,
+                            label: context.l10n.navHome,
                             route: ClientConstants.routeClientHome,
                           ),
                           HeaderNavItem(
-                            label: AppTexts.navProperties,
+                            label: context.l10n.navProperties,
                             route: ClientConstants.routeClientProperties,
                           ),
                           HeaderNavItem(
-                            label: AppTexts.navOurTeam,
+                            label: context.l10n.navOurTeam,
                             route: ClientConstants.routeClientOurTeam,
                           ),
                           HeaderNavItem(
-                            label: AppTexts.navAboutUs,
+                            label: context.l10n.navAboutUs,
                             route: ClientConstants.routeClientAboutUs,
                           ),
                           // Contact and Language Selector in same row
@@ -73,17 +70,10 @@ class _AppHeaderState extends State<AppHeader> {
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               HeaderNavItem(
-                                label: AppTexts.navContact,
+                                label: context.l10n.navContact,
                                 route: ClientConstants.routeClientContact,
                               ),
-                              HeaderLanguageSelector(
-                                selectedLanguage: _selectedLanguage,
-                                onLanguageSelected: (language) {
-                                  setState(() {
-                                    _selectedLanguage = language;
-                                  });
-                                },
-                              ),
+                              const HeaderLanguageSelector(),
                             ],
                           ),
                         ],
@@ -100,14 +90,7 @@ class _AppHeaderState extends State<AppHeader> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     const HeaderMobileMenu(),
-                    HeaderLanguageSelector(
-                      selectedLanguage: _selectedLanguage,
-                      onLanguageSelected: (language) {
-                        setState(() {
-                          _selectedLanguage = language;
-                        });
-                      },
-                    ),
+                    const HeaderLanguageSelector(),
                   ],
                 ),
             ],

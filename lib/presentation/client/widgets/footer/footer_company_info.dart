@@ -3,7 +3,7 @@ import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
 import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
-import 'package:elegant_advisors/core/utils/app_texts/footer_texts.dart';
+import 'package:elegant_advisors/core/utils/app_helpers/language/app_localizations_helper.dart';
 
 class FooterCompanyInfo extends StatelessWidget {
   const FooterCompanyInfo({super.key});
@@ -14,7 +14,7 @@ class FooterCompanyInfo extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          FooterTexts.companyName,
+          "Elegant Advisors",
           style: AppTextStyles.heading(context).copyWith(
             color: AppColors.white,
             fontWeight: FontWeight.bold,
@@ -23,7 +23,7 @@ class FooterCompanyInfo extends StatelessWidget {
         ),
         AppSpacing.vertical(context, 0.01),
         Text(
-          FooterTexts.companyTagline,
+          context.l10n.footerTagline,
           style: AppTextStyles.bodyText(context).copyWith(
             color: AppColors.white.withValues(alpha: 0.9),
             fontSize: AppResponsive.fontSizeClamped(context, min: 12, max: 14),
@@ -31,7 +31,7 @@ class FooterCompanyInfo extends StatelessWidget {
         ),
         AppSpacing.vertical(context, 0.015),
         Text(
-          FooterTexts.companyDescription,
+          context.l10n.footerCompanyDescription,
           style: AppTextStyles.bodyText(context).copyWith(
             color: AppColors.white.withValues(alpha: 0.7),
             fontSize: AppResponsive.fontSizeClamped(context, min: 11, max: 13),

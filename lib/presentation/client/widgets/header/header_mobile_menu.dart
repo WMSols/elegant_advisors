@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
-import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
+import 'package:elegant_advisors/core/utils/app_helpers/language/app_localizations_helper.dart';
 import 'package:elegant_advisors/core/widgets/buttons/app_icon_button.dart';
 
 class HeaderMobileMenu extends StatelessWidget {
@@ -19,7 +19,7 @@ class HeaderMobileMenu extends StatelessWidget {
           onPressed: () {
             Scaffold.of(context).openDrawer();
           },
-          tooltip: AppTexts.commonMenu,
+          tooltip: context.l10n.commonMenu,
         );
       },
     );

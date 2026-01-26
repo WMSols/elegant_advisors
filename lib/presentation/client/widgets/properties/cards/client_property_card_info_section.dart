@@ -7,7 +7,7 @@ import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
 import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
-import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
+import 'package:elegant_advisors/core/utils/app_helpers/language/app_localizations_helper.dart';
 import 'package:elegant_advisors/core/widgets/buttons/app_button.dart';
 import 'package:elegant_advisors/domain/models/property_model.dart';
 import 'package:elegant_advisors/presentation/client/widgets/properties/cards/client_property_card_spec_item.dart';
@@ -97,7 +97,7 @@ class ClientPropertyCardInfoSection extends StatelessWidget {
           AppSpacing.vertical(context, 0.02),
         // Show More Button
         AppButton(
-          text: AppTexts.clientPropertiesShowMore,
+          text: context.l10n.clientPropertiesShowMore,
           backgroundColor: AppColors.primary,
           textColor: AppColors.white,
           width: isMobile ? double.infinity : null,

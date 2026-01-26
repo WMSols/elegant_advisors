@@ -206,7 +206,7 @@ class AppTexts {
   static const String myContactsFilters = "Filters";
 
   // Admin Login
-  static const String adminLoginTitle = "Admin login";
+  static const String adminLoginTitle = "ADMIN LOGIN";
   static const String adminLoginEmailHint = "Enter Email Address";
   static const String adminLoginPasswordHint = "Enter Password";
   static const String adminLoginButton = "Login";

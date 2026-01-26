@@ -4,8 +4,8 @@ import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
 import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
-import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
-import 'package:elegant_advisors/core/utils/app_helpers/app_pagination_helper.dart';
+import 'package:elegant_advisors/core/utils/app_helpers/language/app_localizations_helper.dart';
+import 'package:elegant_advisors/core/utils/app_helpers/pagination/app_pagination_helper.dart';
 import 'package:elegant_advisors/core/widgets/buttons/app_icon_button.dart';
 
 /// Pagination widget for properties
@@ -49,7 +49,7 @@ class ClientPropertiesPagination extends StatelessWidget {
       children: [
         // Page Info
         Text(
-          '${AppTexts.clientPropertiesPaginationShowing} $startItem-$endItem ${AppTexts.clientPropertiesPaginationOf} $totalItems ${AppTexts.clientPropertiesPaginationResults}',
+          '${context.l10n.clientPropertiesPaginationShowing} $startItem-$endItem ${context.l10n.clientPropertiesPaginationOf} $totalItems ${context.l10n.clientPropertiesPaginationResults}',
           style: AppTextStyles.bodyText(context).copyWith(
             color: AppColors.primary,
             fontSize: AppResponsive.fontSizeClamped(context, min: 12, max: 14),
@@ -106,9 +106,6 @@ class ClientPropertiesPagination extends StatelessWidget {
                     ),
                     decoration: BoxDecoration(
                       color: isActive ? AppColors.primary : AppColors.white,
-                      borderRadius: BorderRadius.circular(
-                        AppResponsive.radius(context, factor: 0.8),
-                      ),
                       border: Border.all(
                         color: isActive
                             ? AppColors.primary

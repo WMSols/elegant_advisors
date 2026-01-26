@@ -175,6 +175,7 @@ class AdminPropertyImagesSection extends GetView<AdminPropertyFormController> {
                                   text: AppTexts.adminPropertyFormCoverImage,
                                   color: AppColors.warning,
                                   icon: Iconsax.star,
+                                  isAdmin: true,
                                 ),
                               ),
                             Positioned(
@@ -254,6 +255,7 @@ class AdminPropertyImagesSection extends GetView<AdminPropertyFormController> {
                   ? null
                   : controller.pickImages,
               backgroundColor: AppColors.white,
+              isAdmin: true,
             ),
           ),
         ],

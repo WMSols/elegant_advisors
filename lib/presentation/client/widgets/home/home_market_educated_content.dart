@@ -6,7 +6,7 @@ import 'package:elegant_advisors/core/utils/app_images/app_images.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
 import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
-import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
+import 'package:elegant_advisors/core/utils/app_helpers/language/app_localizations_helper.dart';
 import 'package:elegant_advisors/core/widgets/buttons/app_button.dart';
 import 'package:elegant_advisors/core/widgets/images/app_error_image_fallback.dart';
 
@@ -102,7 +102,7 @@ class _MarketEducatedContent extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          AppTexts.homeMarketEducatedTitle,
+          context.l10n.homeMarketEducatedTitle,
           style: AppTextStyles.bodyText(context).copyWith(
             color: AppColors.primary,
             fontWeight: FontWeight.bold,
@@ -112,7 +112,7 @@ class _MarketEducatedContent extends StatelessWidget {
         ),
         AppSpacing.vertical(context, 0.04),
         Text(
-          AppTexts.homeMarketEducatedDescription,
+          context.l10n.homeMarketEducatedDescription,
           style: AppTextStyles.bodyText(context).copyWith(
             color: AppColors.black.withValues(alpha: 0.7),
             height: 1.6,
@@ -121,7 +121,7 @@ class _MarketEducatedContent extends StatelessWidget {
         ),
         AppSpacing.vertical(context, 0.06),
         AppButton(
-          text: AppTexts.homeMarketEducatedButton,
+          text: context.l10n.homeMarketEducatedButton,
           backgroundColor: AppColors.primary,
           textColor: AppColors.white,
           width: fullWidthButton ? double.infinity : null,

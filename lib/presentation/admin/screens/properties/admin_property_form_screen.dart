@@ -83,6 +83,7 @@ class AdminPropertyFormScreen extends GetView<AdminPropertyFormController> {
                         onPressed: controller.isLoading.value
                             ? null
                             : controller.saveProperty,
+                        isAdmin: true,
                         width: double.infinity,
                         backgroundColor: AppColors.white,
                       ),

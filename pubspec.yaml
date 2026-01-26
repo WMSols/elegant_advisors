@@ -30,6 +30,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -54,6 +56,7 @@ dependencies:
   path_provider: ^2.1.4
   http: ^1.2.2
   url_launcher: ^6.3.1
+  shared_preferences: ^2.3.3
   
   # Icons
   iconsax: ^0.0.8
@@ -115,13 +118,13 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Cinzel
+    - family: NotoSerifDisplay
       fonts:
-        - asset: assets/fonts/Cinzel-Regular.ttf
+        - asset: assets/fonts/NotoSerifDisplay-Regular.ttf
           weight: 400
-        - asset: assets/fonts/Cinzel-Medium.ttf
+        - asset: assets/fonts/NotoSerifDisplay-Medium.ttf
           weight: 500
-        - asset: assets/fonts/Cinzel-Bold.ttf
+        - asset: assets/fonts/NotoSerifDisplay-Bold.ttf
           weight: 700
     - family: Inter
       fonts:
@@ -130,6 +133,14 @@ flutter:
         - asset: assets/fonts/Inter-Medium.ttf
           weight: 500
         - asset: assets/fonts/Inter-Bold.ttf
+          weight: 700
+    - family: Cinzel
+      fonts:
+        - asset: assets/fonts/Cinzel-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Cinzel-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Cinzel-Bold.ttf
           weight: 700
   # fonts:
   #   - family: Schyler
@@ -145,3 +156,6 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+
+  # Generate localization files
+  generate: true

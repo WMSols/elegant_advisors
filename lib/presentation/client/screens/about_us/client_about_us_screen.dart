@@ -5,7 +5,7 @@ import 'package:elegant_advisors/presentation/client/controllers/about_us/client
 import 'package:elegant_advisors/presentation/client/widgets/about_us/header/about_us_header_section.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
 import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
-import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
+import 'package:elegant_advisors/core/utils/app_helpers/language/app_localizations_helper.dart';
 
 class ClientAboutUsScreen extends GetView<ClientAboutUsController> {
   const ClientAboutUsScreen({super.key});
@@ -27,7 +27,7 @@ class ClientAboutUsScreen extends GetView<ClientAboutUsController> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                AppTexts.aboutUsSubtitle,
+                context.l10n.aboutUsSubtitle,
                 style: AppTextStyles.heading(context),
               ),
               AppSpacing.vertical(context, 0.04),

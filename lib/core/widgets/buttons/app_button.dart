@@ -14,6 +14,7 @@ class AppButton extends StatelessWidget {
   final Color? textColor;
   final double? width;
   final double? height;
+  final bool isAdmin;
 
   const AppButton({
     super.key,
@@ -24,25 +25,29 @@ class AppButton extends StatelessWidget {
     this.textColor,
     this.width,
     this.height,
+    this.isAdmin = false,
   });
 
   @override
   Widget build(BuildContext context) {
     final isDisabled = onPressed == null;
 
+    // Use responsive radius for admin, fixed radius for client
+    final borderRadius = isAdmin ? AppResponsive.radius(context) : 0.0;
+
     // Build decoration
     final decoration = isDisabled
         ? BoxDecoration(
-            borderRadius: BorderRadius.circular(AppResponsive.radius(context)),
+            borderRadius: BorderRadius.circular(borderRadius),
             color: AppColors.grey.withValues(alpha: 0.5),
           )
         : backgroundColor != null
         ? BoxDecoration(
             color: backgroundColor,
-            borderRadius: BorderRadius.circular(AppResponsive.radius(context)),
+            borderRadius: BorderRadius.circular(borderRadius),
           )
         : BoxDecoration(
-            borderRadius: BorderRadius.circular(AppResponsive.radius(context)),
+            borderRadius: BorderRadius.circular(borderRadius),
           ).withAppGradient();
 
     // Determine text color

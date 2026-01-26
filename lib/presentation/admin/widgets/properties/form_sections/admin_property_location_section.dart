@@ -28,6 +28,7 @@ class AdminPropertyLocationSection
             errorTextColor: AppColors.white,
             validator: controller.validateCountry,
             maxLines: 1,
+            isAdmin: true,
           ),
           AppSpacing.vertical(context, 0.02),
           AppTextField(
@@ -39,6 +40,7 @@ class AdminPropertyLocationSection
             errorTextColor: AppColors.white,
             validator: controller.validateCity,
             maxLines: 1,
+            isAdmin: true,
           ),
           AppSpacing.vertical(context, 0.02),
           AppTextField(
@@ -50,6 +52,7 @@ class AdminPropertyLocationSection
             errorTextColor: AppColors.white,
             validator: controller.validateArea,
             maxLines: 1,
+            isAdmin: true,
           ),
           AppSpacing.vertical(context, 0.02),
           AppTextField(
@@ -62,6 +65,7 @@ class AdminPropertyLocationSection
             prefixIcon: const Icon(Iconsax.map),
             errorTextColor: AppColors.white,
             validator: controller.validateAddress,
+            isAdmin: true,
           ),
           AppSpacing.vertical(context, 0.02),
           // Map Picker

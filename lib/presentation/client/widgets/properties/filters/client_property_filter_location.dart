@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
-import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
+import 'package:elegant_advisors/core/utils/app_helpers/language/app_localizations_helper.dart';
 import 'package:elegant_advisors/core/widgets/forms/app_dropdown_field.dart';
 
 /// Location filter fields (Country and City)
@@ -30,12 +30,12 @@ class ClientPropertyFilterLocation extends StatelessWidget {
         // Country
         if (availableCountries.isNotEmpty)
           AppDropdownField<String>(
-            label: AppTexts.clientPropertiesFilterCountry,
+            label: context.l10n.clientPropertiesFilterCountry,
             value: country,
             items: [
               DropdownMenuItem<String>(
                 value: null,
-                child: Text(AppTexts.clientPropertiesFilterAll),
+                child: Text(context.l10n.clientPropertiesFilterAll),
               ),
               ...availableCountries.map((country) {
                 return DropdownMenuItem<String>(
@@ -51,12 +51,12 @@ class ClientPropertyFilterLocation extends StatelessWidget {
         // City
         if (availableCities.isNotEmpty)
           AppDropdownField<String>(
-            label: AppTexts.clientPropertiesFilterCity,
+            label: context.l10n.clientPropertiesFilterCity,
             value: city,
             items: [
               DropdownMenuItem<String>(
                 value: null,
-                child: Text(AppTexts.clientPropertiesFilterAll),
+                child: Text(context.l10n.clientPropertiesFilterAll),
               ),
               ...availableCities.map((city) {
                 return DropdownMenuItem<String>(value: city, child: Text(city));

@@ -4,7 +4,7 @@ import 'package:elegant_advisors/core/utils/app_fonts/app_fonts.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
 import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
-import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
+import 'package:elegant_advisors/core/utils/app_helpers/language/app_localizations_helper.dart';
 
 /// Status filter chips
 class ClientPropertyFilterStatusChips extends StatelessWidget {
@@ -23,7 +23,7 @@ class ClientPropertyFilterStatusChips extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          AppTexts.clientPropertiesFilterStatus,
+          context.l10n.clientPropertiesFilterStatus,
           style: AppTextStyles.bodyText(context).copyWith(
             fontWeight: FontWeight.w600,
             fontFamily: AppFonts.primaryFont,

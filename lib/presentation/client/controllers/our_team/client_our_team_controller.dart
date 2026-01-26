@@ -46,7 +46,7 @@ class ClientOurTeamController extends BaseController {
       final fetchedTeam = await _firestoreService.getPublishedTeamOnce();
       teamMembers.value = fetchedTeam;
     } catch (e) {
-      // showError('Failed to load team members');
+      // Silently handle error - team members are optional
     } finally {
       isLoadingTeam.value = false;
     }

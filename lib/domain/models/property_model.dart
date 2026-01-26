@@ -1,15 +1,17 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:elegant_advisors/core/utils/app_helpers/language/multilingual_helper.dart';
 
 class PropertyModel {
   final String? id;
-  final String title;
+  // Store multilingual data (can be String or Map<String, String>)
+  final dynamic _title;
   final String slug;
-  final String shortDescription;
-  final String fullDescription;
+  final dynamic _shortDescription;
+  final dynamic _fullDescription;
   final PropertyLocation location;
   final PropertyPrice price;
   final PropertySpecs specs;
-  final List<String> features;
+  final dynamic _features; // Can be List<String> or Map<String, List<String>>
   final String status; // available, sold, off_market, coming_soon
   final List<String> images;
   final String? coverImage;
@@ -19,16 +21,35 @@ class PropertyModel {
   final DateTime updatedAt;
   final bool isPublished;
 
+  // Localized getters that automatically extract text based on current locale
+  String get title => MultilingualHelper.getLocalizedText(_title);
+  String get shortDescription =>
+      MultilingualHelper.getLocalizedText(_shortDescription);
+  String get fullDescription =>
+      MultilingualHelper.getLocalizedText(_fullDescription);
+  List<String> get features => MultilingualHelper.getLocalizedList(_features);
+
+  // Helper methods to access raw multilingual data (for admin editing)
+  dynamic get rawTitle => _title;
+  dynamic get rawShortDescription => _shortDescription;
+  dynamic get rawFullDescription => _fullDescription;
+  dynamic get rawFeatures => _features;
+
+  // Check if a field is multilingual (Map format)
+  bool get isMultilingual {
+    return _title is Map<String, dynamic>;
+  }
+
   PropertyModel({
     this.id,
-    required this.title,
+    dynamic title,
     required this.slug,
-    required this.shortDescription,
-    required this.fullDescription,
+    dynamic shortDescription,
+    dynamic fullDescription,
     required this.location,
     required this.price,
     required this.specs,
-    required this.features,
+    dynamic features,
     required this.status,
     required this.images,
     this.coverImage,
@@ -37,20 +58,24 @@ class PropertyModel {
     DateTime? createdAt,
     DateTime? updatedAt,
     this.isPublished = false,
-  }) : createdAt = createdAt ?? DateTime.now(),
+  }) : _title = title ?? '',
+       _shortDescription = shortDescription ?? '',
+       _fullDescription = fullDescription ?? '',
+       _features = features ?? [],
+       createdAt = createdAt ?? DateTime.now(),
        updatedAt = updatedAt ?? DateTime.now();
 
   factory PropertyModel.fromJson(Map<String, dynamic> json, String id) {
     return PropertyModel(
       id: id,
-      title: json['title'] ?? '',
+      title: json['title'],
       slug: json['slug'] ?? '',
-      shortDescription: json['shortDescription'] ?? '',
-      fullDescription: json['fullDescription'] ?? '',
+      shortDescription: json['shortDescription'],
+      fullDescription: json['fullDescription'],
       location: PropertyLocation.fromJson(json['location'] ?? {}),
       price: PropertyPrice.fromJson(json['price'] ?? {}),
       specs: PropertySpecs.fromJson(json['specs'] ?? {}),
-      features: List<String>.from(json['features'] ?? []),
+      features: json['features'],
       status: json['status'] ?? 'available',
       images: List<String>.from(json['images'] ?? []),
       coverImage: json['coverImage'],
@@ -64,14 +89,14 @@ class PropertyModel {
 
   Map<String, dynamic> toJson() {
     return {
-      'title': title,
+      'title': _title,
       'slug': slug,
-      'shortDescription': shortDescription,
-      'fullDescription': fullDescription,
+      'shortDescription': _shortDescription,
+      'fullDescription': _fullDescription,
       'location': location.toJson(),
       'price': price.toJson(),
       'specs': specs.toJson(),
-      'features': features,
+      'features': _features,
       'status': status,
       'images': images,
       'coverImage': coverImage,
@@ -85,14 +110,14 @@ class PropertyModel {
 
   PropertyModel copyWith({
     String? id,
-    String? title,
+    dynamic title,
     String? slug,
-    String? shortDescription,
-    String? fullDescription,
+    dynamic shortDescription,
+    dynamic fullDescription,
     PropertyLocation? location,
     PropertyPrice? price,
     PropertySpecs? specs,
-    List<String>? features,
+    dynamic features,
     String? status,
     List<String>? images,
     String? coverImage,
@@ -104,14 +129,14 @@ class PropertyModel {
   }) {
     return PropertyModel(
       id: id ?? this.id,
-      title: title ?? this.title,
+      title: title ?? _title,
       slug: slug ?? this.slug,
-      shortDescription: shortDescription ?? this.shortDescription,
-      fullDescription: fullDescription ?? this.fullDescription,
+      shortDescription: shortDescription ?? _shortDescription,
+      fullDescription: fullDescription ?? _fullDescription,
       location: location ?? this.location,
       price: price ?? this.price,
       specs: specs ?? this.specs,
-      features: features ?? this.features,
+      features: features ?? _features,
       status: status ?? this.status,
       images: images ?? this.images,
       coverImage: coverImage ?? this.coverImage,
@@ -125,26 +150,43 @@ class PropertyModel {
 }
 
 class PropertyLocation {
-  final String country;
-  final String city;
-  final String? area;
-  final String? address;
+  final dynamic _country; // Can be String or Map<String, String>
+  final dynamic _city; // Can be String or Map<String, String>
+  final dynamic _area; // Can be String or Map<String, String>
+  final dynamic _address; // Can be String or Map<String, String>
   final double? lat;
   final double? lng;
 
+  // Localized getters
+  String get country => MultilingualHelper.getLocalizedText(_country);
+  String get city => MultilingualHelper.getLocalizedText(_city);
+  String? get area =>
+      _area != null ? MultilingualHelper.getLocalizedText(_area) : null;
+  String? get address =>
+      _address != null ? MultilingualHelper.getLocalizedText(_address) : null;
+
+  // Helper methods to access raw multilingual data (for admin editing)
+  dynamic get rawCountry => _country;
+  dynamic get rawCity => _city;
+  dynamic get rawArea => _area;
+  dynamic get rawAddress => _address;
+
   PropertyLocation({
-    required this.country,
-    required this.city,
-    this.area,
-    this.address,
+    dynamic country,
+    dynamic city,
+    dynamic area,
+    dynamic address,
     this.lat,
     this.lng,
-  });
+  }) : _country = country ?? '',
+       _city = city ?? '',
+       _area = area,
+       _address = address;
 
   factory PropertyLocation.fromJson(Map<String, dynamic> json) {
     return PropertyLocation(
-      country: json['country'] ?? '',
-      city: json['city'] ?? '',
+      country: json['country'],
+      city: json['city'],
       area: json['area'],
       address: json['address'],
       lat: json['lat']?.toDouble(),
@@ -154,10 +196,10 @@ class PropertyLocation {
 
   Map<String, dynamic> toJson() {
     return {
-      'country': country,
-      'city': city,
-      if (area != null) 'area': area,
-      if (address != null) 'address': address,
+      'country': _country,
+      'city': _city,
+      if (_area != null) 'area': _area,
+      if (_address != null) 'address': _address,
       if (lat != null) 'lat': lat,
       if (lng != null) 'lng': lng,
     };
@@ -193,15 +235,21 @@ class PropertySpecs {
   final int? bathrooms;
   final double? areaSize;
   final String? areaUnit; // sqm or sqft
-  final String propertyType; // apartment, villa, etc.
+  final dynamic _propertyType; // Can be String or Map<String, String>
+
+  // Localized getter
+  String get propertyType => MultilingualHelper.getLocalizedText(_propertyType);
+
+  // Helper method to access raw multilingual data (for admin editing)
+  dynamic get rawPropertyType => _propertyType;
 
   PropertySpecs({
     this.bedrooms,
     this.bathrooms,
     this.areaSize,
     this.areaUnit,
-    required this.propertyType,
-  });
+    dynamic propertyType,
+  }) : _propertyType = propertyType ?? '';
 
   factory PropertySpecs.fromJson(Map<String, dynamic> json) {
     return PropertySpecs(
@@ -209,7 +257,7 @@ class PropertySpecs {
       bathrooms: json['bathrooms'],
       areaSize: json['areaSize']?.toDouble(),
       areaUnit: json['areaUnit'],
-      propertyType: json['propertyType'] ?? '',
+      propertyType: json['propertyType'],
     );
   }
 
@@ -219,7 +267,7 @@ class PropertySpecs {
       if (bathrooms != null) 'bathrooms': bathrooms,
       if (areaSize != null) 'areaSize': areaSize,
       if (areaUnit != null) 'areaUnit': areaUnit,
-      'propertyType': propertyType,
+      'propertyType': _propertyType,
     };
   }
 }

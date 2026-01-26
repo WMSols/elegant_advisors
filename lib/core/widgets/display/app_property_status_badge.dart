@@ -11,6 +11,7 @@ class AppPropertyStatusBadge extends StatelessWidget {
   final String? text; // Custom text (for cover image status)
   final Color? color; // Custom color (for cover image status)
   final IconData? icon; // Optional icon (for cover image status)
+  final bool isAdmin;
 
   const AppPropertyStatusBadge({
     super.key,
@@ -18,6 +19,7 @@ class AppPropertyStatusBadge extends StatelessWidget {
     this.text,
     this.color,
     this.icon,
+    this.isAdmin = false,
   }) : assert(
          (status != null && text == null) || (status == null && text != null),
          'Either status or text must be provided, but not both',
@@ -61,6 +63,11 @@ class AppPropertyStatusBadge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Use responsive radius for admin, fixed radius for client
+    final borderRadius = isAdmin
+        ? AppResponsive.radius(context, factor: 3)
+        : 0.0;
+
     return Container(
       padding: EdgeInsets.symmetric(
         horizontal: AppResponsive.scaleSize(context, 8, min: 6, max: 12),
@@ -68,9 +75,7 @@ class AppPropertyStatusBadge extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         color: _getStatusColor(),
-        borderRadius: BorderRadius.circular(
-          AppResponsive.radius(context, factor: 3),
-        ),
+        borderRadius: BorderRadius.circular(borderRadius),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
