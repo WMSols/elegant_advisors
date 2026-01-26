@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
-import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
+import 'package:elegant_advisors/core/utils/app_helpers/language/app_localizations_helper.dart';
 import 'package:elegant_advisors/presentation/client/widgets/common/client_hero_header_section.dart';
 import 'package:elegant_advisors/presentation/client/widgets/common/client_hero_header_content.dart';
 import 'package:elegant_advisors/presentation/client/controllers/our_team/client_our_team_controller.dart';
@@ -15,8 +15,8 @@ class OurTeamHeaderSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClientHeroHeaderSection(
       child: ClientHeroHeaderContent(
-        title: AppTexts.ourTeamTitle,
-        description: AppTexts.ourTeamDescription,
+        title: context.l10n.ourTeamTitle,
+        description: context.l10n.ourTeamDescription,
         textAlign: AppResponsive.isMobile(context)
             ? TextAlign.left
             : TextAlign.center,

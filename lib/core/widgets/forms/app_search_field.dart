@@ -8,12 +8,14 @@ class AppSearchField extends StatelessWidget {
   final TextEditingController? controller;
   final String? hint;
   final void Function(String)? onFieldSubmitted;
+  final bool isAdmin;
 
   const AppSearchField({
     super.key,
     this.controller,
     this.hint,
     this.onFieldSubmitted,
+    this.isAdmin = false,
   });
 
   @override
@@ -27,6 +29,7 @@ class AppSearchField extends StatelessWidget {
       ),
       onFieldSubmitted: onFieldSubmitted,
       textInputAction: TextInputAction.search,
+      isAdmin: isAdmin,
     );
   }
 }

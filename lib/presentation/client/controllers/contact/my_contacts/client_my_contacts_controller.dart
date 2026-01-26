@@ -4,6 +4,7 @@ import 'package:elegant_advisors/data/services/firestore_service.dart';
 import 'package:elegant_advisors/domain/models/contact_submission_model.dart';
 import 'package:elegant_advisors/core/base/base_controller/app_base_controller.dart';
 import 'package:elegant_advisors/core/utils/app_validators/app_validators.dart';
+import 'package:elegant_advisors/core/utils/app_helpers/language/app_localizations_helper.dart';
 
 class ClientMyContactsController extends BaseController {
   final FirestoreService _firestoreService = FirestoreService();
@@ -85,8 +86,11 @@ class ClientMyContactsController extends BaseController {
     int retryCount = 0,
     int maxRetries = 3,
   }) async {
+    final l10n = AppLocalizationsHelper.getLocalizations();
     if (email.trim().isEmpty) {
-      showError('Please enter a valid email address');
+      showError(
+        l10n?.myContactsEmailInvalid ?? 'Please enter a valid email address',
+      );
       return;
     }
 
@@ -132,11 +136,15 @@ class ClientMyContactsController extends BaseController {
         if (errorString.contains('index') ||
             errorString.contains('requires an index')) {
           showError(
-            'Failed to load contacts. Please ensure Firestore indexes are created. '
-            'Check the Firebase console for index creation links.',
+            l10n?.myContactsErrorIndex ??
+                'Failed to load contacts. Please ensure Firestore indexes are created. '
+                    'Check the Firebase console for index creation links.',
           );
         } else {
-          showError('Failed to load contacts. Please try again.');
+          showError(
+            l10n?.myContactsErrorLoadingGeneric ??
+                'Failed to load contacts. Please try again.',
+          );
         }
       }
     });

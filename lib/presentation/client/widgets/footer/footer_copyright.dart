@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
 import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
-import 'package:elegant_advisors/core/utils/app_texts/footer_texts.dart';
+import 'package:elegant_advisors/core/utils/app_helpers/language/app_localizations_helper.dart';
 
 class FooterCopyright extends StatelessWidget {
   const FooterCopyright({super.key});
@@ -23,7 +23,7 @@ class FooterCopyright extends StatelessWidget {
       ),
       child: Center(
         child: Text(
-          FooterTexts.copyright(),
+          context.l10n.footerCopyright(DateTime.now().year),
           style: AppTextStyles.bodyText(context).copyWith(
             color: AppColors.white.withValues(alpha: 0.8),
             fontSize: 12,

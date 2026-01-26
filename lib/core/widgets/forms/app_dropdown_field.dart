@@ -18,6 +18,7 @@ class AppDropdownField<T> extends StatelessWidget {
   final Color? labelColor;
   final Color? errorTextColor;
   final Color? borderColor;
+  final bool isAdmin;
 
   const AppDropdownField({
     super.key,
@@ -32,10 +33,14 @@ class AppDropdownField<T> extends StatelessWidget {
     this.labelColor = AppColors.primary,
     this.errorTextColor = AppColors.error,
     this.borderColor,
+    this.isAdmin = false,
   });
 
   @override
   Widget build(BuildContext context) {
+    // Use responsive radius for admin, fixed radius for client
+    final borderRadius = isAdmin ? AppResponsive.radius(context) : 0.0;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -62,27 +67,19 @@ class AppDropdownField<T> extends StatelessWidget {
               context,
             ).copyWith(color: errorTextColor),
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(
-                AppResponsive.radius(context),
-              ),
+              borderRadius: BorderRadius.circular(borderRadius),
               borderSide: BorderSide(color: borderColor ?? Colors.transparent),
             ),
             enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(
-                AppResponsive.radius(context),
-              ),
+              borderRadius: BorderRadius.circular(borderRadius),
               borderSide: BorderSide(color: borderColor ?? Colors.transparent),
             ),
             focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(
-                AppResponsive.radius(context),
-              ),
+              borderRadius: BorderRadius.circular(borderRadius),
               borderSide: const BorderSide(color: AppColors.primary),
             ),
             errorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(
-                AppResponsive.radius(context),
-              ),
+              borderRadius: BorderRadius.circular(borderRadius),
               borderSide: const BorderSide(color: AppColors.error),
             ),
             filled: true,

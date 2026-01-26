@@ -5,8 +5,9 @@ import 'package:elegant_advisors/data/services/firestore_service.dart';
 import 'package:elegant_advisors/data/services/analytics_service.dart';
 import 'package:elegant_advisors/domain/models/property_model.dart';
 import 'package:elegant_advisors/core/base/base_controller/app_base_controller.dart';
-import 'package:elegant_advisors/core/utils/client_property_filters.dart';
-import 'package:elegant_advisors/core/utils/app_helpers/app_pagination_helper.dart';
+import 'package:elegant_advisors/presentation/client/widgets/properties/filters/client_property_filters.dart';
+import 'package:elegant_advisors/core/utils/app_helpers/pagination/app_pagination_helper.dart';
+import 'package:elegant_advisors/core/utils/app_helpers/language/app_localizations_helper.dart';
 
 class ClientPropertiesController extends BaseController {
   final FirestoreService _firestoreService = FirestoreService();
@@ -56,7 +57,7 @@ class ClientPropertiesController extends BaseController {
   StreamSubscription<List<PropertyModel>>? _propertiesSubscription;
 
   // Filters & Sort
-  final filters = ClientPorpertyFilters().obs;
+  final filters = ClientPropertyFilters().obs;
   final sortOption = Rxn<PropertySortOption>();
 
   // Pagination
@@ -190,15 +191,21 @@ class ClientPropertiesController extends BaseController {
               update(); // Notify GetBuilder to rebuild
             },
             onError: (error) {
-              errorMessage.value =
-                  'Failed to load properties: ${error.toString()}';
-              showError('Failed to load properties');
+              final l10n = AppLocalizationsHelper.getLocalizations();
+              final errorText =
+                  l10n?.clientPropertiesErrorLoading ??
+                  'Failed to load properties';
+              errorMessage.value = '$errorText: ${error.toString()}';
+              showError(errorText);
               isLoadingProperties.value = false;
             },
           );
     } catch (e) {
-      errorMessage.value = 'Failed to load properties: ${e.toString()}';
-      showError('Failed to load properties');
+      final l10n = AppLocalizationsHelper.getLocalizations();
+      final errorText =
+          l10n?.clientPropertiesErrorLoading ?? 'Failed to load properties';
+      errorMessage.value = '$errorText: ${e.toString()}';
+      showError(errorText);
       isLoadingProperties.value = false;
     }
   }
@@ -396,7 +403,7 @@ class ClientPropertiesController extends BaseController {
     );
   }
 
-  void updateFilters(ClientPorpertyFilters newFilters) {
+  void updateFilters(ClientPropertyFilters newFilters) {
     filters.value = newFilters;
     currentPage.value = 1; // Reset to first page
     applyFilters();

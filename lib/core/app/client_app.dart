@@ -1,8 +1,11 @@
+import 'package:elegant_advisors/core/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:elegant_advisors/core/theme/app_theme.dart';
 import 'package:elegant_advisors/core/constants/client_constants.dart';
 import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
+import 'package:elegant_advisors/presentation/admin/controllers/language/language_controller.dart';
 import 'package:elegant_advisors/presentation/client/routes/client_routes.dart';
 
 /// Client-facing application
@@ -11,10 +14,24 @@ class ClientApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Initialize language controller
+    final languageController = Get.put(LanguageController(), permanent: true);
+
     return GetMaterialApp(
       title: AppTexts.appTitleClient,
       debugShowCheckedModeBanner: false,
       theme: AppTheme.theme,
+
+      // Localization support
+      locale: languageController.currentLocale,
+      supportedLocales: LanguageController.supportedLocales,
+      localizationsDelegates: [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+
       initialRoute: ClientConstants.routeClientHome,
       getPages: ClientRoutes.routes,
       // Enable browser back/forward button support
@@ -28,19 +45,21 @@ class ClientApp extends StatelessWidget {
       // Ensure proper route management for web
       unknownRoute: GetPage(
         name: '/notfound',
-        page: () => Scaffold(
-          body: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(AppTexts.commonPageNotFound),
-                const SizedBox(height: 16),
-                ElevatedButton(
-                  onPressed: () =>
-                      Get.offAllNamed(ClientConstants.routeClientHome),
-                  child: Text(AppTexts.commonGoHome),
-                ),
-              ],
+        page: () => Builder(
+          builder: (context) => Scaffold(
+            body: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(AppLocalizations.of(context)!.commonPageNotFound),
+                  const SizedBox(height: 16),
+                  ElevatedButton(
+                    onPressed: () =>
+                        Get.offAllNamed(ClientConstants.routeClientHome),
+                    child: Text(AppLocalizations.of(context)!.commonGoHome),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

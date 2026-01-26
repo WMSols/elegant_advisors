@@ -27,6 +27,7 @@ class AdminPropertyBasicInfoSection
             errorTextColor: AppColors.white,
             validator: controller.validateTitle,
             maxLines: 1,
+            isAdmin: true,
           ),
           AppSpacing.vertical(context, 0.02),
           // Slug is auto-generated from title, not shown in form
@@ -40,6 +41,7 @@ class AdminPropertyBasicInfoSection
             prefixIcon: const Icon(Iconsax.document_text),
             errorTextColor: AppColors.white,
             validator: controller.validateShortDescription,
+            isAdmin: true,
           ),
           AppSpacing.vertical(context, 0.02),
           AppTextField(
@@ -52,6 +54,7 @@ class AdminPropertyBasicInfoSection
             prefixIcon: const Icon(Iconsax.document),
             errorTextColor: AppColors.white,
             validator: controller.validateFullDescription,
+            isAdmin: true,
           ),
         ],
       ),

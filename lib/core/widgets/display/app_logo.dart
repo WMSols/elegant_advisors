@@ -1,3 +1,4 @@
+import 'package:elegant_advisors/core/utils/app_fonts/app_fonts.dart';
 import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
 import 'package:flutter/material.dart';
 import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
@@ -38,6 +39,7 @@ class AppLogo extends StatelessWidget {
         Text(
           AppTexts.logoTitle,
           style: AppTextStyles.heading(context).copyWith(
+            fontFamily: AppFonts.logoFont,
             color: logoColor,
             fontSize: titleSize,
             fontWeight: FontWeight.w500,
@@ -49,6 +51,7 @@ class AppLogo extends StatelessWidget {
         Text(
           AppTexts.logoSubtitle,
           style: AppTextStyles.heading(context).copyWith(
+            fontFamily: AppFonts.logoFont,
             color: logoColor,
             fontSize: subtitleSize,
             fontWeight: FontWeight.w300,

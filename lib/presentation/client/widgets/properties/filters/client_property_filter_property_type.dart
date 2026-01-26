@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
-import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
+import 'package:elegant_advisors/core/utils/app_helpers/language/app_localizations_helper.dart';
 import 'package:elegant_advisors/core/widgets/forms/app_dropdown_field.dart';
 
 /// Property type filter dropdown
@@ -23,12 +23,12 @@ class ClientPropertyFilterPropertyType extends StatelessWidget {
     }
 
     return AppDropdownField<String>(
-      label: AppTexts.clientPropertiesFilterPropertyType,
+      label: context.l10n.clientPropertiesFilterPropertyType,
       value: value,
       items: [
         DropdownMenuItem<String>(
           value: null,
-          child: Text(AppTexts.clientPropertiesFilterAll),
+          child: Text(context.l10n.clientPropertiesFilterAll),
         ),
         ...availableTypes.map((type) {
           return DropdownMenuItem<String>(value: type, child: Text(type));

@@ -35,6 +35,7 @@ class AdminPropertyPriceSection extends GetView<AdminPropertyFormController> {
                   validator: controller.validatePrice,
                   enabled: !controller.isOnRequest.value,
                   maxLines: 1,
+                  isAdmin: true,
                 ),
               ),
               AppSpacing.horizontal(context, 0.01),
@@ -64,6 +65,7 @@ class AdminPropertyPriceSection extends GetView<AdminPropertyFormController> {
                       }
                     },
                     errorTextColor: AppColors.white,
+                    isAdmin: true,
                   ),
                 ),
               ),

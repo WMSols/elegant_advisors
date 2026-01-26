@@ -3,7 +3,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
 import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
-import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
+import 'package:elegant_advisors/core/utils/app_helpers/language/app_localizations_helper.dart';
 import 'package:elegant_advisors/core/utils/app_texts/footer_texts.dart';
 import 'package:elegant_advisors/presentation/client/widgets/contact/contact_info_item.dart';
 
@@ -17,7 +17,7 @@ class ContactOfficeDetailsSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          AppTexts.contactOfficeTitle,
+          context.l10n.contactOfficeTitle,
           style: AppTextStyles.heading(
             context,
           ).copyWith(color: AppColors.white),
@@ -25,25 +25,25 @@ class ContactOfficeDetailsSection extends StatelessWidget {
         AppSpacing.vertical(context, 0.02),
         ContactInfoItem(
           icon: Iconsax.location,
-          title: AppTexts.contactOfficeAddress,
+          title: context.l10n.contactOfficeAddress,
           value: FooterTexts.contactAddress,
         ),
         AppSpacing.vertical(context, 0.02),
         ContactInfoItem(
           icon: Iconsax.call,
-          title: AppTexts.contactOfficePhone,
+          title: context.l10n.contactOfficePhone,
           value: FooterTexts.contactPhone,
         ),
         AppSpacing.vertical(context, 0.02),
         ContactInfoItem(
           icon: Iconsax.sms,
-          title: AppTexts.contactOfficeEmail,
+          title: context.l10n.contactOfficeEmail,
           value: FooterTexts.contactEmail,
         ),
         AppSpacing.vertical(context, 0.02),
         ContactInfoItem(
           icon: Iconsax.clock,
-          title: AppTexts.contactOfficeHours,
+          title: context.l10n.contactOfficeHours,
           value: FooterTexts.contactWorkingHours,
         ),
       ],

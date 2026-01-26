@@ -5,9 +5,9 @@ import 'package:elegant_advisors/data/services/analytics_service.dart';
 import 'package:elegant_advisors/data/services/email_service.dart';
 import 'package:elegant_advisors/domain/models/contact_submission_model.dart';
 import 'package:elegant_advisors/domain/models/property_model.dart';
-import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
+import 'package:elegant_advisors/core/utils/app_helpers/language/app_localizations_helper.dart';
 import 'package:elegant_advisors/core/utils/app_spam_protection/app_spam_protection.dart';
-import 'package:elegant_advisors/core/utils/app_ip_helpers/app_ip_helper.dart';
+import 'package:elegant_advisors/core/utils/app_helpers/ip_address/app_ip_helper.dart';
 import 'package:elegant_advisors/core/base/base_controller/app_base_controller.dart';
 import 'package:elegant_advisors/core/constants/client_constants.dart';
 
@@ -86,15 +86,22 @@ class ClientContactController extends BaseController {
       }
 
       // Additional spam checks
+      final l10n = AppLocalizationsHelper.getLocalizations();
       if (AppSpamProtection.isSuspiciousEmail(emailController.text.trim())) {
-        showError('Please provide a valid email address.');
+        showError(
+          l10n?.contactFormEmailInvalid ??
+              'Please provide a valid email address.',
+        );
         return;
       }
 
       if (AppSpamProtection.containsSpamKeywords(
         messageController.text.trim(),
       )) {
-        showError('Your message contains inappropriate content.');
+        showError(
+          l10n?.contactFormSpamDetected ??
+              'Your message contains inappropriate content.',
+        );
         return;
       }
 
@@ -111,15 +118,19 @@ class ClientContactController extends BaseController {
 
           // Generate subject based on context
           String subject;
+          final l10n = AppLocalizationsHelper.getLocalizations();
           if (subjectController.text.trim().isNotEmpty) {
             // User provided a subject
             subject = subjectController.text.trim();
           } else if (property != null && property.title.isNotEmpty) {
             // Property inquiry - use property title
-            subject = 'Inquiry about ${property.title}';
+            subject =
+                l10n?.contactFormSubjectInquiryAbout(property.title) ??
+                'Inquiry about ${property.title}';
           } else {
             // General inquiry
-            subject = 'General Inquiry';
+            subject =
+                l10n?.contactFormSubjectGeneralInquiry ?? 'General Inquiry';
           }
 
           // Create contact submission
@@ -164,7 +175,10 @@ class ClientContactController extends BaseController {
           honeypotController.clear();
           propertyId = null;
 
-          showSuccess(AppTexts.contactSuccessMessage);
+          showSuccess(
+            l10n?.contactSuccessMessage ??
+                'Your message has been sent successfully!',
+          );
 
           // Navigate to my contacts page with email after a delay
           // Use longer delay and add retry mechanism for Firestore eventual consistency
@@ -183,7 +197,11 @@ class ClientContactController extends BaseController {
 
           return true;
         } catch (e) {
-          showError('Failed to submit. Please try again.');
+          final l10n = AppLocalizationsHelper.getLocalizations();
+          showError(
+            l10n?.contactFormErrorSubmit ??
+                'Failed to submit. Please try again.',
+          );
           return false;
         }
       });

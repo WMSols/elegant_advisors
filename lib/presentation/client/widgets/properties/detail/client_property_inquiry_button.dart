@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:elegant_advisors/core/constants/client_constants.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
-import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
+import 'package:elegant_advisors/core/utils/app_helpers/language/app_localizations_helper.dart';
 import 'package:elegant_advisors/core/widgets/buttons/app_button.dart';
 
 /// Inquiry button widget for property detail page
@@ -16,7 +16,7 @@ class ClientPropertyInquiryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: AppButton(
-        text: AppTexts.clientPropertyDetailInquire,
+        text: context.l10n.clientPropertyDetailInquire,
         onPressed: () {
           // Navigate to contact page with propertyId
           Get.toNamed(

@@ -86,6 +86,7 @@ class AdminPropertyDetailImages extends StatelessWidget {
                           text: AppTexts.adminPropertyDetailCover,
                           color: AppColors.warning,
                           icon: Iconsax.star,
+                          isAdmin: true,
                         ),
                       ),
                   ],

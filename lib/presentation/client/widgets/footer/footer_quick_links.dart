@@ -4,7 +4,7 @@ import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
 import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
-import 'package:elegant_advisors/core/utils/app_texts/footer_texts.dart';
+import 'package:elegant_advisors/core/utils/app_helpers/language/app_localizations_helper.dart';
 import 'package:elegant_advisors/core/constants/client_constants.dart';
 import 'package:elegant_advisors/presentation/client/widgets/footer/footer_link.dart';
 import 'package:elegant_advisors/presentation/client/controllers/properties/client_properties_controller.dart';
@@ -24,7 +24,7 @@ class FooterQuickLinks extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          FooterTexts.quickLinksTitle,
+          context.l10n.footerQuickLinksTitle,
           style: AppTextStyles.heading(context).copyWith(
             color: AppColors.white,
             fontWeight: FontWeight.bold,
@@ -33,117 +33,85 @@ class FooterQuickLinks extends StatelessWidget {
         ),
         AppSpacing.vertical(context, 0.015),
         FooterLink(
-          text: FooterTexts.linkHome,
+          text: context.l10n.navHome,
           onTap: () {
-            if (FooterTexts.onHomeTap != null) {
-              FooterTexts.onHomeTap!();
-            } else {
-              // Delete home controller to ensure clean state
-              if (Get.isRegistered<ClientHomeController>()) {
-                Get.delete<ClientHomeController>(force: true);
-              }
-              Get.offNamed(ClientConstants.routeClientHome);
+            // Delete home controller to ensure clean state
+            if (Get.isRegistered<ClientHomeController>()) {
+              Get.delete<ClientHomeController>(force: true);
             }
+            Get.offNamed(ClientConstants.routeClientHome);
           },
         ),
         FooterLink(
-          text: FooterTexts.linkProperties,
+          text: context.l10n.navProperties,
           onTap: () {
-            if (FooterTexts.onPropertiesTap != null) {
-              FooterTexts.onPropertiesTap!();
-            } else {
-              // Delete both controllers to ensure clean state
-              if (Get.isRegistered<ClientPropertyDetailController>()) {
-                Get.delete<ClientPropertyDetailController>(force: true);
-              }
-              if (Get.isRegistered<ClientPropertiesController>()) {
-                Get.delete<ClientPropertiesController>(force: true);
-              }
-              // Use offNamed to replace current route, ensuring old route is fully removed
-              // This prevents both widget trees from existing simultaneously
-              Get.offNamed(ClientConstants.routeClientProperties);
+            // Delete both controllers to ensure clean state
+            if (Get.isRegistered<ClientPropertyDetailController>()) {
+              Get.delete<ClientPropertyDetailController>(force: true);
             }
+            if (Get.isRegistered<ClientPropertiesController>()) {
+              Get.delete<ClientPropertiesController>(force: true);
+            }
+            // Use offNamed to replace current route, ensuring old route is fully removed
+            // This prevents both widget trees from existing simultaneously
+            Get.offNamed(ClientConstants.routeClientProperties);
           },
         ),
         FooterLink(
-          text: FooterTexts.linkOurTeam,
+          text: context.l10n.navOurTeam,
           onTap: () {
-            if (FooterTexts.onOurTeamTap != null) {
-              FooterTexts.onOurTeamTap!();
-            } else {
-              // Delete our team controller to ensure clean state
-              if (Get.isRegistered<ClientOurTeamController>()) {
-                Get.delete<ClientOurTeamController>(force: true);
-              }
-              Get.offNamed(ClientConstants.routeClientOurTeam);
+            // Delete our team controller to ensure clean state
+            if (Get.isRegistered<ClientOurTeamController>()) {
+              Get.delete<ClientOurTeamController>(force: true);
             }
+            Get.offNamed(ClientConstants.routeClientOurTeam);
           },
         ),
         FooterLink(
-          text: FooterTexts.linkAboutUs,
+          text: context.l10n.navAboutUs,
           onTap: () {
-            if (FooterTexts.onAboutUsTap != null) {
-              FooterTexts.onAboutUsTap!();
-            } else {
-              // Delete about us controller to ensure clean state
-              if (Get.isRegistered<ClientAboutUsController>()) {
-                Get.delete<ClientAboutUsController>(force: true);
-              }
-              Get.offNamed(ClientConstants.routeClientAboutUs);
+            // Delete about us controller to ensure clean state
+            if (Get.isRegistered<ClientAboutUsController>()) {
+              Get.delete<ClientAboutUsController>(force: true);
             }
+            Get.offNamed(ClientConstants.routeClientAboutUs);
           },
         ),
         FooterLink(
-          text: FooterTexts.linkContact,
+          text: context.l10n.navContact,
           onTap: () {
-            if (FooterTexts.onContactTap != null) {
-              FooterTexts.onContactTap!();
-            } else {
-              // Delete both contact controllers to ensure clean state and prevent GlobalKey conflicts
-              if (Get.isRegistered<ClientMyContactsController>()) {
-                Get.delete<ClientMyContactsController>(force: true);
-              }
-              if (Get.isRegistered<ClientContactController>()) {
-                Get.delete<ClientContactController>(force: true);
-              }
-              // Use offNamed to replace current route, ensuring old route is fully removed
-              Get.offNamed(ClientConstants.routeClientContact);
+            // Delete both contact controllers to ensure clean state and prevent GlobalKey conflicts
+            if (Get.isRegistered<ClientMyContactsController>()) {
+              Get.delete<ClientMyContactsController>(force: true);
             }
+            if (Get.isRegistered<ClientContactController>()) {
+              Get.delete<ClientContactController>(force: true);
+            }
+            // Use offNamed to replace current route, ensuring old route is fully removed
+            Get.offNamed(ClientConstants.routeClientContact);
           },
         ),
         FooterLink(
-          text: FooterTexts.linkMyContacts,
+          text: context.l10n.footerLinkMyContacts,
           onTap: () {
-            if (FooterTexts.onMyContactsTap != null) {
-              FooterTexts.onMyContactsTap!();
-            } else {
-              Get.toNamed(ClientConstants.routeClientContacts);
-            }
+            Get.toNamed(ClientConstants.routeClientContacts);
           },
         ),
         AppSpacing.vertical(context, 0.01),
         Divider(color: AppColors.white.withValues(alpha: 0.2), thickness: 1),
         AppSpacing.vertical(context, 0.01),
         FooterLink(
-          text: FooterTexts.linkPrivacyPolicy,
+          text: context.l10n.footerLinkPrivacyPolicy,
           onTap: () {
-            if (FooterTexts.onPrivacyPolicyTap != null) {
-              FooterTexts.onPrivacyPolicyTap!();
-            } else {
-              // TODO: Navigate to Privacy Policy page
-              // Get.toNamed('/privacy-policy');
-            }
+            // TODO: Navigate to Privacy Policy page
+            // Get.toNamed('/privacy-policy');
           },
         ),
         FooterLink(
-          text: FooterTexts.linkTermsOfService,
+          text: context.l10n.footerLinkTermsOfService,
           onTap: () {
-            if (FooterTexts.onTermsOfServiceTap != null) {
-              FooterTexts.onTermsOfServiceTap!();
-            } else {
-              // TODO: Navigate to Terms of Service page
-              // Get.toNamed('/terms-of-service');
-            }
+            // TODO: Navigate to Terms of Service page
+            // Get.toNamed('/terms-of-service');
           },
         ),
       ],

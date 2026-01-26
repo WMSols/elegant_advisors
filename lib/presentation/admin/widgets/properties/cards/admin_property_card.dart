@@ -232,11 +232,15 @@ class AdminPropertyCard extends StatelessWidget {
                         max: 6,
                       ),
                       children: [
-                        AppPropertyStatusBadge(status: property.status),
+                        AppPropertyStatusBadge(
+                          status: property.status,
+                          isAdmin: true,
+                        ),
                         if (property.isFeatured)
                           AppPropertyStatusBadge(
                             text: AppTexts.adminPropertiesFeatured,
                             color: AppColors.primary,
+                            isAdmin: true,
                           ),
                       ],
                     ),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
-import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
+import 'package:elegant_advisors/core/utils/app_helpers/language/app_localizations_helper.dart';
 
 /// Bathrooms filter field (Min/Max)
 class ClientPropertyFilterBathrooms extends StatelessWidget {
@@ -25,12 +24,8 @@ class ClientPropertyFilterBathrooms extends StatelessWidget {
         Expanded(
           child: TextField(
             decoration: InputDecoration(
-              labelText: '${AppTexts.clientPropertiesFilterBathrooms} (Min)',
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(
-                  AppResponsive.radius(context),
-                ),
-              ),
+              labelText:
+                  '${context.l10n.clientPropertiesFilterBathrooms} (Min)',
             ),
             keyboardType: TextInputType.number,
             onChanged: (value) {
@@ -43,12 +38,8 @@ class ClientPropertyFilterBathrooms extends StatelessWidget {
         Expanded(
           child: TextField(
             decoration: InputDecoration(
-              labelText: '${AppTexts.clientPropertiesFilterBathrooms} (Max)',
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(
-                  AppResponsive.radius(context),
-                ),
-              ),
+              labelText:
+                  '${context.l10n.clientPropertiesFilterBathrooms} (Max)',
             ),
             keyboardType: TextInputType.number,
             onChanged: (value) {

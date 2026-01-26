@@ -1,32 +1,41 @@
+import 'package:elegant_advisors/core/utils/app_helpers/language/multilingual_helper.dart';
+
 class TeamModel {
   final String? id;
-  final String name;
-  final String role;
-  final String bio;
+  final dynamic _name; // Can be String or Map<String, String>
+  final dynamic _role; // Can be String or Map<String, String>
+  final dynamic _bio; // Can be String or Map<String, String>
   final String? photoUrl;
   final String? email;
   final String? linkedinUrl;
   final int sortOrder;
   final bool isPublished;
 
+  // Localized getters
+  String get name => MultilingualHelper.getLocalizedText(_name);
+  String get role => MultilingualHelper.getLocalizedText(_role);
+  String get bio => MultilingualHelper.getLocalizedText(_bio);
+
   TeamModel({
     this.id,
-    required this.name,
-    required this.role,
-    required this.bio,
+    dynamic name,
+    dynamic role,
+    dynamic bio,
     this.photoUrl,
     this.email,
     this.linkedinUrl,
     this.sortOrder = 0,
     this.isPublished = false,
-  });
+  }) : _name = name ?? '',
+       _role = role ?? '',
+       _bio = bio ?? '';
 
   factory TeamModel.fromJson(Map<String, dynamic> json, String id) {
     return TeamModel(
       id: id,
-      name: json['name'] ?? '',
-      role: json['role'] ?? '',
-      bio: json['bio'] ?? '',
+      name: json['name'],
+      role: json['role'],
+      bio: json['bio'],
       photoUrl: json['photoUrl'],
       email: json['email'],
       linkedinUrl: json['linkedinUrl'],
@@ -37,9 +46,9 @@ class TeamModel {
 
   Map<String, dynamic> toJson() {
     return {
-      'name': name,
-      'role': role,
-      'bio': bio,
+      'name': _name,
+      'role': _role,
+      'bio': _bio,
       if (photoUrl != null) 'photoUrl': photoUrl,
       if (email != null) 'email': email,
       if (linkedinUrl != null) 'linkedinUrl': linkedinUrl,
@@ -50,9 +59,9 @@ class TeamModel {
 
   TeamModel copyWith({
     String? id,
-    String? name,
-    String? role,
-    String? bio,
+    dynamic name,
+    dynamic role,
+    dynamic bio,
     String? photoUrl,
     String? email,
     String? linkedinUrl,
@@ -61,9 +70,9 @@ class TeamModel {
   }) {
     return TeamModel(
       id: id ?? this.id,
-      name: name ?? this.name,
-      role: role ?? this.role,
-      bio: bio ?? this.bio,
+      name: name ?? _name,
+      role: role ?? _role,
+      bio: bio ?? _bio,
       photoUrl: photoUrl ?? this.photoUrl,
       email: email ?? this.email,
       linkedinUrl: linkedinUrl ?? this.linkedinUrl,

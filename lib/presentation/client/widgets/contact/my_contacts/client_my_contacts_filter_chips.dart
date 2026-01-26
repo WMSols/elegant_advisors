@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
-import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
+import 'package:elegant_advisors/core/utils/app_helpers/language/app_localizations_helper.dart';
 import 'package:elegant_advisors/presentation/client/controllers/contact/my_contacts/client_my_contacts_controller.dart';
 
 /// Filter chips widget for filtering my contacts by status
@@ -22,28 +22,28 @@ class ClientMyContactsFilterChips extends StatelessWidget {
           _buildFilterChip(
             context,
             controller,
-            label: AppTexts.myContactsFilterAll,
+            label: context.l10n.myContactsFilterAll,
             value: 'all',
             isSelected: controller.selectedStatus.value == 'all',
           ),
           _buildFilterChip(
             context,
             controller,
-            label: AppTexts.myContactsFilterNew,
+            label: context.l10n.myContactsFilterNew,
             value: 'new',
             isSelected: controller.selectedStatus.value == 'new',
           ),
           _buildFilterChip(
             context,
             controller,
-            label: AppTexts.myContactsFilterInProgress,
+            label: context.l10n.myContactsFilterInProgress,
             value: 'in_progress',
             isSelected: controller.selectedStatus.value == 'in_progress',
           ),
           _buildFilterChip(
             context,
             controller,
-            label: AppTexts.myContactsFilterClosed,
+            label: context.l10n.myContactsFilterClosed,
             value: 'closed',
             isSelected: controller.selectedStatus.value == 'closed',
           ),

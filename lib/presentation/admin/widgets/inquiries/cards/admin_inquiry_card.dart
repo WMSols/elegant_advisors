@@ -185,6 +185,7 @@ class AdminInquiryCard extends StatelessWidget {
                           controller.updateInquiryStatus(inquiry.id!, value);
                         }
                       },
+                      isAdmin: true,
                     ),
                   ),
                 ],

@@ -57,6 +57,7 @@ class AdminInquiryFilters extends GetView<AdminInquiriesController> {
                     }
                   },
                   errorTextColor: AppColors.white,
+                  isAdmin: true,
                 ),
               ),
             ),
@@ -105,6 +106,7 @@ class AdminInquiryFilters extends GetView<AdminInquiriesController> {
                   ],
                   onChanged: (value) => controller.updateStatusFilter(value),
                   errorTextColor: AppColors.white,
+                  isAdmin: true,
                 ),
               ),
             ),
@@ -127,6 +129,7 @@ class AdminInquiryFilters extends GetView<AdminInquiriesController> {
                   onPressed: controller.clearFilters,
                   backgroundColor: AppColors.white.withValues(alpha: 0.2),
                   textColor: AppColors.white,
+                  isAdmin: true,
                 ),
               ),
             ],

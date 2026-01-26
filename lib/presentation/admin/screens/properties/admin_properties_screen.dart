@@ -53,6 +53,7 @@ class AdminPropertiesScreen extends GetView<AdminPropertiesController> {
                 controller: controller.searchController,
                 hint: AppTexts.adminPropertiesSearchHint,
                 onFieldSubmitted: controller.updateSearchQuery,
+                isAdmin: true,
               ),
               AppSpacing.vertical(context, 0.02),
               // Scrollable Content: Filters, Button, and Cards
@@ -70,6 +71,7 @@ class AdminPropertiesScreen extends GetView<AdminPropertiesController> {
                           text: AppTexts.adminPropertiesCreateNewProperty,
                           onPressed: controller.navigateToAddProperty,
                           backgroundColor: AppColors.white,
+                          isAdmin: true,
                         ),
                       ),
                       AppSpacing.vertical(context, 0.02),

@@ -47,6 +47,7 @@ class AdminFilters extends GetView<AdminManageAdminsController> {
                     }
                   },
                   errorTextColor: AppColors.white,
+                  isAdmin: true,
                 ),
               ),
             ),

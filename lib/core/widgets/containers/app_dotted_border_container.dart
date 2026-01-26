@@ -16,7 +16,7 @@ class AppDottedBorderContainer extends StatelessWidget {
     this.borderWidth = 1.0,
     this.dashWidth = 5.0,
     this.dashSpace = 3.0,
-    this.borderRadius = 8.0,
+    this.borderRadius = 0.0,
   });
 
   @override

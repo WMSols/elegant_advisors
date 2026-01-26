@@ -4,7 +4,7 @@ import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
 import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
-import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
+import 'package:elegant_advisors/core/utils/app_helpers/language/app_localizations_helper.dart';
 import 'package:elegant_advisors/core/utils/app_validators/app_validators.dart';
 import 'package:elegant_advisors/core/widgets/buttons/app_button.dart';
 import 'package:elegant_advisors/core/widgets/forms/app_text_field.dart';
@@ -24,21 +24,21 @@ class ContactFormSection extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            AppTexts.contactFormTitle,
+            context.l10n.contactFormTitle,
             style: AppTextStyles.heading(
               context,
             ).copyWith(color: AppColors.white),
           ),
           AppSpacing.vertical(context, 0.02),
           AppTextField(
-            label: AppTexts.contactFormName,
+            label: context.l10n.contactFormName,
             controller: controller.nameController,
             errorTextColor: AppColors.white,
             validator: AppValidators.validateName,
           ),
           AppSpacing.vertical(context, 0.02),
           AppTextField(
-            label: AppTexts.contactFormEmail,
+            label: context.l10n.contactFormEmail,
             controller: controller.emailController,
             keyboardType: TextInputType.emailAddress,
             errorTextColor: AppColors.white,
@@ -46,7 +46,7 @@ class ContactFormSection extends StatelessWidget {
           ),
           AppSpacing.vertical(context, 0.02),
           AppTextField(
-            label: AppTexts.contactFormPhone,
+            label: context.l10n.contactFormPhone,
             controller: controller.phoneController,
             keyboardType: TextInputType.phone,
             errorTextColor: AppColors.white,
@@ -54,7 +54,7 @@ class ContactFormSection extends StatelessWidget {
           ),
           AppSpacing.vertical(context, 0.02),
           AppTextField(
-            label: AppTexts.contactFormMessage,
+            label: context.l10n.contactFormMessage,
             controller: controller.messageController,
             errorTextColor: AppColors.white,
             minLines: 2,
@@ -64,7 +64,7 @@ class ContactFormSection extends StatelessWidget {
           AppSpacing.vertical(context, 0.03),
           Obx(
             () => AppButton(
-              text: AppTexts.contactFormButton,
+              text: context.l10n.contactFormButton,
               isLoading: controller.isLoading.value,
               onPressed: controller.submitForm,
               width: AppResponsive.screenWidth(context) * 0.7,

@@ -4,7 +4,7 @@ import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
 import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
-import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
+import 'package:elegant_advisors/core/utils/app_helpers/language/app_localizations_helper.dart';
 import 'package:elegant_advisors/domain/models/contact_submission_model.dart';
 import 'package:elegant_advisors/presentation/client/widgets/contact/my_contacts/client_my_contact_status_badge.dart';
 
@@ -39,7 +39,6 @@ class _ClientMyContactCardState extends State<ClientMyContactCard> {
         padding: AppSpacing.all(context),
         decoration: BoxDecoration(
           color: AppColors.white,
-          borderRadius: BorderRadius.circular(AppResponsive.radius(context)),
           border: Border.all(
             color: _isHovered
                 ? AppColors.primary
@@ -82,7 +81,7 @@ class _ClientMyContactCardState extends State<ClientMyContactCard> {
             // Subject
             if (widget.contact.subject.isNotEmpty) ...[
               Text(
-                AppTexts.myContactsSubject,
+                context.l10n.myContactsSubject,
                 style: AppTextStyles.bodyText(context).copyWith(
                   fontWeight: FontWeight.bold,
                   fontSize: AppResponsive.fontSizeClamped(
@@ -107,7 +106,7 @@ class _ClientMyContactCardState extends State<ClientMyContactCard> {
             ],
             // Message
             Text(
-              AppTexts.myContactsMessage,
+              context.l10n.myContactsMessage,
               style: AppTextStyles.bodyText(context).copyWith(
                 fontWeight: FontWeight.bold,
                 fontSize: AppResponsive.fontSizeClamped(
@@ -134,7 +133,7 @@ class _ClientMyContactCardState extends State<ClientMyContactCard> {
             if (widget.contact.propertyId != null) ...[
               AppSpacing.vertical(context, 0.02),
               Text(
-                AppTexts.myContactsProperty,
+                context.l10n.myContactsProperty,
                 style: AppTextStyles.bodyText(context).copyWith(
                   color: AppColors.primary,
                   fontWeight: FontWeight.w500,
@@ -148,7 +147,7 @@ class _ClientMyContactCardState extends State<ClientMyContactCard> {
             ] else ...[
               AppSpacing.vertical(context, 0.01),
               Text(
-                AppTexts.myContactsNoProperty,
+                context.l10n.myContactsNoProperty,
                 style: AppTextStyles.bodyText(context).copyWith(
                   color: AppColors.primary,
                   fontSize: AppResponsive.fontSizeClamped(

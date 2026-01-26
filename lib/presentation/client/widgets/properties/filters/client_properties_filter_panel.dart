@@ -3,8 +3,8 @@ import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
 import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
-import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
-import 'package:elegant_advisors/core/utils/client_property_filters.dart';
+import 'package:elegant_advisors/core/utils/app_helpers/language/app_localizations_helper.dart';
+import 'package:elegant_advisors/presentation/client/widgets/properties/filters/client_property_filters.dart';
 import 'package:elegant_advisors/presentation/client/widgets/properties/filters/client_property_filter_sort_dropdown.dart';
 import 'package:elegant_advisors/presentation/client/widgets/properties/filters/client_property_filter_property_type.dart';
 import 'package:elegant_advisors/presentation/client/widgets/properties/filters/client_property_filter_location.dart';
@@ -16,8 +16,8 @@ import 'package:elegant_advisors/presentation/client/widgets/properties/filters/
 
 /// Filter panel widget for properties
 class ClientPropertiesFilterPanel extends StatefulWidget {
-  final ClientPorpertyFilters filters;
-  final Function(ClientPorpertyFilters) onFiltersChanged;
+  final ClientPropertyFilters filters;
+  final Function(ClientPropertyFilters) onFiltersChanged;
   final PropertySortOption? sortOption;
   final Function(PropertySortOption?) onSortChanged;
   final List<String> availablePropertyTypes;
@@ -44,12 +44,12 @@ class ClientPropertiesFilterPanel extends StatefulWidget {
 
 class _ClientPropertiesFilterPanelState
     extends State<ClientPropertiesFilterPanel> {
-  late ClientPorpertyFilters _currentFilters;
+  late ClientPropertyFilters _currentFilters;
 
   @override
   void initState() {
     super.initState();
-    _currentFilters = ClientPorpertyFilters(
+    _currentFilters = ClientPropertyFilters(
       propertyType: widget.filters.propertyType,
       country: widget.filters.country,
       city: widget.filters.city,
@@ -80,9 +80,7 @@ class _ClientPropertiesFilterPanelState
     return Container(
       decoration: BoxDecoration(
         color: AppColors.white,
-        borderRadius: BorderRadius.circular(
-          AppResponsive.radius(context, factor: 1.5),
-        ),
+
         border: Border.all(color: AppColors.grey.withValues(alpha: 0.2)),
       ),
       child: ExpansionTile(
@@ -93,7 +91,7 @@ class _ClientPropertiesFilterPanelState
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              AppTexts.clientPropertiesFilters,
+              context.l10n.clientPropertiesFilters,
               style: AppTextStyles.heading(context).copyWith(
                 fontSize: AppResponsive.fontSizeClamped(
                   context,
@@ -108,7 +106,7 @@ class _ClientPropertiesFilterPanelState
               TextButton(
                 onPressed: _clearFilters,
                 child: Text(
-                  AppTexts.clientPropertiesClearFilters,
+                  context.l10n.clientPropertiesClearFilters,
                   style: AppTextStyles.bodyText(context).copyWith(
                     color: AppColors.primary,
                     fontSize: AppResponsive.fontSizeClamped(

@@ -3,7 +3,7 @@ import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
 import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
-import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
+import 'package:elegant_advisors/core/utils/app_helpers/language/app_localizations_helper.dart';
 import 'package:elegant_advisors/domain/models/property_model.dart';
 
 /// Property specifications section widget
@@ -18,7 +18,7 @@ class ClientPropertyDetailSpecsSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          AppTexts.clientPropertyDetailSpecifications,
+          context.l10n.clientPropertyDetailSpecifications,
           style: AppTextStyles.heading(context).copyWith(
             fontSize: AppResponsive.fontSizeClamped(context, min: 24, max: 30),
             fontWeight: FontWeight.bold,

@@ -25,6 +25,7 @@ class AppTextField extends StatefulWidget {
   final FocusNode? focusNode;
   final bool enabled;
   final Color? errorTextColor;
+  final bool isAdmin;
 
   const AppTextField({
     super.key,
@@ -45,6 +46,7 @@ class AppTextField extends StatefulWidget {
     this.focusNode,
     this.enabled = true,
     this.errorTextColor = AppColors.primary,
+    this.isAdmin = false,
   });
 
   @override
@@ -72,6 +74,9 @@ class _AppTextFieldState extends State<AppTextField> {
     // Use a key that changes when controller changes to force complete widget recreation
     // This prevents Flutter from trying to update a widget with a disposed controller
     final controllerKey = ValueKey<int>(_keyValue);
+
+    // Use responsive radius for admin, fixed radius for client
+    final borderRadius = widget.isAdmin ? AppResponsive.radius(context) : 0.0;
 
     // Determine if we should show password toggle
     final shouldShowPasswordToggle =
@@ -137,27 +142,19 @@ class _AppTextFieldState extends State<AppTextField> {
               context,
             ).copyWith(color: widget.errorTextColor),
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(
-                AppResponsive.radius(context),
-              ),
+              borderRadius: BorderRadius.circular(borderRadius),
               borderSide: const BorderSide(color: Colors.transparent),
             ),
             enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(
-                AppResponsive.radius(context),
-              ),
+              borderRadius: BorderRadius.circular(borderRadius),
               borderSide: const BorderSide(color: Colors.transparent),
             ),
             focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(
-                AppResponsive.radius(context),
-              ),
+              borderRadius: BorderRadius.circular(borderRadius),
               borderSide: const BorderSide(color: AppColors.primary),
             ),
             errorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(
-                AppResponsive.radius(context),
-              ),
+              borderRadius: BorderRadius.circular(borderRadius),
               borderSide: const BorderSide(color: AppColors.error),
             ),
             filled: true,

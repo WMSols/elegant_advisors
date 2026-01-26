@@ -50,8 +50,13 @@ class _ClientPropertyCardState extends State<ClientPropertyCard> {
             curve: Curves.easeInOut,
             decoration: BoxDecoration(
               color: _beigeBackground,
-              borderRadius: BorderRadius.circular(
-                AppResponsive.radius(context, factor: 1.5),
+              borderRadius: BorderRadius.only(
+                topRight: Radius.circular(
+                  AppResponsive.radius(context, factor: 3),
+                ),
+                bottomLeft: Radius.circular(
+                  AppResponsive.radius(context, factor: 3),
+                ),
               ),
               border: Border.all(
                 color: _isHovered ? AppColors.primary : Colors.transparent,
@@ -68,8 +73,13 @@ class _ClientPropertyCardState extends State<ClientPropertyCard> {
                   : null,
             ),
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(
-                AppResponsive.radius(context, factor: 1.5),
+              borderRadius: BorderRadius.only(
+                topRight: Radius.circular(
+                  AppResponsive.radius(context, factor: 3),
+                ),
+                bottomLeft: Radius.circular(
+                  AppResponsive.radius(context, factor: 3),
+                ),
               ),
               child: _buildRelatedPropertyLayout(context),
             ),
@@ -96,8 +106,13 @@ class _ClientPropertyCardState extends State<ClientPropertyCard> {
           curve: Curves.easeInOut,
           decoration: BoxDecoration(
             color: _beigeBackground,
-            borderRadius: BorderRadius.circular(
-              AppResponsive.radius(context, factor: 1.5),
+            borderRadius: BorderRadius.only(
+              topRight: Radius.circular(
+                AppResponsive.radius(context, factor: 3),
+              ),
+              bottomLeft: Radius.circular(
+                AppResponsive.radius(context, factor: 3),
+              ),
             ),
             border: Border.all(
               color: _isHovered ? AppColors.primary : Colors.transparent,
@@ -114,8 +129,13 @@ class _ClientPropertyCardState extends State<ClientPropertyCard> {
                 : null,
           ),
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(
-              AppResponsive.radius(context, factor: 1.5),
+            borderRadius: BorderRadius.only(
+              topRight: Radius.circular(
+                AppResponsive.radius(context, factor: 3),
+              ),
+              bottomLeft: Radius.circular(
+                AppResponsive.radius(context, factor: 3),
+              ),
             ),
             child: isMobile
                 ? _buildMobileLayout(context)

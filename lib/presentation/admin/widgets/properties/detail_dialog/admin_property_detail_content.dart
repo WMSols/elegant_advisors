@@ -74,11 +74,12 @@ class AdminPropertyDetailContent extends StatelessWidget {
             spacing: AppResponsive.scaleSize(context, 8, min: 6, max: 12),
             runSpacing: AppResponsive.scaleSize(context, 4, min: 2, max: 6),
             children: [
-              AppPropertyStatusBadge(status: property.status),
+              AppPropertyStatusBadge(status: property.status, isAdmin: true),
               if (property.isFeatured)
                 AppPropertyStatusBadge(
                   text: AppTexts.adminPropertiesFeatured,
                   color: AppColors.primary,
+                  isAdmin: true,
                 ),
             ],
           ),

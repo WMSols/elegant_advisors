@@ -225,6 +225,7 @@ class _AdminPropertyMapPickerState extends State<AdminPropertyMapPicker> {
                   Iconsax.search_normal,
                   size: AppResponsive.scaleSize(context, 20, min: 16, max: 24),
                 ),
+                isAdmin: true,
                 suffixIcon: _isSearching
                     ? SizedBox(
                         width: 20,

@@ -47,6 +47,7 @@ class AdminCreateEditAdminScreen
                       prefixIcon: const Icon(Iconsax.user),
                       errorTextColor: AppColors.white,
                       validator: controller.validateName,
+                      isAdmin: true,
                     ),
                     AppSpacing.vertical(context, 0.02),
                     // Email Field
@@ -63,6 +64,7 @@ class AdminCreateEditAdminScreen
                             ? null
                             : controller.validateEmail,
                         enabled: !controller.isEditMode.value,
+                        isAdmin: true,
                       ),
                     ),
                     AppSpacing.vertical(context, 0.02),
@@ -88,6 +90,7 @@ class AdminCreateEditAdminScreen
                             controller.saveAdmin();
                           }
                         },
+                        isAdmin: true,
                       ),
                     ),
                     AppSpacing.vertical(context, 0.04),
@@ -102,6 +105,7 @@ class AdminCreateEditAdminScreen
                             ? null
                             : controller.saveAdmin,
                         width: double.infinity,
+                        isAdmin: true,
                         backgroundColor: AppColors.white,
                       ),
                     ),

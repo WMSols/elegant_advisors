@@ -5,7 +5,7 @@ import 'package:elegant_advisors/core/constants/client_constants.dart';
 import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
-import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
+import 'package:elegant_advisors/core/utils/app_helpers/language/app_localizations_helper.dart';
 import 'package:elegant_advisors/presentation/client/controllers/properties/client_properties_controller.dart';
 import 'package:elegant_advisors/presentation/client/controllers/properties/client_property_detail_controller.dart';
 
@@ -24,13 +24,13 @@ class ClientPropertyDetailBreadcrumbs extends StatelessWidget {
       children: [
         _buildBreadcrumbItem(
           context,
-          AppTexts.clientPropertyDetailBreadcrumbHome,
+          context.l10n.clientPropertyDetailBreadcrumbHome,
           () => Get.toNamed(ClientConstants.routeClientHome),
         ),
         _buildSeparator(context),
         _buildBreadcrumbItem(
           context,
-          AppTexts.clientPropertyDetailBreadcrumbProperties,
+          context.l10n.clientPropertyDetailBreadcrumbProperties,
           () {
             // Delete both controllers to ensure clean state
             if (Get.isRegistered<ClientPropertyDetailController>()) {

@@ -53,6 +53,7 @@ class AdminManageAdminsScreen extends GetView<AdminManageAdminsController> {
                 controller: controller.searchController,
                 hint: AppTexts.adminManageAdminsSearchHint,
                 onFieldSubmitted: controller.updateSearchQuery,
+                isAdmin: true,
               ),
               AppSpacing.vertical(context, 0.02),
               // Scrollable Content: Filters, Button, and Cards
@@ -70,6 +71,7 @@ class AdminManageAdminsScreen extends GetView<AdminManageAdminsController> {
                           text: AppTexts.adminManageAdminsCreateNewAdmin,
                           onPressed: controller.navigateToCreateAdmin,
                           backgroundColor: AppColors.white,
+                          isAdmin: true,
                         ),
                       ),
                       AppSpacing.vertical(context, 0.02),

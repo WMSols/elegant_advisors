@@ -7,7 +7,7 @@ import 'package:elegant_advisors/core/utils/app_images/app_images.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
 import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
-import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
+import 'package:elegant_advisors/core/utils/app_helpers/language/app_localizations_helper.dart';
 import 'package:elegant_advisors/core/widgets/buttons/app_button.dart';
 import 'package:elegant_advisors/core/widgets/images/app_error_image_fallback.dart';
 
@@ -61,7 +61,7 @@ class _QualityHeader extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Text(
-          AppTexts.homePrivilegingQualityTitle,
+          context.l10n.homePrivilegingQualityTitle,
           style: AppTextStyles.bodyText(context).copyWith(
             color: AppColors.primary,
             fontWeight: FontWeight.bold,
@@ -71,7 +71,7 @@ class _QualityHeader extends StatelessWidget {
         ),
         AppSpacing.vertical(context, 0.02),
         Text(
-          AppTexts.homePrivilegingQualitySubtitle,
+          context.l10n.homePrivilegingQualitySubtitle,
           style: AppTextStyles.bodyText(context).copyWith(
             color: AppColors.primary,
             fontWeight: FontWeight.bold,
@@ -81,7 +81,7 @@ class _QualityHeader extends StatelessWidget {
         ),
         AppSpacing.vertical(context, 0.02),
         Text(
-          AppTexts.homePrivilegingQualityDescription,
+          context.l10n.homePrivilegingQualityDescription,
           style: AppTextStyles.bodyText(context).copyWith(
             color: AppColors.grey,
             height: 1.6,
@@ -424,7 +424,7 @@ class _QualityButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppButton(
-      text: AppTexts.homePrivilegingQualityButton,
+      text: context.l10n.homePrivilegingQualityButton,
       backgroundColor: AppColors.primary,
       textColor: AppColors.white,
       width: fullWidth ? double.infinity : null,
@@ -452,7 +452,6 @@ class _CarouselArrow extends StatelessWidget {
       color: Colors.transparent,
       child: InkWell(
         onTap: onTap,
-        borderRadius: BorderRadius.circular(size / 2),
         child: Container(
           width: size,
           height: size,

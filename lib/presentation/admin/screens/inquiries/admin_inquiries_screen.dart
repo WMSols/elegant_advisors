@@ -49,6 +49,7 @@ class AdminInquiriesScreen extends GetView<AdminInquiriesController> {
                 controller: controller.searchController,
                 hint: AppTexts.adminInquiriesSearchHint,
                 onFieldSubmitted: controller.updateSearchQuery,
+                isAdmin: true,
               ),
               AppSpacing.vertical(context, 0.02),
               // Scrollable Content: Filters, Button, and Cards
