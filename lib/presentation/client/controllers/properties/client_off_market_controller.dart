@@ -25,7 +25,7 @@ class ClientOffMarketController extends BaseController {
   final showHeader = false.obs;
   int _keyCounter = 0;
   GlobalKey?
-      _listingSectionKey; // Keep as GlobalKey for scrollToListing functionality
+  _listingSectionKey; // Keep as GlobalKey for scrollToListing functionality
   final String _instanceId = DateTime.now().millisecondsSinceEpoch
       .toString(); // Unique ID per controller instance
 

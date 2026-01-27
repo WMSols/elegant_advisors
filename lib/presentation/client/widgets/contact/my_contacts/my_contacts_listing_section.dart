@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:elegant_advisors/core/utils/app_images/app_images.dart';
 import 'package:elegant_advisors/presentation/client/widgets/common/client_background_section.dart';
 import 'package:elegant_advisors/presentation/client/widgets/contact/my_contacts/my_contacts_listing_content.dart';
 

@@ -112,7 +112,6 @@ class AdminDashboardController extends BaseController {
     }
   }
 
-
   Future<void> loadInquiriesCount() async {
     try {
       final inquiries = await _firestoreService

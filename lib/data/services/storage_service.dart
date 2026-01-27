@@ -104,5 +104,4 @@ class StorageService {
       debugPrint('Error deleting property folder: $e');
     }
   }
-
 }

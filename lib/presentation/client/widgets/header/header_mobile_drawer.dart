@@ -168,7 +168,6 @@ class _MobileDrawerItemState extends State<_MobileDrawerItem> {
           }
         }
 
-
         // Close drawer first, then navigate immediately
         // The drawer needs to close before navigation to avoid context issues
         Navigator.of(context).pop();

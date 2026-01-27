@@ -44,7 +44,11 @@ class _AppCategoryCardState extends State<AppCategoryCard> {
                   color: AppColors.primary,
                   fontWeight: FontWeight.w500,
                   fontFamily: AppFonts.primaryFont,
-                  fontSize: AppResponsive.fontSizeClamped(context, min: 18, max: 22),
+                  fontSize: AppResponsive.fontSizeClamped(
+                    context,
+                    min: 18,
+                    max: 22,
+                  ),
                 ),
                 textAlign: TextAlign.left,
               ),
@@ -53,7 +57,11 @@ class _AppCategoryCardState extends State<AppCategoryCard> {
                 widget.description,
                 style: AppTextStyles.bodyText(context).copyWith(
                   color: AppColors.black.withValues(alpha: 0.7),
-                  fontSize: AppResponsive.fontSizeClamped(context, min: 14, max: 18),
+                  fontSize: AppResponsive.fontSizeClamped(
+                    context,
+                    min: 14,
+                    max: 18,
+                  ),
                   height: 1.6,
                 ),
                 textAlign: TextAlign.left,

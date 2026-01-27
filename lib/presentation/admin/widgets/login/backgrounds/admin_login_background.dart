@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
-import 'package:elegant_advisors/core/utils/app_images/app_images.dart';
 
 /// Background widget for admin login screen
 class AdminLoginBackground extends StatelessWidget {

@@ -34,10 +34,26 @@ class ClientPropertyFilterStatusChips extends StatelessWidget {
         Wrap(
           spacing: AppResponsive.scaleSize(context, 12, min: 8, max: 16),
           children: [
-            _buildStatusChip(context, 'available', context.l10n.clientPropertiesStatusAvailable),
-            _buildStatusChip(context, 'sold', context.l10n.clientPropertiesStatusSold),
-            _buildStatusChip(context, 'coming_soon', context.l10n.clientPropertiesStatusComingSoon),
-            _buildStatusChip(context, 'off_market', context.l10n.clientPropertiesStatusOffMarket),
+            _buildStatusChip(
+              context,
+              'available',
+              context.l10n.clientPropertiesStatusAvailable,
+            ),
+            _buildStatusChip(
+              context,
+              'sold',
+              context.l10n.clientPropertiesStatusSold,
+            ),
+            _buildStatusChip(
+              context,
+              'coming_soon',
+              context.l10n.clientPropertiesStatusComingSoon,
+            ),
+            _buildStatusChip(
+              context,
+              'off_market',
+              context.l10n.clientPropertiesStatusOffMarket,
+            ),
           ],
         ),
       ],

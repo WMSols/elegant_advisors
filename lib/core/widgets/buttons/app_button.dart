@@ -90,7 +90,12 @@ class _AppButtonState extends State<AppButton> {
                     : null,
               ),
               padding: EdgeInsets.symmetric(
-                horizontal: AppResponsive.scaleSize(context, 24, min: 16, max: 32),
+                horizontal: AppResponsive.scaleSize(
+                  context,
+                  24,
+                  min: 16,
+                  max: 32,
+                ),
                 vertical: AppResponsive.screenHeight(context) * 0.015,
               ),
               child: Center(
