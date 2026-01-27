@@ -40,24 +40,6 @@ service cloud.firestore {
       allow list: if isAdmin();
     }
     
-    // Team Collection
-    match /team/{teamId} {
-      // Public read access for published team members
-      allow read: if resource.data.isPublished == true;
-      
-      // Admin-only write access
-      allow create, update, delete: if isAdmin();
-    }
-    
-    // Site Content Collection
-    match /site_content/{pageId} {
-      // Public read access
-      allow read: if true;
-      
-      // Admin-only write access
-      allow create, update, delete: if isAdmin();
-    }
-    
     // Contact Submissions Collection
     match /contact_submissions/{submissionId} {
       // Anyone can create contact submissions

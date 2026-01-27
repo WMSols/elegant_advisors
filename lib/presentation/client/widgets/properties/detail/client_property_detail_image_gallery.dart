@@ -104,6 +104,8 @@ class _ClientPropertyDetailImageGalleryState
           loadingVariant: LoadingIndicatorVariant.primary,
           maxWidthDiskCache: 1200,
           maxHeightDiskCache: 800,
+          memCacheWidth: 1200,
+          memCacheHeight: 800,
         ),
       );
     }
@@ -124,6 +126,8 @@ class _ClientPropertyDetailImageGalleryState
                 loadingVariant: LoadingIndicatorVariant.primary,
                 maxWidthDiskCache: 1200,
                 maxHeightDiskCache: 800,
+                memCacheWidth: 1200,
+                memCacheHeight: 800,
               );
             },
           ),

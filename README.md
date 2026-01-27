@@ -123,7 +123,6 @@ Elegant Advisors is a comprehensive real estate management platform built with F
 - **Address Autocomplete** - Smart location suggestions
 
 #### 🖼️ Image Services
-- **Image Compression** - Optimize images for web
 - **Image Upload** - Secure image upload to Firebase Storage
 - **Image Management** - Organize and manage property images
 

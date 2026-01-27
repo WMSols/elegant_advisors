@@ -234,7 +234,7 @@ class _ExpertiseButton extends StatelessWidget {
       textColor: AppColors.white,
       width: fullWidth ? double.infinity : null,
       onPressed: () {
-        Get.toNamed(ClientConstants.routeClientOurTeam);
+        Get.toNamed(ClientConstants.routeClientContact);
       },
     );
   }

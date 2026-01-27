@@ -1,8 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:elegant_advisors/domain/models/property_model.dart';
-import 'package:elegant_advisors/domain/models/team_model.dart';
-import 'package:elegant_advisors/domain/models/site_content_model.dart';
 import 'package:elegant_advisors/domain/models/contact_submission_model.dart';
 import 'package:elegant_advisors/domain/models/admin_user_model.dart';
 import 'package:elegant_advisors/domain/models/visitor_model.dart';
@@ -14,8 +12,6 @@ class FirestoreService {
 
   // Properties Collection
   static const String propertiesCollection = 'properties';
-  static const String teamCollection = 'team';
-  static const String siteContentCollection = 'site_content';
   static const String contactSubmissionsCollection = 'contact_submissions';
   static const String adminUsersCollection = 'admin_users';
   static const String analyticsCollection = 'analytics_daily';
@@ -120,105 +116,6 @@ class FirestoreService {
 
   Future<void> deleteProperty(String id) async {
     await _firestore.collection(propertiesCollection).doc(id).delete();
-  }
-
-  // Team
-  Stream<List<TeamModel>> getPublishedTeam() {
-    return _firestore
-        .collection(teamCollection)
-        .where('isPublished', isEqualTo: true)
-        .orderBy('sortOrder')
-        .snapshots()
-        .map(
-          (snapshot) => snapshot.docs
-              .map((doc) => TeamModel.fromJson(doc.data(), doc.id))
-              .toList(),
-        );
-  }
-
-  Future<List<TeamModel>> getPublishedTeamOnce() async {
-    final snapshot = await _firestore
-        .collection(teamCollection)
-        .where('isPublished', isEqualTo: true)
-        .orderBy('sortOrder')
-        .get();
-    return snapshot.docs
-        .map((doc) => TeamModel.fromJson(doc.data(), doc.id))
-        .toList();
-  }
-
-  // Admin: Team CRUD
-  Stream<List<TeamModel>> getAllTeam() {
-    return _firestore
-        .collection(teamCollection)
-        .orderBy('sortOrder')
-        .snapshots()
-        .map(
-          (snapshot) => snapshot.docs
-              .map((doc) => TeamModel.fromJson(doc.data(), doc.id))
-              .toList(),
-        );
-  }
-
-  Future<String> createTeamMember(TeamModel team) async {
-    final docRef = await _firestore
-        .collection(teamCollection)
-        .add(team.toJson());
-    return docRef.id;
-  }
-
-  Future<void> updateTeamMember(String id, TeamModel team) async {
-    await _firestore.collection(teamCollection).doc(id).update(team.toJson());
-  }
-
-  Future<void> deleteTeamMember(String id) async {
-    await _firestore.collection(teamCollection).doc(id).delete();
-  }
-
-  // Site Content
-  Future<SiteContentModel?> getSiteContent(String pageId) async {
-    final doc = await _firestore
-        .collection(siteContentCollection)
-        .doc(pageId)
-        .get();
-    if (doc.exists) {
-      return SiteContentModel.fromJson(doc.data()!, doc.id);
-    }
-    return null;
-  }
-
-  Stream<SiteContentModel?> getSiteContentStream(String pageId) {
-    return _firestore
-        .collection(siteContentCollection)
-        .doc(pageId)
-        .snapshots()
-        .map(
-          (doc) => doc.exists
-              ? SiteContentModel.fromJson(doc.data()!, doc.id)
-              : null,
-        );
-  }
-
-  // Admin: Site Content CRUD
-  Stream<List<SiteContentModel>> getAllSiteContent() {
-    return _firestore
-        .collection(siteContentCollection)
-        .snapshots()
-        .map(
-          (snapshot) => snapshot.docs
-              .map((doc) => SiteContentModel.fromJson(doc.data(), doc.id))
-              .toList(),
-        );
-  }
-
-  Future<void> updateSiteContent(
-    String pageId,
-    SiteContentModel content,
-  ) async {
-    await _firestore
-        .collection(siteContentCollection)
-        .doc(pageId)
-        .set(content.toJson(), SetOptions(merge: true));
   }
 
   // Contact Submissions

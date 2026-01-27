@@ -24,12 +24,6 @@ class AppLocalizationsPt extends AppLocalizations {
   String get navProperties => 'Propriedades';
 
   @override
-  String get navOurTeam => 'Nossa Equipe';
-
-  @override
-  String get navAboutUs => 'Sobre Nós';
-
-  @override
   String get navContact => 'Contato';
 
   @override
@@ -150,7 +144,7 @@ class AppLocalizationsPt extends AppLocalizations {
       'Garantimos que seu investimento seja maximizado ao garantir inquilinos excelentes ou simplesmente manter sua propriedade em perfeitas condições. Se você deseja alugar um apartamento, encontraremos uma opção de aluguel de primeira linha adequada para seus objetivos particulares.';
 
   @override
-  String get homeUnparalleledExpertiseButton => 'Nossa Equipe';
+  String get homeUnparalleledExpertiseButton => 'Entre em Contato';
 
   @override
   String get homePrivilegingQualityTitle => 'PRIVILEGIANDO A QUALIDADE';
@@ -296,26 +290,6 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get clientPropertyDetailNotFoundMessage =>
       'A propriedade que você está procurando não pôde ser encontrada.';
-
-  @override
-  String get ourTeamTitle => 'Nossa Equipe';
-
-  @override
-  String get ourTeamSubtitle => 'Conheça Nossos Consultores Especialistas';
-
-  @override
-  String get ourTeamDescription =>
-      'Nossa equipe multidisciplinar traz experiência incomparável para cada transação.';
-
-  @override
-  String get aboutUsTitle => 'Sobre Nós';
-
-  @override
-  String get aboutUsSubtitle => 'Elegant Advisors';
-
-  @override
-  String get aboutUsDescription =>
-      'Saiba mais sobre nossa missão, valores e compromisso com a excelência.';
 
   @override
   String get contactTitle => 'Entre em Contato';

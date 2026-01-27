@@ -9,8 +9,6 @@ class AppTexts {
   // Header Navigation
   static const String navHome = "Home";
   static const String navProperties = "Properties";
-  static const String navOurTeam = "Our Team";
-  static const String navAboutUs = "About Us";
   static const String navContact = "Contact";
 
   // Home Page
@@ -76,7 +74,7 @@ class AppTexts {
   static const String
   homeUnparalleledExpertiseLuxuryRentalsManagementDescription =
       "We ensure your investment is maximized by securing sterling tenants or simply maintaining your property in mint condition. Should you wish to rent an apartment, we will find a prime rental option suitable for your particular goals.";
-  static const String homeUnparalleledExpertiseButton = "Our Team";
+  static const String homeUnparalleledExpertiseButton = "Contact Us";
 
   // Privileging Quality Section
   static const String homePrivilegingQualityTitle = "PRIVILEGING QUALITY";
@@ -138,18 +136,6 @@ class AppTexts {
   static const String clientPropertyDetailNotFound = "Property not found";
   static const String clientPropertyDetailBreadcrumbHome = "Home";
   static const String clientPropertyDetailBreadcrumbProperties = "Properties";
-
-  // Our Team Page
-  static const String ourTeamTitle = "Our Team";
-  static const String ourTeamSubtitle = "Meet Our Expert Advisors";
-  static const String ourTeamDescription =
-      "Our multidisciplinary team brings unparalleled expertise to every transaction.";
-
-  // About Us Page
-  static const String aboutUsTitle = "About Us";
-  static const String aboutUsSubtitle = "Elegant Advisors";
-  static const String aboutUsDescription =
-      "Learn more about our mission, values, and commitment to excellence.";
 
   // Contact Page
   static const String contactTitle = "Contact Us";
@@ -232,7 +218,6 @@ class AppTexts {
   static const String adminDashboardTotalProperties = "Total Properties";
   static const String adminDashboardPublishedProperties =
       "Published Properties";
-  static const String adminDashboardTeamMembers = "Team Members";
   static const String adminDashboardNewInquiries = "New Inquiries";
 
   // Admin Manage Admins

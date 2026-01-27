@@ -2,7 +2,6 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:uuid/uuid.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter/foundation.dart';
-import 'package:elegant_advisors/data/services/image_compression_service.dart';
 
 class StorageService {
   final FirebaseStorage _storage = FirebaseStorage.instance;
@@ -55,19 +54,11 @@ class StorageService {
     final fileName = '${_uuid.v4()}.$extension';
     final ref = _storage.ref().child('properties/$propertyId/$fileName');
 
-    // Read image bytes and compress before uploading
-    final originalBytes = await imageFile.readAsBytes();
-    final compressedBytes =
-        await ImageCompressionService.compressImageFromBytes(
-          imageBytes: originalBytes,
-          maxWidth: 1920,
-          maxHeight: 1080,
-          quality: 85,
-          maxFileSize: 500 * 1024, // 500KB
-        );
+    // Read image bytes and upload
+    final imageBytes = await imageFile.readAsBytes();
 
     final uploadTask = ref.putData(
-      compressedBytes,
+      imageBytes,
       SettableMetadata(contentType: contentType),
     );
 
@@ -114,55 +105,4 @@ class StorageService {
     }
   }
 
-  Future<String> uploadTeamPhoto(XFile imageFile, String teamMemberId) async {
-    final contentType = _getContentType(imageFile);
-    final extension = _getFileExtension(contentType, imageFile);
-    final fileName = '${_uuid.v4()}.$extension';
-    final ref = _storage.ref().child('team/$teamMemberId/$fileName');
-
-    final bytes = await imageFile.readAsBytes();
-    final uploadTask = ref.putData(
-      bytes,
-      SettableMetadata(contentType: contentType),
-    );
-
-    final snapshot = await uploadTask;
-    return await snapshot.ref.getDownloadURL();
-  }
-
-  Future<void> deleteTeamPhoto(String imageUrl) async {
-    try {
-      await _storage.refFromURL(imageUrl).delete();
-    } catch (e) {
-      debugPrint('Error deleting team photo: $e');
-    }
-  }
-
-  Future<String> uploadCMSImage(
-    XFile imageFile,
-    String pageId,
-    String sectionId,
-  ) async {
-    final contentType = _getContentType(imageFile);
-    final extension = _getFileExtension(contentType, imageFile);
-    final fileName = '${_uuid.v4()}.$extension';
-    final ref = _storage.ref().child('cms/$pageId/$sectionId/$fileName');
-
-    final bytes = await imageFile.readAsBytes();
-    final uploadTask = ref.putData(
-      bytes,
-      SettableMetadata(contentType: contentType),
-    );
-
-    final snapshot = await uploadTask;
-    return await snapshot.ref.getDownloadURL();
-  }
-
-  Future<void> deleteCMSImage(String imageUrl) async {
-    try {
-      await _storage.refFromURL(imageUrl).delete();
-    } catch (e) {
-      debugPrint('Error deleting CMS image: $e');
-    }
-  }
 }

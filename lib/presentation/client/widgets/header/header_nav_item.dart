@@ -9,8 +9,6 @@ import 'package:elegant_advisors/presentation/client/controllers/properties/clie
 import 'package:elegant_advisors/presentation/client/controllers/contact/client_contact_controller.dart';
 import 'package:elegant_advisors/presentation/client/controllers/contact/my_contacts/client_my_contacts_controller.dart';
 import 'package:elegant_advisors/presentation/client/controllers/home/client_home_controller.dart';
-import 'package:elegant_advisors/presentation/client/controllers/our_team/client_our_team_controller.dart';
-import 'package:elegant_advisors/presentation/client/controllers/about_us/client_about_us_controller.dart';
 
 class HeaderNavItem extends StatefulWidget {
   final String label;
@@ -82,18 +80,6 @@ class _HeaderNavItemState extends State<HeaderNavItem> {
                 Get.delete<ClientHomeController>(force: true);
               }
               Get.offNamed(ClientConstants.routeClientHome);
-            } else if (widget.route == ClientConstants.routeClientOurTeam) {
-              // Special handling for our team route to prevent ScrollController conflicts
-              if (Get.isRegistered<ClientOurTeamController>()) {
-                Get.delete<ClientOurTeamController>(force: true);
-              }
-              Get.offNamed(ClientConstants.routeClientOurTeam);
-            } else if (widget.route == ClientConstants.routeClientAboutUs) {
-              // Special handling for about us route to prevent ScrollController conflicts
-              if (Get.isRegistered<ClientAboutUsController>()) {
-                Get.delete<ClientAboutUsController>(force: true);
-              }
-              Get.offNamed(ClientConstants.routeClientAboutUs);
             } else {
               Get.toNamed(widget.route);
             }

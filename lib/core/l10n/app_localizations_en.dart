@@ -24,12 +24,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get navProperties => 'Properties';
 
   @override
-  String get navOurTeam => 'Our Team';
-
-  @override
-  String get navAboutUs => 'About Us';
-
-  @override
   String get navContact => 'Contact';
 
   @override
@@ -148,7 +142,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'We ensure your investment is maximized by securing sterling tenants or simply maintaining your property in mint condition. Should you wish to rent an apartment, we will find a prime rental option suitable for your particular goals.';
 
   @override
-  String get homeUnparalleledExpertiseButton => 'Our Team';
+  String get homeUnparalleledExpertiseButton => 'Contact Us';
 
   @override
   String get homePrivilegingQualityTitle => 'PRIVILEGING QUALITY';
@@ -292,26 +286,6 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get clientPropertyDetailNotFoundMessage =>
       'The property you are looking for could not be found.';
-
-  @override
-  String get ourTeamTitle => 'Our Team';
-
-  @override
-  String get ourTeamSubtitle => 'Meet Our Expert Advisors';
-
-  @override
-  String get ourTeamDescription =>
-      'Our multidisciplinary team brings unparalleled expertise to every transaction.';
-
-  @override
-  String get aboutUsTitle => 'About Us';
-
-  @override
-  String get aboutUsSubtitle => 'Elegant Advisors';
-
-  @override
-  String get aboutUsDescription =>
-      'Learn more about our mission, values, and commitment to excellence.';
 
   @override
   String get contactTitle => 'Contact Us';

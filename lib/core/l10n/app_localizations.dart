@@ -128,18 +128,6 @@ abstract class AppLocalizations {
   /// **'Properties'**
   String get navProperties;
 
-  /// No description provided for @navOurTeam.
-  ///
-  /// In en, this message translates to:
-  /// **'Our Team'**
-  String get navOurTeam;
-
-  /// No description provided for @navAboutUs.
-  ///
-  /// In en, this message translates to:
-  /// **'About Us'**
-  String get navAboutUs;
-
   /// No description provided for @navContact.
   ///
   /// In en, this message translates to:
@@ -335,7 +323,7 @@ abstract class AppLocalizations {
   /// No description provided for @homeUnparalleledExpertiseButton.
   ///
   /// In en, this message translates to:
-  /// **'Our Team'**
+  /// **'Contact Us'**
   String get homeUnparalleledExpertiseButton;
 
   /// No description provided for @homePrivilegingQualityTitle.
@@ -613,42 +601,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'The property you are looking for could not be found.'**
   String get clientPropertyDetailNotFoundMessage;
-
-  /// No description provided for @ourTeamTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Our Team'**
-  String get ourTeamTitle;
-
-  /// No description provided for @ourTeamSubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Meet Our Expert Advisors'**
-  String get ourTeamSubtitle;
-
-  /// No description provided for @ourTeamDescription.
-  ///
-  /// In en, this message translates to:
-  /// **'Our multidisciplinary team brings unparalleled expertise to every transaction.'**
-  String get ourTeamDescription;
-
-  /// No description provided for @aboutUsTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'About Us'**
-  String get aboutUsTitle;
-
-  /// No description provided for @aboutUsSubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Elegant Advisors'**
-  String get aboutUsSubtitle;
-
-  /// No description provided for @aboutUsDescription.
-  ///
-  /// In en, this message translates to:
-  /// **'Learn more about our mission, values, and commitment to excellence.'**
-  String get aboutUsDescription;
 
   /// No description provided for @contactTitle.
   ///

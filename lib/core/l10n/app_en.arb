@@ -6,8 +6,6 @@
   
   "navHome": "Home",
   "navProperties": "Properties",
-  "navOurTeam": "Our Team",
-  "navAboutUs": "About Us",
   "navContact": "Contact",
   
   "homeTitle": "YOUR VISION, OUR EXPERTISE",
@@ -43,7 +41,7 @@
   "homeUnparalleledExpertiseVisaTaxAdvisoryDescription": "Through our established partnerships with Portuguese lawyers and tax specialists, we provide a turn-key solution to clients interested in the Golden Visa, D7, D2, Nomad Visa or Portugal's Non-Habitual Resident Status (NHR).",
   "homeUnparalleledExpertiseLuxuryRentalsManagementTitle": "LUXURY RENTALS & MANAGEMENT",
   "homeUnparalleledExpertiseLuxuryRentalsManagementDescription": "We ensure your investment is maximized by securing sterling tenants or simply maintaining your property in mint condition. Should you wish to rent an apartment, we will find a prime rental option suitable for your particular goals.",
-  "homeUnparalleledExpertiseButton": "Our Team",
+  "homeUnparalleledExpertiseButton": "Contact Us",
   
   "homePrivilegingQualityTitle": "PRIVILEGING QUALITY",
   "homePrivilegingQualitySubtitle": "Nearly 70% of our clients come by referral",
@@ -94,14 +92,6 @@
   "clientPropertyDetailBreadcrumbHome": "Home",
   "clientPropertyDetailBreadcrumbProperties": "Properties",
   "clientPropertyDetailNotFoundMessage": "The property you are looking for could not be found.",
-  
-  "ourTeamTitle": "Our Team",
-  "ourTeamSubtitle": "Meet Our Expert Advisors",
-  "ourTeamDescription": "Our multidisciplinary team brings unparalleled expertise to every transaction.",
-  
-  "aboutUsTitle": "About Us",
-  "aboutUsSubtitle": "Elegant Advisors",
-  "aboutUsDescription": "Learn more about our mission, values, and commitment to excellence.",
   
   "contactTitle": "Contact Us",
   "contactFormTitle": "Send Us a Message",

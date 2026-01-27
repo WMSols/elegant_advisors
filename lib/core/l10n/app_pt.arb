@@ -6,8 +6,6 @@
   
   "navHome": "Início",
   "navProperties": "Propriedades",
-  "navOurTeam": "Nossa Equipe",
-  "navAboutUs": "Sobre Nós",
   "navContact": "Contato",
   
   "homeTitle": "SUA VISÃO, NOSSA EXPERIÊNCIA",
@@ -43,7 +41,7 @@
   "homeUnparalleledExpertiseVisaTaxAdvisoryDescription": "Através de nossas parcerias estabelecidas com advogados e especialistas fiscais portugueses, fornecemos uma solução completa para clientes interessados no Golden Visa, D7, D2, Nomad Visa ou no Status de Residente Não Habitual (NHR) de Portugal.",
   "homeUnparalleledExpertiseLuxuryRentalsManagementTitle": "ALUGUÉIS DE LUXO E GESTÃO",
   "homeUnparalleledExpertiseLuxuryRentalsManagementDescription": "Garantimos que seu investimento seja maximizado ao garantir inquilinos excelentes ou simplesmente manter sua propriedade em perfeitas condições. Se você deseja alugar um apartamento, encontraremos uma opção de aluguel de primeira linha adequada para seus objetivos particulares.",
-  "homeUnparalleledExpertiseButton": "Nossa Equipe",
+  "homeUnparalleledExpertiseButton": "Entre em Contato",
   
   "homePrivilegingQualityTitle": "PRIVILEGIANDO A QUALIDADE",
   "homePrivilegingQualitySubtitle": "Quase 70% dos nossos clientes vêm por indicação",
@@ -94,14 +92,6 @@
   "clientPropertyDetailBreadcrumbHome": "Início",
   "clientPropertyDetailBreadcrumbProperties": "Propriedades",
   "clientPropertyDetailNotFoundMessage": "A propriedade que você está procurando não pôde ser encontrada.",
-  
-  "ourTeamTitle": "Nossa Equipe",
-  "ourTeamSubtitle": "Conheça Nossos Consultores Especialistas",
-  "ourTeamDescription": "Nossa equipe multidisciplinar traz experiência incomparável para cada transação.",
-  
-  "aboutUsTitle": "Sobre Nós",
-  "aboutUsSubtitle": "Elegant Advisors",
-  "aboutUsDescription": "Saiba mais sobre nossa missão, valores e compromisso com a excelência.",
   
   "contactTitle": "Entre em Contato",
   "contactFormTitle": "Envie-nos uma Mensagem",

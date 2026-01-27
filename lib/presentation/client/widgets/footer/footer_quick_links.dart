@@ -12,8 +12,6 @@ import 'package:elegant_advisors/presentation/client/controllers/properties/clie
 import 'package:elegant_advisors/presentation/client/controllers/contact/client_contact_controller.dart';
 import 'package:elegant_advisors/presentation/client/controllers/contact/my_contacts/client_my_contacts_controller.dart';
 import 'package:elegant_advisors/presentation/client/controllers/home/client_home_controller.dart';
-import 'package:elegant_advisors/presentation/client/controllers/our_team/client_our_team_controller.dart';
-import 'package:elegant_advisors/presentation/client/controllers/about_us/client_about_us_controller.dart';
 
 class FooterQuickLinks extends StatelessWidget {
   const FooterQuickLinks({super.key});
@@ -55,26 +53,6 @@ class FooterQuickLinks extends StatelessWidget {
             // Use offNamed to replace current route, ensuring old route is fully removed
             // This prevents both widget trees from existing simultaneously
             Get.offNamed(ClientConstants.routeClientProperties);
-          },
-        ),
-        FooterLink(
-          text: context.l10n.navOurTeam,
-          onTap: () {
-            // Delete our team controller to ensure clean state
-            if (Get.isRegistered<ClientOurTeamController>()) {
-              Get.delete<ClientOurTeamController>(force: true);
-            }
-            Get.offNamed(ClientConstants.routeClientOurTeam);
-          },
-        ),
-        FooterLink(
-          text: context.l10n.navAboutUs,
-          onTap: () {
-            // Delete about us controller to ensure clean state
-            if (Get.isRegistered<ClientAboutUsController>()) {
-              Get.delete<ClientAboutUsController>(force: true);
-            }
-            Get.offNamed(ClientConstants.routeClientAboutUs);
           },
         ),
         FooterLink(

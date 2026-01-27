@@ -14,8 +14,6 @@ import 'package:elegant_advisors/presentation/client/controllers/properties/clie
 import 'package:elegant_advisors/presentation/client/controllers/contact/client_contact_controller.dart';
 import 'package:elegant_advisors/presentation/client/controllers/contact/my_contacts/client_my_contacts_controller.dart';
 import 'package:elegant_advisors/presentation/client/controllers/home/client_home_controller.dart';
-import 'package:elegant_advisors/presentation/client/controllers/our_team/client_our_team_controller.dart';
-import 'package:elegant_advisors/presentation/client/controllers/about_us/client_about_us_controller.dart';
 
 class HeaderMobileDrawer extends StatelessWidget {
   final VoidCallback onClose;
@@ -66,16 +64,6 @@ class HeaderMobileDrawer extends StatelessWidget {
                   _MobileDrawerItem(
                     label: context.l10n.navProperties,
                     route: ClientConstants.routeClientProperties,
-                    onTap: onClose,
-                  ),
-                  _MobileDrawerItem(
-                    label: context.l10n.navOurTeam,
-                    route: ClientConstants.routeClientOurTeam,
-                    onTap: onClose,
-                  ),
-                  _MobileDrawerItem(
-                    label: context.l10n.navAboutUs,
-                    route: ClientConstants.routeClientAboutUs,
                     onTap: onClose,
                   ),
                   _MobileDrawerItem(
@@ -163,19 +151,6 @@ class _MobileDrawerItemState extends State<_MobileDrawerItem> {
           }
         }
 
-        // Special handling for our team route to prevent ScrollController conflicts
-        if (widget.route == ClientConstants.routeClientOurTeam) {
-          if (Get.isRegistered<ClientOurTeamController>()) {
-            Get.delete<ClientOurTeamController>(force: true);
-          }
-        }
-
-        // Special handling for about us route to prevent ScrollController conflicts
-        if (widget.route == ClientConstants.routeClientAboutUs) {
-          if (Get.isRegistered<ClientAboutUsController>()) {
-            Get.delete<ClientAboutUsController>(force: true);
-          }
-        }
 
         // Close drawer first, then navigate immediately
         // The drawer needs to close before navigation to avoid context issues

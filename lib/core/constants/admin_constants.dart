@@ -10,10 +10,6 @@ class AdminConstants {
   static const String routeAdminProperties = '/admin-properties';
   static const String routeAdminPropertyAdd = '/admin-properties/add';
   static const String routeAdminPropertyEdit = '/admin-properties/edit/:id';
-  static const String routeAdminTeam = '/admin-team';
-  static const String routeAdminTeamAdd = '/admin-team/add';
-  static const String routeAdminTeamEdit = '/admin-team/edit/:id';
-  static const String routeAdminCMS = '/admin-cms';
   static const String routeAdminInquiries = '/admin-inquiries';
   static const String routeAdminManageAdmins = '/admin-manage-admins';
   static const String routeAdminCreateAdmin = '/admin-admins/add';

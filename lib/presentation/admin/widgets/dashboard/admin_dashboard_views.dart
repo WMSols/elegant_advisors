@@ -71,12 +71,6 @@ class AdminDashboardViews extends GetView<AdminDashboardController> {
         color: AppColors.publishedProperties,
       ),
       AdminDashboardStatCard(
-        title: AppTexts.adminDashboardTeamMembers,
-        value: controller.teamCount.value.toString(),
-        icon: Iconsax.people,
-        color: AppColors.teamMembers,
-      ),
-      AdminDashboardStatCard(
         title: AppTexts.adminDashboardNewInquiries,
         value: controller.newInquiriesCount.value.toString(),
         icon: Iconsax.information,
