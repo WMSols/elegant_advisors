@@ -6,6 +6,7 @@
   
   "navHome": "Home",
   "navProperties": "Properties",
+  "navOffMarket": "Off Market",
   "navContact": "Contact",
   
   "homeTitle": "ELEGANCE, INTEGRITY, TRANSPARENCY",
@@ -44,6 +45,16 @@
   "propertiesTitle": "Properties",
   "propertiesSubtitle": "Property Listings for Sale",
   "propertiesDescription": "Browse our curated selection of premium properties available for purchase.",
+  
+  "offMarketTitle": "Off Market",
+  "offMarketSubtitle": "Exclusive Off Market Opportunities",
+  "offMarketDescription": "Discover our curated selection of exclusive off-market properties available through private consultation.",
+  "offMarketViewProperties": "View Off Market Properties",
+  "clientOffMarketErrorLoading": "Failed to load off-market properties",
+  "clientOffMarketRetry": "Retry",
+  "clientOffMarketNoPropertiesFound": "No off-market properties found",
+  "clientOffMarketNoPropertiesMessage": "We couldn't find any off-market properties matching your criteria. Try adjusting your filters.",
+  "clientOffMarketClearFilters": "Clear Filters",
   
   "clientPropertiesShowMore": "Show More",
   "clientPropertiesShowLess": "Show Less",
@@ -177,5 +188,27 @@
   "myContactsEmailInvalid": "Please enter a valid email address",
   "myContactsErrorIndex": "Failed to load contacts. Please ensure Firestore indexes are created. Check the Firebase console for index creation links.",
   "myContactsErrorLoadingGeneric": "Failed to load contacts. Please try again.",
-  "contactFormErrorSubmit": "Failed to submit. Please try again."
+  "contactFormErrorSubmit": "Failed to submit. Please try again.",
+  
+  "clientPropertiesFilterPriceMin": "Min",
+  "clientPropertiesFilterPriceMax": "Max",
+  "clientPropertiesFilterPriceCurrency": "€ ",
+  "headerLanguageEnglish": "English",
+  "headerLanguagePortuguese": "Portuguese",
+  "clientPropertiesStatusAvailable": "Available",
+  "clientPropertiesStatusSold": "Sold",
+  "clientPropertiesStatusComingSoon": "Coming Soon",
+  "clientPropertiesStatusOffMarket": "Off Market",
+  "contactOfficeAddressValue": "123 Main Street, Lisbon, Portugal",
+  "contactOfficePhoneValue": "+351 123 456 789",
+  "contactOfficeEmailValue": "info@elegantadvisors.com",
+  "contactOfficeHoursValue": "Monday - Friday: 9:00 AM - 6:00 PM",
+  
+  "clientPropertyCardBed": "bed",
+  "clientPropertyCardBath": "bath",
+  
+  "clientPropertyDetailSpecType": "Type:",
+  "clientPropertyDetailSpecBedrooms": "Bedrooms:",
+  "clientPropertyDetailSpecBathrooms": "Bathrooms:",
+  "clientPropertyDetailSpecArea": "Area:"
 }

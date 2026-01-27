@@ -383,11 +383,6 @@ class _ThumbnailItemState extends State<_ThumbnailItem> {
     final thumbnailSize = isSmallScreen
         ? AppResponsive.screenWidth(context) * 0.12
         : AppResponsive.screenWidth(context) * 0.05;
-    final thumbnailIconSize = AppResponsive.fontSizeClamped(
-      context,
-      min: 20,
-      max: 30,
-    );
     final scale = _isHovered ? 1.1 : 1.0;
 
     return MouseRegion(
@@ -399,13 +394,28 @@ class _ThumbnailItemState extends State<_ThumbnailItem> {
           scale: scale,
           duration: const Duration(milliseconds: 200),
           curve: Curves.easeInOut,
-          child: Container(
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 200),
+            curve: Curves.easeInOut,
             width: thumbnailSize,
             height: thumbnailSize,
             decoration: BoxDecoration(
               color: AppColors.grey.withValues(alpha: 0.1),
-              border: widget.isSelected
-                  ? Border.all(color: AppColors.primary, width: 1)
+              border: Border.all(
+                color: widget.isSelected
+                    ? AppColors.primary
+                    : (_isHovered ? AppColors.primary : Colors.transparent),
+                width: widget.isSelected || _isHovered ? 2 : 0,
+              ),
+              boxShadow: _isHovered
+                  ? [
+                      BoxShadow(
+                        color: AppColors.primary.withValues(alpha: 0.3),
+                        blurRadius: 10,
+                        spreadRadius: 2,
+                        offset: const Offset(0, 2),
+                      ),
+                    ]
                   : null,
             ),
             child: ClipRRect(
@@ -442,7 +452,7 @@ class _PortfolioButton extends StatelessWidget {
   }
 }
 
-class _CarouselArrow extends StatelessWidget {
+class _CarouselArrow extends StatefulWidget {
   final IconData icon;
   final VoidCallback onTap;
   final double size;
@@ -456,19 +466,48 @@ class _CarouselArrow extends StatelessWidget {
   });
 
   @override
+  State<_CarouselArrow> createState() => _CarouselArrowState();
+}
+
+class _CarouselArrowState extends State<_CarouselArrow> {
+  bool _isHovered = false;
+
+  @override
   Widget build(BuildContext context) {
-    return Material(
-      color: Colors.transparent,
-      child: InkWell(
-        onTap: onTap,
-        child: Container(
-          width: size,
-          height: size,
-          decoration: BoxDecoration(
-            color: AppColors.white.withValues(alpha: 0.8),
-            shape: BoxShape.circle,
+    return MouseRegion(
+      onEnter: (_) => setState(() => _isHovered = true),
+      onExit: (_) => setState(() => _isHovered = false),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: widget.onTap,
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 200),
+            curve: Curves.easeInOut,
+            width: widget.size,
+            height: widget.size,
+            decoration: BoxDecoration(
+              color: _isHovered
+                  ? AppColors.primary
+                  : AppColors.white.withValues(alpha: 0.8),
+              shape: BoxShape.circle,
+              boxShadow: _isHovered
+                  ? [
+                      BoxShadow(
+                        color: AppColors.primary.withValues(alpha: 0.3),
+                        blurRadius: 10,
+                        spreadRadius: 2,
+                        offset: const Offset(0, 2),
+                      ),
+                    ]
+                  : null,
+            ),
+            child: Icon(
+              widget.icon,
+              color: _isHovered ? AppColors.white : AppColors.primary,
+              size: widget.iconSize,
+            ),
           ),
-          child: Icon(icon, color: AppColors.primary, size: iconSize),
         ),
       ),
     );

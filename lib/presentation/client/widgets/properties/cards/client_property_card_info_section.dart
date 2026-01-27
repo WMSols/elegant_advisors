@@ -77,12 +77,14 @@ class ClientPropertyCardInfoSection extends StatelessWidget {
               if (property.specs.bedrooms != null)
                 ClientPropertyCardSpecItem(
                   icon: Iconsax.home,
-                  text: '${property.specs.bedrooms} bed',
+                  text:
+                      '${property.specs.bedrooms} ${context.l10n.clientPropertyCardBed}',
                 ),
               if (property.specs.bathrooms != null)
                 ClientPropertyCardSpecItem(
                   icon: Iconsax.level,
-                  text: '${property.specs.bathrooms} bath',
+                  text:
+                      '${property.specs.bathrooms} ${context.l10n.clientPropertyCardBath}',
                 ),
               if (property.specs.areaSize != null &&
                   property.specs.areaUnit != null)

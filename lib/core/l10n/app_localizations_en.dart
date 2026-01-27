@@ -24,6 +24,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get navProperties => 'Properties';
 
   @override
+  String get navOffMarket => 'Off Market';
+
+  @override
   String get navContact => 'Contact';
 
   @override
@@ -139,6 +142,37 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get propertiesDescription =>
       'Browse our curated selection of premium properties available for purchase.';
+
+  @override
+  String get offMarketTitle => 'Off Market';
+
+  @override
+  String get offMarketSubtitle => 'Exclusive Off Market Opportunities';
+
+  @override
+  String get offMarketDescription =>
+      'Discover our curated selection of exclusive off-market properties available through private consultation.';
+
+  @override
+  String get offMarketViewProperties => 'View Off Market Properties';
+
+  @override
+  String get clientOffMarketErrorLoading =>
+      'Failed to load off-market properties';
+
+  @override
+  String get clientOffMarketRetry => 'Retry';
+
+  @override
+  String get clientOffMarketNoPropertiesFound =>
+      'No off-market properties found';
+
+  @override
+  String get clientOffMarketNoPropertiesMessage =>
+      'We couldn\'t find any off-market properties matching your criteria. Try adjusting your filters.';
+
+  @override
+  String get clientOffMarketClearFilters => 'Clear Filters';
 
   @override
   String get clientPropertiesShowMore => 'Show More';
@@ -480,4 +514,61 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get contactFormErrorSubmit => 'Failed to submit. Please try again.';
+
+  @override
+  String get clientPropertiesFilterPriceMin => 'Min';
+
+  @override
+  String get clientPropertiesFilterPriceMax => 'Max';
+
+  @override
+  String get clientPropertiesFilterPriceCurrency => '€ ';
+
+  @override
+  String get headerLanguageEnglish => 'English';
+
+  @override
+  String get headerLanguagePortuguese => 'Portuguese';
+
+  @override
+  String get clientPropertiesStatusAvailable => 'Available';
+
+  @override
+  String get clientPropertiesStatusSold => 'Sold';
+
+  @override
+  String get clientPropertiesStatusComingSoon => 'Coming Soon';
+
+  @override
+  String get clientPropertiesStatusOffMarket => 'Off Market';
+
+  @override
+  String get contactOfficeAddressValue => '123 Main Street, Lisbon, Portugal';
+
+  @override
+  String get contactOfficePhoneValue => '+351 123 456 789';
+
+  @override
+  String get contactOfficeEmailValue => 'info@elegantadvisors.com';
+
+  @override
+  String get contactOfficeHoursValue => 'Monday - Friday: 9:00 AM - 6:00 PM';
+
+  @override
+  String get clientPropertyCardBed => 'bed';
+
+  @override
+  String get clientPropertyCardBath => 'bath';
+
+  @override
+  String get clientPropertyDetailSpecType => 'Type:';
+
+  @override
+  String get clientPropertyDetailSpecBedrooms => 'Bedrooms:';
+
+  @override
+  String get clientPropertyDetailSpecBathrooms => 'Bathrooms:';
+
+  @override
+  String get clientPropertyDetailSpecArea => 'Area:';
 }

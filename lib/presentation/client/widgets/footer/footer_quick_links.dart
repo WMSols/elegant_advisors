@@ -8,6 +8,7 @@ import 'package:elegant_advisors/core/utils/app_helpers/language/app_localizatio
 import 'package:elegant_advisors/core/constants/client_constants.dart';
 import 'package:elegant_advisors/presentation/client/widgets/footer/footer_link.dart';
 import 'package:elegant_advisors/presentation/client/controllers/properties/client_properties_controller.dart';
+import 'package:elegant_advisors/presentation/client/controllers/properties/client_off_market_controller.dart';
 import 'package:elegant_advisors/presentation/client/controllers/properties/client_property_detail_controller.dart';
 import 'package:elegant_advisors/presentation/client/controllers/contact/client_contact_controller.dart';
 import 'package:elegant_advisors/presentation/client/controllers/contact/my_contacts/client_my_contacts_controller.dart';
@@ -53,6 +54,20 @@ class FooterQuickLinks extends StatelessWidget {
             // Use offNamed to replace current route, ensuring old route is fully removed
             // This prevents both widget trees from existing simultaneously
             Get.offNamed(ClientConstants.routeClientProperties);
+          },
+        ),
+        FooterLink(
+          text: context.l10n.navOffMarket,
+          onTap: () {
+            // Delete both controllers to ensure clean state
+            if (Get.isRegistered<ClientPropertyDetailController>()) {
+              Get.delete<ClientPropertyDetailController>(force: true);
+            }
+            if (Get.isRegistered<ClientOffMarketController>()) {
+              Get.delete<ClientOffMarketController>(force: true);
+            }
+            // Use offNamed to replace current route, ensuring old route is fully removed
+            Get.offNamed(ClientConstants.routeClientOffMarket);
           },
         ),
         FooterLink(

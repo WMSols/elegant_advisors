@@ -62,25 +62,59 @@ class HomeOurApproachContentMobile extends StatelessWidget {
   }
 }
 
-class _OurApproachImage extends StatelessWidget {
+class _OurApproachImage extends StatefulWidget {
   final double height;
   final double iconSize;
 
   const _OurApproachImage({required this.height, required this.iconSize});
 
   @override
+  State<_OurApproachImage> createState() => _OurApproachImageState();
+}
+
+class _OurApproachImageState extends State<_OurApproachImage> {
+  bool _isHovered = false;
+
+  @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: height,
-      decoration: BoxDecoration(color: AppColors.grey.withValues(alpha: 0.1)),
-      child: ClipRRect(
-        child: Image.asset(
-          AppImages.homeOurApproachBanner,
-          fit: BoxFit.cover,
-          errorBuilder: (context, error, stackTrace) {
-            return AppErrorImageFallback(iconSize: iconSize);
-          },
+    return MouseRegion(
+      onEnter: (_) => setState(() => _isHovered = true),
+      onExit: (_) => setState(() => _isHovered = false),
+      child: AnimatedScale(
+        scale: _isHovered ? 1.02 : 1.0,
+        duration: const Duration(milliseconds: 200),
+        curve: Curves.easeInOut,
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 200),
+          curve: Curves.easeInOut,
+          width: double.infinity,
+          height: widget.height,
+          decoration: BoxDecoration(
+            color: AppColors.grey.withValues(alpha: 0.1),
+            border: Border.all(
+              color: _isHovered ? AppColors.primary : Colors.transparent,
+              width: 2,
+            ),
+            boxShadow: _isHovered
+                ? [
+                    BoxShadow(
+                      color: AppColors.primary.withValues(alpha: 0.2),
+                      blurRadius: 20,
+                      spreadRadius: 2,
+                      offset: const Offset(0, 0),
+                    ),
+                  ]
+                : null,
+          ),
+          child: ClipRRect(
+            child: Image.asset(
+              AppImages.homeOurApproachBanner,
+              fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) {
+                return AppErrorImageFallback(iconSize: widget.iconSize);
+              },
+            ),
+          ),
         ),
       ),
     );

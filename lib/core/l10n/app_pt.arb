@@ -6,6 +6,7 @@
   
   "navHome": "Início",
   "navProperties": "Propriedades",
+  "navOffMarket": "Fora do Mercado",
   "navContact": "Contato",
   
   "homeTitle": "ELEGÂNCIA, INTEGRIDADE, TRANSPARÊNCIA",
@@ -44,6 +45,16 @@
   "propertiesTitle": "Propriedades",
   "propertiesSubtitle": "Listagens de Propriedades à Venda",
   "propertiesDescription": "Navegue pela nossa seleção curada de propriedades premium disponíveis para compra.",
+  
+  "offMarketTitle": "Fora do Mercado",
+  "offMarketSubtitle": "Oportunidades Exclusivas Fora do Mercado",
+  "offMarketDescription": "Descubra nossa seleção curada de propriedades exclusivas fora do mercado disponíveis através de consultoria privada.",
+  "offMarketViewProperties": "Ver Propriedades Fora do Mercado",
+  "clientOffMarketErrorLoading": "Falha ao carregar propriedades fora do mercado",
+  "clientOffMarketRetry": "Tentar Novamente",
+  "clientOffMarketNoPropertiesFound": "Nenhuma propriedade fora do mercado encontrada",
+  "clientOffMarketNoPropertiesMessage": "Não conseguimos encontrar propriedades fora do mercado que correspondam aos seus critérios. Tente ajustar seus filtros.",
+  "clientOffMarketClearFilters": "Limpar Filtros",
   
   "clientPropertiesShowMore": "Mostrar Mais",
   "clientPropertiesShowLess": "Mostrar Menos",
@@ -177,5 +188,27 @@
   "myContactsEmailInvalid": "Por favor, digite um endereço de e-mail válido",
   "myContactsErrorIndex": "Falha ao carregar contatos. Por favor, certifique-se de que os índices do Firestore foram criados. Verifique o console do Firebase para links de criação de índice.",
   "myContactsErrorLoadingGeneric": "Falha ao carregar contatos. Por favor, tente novamente.",
-  "contactFormErrorSubmit": "Falha ao enviar. Por favor, tente novamente."
+  "contactFormErrorSubmit": "Falha ao enviar. Por favor, tente novamente.",
+  
+  "clientPropertiesFilterPriceMin": "Mín",
+  "clientPropertiesFilterPriceMax": "Máx",
+  "clientPropertiesFilterPriceCurrency": "€ ",
+  "headerLanguageEnglish": "Inglês",
+  "headerLanguagePortuguese": "Português",
+  "clientPropertiesStatusAvailable": "Disponível",
+  "clientPropertiesStatusSold": "Vendido",
+  "clientPropertiesStatusComingSoon": "Em Breve",
+  "clientPropertiesStatusOffMarket": "Fora do Mercado",
+  "contactOfficeAddressValue": "123 Main Street, Lisboa, Portugal",
+  "contactOfficePhoneValue": "+351 123 456 789",
+  "contactOfficeEmailValue": "info@elegantadvisors.com",
+  "contactOfficeHoursValue": "Segunda - Sexta: 9:00 - 18:00",
+  
+  "clientPropertyCardBed": "quarto",
+  "clientPropertyCardBath": "banheiro",
+  
+  "clientPropertyDetailSpecType": "Tipo:",
+  "clientPropertyDetailSpecBedrooms": "Quartos:",
+  "clientPropertyDetailSpecBathrooms": "Banheiros:",
+  "clientPropertyDetailSpecArea": "Área:"
 }

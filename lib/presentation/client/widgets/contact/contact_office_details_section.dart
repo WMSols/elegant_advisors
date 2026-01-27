@@ -4,7 +4,6 @@ import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
 import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
 import 'package:elegant_advisors/core/utils/app_helpers/language/app_localizations_helper.dart';
-import 'package:elegant_advisors/core/utils/app_texts/footer_texts.dart';
 import 'package:elegant_advisors/presentation/client/widgets/contact/contact_info_item.dart';
 
 /// Contact office details section
@@ -26,25 +25,25 @@ class ContactOfficeDetailsSection extends StatelessWidget {
         ContactInfoItem(
           icon: Iconsax.location,
           title: context.l10n.contactOfficeAddress,
-          value: FooterTexts.contactAddress,
+          value: context.l10n.contactOfficeAddressValue,
         ),
         AppSpacing.vertical(context, 0.02),
         ContactInfoItem(
           icon: Iconsax.call,
           title: context.l10n.contactOfficePhone,
-          value: FooterTexts.contactPhone,
+          value: context.l10n.contactOfficePhoneValue,
         ),
         AppSpacing.vertical(context, 0.02),
         ContactInfoItem(
           icon: Iconsax.sms,
           title: context.l10n.contactOfficeEmail,
-          value: FooterTexts.contactEmail,
+          value: context.l10n.contactOfficeEmailValue,
         ),
         AppSpacing.vertical(context, 0.02),
         ContactInfoItem(
           icon: Iconsax.clock,
           title: context.l10n.contactOfficeHours,
-          value: FooterTexts.contactWorkingHours,
+          value: context.l10n.contactOfficeHoursValue,
         ),
       ],
     );

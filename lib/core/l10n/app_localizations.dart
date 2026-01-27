@@ -128,6 +128,12 @@ abstract class AppLocalizations {
   /// **'Properties'**
   String get navProperties;
 
+  /// No description provided for @navOffMarket.
+  ///
+  /// In en, this message translates to:
+  /// **'Off Market'**
+  String get navOffMarket;
+
   /// No description provided for @navContact.
   ///
   /// In en, this message translates to:
@@ -325,6 +331,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Browse our curated selection of premium properties available for purchase.'**
   String get propertiesDescription;
+
+  /// No description provided for @offMarketTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Off Market'**
+  String get offMarketTitle;
+
+  /// No description provided for @offMarketSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Exclusive Off Market Opportunities'**
+  String get offMarketSubtitle;
+
+  /// No description provided for @offMarketDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Discover our curated selection of exclusive off-market properties available through private consultation.'**
+  String get offMarketDescription;
+
+  /// No description provided for @offMarketViewProperties.
+  ///
+  /// In en, this message translates to:
+  /// **'View Off Market Properties'**
+  String get offMarketViewProperties;
+
+  /// No description provided for @clientOffMarketErrorLoading.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load off-market properties'**
+  String get clientOffMarketErrorLoading;
+
+  /// No description provided for @clientOffMarketRetry.
+  ///
+  /// In en, this message translates to:
+  /// **'Retry'**
+  String get clientOffMarketRetry;
+
+  /// No description provided for @clientOffMarketNoPropertiesFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No off-market properties found'**
+  String get clientOffMarketNoPropertiesFound;
+
+  /// No description provided for @clientOffMarketNoPropertiesMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'We couldn\'t find any off-market properties matching your criteria. Try adjusting your filters.'**
+  String get clientOffMarketNoPropertiesMessage;
+
+  /// No description provided for @clientOffMarketClearFilters.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear Filters'**
+  String get clientOffMarketClearFilters;
 
   /// No description provided for @clientPropertiesShowMore.
   ///
@@ -979,6 +1039,120 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Failed to submit. Please try again.'**
   String get contactFormErrorSubmit;
+
+  /// No description provided for @clientPropertiesFilterPriceMin.
+  ///
+  /// In en, this message translates to:
+  /// **'Min'**
+  String get clientPropertiesFilterPriceMin;
+
+  /// No description provided for @clientPropertiesFilterPriceMax.
+  ///
+  /// In en, this message translates to:
+  /// **'Max'**
+  String get clientPropertiesFilterPriceMax;
+
+  /// No description provided for @clientPropertiesFilterPriceCurrency.
+  ///
+  /// In en, this message translates to:
+  /// **'€ '**
+  String get clientPropertiesFilterPriceCurrency;
+
+  /// No description provided for @headerLanguageEnglish.
+  ///
+  /// In en, this message translates to:
+  /// **'English'**
+  String get headerLanguageEnglish;
+
+  /// No description provided for @headerLanguagePortuguese.
+  ///
+  /// In en, this message translates to:
+  /// **'Portuguese'**
+  String get headerLanguagePortuguese;
+
+  /// No description provided for @clientPropertiesStatusAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Available'**
+  String get clientPropertiesStatusAvailable;
+
+  /// No description provided for @clientPropertiesStatusSold.
+  ///
+  /// In en, this message translates to:
+  /// **'Sold'**
+  String get clientPropertiesStatusSold;
+
+  /// No description provided for @clientPropertiesStatusComingSoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Coming Soon'**
+  String get clientPropertiesStatusComingSoon;
+
+  /// No description provided for @clientPropertiesStatusOffMarket.
+  ///
+  /// In en, this message translates to:
+  /// **'Off Market'**
+  String get clientPropertiesStatusOffMarket;
+
+  /// No description provided for @contactOfficeAddressValue.
+  ///
+  /// In en, this message translates to:
+  /// **'123 Main Street, Lisbon, Portugal'**
+  String get contactOfficeAddressValue;
+
+  /// No description provided for @contactOfficePhoneValue.
+  ///
+  /// In en, this message translates to:
+  /// **'+351 123 456 789'**
+  String get contactOfficePhoneValue;
+
+  /// No description provided for @contactOfficeEmailValue.
+  ///
+  /// In en, this message translates to:
+  /// **'info@elegantadvisors.com'**
+  String get contactOfficeEmailValue;
+
+  /// No description provided for @contactOfficeHoursValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Monday - Friday: 9:00 AM - 6:00 PM'**
+  String get contactOfficeHoursValue;
+
+  /// No description provided for @clientPropertyCardBed.
+  ///
+  /// In en, this message translates to:
+  /// **'bed'**
+  String get clientPropertyCardBed;
+
+  /// No description provided for @clientPropertyCardBath.
+  ///
+  /// In en, this message translates to:
+  /// **'bath'**
+  String get clientPropertyCardBath;
+
+  /// No description provided for @clientPropertyDetailSpecType.
+  ///
+  /// In en, this message translates to:
+  /// **'Type:'**
+  String get clientPropertyDetailSpecType;
+
+  /// No description provided for @clientPropertyDetailSpecBedrooms.
+  ///
+  /// In en, this message translates to:
+  /// **'Bedrooms:'**
+  String get clientPropertyDetailSpecBedrooms;
+
+  /// No description provided for @clientPropertyDetailSpecBathrooms.
+  ///
+  /// In en, this message translates to:
+  /// **'Bathrooms:'**
+  String get clientPropertyDetailSpecBathrooms;
+
+  /// No description provided for @clientPropertyDetailSpecArea.
+  ///
+  /// In en, this message translates to:
+  /// **'Area:'**
+  String get clientPropertyDetailSpecArea;
 }
 
 class _AppLocalizationsDelegate

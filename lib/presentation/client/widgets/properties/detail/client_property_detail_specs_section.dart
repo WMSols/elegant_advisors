@@ -29,12 +29,16 @@ class ClientPropertyDetailSpecsSection extends StatelessWidget {
         Column(
           children: [
             if (property.specs.propertyType.isNotEmpty)
-              _buildSpecItem(context, 'Type:', property.specs.propertyType),
+              _buildSpecItem(
+                context,
+                context.l10n.clientPropertyDetailSpecType,
+                property.specs.propertyType,
+              ),
             if (property.specs.bedrooms != null) ...[
               AppSpacing.vertical(context, 0.02),
               _buildSpecItem(
                 context,
-                'Bedrooms:',
+                context.l10n.clientPropertyDetailSpecBedrooms,
                 '${property.specs.bedrooms}',
               ),
             ],
@@ -42,7 +46,7 @@ class ClientPropertyDetailSpecsSection extends StatelessWidget {
               AppSpacing.vertical(context, 0.02),
               _buildSpecItem(
                 context,
-                'Bathrooms:',
+                context.l10n.clientPropertyDetailSpecBathrooms,
                 '${property.specs.bathrooms}',
               ),
             ],
@@ -51,7 +55,7 @@ class ClientPropertyDetailSpecsSection extends StatelessWidget {
               AppSpacing.vertical(context, 0.02),
               _buildSpecItem(
                 context,
-                'Area:',
+                context.l10n.clientPropertyDetailSpecArea,
                 '${property.specs.areaSize} ${property.specs.areaUnit}',
               ),
             ],

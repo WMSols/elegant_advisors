@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/core/widgets/images/app_error_image_fallback.dart';
+import 'package:elegant_advisors/core/utils/app_helpers/language/app_localizations_helper.dart';
 
 class HeaderLanguageSelector extends StatefulWidget {
   const HeaderLanguageSelector({super.key});
@@ -93,7 +94,7 @@ class _HeaderLanguageSelectorState extends State<HeaderLanguageSelector> {
                 context,
                 englishFlag,
                 isEnglishSelected,
-                'English',
+                context.l10n.headerLanguageEnglish,
               ),
             ),
             PopupMenuItem<Locale>(
@@ -103,7 +104,7 @@ class _HeaderLanguageSelectorState extends State<HeaderLanguageSelector> {
                 context,
                 portugueseFlag,
                 isPortugueseSelected,
-                'Portuguese',
+                context.l10n.headerLanguagePortuguese,
               ),
             ),
           ];

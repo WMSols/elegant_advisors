@@ -10,6 +10,7 @@ import 'package:elegant_advisors/core/utils/app_helpers/language/app_localizatio
 import 'package:elegant_advisors/core/widgets/buttons/app_icon_button.dart';
 import 'package:elegant_advisors/core/widgets/display/app_logo.dart';
 import 'package:elegant_advisors/presentation/client/controllers/properties/client_properties_controller.dart';
+import 'package:elegant_advisors/presentation/client/controllers/properties/client_off_market_controller.dart';
 import 'package:elegant_advisors/presentation/client/controllers/properties/client_property_detail_controller.dart';
 import 'package:elegant_advisors/presentation/client/controllers/contact/client_contact_controller.dart';
 import 'package:elegant_advisors/presentation/client/controllers/contact/my_contacts/client_my_contacts_controller.dart';
@@ -64,6 +65,11 @@ class HeaderMobileDrawer extends StatelessWidget {
                   _MobileDrawerItem(
                     label: context.l10n.navProperties,
                     route: ClientConstants.routeClientProperties,
+                    onTap: onClose,
+                  ),
+                  _MobileDrawerItem(
+                    label: context.l10n.navOffMarket,
+                    route: ClientConstants.routeClientOffMarket,
                     onTap: onClose,
                   ),
                   _MobileDrawerItem(
@@ -130,6 +136,17 @@ class _MobileDrawerItemState extends State<_MobileDrawerItem> {
           }
           if (Get.isRegistered<ClientPropertiesController>()) {
             Get.delete<ClientPropertiesController>(force: true);
+          }
+        }
+
+        // Special handling for off-market route to prevent GlobalKey/ScrollController conflicts
+        if (widget.route == ClientConstants.routeClientOffMarket) {
+          // Delete both controllers to ensure clean state
+          if (Get.isRegistered<ClientPropertyDetailController>()) {
+            Get.delete<ClientPropertyDetailController>(force: true);
+          }
+          if (Get.isRegistered<ClientOffMarketController>()) {
+            Get.delete<ClientOffMarketController>(force: true);
           }
         }
 

@@ -44,7 +44,10 @@ class ClientPropertyFilterPriceRange extends StatelessWidget {
           children: [
             Expanded(
               child: TextField(
-                decoration: InputDecoration(hintText: 'Min', prefixText: '€ '),
+                decoration: InputDecoration(
+                  hintText: context.l10n.clientPropertiesFilterPriceMin,
+                  prefixText: context.l10n.clientPropertiesFilterPriceCurrency,
+                ),
                 keyboardType: TextInputType.number,
                 onChanged: (value) {
                   final price = double.tryParse(value);
@@ -55,7 +58,10 @@ class ClientPropertyFilterPriceRange extends StatelessWidget {
             AppSpacing.horizontal(context, 0.02),
             Expanded(
               child: TextField(
-                decoration: InputDecoration(hintText: 'Max', prefixText: '€ '),
+                decoration: InputDecoration(
+                  hintText: context.l10n.clientPropertiesFilterPriceMax,
+                  prefixText: context.l10n.clientPropertiesFilterPriceCurrency,
+                ),
                 keyboardType: TextInputType.number,
                 onChanged: (value) {
                   final price = double.tryParse(value);

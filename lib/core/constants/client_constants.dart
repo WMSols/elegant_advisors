@@ -7,6 +7,7 @@ class ClientConstants {
   // Routes
   static const String routeClientHome = '/';
   static const String routeClientProperties = '/properties';
+  static const String routeClientOffMarket = '/off-market';
   static const String routeClientPropertyDetail = '/properties/:slug';
   static const String routeClientContact = '/contact';
   static const String routeClientContacts = '/my-contacts';

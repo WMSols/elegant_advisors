@@ -45,6 +45,35 @@ class FirestoreService {
         .toList();
   }
 
+  // Off Market Properties
+  Stream<List<PropertyModel>> getOffMarketProperties() {
+    return _firestore
+        .collection(propertiesCollection)
+        .where('isPublished', isEqualTo: true)
+        .where('status', isEqualTo: 'off_market')
+        .orderBy('sortOrder')
+        .orderBy('createdAt', descending: true)
+        .snapshots()
+        .map(
+          (snapshot) => snapshot.docs
+              .map((doc) => PropertyModel.fromJson(doc.data(), doc.id))
+              .toList(),
+        );
+  }
+
+  Future<List<PropertyModel>> getOffMarketPropertiesOnce() async {
+    final snapshot = await _firestore
+        .collection(propertiesCollection)
+        .where('isPublished', isEqualTo: true)
+        .where('status', isEqualTo: 'off_market')
+        .orderBy('sortOrder')
+        .orderBy('createdAt', descending: true)
+        .get();
+    return snapshot.docs
+        .map((doc) => PropertyModel.fromJson(doc.data(), doc.id))
+        .toList();
+  }
+
   Future<PropertyModel?> getPropertyById(String id) async {
     final doc = await _firestore.collection(propertiesCollection).doc(id).get();
     if (doc.exists) {

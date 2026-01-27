@@ -33,20 +33,25 @@ class ClientPropertyFilterStatusChips extends StatelessWidget {
         AppSpacing.vertical(context, 0.01),
         Wrap(
           spacing: AppResponsive.scaleSize(context, 12, min: 8, max: 16),
-          children: ['available', 'sold', 'coming_soon', 'off_market'].map((
-            status,
-          ) {
-            final isSelected = selectedStatuses.contains(status);
-            return FilterChip(
-              label: Text(status.replaceAll('_', ' ').toUpperCase()),
-              selected: isSelected,
-              onSelected: (selected) {
-                onStatusToggled(status, selected);
-              },
-            );
-          }).toList(),
+          children: [
+            _buildStatusChip(context, 'available', context.l10n.clientPropertiesStatusAvailable),
+            _buildStatusChip(context, 'sold', context.l10n.clientPropertiesStatusSold),
+            _buildStatusChip(context, 'coming_soon', context.l10n.clientPropertiesStatusComingSoon),
+            _buildStatusChip(context, 'off_market', context.l10n.clientPropertiesStatusOffMarket),
+          ],
         ),
       ],
+    );
+  }
+
+  Widget _buildStatusChip(BuildContext context, String status, String label) {
+    final isSelected = selectedStatuses.contains(status);
+    return FilterChip(
+      label: Text(label),
+      selected: isSelected,
+      onSelected: (selected) {
+        onStatusToggled(status, selected);
+      },
     );
   }
 }
