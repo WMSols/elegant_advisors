@@ -63,11 +63,6 @@ class AppPropertyStatusBadge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Use responsive radius for admin, fixed radius for client
-    final borderRadius = isAdmin
-        ? AppResponsive.radius(context, factor: 3)
-        : 0.0;
-
     return Container(
       padding: EdgeInsets.symmetric(
         horizontal: AppResponsive.scaleSize(context, 8, min: 6, max: 12),
@@ -75,7 +70,16 @@ class AppPropertyStatusBadge extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         color: _getStatusColor(),
-        borderRadius: BorderRadius.circular(borderRadius),
+        borderRadius: isAdmin
+            ? BorderRadius.circular(AppResponsive.radius(context, factor: 1.5))
+            : BorderRadius.only(
+                topRight: Radius.circular(
+                  AppResponsive.radius(context, factor: 3),
+                ),
+                bottomLeft: Radius.circular(
+                  AppResponsive.radius(context, factor: 3),
+                ),
+              ),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,

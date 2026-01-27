@@ -14,11 +14,11 @@ class HomeTopSection extends StatelessWidget {
       height: AppResponsive.screenHeight(context),
       decoration: BoxDecoration(
         color: AppColors.primary, // Fallback color
-        image: const DecorationImage(
-          image: AssetImage(AppImages.homeBackground),
-          fit: BoxFit.cover,
-          onError: null,
-        ),
+        // image: const DecorationImage(
+        //   image: AssetImage(AppImages.homeBackground),
+        //   fit: BoxFit.cover,
+        //   onError: null,
+        // ),
       ),
       child: LayoutBuilder(
         builder: (context, constraints) {

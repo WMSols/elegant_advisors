@@ -6,7 +6,7 @@ class FooterTexts {
   static const String companyTagline =
       "Elegant Advisors - Your Trusted Property & Asset Advisory Partner";
   static const String companyDescription =
-      "Leading real estate advisory in Portugal, helping private individuals, family offices, and property investors find and secure premium properties.";
+      "Elegant is a real estate advisory defined by a singular philosophy: real estate, at its finest, is an art of elegance. We curate exceptional property opportunities in Portugal, guided by discretion, market insight, and uncompromising standards.";
 
   // Quick Links Section
   static const String quickLinksTitle = "Quick Links";

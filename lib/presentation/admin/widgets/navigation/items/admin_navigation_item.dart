@@ -75,13 +75,13 @@ class AdminNavigationItem extends StatelessWidget {
         ),
         decoration: BoxDecoration(
           // Active items show background image, inactive are transparent
-          image: isActive
-              ? const DecorationImage(
-                  image: AssetImage(AppImages.homeBackground),
-                  fit: BoxFit.cover,
-                )
-              : null,
-          color: isActive ? null : Colors.transparent,
+          // image: isActive
+          //     ? const DecorationImage(
+          //         image: AssetImage(AppImages.homeBackground),
+          //         fit: BoxFit.cover,
+          //       )
+          //     : null,
+          color: isActive ? AppColors.primary : Colors.transparent,
           borderRadius: isActive
               ? BorderRadius.only(
                   topLeft: Radius.circular(borderRadius),

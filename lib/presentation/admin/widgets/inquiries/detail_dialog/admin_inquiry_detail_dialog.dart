@@ -54,11 +54,11 @@ class AdminInquiryDetailDialog extends StatelessWidget {
                 child: Container(
                   decoration: BoxDecoration(
                     color: AppColors.primary,
-                    image: const DecorationImage(
-                      image: AssetImage(AppImages.homeBackground),
-                      fit: BoxFit.cover,
-                      onError: null,
-                    ),
+                    // image: const DecorationImage(
+                    //   image: AssetImage(AppImages.homeBackground),
+                    //   fit: BoxFit.cover,
+                    //   onError: null,
+                    // ),
                     borderRadius: BorderRadius.circular(
                       AppResponsive.radius(context),
                     ),

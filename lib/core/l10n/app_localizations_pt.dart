@@ -27,138 +27,108 @@ class AppLocalizationsPt extends AppLocalizations {
   String get navContact => 'Contato';
 
   @override
-  String get homeTitle => 'SUA VISÃO, NOSSA EXPERIÊNCIA';
+  String get homeTitle => 'ELEGÂNCIA, INTEGRIDADE, TRANSPARÊNCIA';
 
   @override
   String get homeSubtitle =>
-      'A Elegant é uma consultoria imobiliária líder em Portugal na busca e garantia de propriedades para indivíduos, family offices e investidores imobiliários.';
+      'A Elegant é uma consultoria imobiliária definida por uma filosofia singular: o imobiliário, no seu melhor, é uma arte de elegância. Cuidamos de oportunidades excepcionais de propriedade em Portugal, guiados por discrição, conhecimento de mercado e padrões intransigentes.';
 
   @override
   String get homeButtonConsultation => 'Solicitar Consultoria Privada';
 
   @override
-  String get homeMarketEducatedTitle =>
-      'EDUCADOS NO MERCADO,\nFOCADOS NO COMPRADOR';
+  String get homeOurApproachTitle => 'NOSSA ABORDAGEM';
 
   @override
-  String get homeMarketEducatedDescription =>
-      'Combinando uma mentalidade internacional e profunda expertise no mercado local, nosso serviço personalizado oferece a vantagem de um insider no mercado imobiliário português. Passamos anos construindo conexões profundas com agências imobiliárias proeminentes, desenvolvedores estabelecidos e indivíduos bem conectados para formar nossa rede e ajudá-lo a encontrar e garantir a propriedade que você realmente procura. No mercado ou fora dele, sem exclusividades para empurrar.';
+  String get homeOurApproachDescription =>
+      'Combinamos inteligência de mercado profunda com redes locais e internacionais fortes para fornecer serviços de consultoria personalizados em todo o ciclo de vida do investimento — desde a definição de estratégia e origem de ativos até aquisição, due diligence, estruturação e fechamento. Cada cliente recebe orientação discreta e baseada em dados alinhada com seus objetivos financeiros, perfil de risco e horizonte de investimento.';
 
   @override
-  String get homeMarketEducatedButton => 'O Que Fazemos';
+  String get homeOurApproachButton => 'O Que Fazemos';
 
   @override
-  String get homeOurDiscerningClienteleTitle => 'NOSSA CLIENTELA\nEXIGENTE';
+  String get homeOurPhilosophyMissionTitle => 'NOSSA FILOSOFIA\nE MISSÃO';
 
   @override
-  String get homeOurDiscerningClienteleDescription =>
-      'Provenientes de mais de 30 nacionalidades desde 2014, nossa clientela privada valoriza um serviço personalizado e discreto com orientação estratégica em todos os campos relevantes. É exatamente isso que fazemos.';
+  String get homeOurPhilosophyMissionDescription =>
+      'Elegância, integridade e transparência definem como operamos. Na Elegant, acreditamos em qualidade sobre volume — cuidando cuidadosamente de oportunidades residenciais, comerciais e de hospitalidade que se alinham precisamente com as ambições de estilo de vida ou estratégia de investimento de cada cliente.';
 
   @override
-  String get homeOurDiscerningClientelePropertyInvestorsTitle =>
-      'INVESTIDORES IMOBILIÁRIOS';
+  String get homeOurPhilosophyTitle => 'NOSSA FILOSOFIA';
 
   @override
-  String get homeOurDiscerningClientelePropertyInvestorsDescription =>
-      'Se você está procurando expandir seu portfólio imobiliário em Portugal, atuamos como seu consultor experiente em todas as questões estratégicas.';
+  String get homeOurPhilosophyDescription =>
+      'Elegância, integridade e transparência definem como operamos. Na Elegant, acreditamos em qualidade sobre volume — cuidando cuidadosamente de oportunidades residenciais, comerciais e de hospitalidade que se alinham precisamente com as ambições de estilo de vida ou estratégia de investimento de cada cliente.';
 
   @override
-  String get homeOurDiscerningClienteleCitizenshipClientsTitle =>
-      'CLIENTES DE CIDADANIA';
+  String get homeOurMissionTitle => 'NOSSA MISSÃO';
 
   @override
-  String get homeOurDiscerningClienteleCitizenshipClientsDescription =>
-      'Se você está procurando obter acesso ao Golden Visa ou outro programa de cidadania através de um investimento imobiliário, guiaremos você da maneira certa.';
+  String get homeOurMissionDescription =>
+      'Nossa missão é entregar clareza e sofisticação em cada etapa da jornada imobiliária, garantindo que cada aquisição seja tão perfeita quanto distinta.';
 
   @override
-  String get homeOurDiscerningClienteleLifestyleHomeBuyersTitle =>
-      'COMPRADORES DE CASA POR ESTILO DE VIDA';
+  String get homeWhatWeSpecializeInTitle => 'NO QUE NOS ESPECIALIZAMOS';
 
   @override
-  String get homeOurDiscerningClienteleLifestyleHomeBuyersDescription =>
-      'Se você está procurando se mudar completamente para Portugal ou simplesmente desfrutar de uma casa de férias, pode contar conosco para ajudá-lo a encontrar a propriedade que você sempre imaginou.';
+  String get homeWhatWeSpecializeInDescription =>
+      'Especializamo-nos em cuidar de oportunidades excepcionais de propriedade em várias classes de ativos, cada uma adaptada para atender a objetivos de investimento distintos e aspirações de estilo de vida.';
 
   @override
-  String get homeOurDiscerningClienteleLuxuryPropertyOwnersTitle =>
-      'PROPRIETÁRIOS DE PROPRIEDADES DE LUXO';
+  String get homeWhatWeSpecializeInHighEndResidentialTitle =>
+      'ATIVOS RESIDENCIAIS DE ALTO PADRÃO';
 
   @override
-  String get homeOurDiscerningClienteleLuxuryPropertyOwnersDescription =>
-      'Se você está procurando alugar ou encontrar um administrador de propriedades confiável, oferecemos um serviço personalizado de 360° que garante que tudo funcione perfeitamente.';
+  String get homeWhatWeSpecializeInHighEndResidentialDescription =>
+      'Villas de luxo, apartamentos premium e propriedades residenciais exclusivas em locais privilegiados — curadas para compradores de estilo de vida e investidores que buscam valorização de capital a longo prazo.';
 
   @override
-  String get homeOurDiscerningClienteleButton => 'O Que Nossos Clientes Dizem';
+  String get homeWhatWeSpecializeInInvestmentPlotsTitle =>
+      'LOTES DE INVESTIMENTO E TERRENOS PARA DESENVOLVIMENTO';
 
   @override
-  String get homeUnparalleledExpertiseTitle => 'EXPERIÊNCIA INCOMPARÁVEL';
+  String get homeWhatWeSpecializeInInvestmentPlotsDescription =>
+      'Oportunidades estratégicas de terrenos para desenvolvimentos residenciais, comerciais e de hospitalidade. Adequado para desenvolvedores, gestores de ativos, fundos de private equity e investidores de longo prazo que buscam crescimento escalável.';
 
   @override
-  String get homeUnparalleledExpertiseDescription =>
-      'Com um histórico incomparável, nossa equipe multidisciplinar gerencia todos os detalhes da transação - desde o primeiro briefing até a aquisição e pós-vendas.';
+  String get homeWhatWeSpecializeInInvestmentBuildingsTitle =>
+      'EDIFÍCIOS DE INVESTIMENTO';
 
   @override
-  String get homeUnparalleledExpertisePropertySearchTitle =>
-      'BUSCA DE PROPRIEDADES';
+  String get homeWhatWeSpecializeInInvestmentBuildingsDescription =>
+      'Edifícios inteiros que requerem renovação, reforma ou reurbanização para uso residencial ou comercial. Ideal para desenvolvedores, gestores de ativos, fundos de private equity e investidores que buscam estratégias de valor agregado e reposicionamento.';
 
   @override
-  String get homeUnparalleledExpertisePropertySearchDescription =>
-      'Após analisar minuciosamente seu briefing, levamos ao mercado e buscamos a propriedade que atende aos seus mais altos padrões.';
+  String get homeWhatWeSpecializeInCommercialRealEstateTitle =>
+      'IMÓVEIS COMERCIAIS';
 
   @override
-  String get homeUnparalleledExpertisePurchaseStrategyTitle =>
-      'ESTRATÉGIA DE COMPRA';
+  String get homeWhatWeSpecializeInCommercialRealEstateDescription =>
+      'Ativos de varejo, escritórios, estacionamentos e industriais — incluindo propriedades geradoras de renda com inquilinos estáveis e perfis de rendimento fortes.';
 
   @override
-  String get homeUnparalleledExpertisePurchaseStrategyDescription =>
-      'Em colaboração com você, desenvolvemos um plano de compra tático que se adapta às suas necessidades particulares.';
+  String get homeWhatWeSpecializeInHospitalityTitle =>
+      'INVESTIMENTOS EM HOSPITALIDADE E HOTÉIS';
 
   @override
-  String get homeUnparalleledExpertiseNegotiationTitle => 'NEGOCIAÇÃO';
+  String get homeWhatWeSpecializeInHospitalityDescription =>
+      'Um foco dedicado em hotéis, apartamentos com serviços, hotéis boutique, resorts e desenvolvimentos de hospitalidade de uso misto. Aconselhamos sobre aquisições, oportunidades de reposicionamento, ativos operacionais e projetos liderados por desenvolvimento — visando tanto rendimento quanto criação de valor.';
 
   @override
-  String get homeUnparalleledExpertiseNegotiationDescription =>
-      'Reconhecidos por nossas excepcionais habilidades de negociação, gerenciamos o processo em seu nome, para que você possa garantir sua propriedade selecionada pelo melhor preço.';
+  String get homeWhatWeSpecializeInButton => 'Entre em Contato';
 
   @override
-  String get homeUnparalleledExpertisePortfolioManagementTitle =>
-      'GESTÃO DE PORTFÓLIO';
+  String get homeOurPortfolioTitle => 'NOSSO PORTFÓLIO';
 
   @override
-  String get homeUnparalleledExpertisePortfolioManagementDescription =>
-      'Usando nossa experiência de mercado para avaliar riscos e identificar oportunidades, aconselhamos e auxiliamos você na construção de seu portfólio imobiliário.';
+  String get homeOurPortfolioSubtitle => 'Descubra Nossa Seleção Curada';
 
   @override
-  String get homeUnparalleledExpertiseVisaTaxAdvisoryTitle =>
-      'CONSULTORIA DE VISTO E IMPOSTOS';
+  String get homeOurPortfolioDescription =>
+      'Explore nossa coleção selecionada de propriedades excepcionais';
 
   @override
-  String get homeUnparalleledExpertiseVisaTaxAdvisoryDescription =>
-      'Através de nossas parcerias estabelecidas com advogados e especialistas fiscais portugueses, fornecemos uma solução completa para clientes interessados no Golden Visa, D7, D2, Nomad Visa ou no Status de Residente Não Habitual (NHR) de Portugal.';
-
-  @override
-  String get homeUnparalleledExpertiseLuxuryRentalsManagementTitle =>
-      'ALUGUÉIS DE LUXO E GESTÃO';
-
-  @override
-  String get homeUnparalleledExpertiseLuxuryRentalsManagementDescription =>
-      'Garantimos que seu investimento seja maximizado ao garantir inquilinos excelentes ou simplesmente manter sua propriedade em perfeitas condições. Se você deseja alugar um apartamento, encontraremos uma opção de aluguel de primeira linha adequada para seus objetivos particulares.';
-
-  @override
-  String get homeUnparalleledExpertiseButton => 'Entre em Contato';
-
-  @override
-  String get homePrivilegingQualityTitle => 'PRIVILEGIANDO A QUALIDADE';
-
-  @override
-  String get homePrivilegingQualitySubtitle =>
-      'Quase 70% dos nossos clientes vêm por indicação';
-
-  @override
-  String get homePrivilegingQualityDescription =>
-      'Aqui está uma seleção de nossas transações anteriores.';
-
-  @override
-  String get homePrivilegingQualityButton => 'Solicitar Consultoria Privada';
+  String get homeOurPortfolioButton => 'Solicitar Consultoria Privada';
 
   @override
   String get propertiesTitle => 'Propriedades';
@@ -472,7 +442,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get footerCompanyDescription =>
-      'Consultoria imobiliária líder em Portugal, ajudando indivíduos, family offices e investidores imobiliários a encontrar e garantir propriedades premium.';
+      'A Elegant é uma consultoria imobiliária definida por uma filosofia singular: o imobiliário, no seu melhor, é uma arte de elegância. Cuidamos de oportunidades excepcionais de propriedade em Portugal, guiados por discrição, conhecimento de mercado e padrões intransigentes.';
 
   @override
   String get footerSocialTitle => 'Siga-nos';

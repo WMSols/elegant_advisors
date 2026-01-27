@@ -27,11 +27,11 @@ class ClientBackgroundSection extends StatelessWidget {
       width: double.infinity,
       decoration: BoxDecoration(
         color: AppColors.primary, // Fallback color
-        image: DecorationImage(
-          image: AssetImage(backgroundImage ?? AppImages.homeBackground),
-          fit: BoxFit.cover,
-          onError: null,
-        ),
+        // image: DecorationImage(
+        //   image: AssetImage(backgroundImage ?? AppImages.homeBackground),
+        //   fit: BoxFit.cover,
+        //   onError: null,
+        // ),
       ),
       child: Container(
         width: double.infinity,

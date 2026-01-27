@@ -26,11 +26,11 @@ class ClientHeroHeaderSection extends StatelessWidget {
       height: height ?? AppResponsive.screenHeight(context),
       decoration: BoxDecoration(
         color: AppColors.primary, // Fallback color
-        image: DecorationImage(
-          image: AssetImage(backgroundImage ?? AppImages.homeBackground),
-          fit: BoxFit.cover,
-          onError: null,
-        ),
+        // image: DecorationImage(
+        //   image: AssetImage(backgroundImage ?? AppImages.homeBackground),
+        //   fit: BoxFit.cover,
+        //   onError: null,
+        // ),
       ),
       child: LayoutBuilder(
         builder: (context, constraints) {

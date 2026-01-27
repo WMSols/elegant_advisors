@@ -13,11 +13,11 @@ class AdminBackground extends StatelessWidget {
       height: double.infinity,
       decoration: BoxDecoration(
         color: AppColors.primary, // Fallback color
-        image: const DecorationImage(
-          image: AssetImage(AppImages.homeBackground),
-          fit: BoxFit.cover,
-          onError: null,
-        ),
+        // image: const DecorationImage(
+        //   image: AssetImage(AppImages.homeBackground),
+        //   fit: BoxFit.cover,
+        //   onError: null,
+        // ),
       ),
     );
   }

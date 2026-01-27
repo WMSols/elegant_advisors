@@ -12,77 +12,60 @@ class AppTexts {
   static const String navContact = "Contact";
 
   // Home Page
-  static const String homeTitle = "YOUR VISION, OUR EXPERTISE";
+  static const String homeTitle = "ELEGANCE, INTEGRITY, TRANSPARENCY";
   static const String homeSubtitle =
-      "Elegant is a leading real estate advisory in Portugal in finding and securing properties for private individuals, family offices, and property investors.";
+      "Elegant is a real estate advisory defined by a singular philosophy: real estate, at its finest, is an art of elegance. We curate exceptional property opportunities in Portugal, guided by discretion, market insight, and uncompromising standards.";
   static const String homeButtonConsultation = "Request A Private Consultation";
-  static const String homeMarketEducatedTitle =
-      "MARKET EDUCATED,\nBUYER FOCUSED";
-  static const String homeMarketEducatedDescription =
-      "Combining an international mindset and profound local market expertise, our bespoke service gives you the insider's edge on the Portuguese real estate market. We've spent years forging deep connections with prominent real estate agencies, established developers, and well-connected individuals to shape our network and help you find and secure the property you're truly seeking. On or off market, no exclusives to push.";
-  static const String homeMarketEducatedButton = "What We Do";
+  static const String homeOurApproachTitle = "OUR APPROACH";
+  static const String homeOurApproachDescription =
+      "We combine deep market intelligence with strong local and international networks to deliver tailored advisory services across the full investment lifecycle — from strategy definition and asset sourcing to acquisition, due diligence, structuring, and closing. Each client receives discreet, data-driven guidance aligned with their financial objectives, risk profile, and investment horizon.";
+  static const String homeOurApproachButton = "What We Do";
 
-  // Our Discerning Clientele Section
-  static const String homeOurDiscerningClienteleTitle =
-      "OUR DISCERNING\nCLIENTELE";
-  static const String homeOurDiscerningClienteleDescription =
-      "Hailing from 30+ nationalities since 2014, our private clientele values a bespoke, discreet service with strategic guidance across all relevant fields. That's precisely what we do.";
-  static const String homeOurDiscerningClientelePropertyInvestorsTitle =
-      "PROPERTY INVESTORS";
-  static const String homeOurDiscerningClientelePropertyInvestorsDescription =
-      "If you are looking to grow your real estate portfolio in Portugal, we act as your skilled advisor on all things strategy.";
-  static const String homeOurDiscerningClienteleCitizenshipClientsTitle =
-      "CITIZENSHIP CLIENTS";
-  static const String homeOurDiscerningClienteleCitizenshipClientsDescription =
-      "If you are looking to gain access to the Golden Visa or another citizenship program by making a real estate investment, we will guide you in the right way.";
-  static const String homeOurDiscerningClienteleLifestyleHomeBuyersTitle =
-      "LIFESTYLE HOME BUYERS";
-  static const String homeOurDiscerningClienteleLifestyleHomeBuyersDescription =
-      "If you are looking to fully relocate to Portugal or simply enjoy a vacation home, you can count on us to help you find the property you've always envisioned.";
-  static const String homeOurDiscerningClienteleLuxuryPropertyOwnersTitle =
-      "LUXURY PROPERTY OWNERS";
-  static const String
-  homeOurDiscerningClienteleLuxuryPropertyOwnersDescription =
-      "If you are looking to rent or find a trustworthy property manager, we deliver a 360° bespoke service that ensures all runs smoothly.";
-  static const String homeOurDiscerningClienteleButton = "What Our Clients Say";
+  // Our Philosophy & Mission Section
+  static const String homeOurPhilosophyMissionTitle =
+      "OUR PHILOSOPHY\n& MISSION";
+  static const String homeOurPhilosophyMissionDescription =
+      "Elegance, integrity, and transparency define how we operate. At Elegant, we believe in quality over volume — carefully curating residential, commercial, and hospitality opportunities that align precisely with each client's lifestyle ambitions or investment strategy.";
+  static const String homeOurPhilosophyTitle = "OUR PHILOSOPHY";
+  static const String homeOurPhilosophyDescription =
+      "Elegance, integrity, and transparency define how we operate. At Elegant, we believe in quality over volume — carefully curating residential, commercial, and hospitality opportunities that align precisely with each client's lifestyle ambitions or investment strategy.";
+  static const String homeOurMissionTitle = "OUR MISSION";
+  static const String homeOurMissionDescription =
+      "Our mission is to deliver clarity and sophistication at every stage of the property journey, ensuring each acquisition is as seamless as it is distinguished.";
 
-  // Unparalleled Expertise Section
-  static const String homeUnparalleledExpertiseTitle = "UNPARALLELED EXPERTISE";
-  static const String homeUnparalleledExpertiseDescription =
-      "With an unrivalled track record, our multidisciplinary team manages all transaction details - from first brief to acquisition and post sales.";
-  static const String homeUnparalleledExpertisePropertySearchTitle =
-      "PROPERTY SEARCH";
-  static const String homeUnparalleledExpertisePropertySearchDescription =
-      "After thoroughly analyzing your brief, we take it to the market and search for the property that meets your utmost standards.";
-  static const String homeUnparalleledExpertisePurchaseStrategyTitle =
-      "PURCHASE STRATEGY";
-  static const String homeUnparalleledExpertisePurchaseStrategyDescription =
-      "In collaboration with you, we develop a tactical buying plan that adapts to your particular needs.";
-  static const String homeUnparalleledExpertiseNegotiationTitle = "NEGOTIATION";
-  static const String homeUnparalleledExpertiseNegotiationDescription =
-      "Renowned for our exceptional negotiation skills, we handle the process on your behalf, so you can secure your selected property at the best price.";
-  static const String homeUnparalleledExpertisePortfolioManagementTitle =
-      "PORTFOLIO MANAGEMENT";
-  static const String homeUnparalleledExpertisePortfolioManagementDescription =
-      "Using our market experience to assess risk and identify opportunities, we advise and assist you in building your real estate portfolio.";
-  static const String homeUnparalleledExpertiseVisaTaxAdvisoryTitle =
-      "VISA & TAX ADVISORY";
-  static const String homeUnparalleledExpertiseVisaTaxAdvisoryDescription =
-      "Through our established partnerships with Portuguese lawyers and tax specialists, we provide a turn-key solution to clients interested in the Golden Visa, D7, D2, Nomad Visa or Portugal's Non-Habitual Resident Status (NHR).";
-  static const String homeUnparalleledExpertiseLuxuryRentalsManagementTitle =
-      "LUXURY RENTALS & MANAGEMENT";
-  static const String
-  homeUnparalleledExpertiseLuxuryRentalsManagementDescription =
-      "We ensure your investment is maximized by securing sterling tenants or simply maintaining your property in mint condition. Should you wish to rent an apartment, we will find a prime rental option suitable for your particular goals.";
-  static const String homeUnparalleledExpertiseButton = "Contact Us";
+  // What We Specialize In Section
+  static const String homeWhatWeSpecializeInTitle = "WHAT WE SPECIALIZE IN";
+  static const String homeWhatWeSpecializeInDescription =
+      "We specialize in curating exceptional property opportunities across multiple asset classes, each tailored to meet distinct investment objectives and lifestyle aspirations.";
+  static const String homeWhatWeSpecializeInHighEndResidentialTitle =
+      "HIGH-END RESIDENTIAL ASSETS";
+  static const String homeWhatWeSpecializeInHighEndResidentialDescription =
+      "Luxury villas, premium apartments, and exclusive residential properties in prime locations — curated for lifestyle buyers and investors seeking long-term capital appreciation.";
+  static const String homeWhatWeSpecializeInInvestmentPlotsTitle =
+      "INVESTMENT PLOTS & DEVELOPMENT LAND";
+  static const String homeWhatWeSpecializeInInvestmentPlotsDescription =
+      "Strategic land opportunities for residential, commercial, and hospitality developments. Suitable for developers, asset managers, private equity funds, and long-term investors seeking scalable growth.";
+  static const String homeWhatWeSpecializeInInvestmentBuildingsTitle =
+      "INVESTMENT BUILDINGS";
+  static const String homeWhatWeSpecializeInInvestmentBuildingsDescription =
+      "Entire buildings requiring renovation, refurbishment, or redevelopment for residential or commercial use. Ideal for developers, asset managers, private equity funds, and investors pursuing value-add and repositioning strategies.";
+  static const String homeWhatWeSpecializeInCommercialRealEstateTitle =
+      "COMMERCIAL REAL ESTATE";
+  static const String homeWhatWeSpecializeInCommercialRealEstateDescription =
+      "Retail, office, parking, and industrial assets — including income-generating properties with stable tenants and strong yield profiles.";
+  static const String homeWhatWeSpecializeInHospitalityTitle =
+      "HOSPITALITY & HOTEL INVESTMENTS";
+  static const String homeWhatWeSpecializeInHospitalityDescription =
+      "A dedicated focus on hotels, serviced apartments, boutique hotels, resorts, and mixed-use hospitality developments. We advise on acquisitions, repositioning opportunities, operational assets, and development-led projects — targeting both yield and value creation.";
+  static const String homeWhatWeSpecializeInButton = "Contact Us";
 
-  // Privileging Quality Section
-  static const String homePrivilegingQualityTitle = "PRIVILEGING QUALITY";
-  static const String homePrivilegingQualitySubtitle =
-      "Nearly 70% of our clients come by referral";
-  static const String homePrivilegingQualityDescription =
-      "Here is a selection of our previous transactions.";
-  static const String homePrivilegingQualityButton =
+  // Our Portfolio Section
+  static const String homeOurPortfolioTitle = "OUR PORTFOLIO";
+  static const String homeOurPortfolioSubtitle =
+      "Discover Our Curated Selection";
+  static const String homeOurPortfolioDescription =
+      "Explore our handpicked collection of exceptional properties";
+  static const String homeOurPortfolioButton =
       "Request a Private Consultation";
 
   // Properties Page

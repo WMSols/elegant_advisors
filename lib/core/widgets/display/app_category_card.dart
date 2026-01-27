@@ -1,3 +1,4 @@
+import 'package:elegant_advisors/core/utils/app_fonts/app_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
@@ -23,7 +24,8 @@ class AppCategoryCard extends StatelessWidget {
           title,
           style: AppTextStyles.bodyText(context).copyWith(
             color: AppColors.primary,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w500,
+            fontFamily: AppFonts.primaryFont,
             fontSize: AppResponsive.fontSizeClamped(context, min: 18, max: 22),
           ),
           textAlign: TextAlign.left,
