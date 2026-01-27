@@ -10,12 +10,11 @@ import 'package:elegant_advisors/core/utils/app_helpers/language/app_localizatio
 import 'package:elegant_advisors/core/widgets/buttons/app_icon_button.dart';
 import 'package:elegant_advisors/core/widgets/display/app_logo.dart';
 import 'package:elegant_advisors/presentation/client/controllers/properties/client_properties_controller.dart';
+import 'package:elegant_advisors/presentation/client/controllers/properties/client_off_market_controller.dart';
 import 'package:elegant_advisors/presentation/client/controllers/properties/client_property_detail_controller.dart';
 import 'package:elegant_advisors/presentation/client/controllers/contact/client_contact_controller.dart';
 import 'package:elegant_advisors/presentation/client/controllers/contact/my_contacts/client_my_contacts_controller.dart';
 import 'package:elegant_advisors/presentation/client/controllers/home/client_home_controller.dart';
-import 'package:elegant_advisors/presentation/client/controllers/our_team/client_our_team_controller.dart';
-import 'package:elegant_advisors/presentation/client/controllers/about_us/client_about_us_controller.dart';
 
 class HeaderMobileDrawer extends StatelessWidget {
   final VoidCallback onClose;
@@ -69,13 +68,8 @@ class HeaderMobileDrawer extends StatelessWidget {
                     onTap: onClose,
                   ),
                   _MobileDrawerItem(
-                    label: context.l10n.navOurTeam,
-                    route: ClientConstants.routeClientOurTeam,
-                    onTap: onClose,
-                  ),
-                  _MobileDrawerItem(
-                    label: context.l10n.navAboutUs,
-                    route: ClientConstants.routeClientAboutUs,
+                    label: context.l10n.navOffMarket,
+                    route: ClientConstants.routeClientOffMarket,
                     onTap: onClose,
                   ),
                   _MobileDrawerItem(
@@ -145,6 +139,17 @@ class _MobileDrawerItemState extends State<_MobileDrawerItem> {
           }
         }
 
+        // Special handling for off-market route to prevent GlobalKey/ScrollController conflicts
+        if (widget.route == ClientConstants.routeClientOffMarket) {
+          // Delete both controllers to ensure clean state
+          if (Get.isRegistered<ClientPropertyDetailController>()) {
+            Get.delete<ClientPropertyDetailController>(force: true);
+          }
+          if (Get.isRegistered<ClientOffMarketController>()) {
+            Get.delete<ClientOffMarketController>(force: true);
+          }
+        }
+
         // Special handling for contact route to prevent GlobalKey conflicts
         if (widget.route == ClientConstants.routeClientContact) {
           // Delete both contact controllers to ensure clean state
@@ -160,20 +165,6 @@ class _MobileDrawerItemState extends State<_MobileDrawerItem> {
         if (widget.route == ClientConstants.routeClientHome) {
           if (Get.isRegistered<ClientHomeController>()) {
             Get.delete<ClientHomeController>(force: true);
-          }
-        }
-
-        // Special handling for our team route to prevent ScrollController conflicts
-        if (widget.route == ClientConstants.routeClientOurTeam) {
-          if (Get.isRegistered<ClientOurTeamController>()) {
-            Get.delete<ClientOurTeamController>(force: true);
-          }
-        }
-
-        // Special handling for about us route to prevent ScrollController conflicts
-        if (widget.route == ClientConstants.routeClientAboutUs) {
-          if (Get.isRegistered<ClientAboutUsController>()) {
-            Get.delete<ClientAboutUsController>(force: true);
           }
         }
 

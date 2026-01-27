@@ -24,7 +24,6 @@ class AdminDashboardPieChart extends GetView<AdminDashboardController> {
       final totalUniqueVisits = controller.totalUniqueVisits.value;
       final totalProperties = controller.propertiesCount.value;
       final publishedProperties = controller.publishedPropertiesCount.value;
-      final teamMembers = controller.teamCount.value;
       final newInquiries = controller.newInquiriesCount.value;
 
       // Prepare pie chart data
@@ -53,11 +52,6 @@ class AdminDashboardPieChart extends GetView<AdminDashboardController> {
           value: publishedProperties.toDouble(),
           color: AppColors.publishedProperties,
           label: AppTexts.adminDashboardPublishedProperties,
-        ),
-        _PieChartData(
-          value: teamMembers.toDouble(),
-          color: AppColors.teamMembers,
-          label: AppTexts.adminDashboardTeamMembers,
         ),
         _PieChartData(
           value: newInquiries.toDouble(),

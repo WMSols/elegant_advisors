@@ -8,12 +8,11 @@ import 'package:elegant_advisors/core/utils/app_helpers/language/app_localizatio
 import 'package:elegant_advisors/core/constants/client_constants.dart';
 import 'package:elegant_advisors/presentation/client/widgets/footer/footer_link.dart';
 import 'package:elegant_advisors/presentation/client/controllers/properties/client_properties_controller.dart';
+import 'package:elegant_advisors/presentation/client/controllers/properties/client_off_market_controller.dart';
 import 'package:elegant_advisors/presentation/client/controllers/properties/client_property_detail_controller.dart';
 import 'package:elegant_advisors/presentation/client/controllers/contact/client_contact_controller.dart';
 import 'package:elegant_advisors/presentation/client/controllers/contact/my_contacts/client_my_contacts_controller.dart';
 import 'package:elegant_advisors/presentation/client/controllers/home/client_home_controller.dart';
-import 'package:elegant_advisors/presentation/client/controllers/our_team/client_our_team_controller.dart';
-import 'package:elegant_advisors/presentation/client/controllers/about_us/client_about_us_controller.dart';
 
 class FooterQuickLinks extends StatelessWidget {
   const FooterQuickLinks({super.key});
@@ -58,23 +57,17 @@ class FooterQuickLinks extends StatelessWidget {
           },
         ),
         FooterLink(
-          text: context.l10n.navOurTeam,
+          text: context.l10n.navOffMarket,
           onTap: () {
-            // Delete our team controller to ensure clean state
-            if (Get.isRegistered<ClientOurTeamController>()) {
-              Get.delete<ClientOurTeamController>(force: true);
+            // Delete both controllers to ensure clean state
+            if (Get.isRegistered<ClientPropertyDetailController>()) {
+              Get.delete<ClientPropertyDetailController>(force: true);
             }
-            Get.offNamed(ClientConstants.routeClientOurTeam);
-          },
-        ),
-        FooterLink(
-          text: context.l10n.navAboutUs,
-          onTap: () {
-            // Delete about us controller to ensure clean state
-            if (Get.isRegistered<ClientAboutUsController>()) {
-              Get.delete<ClientAboutUsController>(force: true);
+            if (Get.isRegistered<ClientOffMarketController>()) {
+              Get.delete<ClientOffMarketController>(force: true);
             }
-            Get.offNamed(ClientConstants.routeClientAboutUs);
+            // Use offNamed to replace current route, ensuring old route is fully removed
+            Get.offNamed(ClientConstants.routeClientOffMarket);
           },
         ),
         FooterLink(

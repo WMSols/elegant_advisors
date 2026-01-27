@@ -24,145 +24,114 @@ class AppLocalizationsEn extends AppLocalizations {
   String get navProperties => 'Properties';
 
   @override
-  String get navOurTeam => 'Our Team';
-
-  @override
-  String get navAboutUs => 'About Us';
+  String get navOffMarket => 'Off Market';
 
   @override
   String get navContact => 'Contact';
 
   @override
-  String get homeTitle => 'YOUR VISION, OUR EXPERTISE';
+  String get homeTitle => 'ELEGANCE, INTEGRITY, TRANSPARENCY';
 
   @override
   String get homeSubtitle =>
-      'Elegant is a leading real estate advisory in Portugal in finding and securing properties for private individuals, family offices, and property investors.';
+      'Elegant is a real estate advisory defined by a singular philosophy: real estate, at its finest, is an art of elegance. We curate exceptional property opportunities in Portugal, guided by discretion, market insight, and uncompromising standards.';
 
   @override
   String get homeButtonConsultation => 'Request A Private Consultation';
 
   @override
-  String get homeMarketEducatedTitle => 'MARKET EDUCATED,\nBUYER FOCUSED';
+  String get homeOurApproachTitle => 'OUR APPROACH';
 
   @override
-  String get homeMarketEducatedDescription =>
-      'Combining an international mindset and profound local market expertise, our bespoke service gives you the insider\'s edge on the Portuguese real estate market. We\'ve spent years forging deep connections with prominent real estate agencies, established developers, and well-connected individuals to shape our network and help you find and secure the property you\'re truly seeking. On or off market, no exclusives to push.';
+  String get homeOurApproachDescription =>
+      'We combine deep market intelligence with strong local and international networks to deliver tailored advisory services across the full investment lifecycle — from strategy definition and asset sourcing to acquisition, due diligence, structuring, and closing. Each client receives discreet, data-driven guidance aligned with their financial objectives, risk profile, and investment horizon.';
 
   @override
-  String get homeMarketEducatedButton => 'What We Do';
+  String get homeOurApproachButton => 'What We Do';
 
   @override
-  String get homeOurDiscerningClienteleTitle => 'OUR DISCERNING\nCLIENTELE';
+  String get homeOurPhilosophyMissionTitle => 'OUR PHILOSOPHY\n& MISSION';
 
   @override
-  String get homeOurDiscerningClienteleDescription =>
-      'Hailing from 30+ nationalities since 2014, our private clientele values a bespoke, discreet service with strategic guidance across all relevant fields. That\'s precisely what we do.';
+  String get homeOurPhilosophyMissionDescription =>
+      'Elegance, integrity, and transparency define how we operate. At Elegant, we believe in quality over volume — carefully curating residential, commercial, and hospitality opportunities that align precisely with each client\'s lifestyle ambitions or investment strategy.';
 
   @override
-  String get homeOurDiscerningClientelePropertyInvestorsTitle =>
-      'PROPERTY INVESTORS';
+  String get homeOurPhilosophyTitle => 'OUR PHILOSOPHY';
 
   @override
-  String get homeOurDiscerningClientelePropertyInvestorsDescription =>
-      'If you are looking to grow your real estate portfolio in Portugal, we act as your skilled advisor on all things strategy.';
+  String get homeOurPhilosophyDescription =>
+      'Elegance, integrity, and transparency define how we operate. At Elegant, we believe in quality over volume — carefully curating residential, commercial, and hospitality opportunities that align precisely with each client\'s lifestyle ambitions or investment strategy.';
 
   @override
-  String get homeOurDiscerningClienteleCitizenshipClientsTitle =>
-      'CITIZENSHIP CLIENTS';
+  String get homeOurMissionTitle => 'OUR MISSION';
 
   @override
-  String get homeOurDiscerningClienteleCitizenshipClientsDescription =>
-      'If you are looking to gain access to the Golden Visa or another citizenship program by making a real estate investment, we will guide you in the right way.';
+  String get homeOurMissionDescription =>
+      'Our mission is to deliver clarity and sophistication at every stage of the property journey, ensuring each acquisition is as seamless as it is distinguished.';
 
   @override
-  String get homeOurDiscerningClienteleLifestyleHomeBuyersTitle =>
-      'LIFESTYLE HOME BUYERS';
+  String get homeWhatWeSpecializeInTitle => 'WHAT WE SPECIALIZE IN';
 
   @override
-  String get homeOurDiscerningClienteleLifestyleHomeBuyersDescription =>
-      'If you are looking to fully relocate to Portugal or simply enjoy a vacation home, you can count on us to help you find the property you\'ve always envisioned.';
+  String get homeWhatWeSpecializeInDescription =>
+      'We specialize in curating exceptional property opportunities across multiple asset classes, each tailored to meet distinct investment objectives and lifestyle aspirations.';
 
   @override
-  String get homeOurDiscerningClienteleLuxuryPropertyOwnersTitle =>
-      'LUXURY PROPERTY OWNERS';
+  String get homeWhatWeSpecializeInHighEndResidentialTitle =>
+      'HIGH-END RESIDENTIAL ASSETS';
 
   @override
-  String get homeOurDiscerningClienteleLuxuryPropertyOwnersDescription =>
-      'If you are looking to rent or find a trustworthy property manager, we deliver a 360° bespoke service that ensures all runs smoothly.';
+  String get homeWhatWeSpecializeInHighEndResidentialDescription =>
+      'Luxury villas, premium apartments, and exclusive residential properties in prime locations — curated for lifestyle buyers and investors seeking long-term capital appreciation.';
 
   @override
-  String get homeOurDiscerningClienteleButton => 'What Our Clients Say';
+  String get homeWhatWeSpecializeInInvestmentPlotsTitle =>
+      'INVESTMENT PLOTS & DEVELOPMENT LAND';
 
   @override
-  String get homeUnparalleledExpertiseTitle => 'UNPARALLELED EXPERTISE';
+  String get homeWhatWeSpecializeInInvestmentPlotsDescription =>
+      'Strategic land opportunities for residential, commercial, and hospitality developments. Suitable for developers, asset managers, private equity funds, and long-term investors seeking scalable growth.';
 
   @override
-  String get homeUnparalleledExpertiseDescription =>
-      'With an unrivalled track record, our multidisciplinary team manages all transaction details - from first brief to acquisition and post sales.';
+  String get homeWhatWeSpecializeInInvestmentBuildingsTitle =>
+      'INVESTMENT BUILDINGS';
 
   @override
-  String get homeUnparalleledExpertisePropertySearchTitle => 'PROPERTY SEARCH';
+  String get homeWhatWeSpecializeInInvestmentBuildingsDescription =>
+      'Entire buildings requiring renovation, refurbishment, or redevelopment for residential or commercial use. Ideal for developers, asset managers, private equity funds, and investors pursuing value-add and repositioning strategies.';
 
   @override
-  String get homeUnparalleledExpertisePropertySearchDescription =>
-      'After thoroughly analyzing your brief, we take it to the market and search for the property that meets your utmost standards.';
+  String get homeWhatWeSpecializeInCommercialRealEstateTitle =>
+      'COMMERCIAL REAL ESTATE';
 
   @override
-  String get homeUnparalleledExpertisePurchaseStrategyTitle =>
-      'PURCHASE STRATEGY';
+  String get homeWhatWeSpecializeInCommercialRealEstateDescription =>
+      'Retail, office, parking, and industrial assets — including income-generating properties with stable tenants and strong yield profiles.';
 
   @override
-  String get homeUnparalleledExpertisePurchaseStrategyDescription =>
-      'In collaboration with you, we develop a tactical buying plan that adapts to your particular needs.';
+  String get homeWhatWeSpecializeInHospitalityTitle =>
+      'HOSPITALITY & HOTEL INVESTMENTS';
 
   @override
-  String get homeUnparalleledExpertiseNegotiationTitle => 'NEGOTIATION';
+  String get homeWhatWeSpecializeInHospitalityDescription =>
+      'A dedicated focus on hotels, serviced apartments, boutique hotels, resorts, and mixed-use hospitality developments. We advise on acquisitions, repositioning opportunities, operational assets, and development-led projects — targeting both yield and value creation.';
 
   @override
-  String get homeUnparalleledExpertiseNegotiationDescription =>
-      'Renowned for our exceptional negotiation skills, we handle the process on your behalf, so you can secure your selected property at the best price.';
+  String get homeWhatWeSpecializeInButton => 'Contact Us';
 
   @override
-  String get homeUnparalleledExpertisePortfolioManagementTitle =>
-      'PORTFOLIO MANAGEMENT';
+  String get homeOurPortfolioTitle => 'OUR PORTFOLIO';
 
   @override
-  String get homeUnparalleledExpertisePortfolioManagementDescription =>
-      'Using our market experience to assess risk and identify opportunities, we advise and assist you in building your real estate portfolio.';
+  String get homeOurPortfolioSubtitle => 'Discover Our Curated Selection';
 
   @override
-  String get homeUnparalleledExpertiseVisaTaxAdvisoryTitle =>
-      'VISA & TAX ADVISORY';
+  String get homeOurPortfolioDescription =>
+      'Explore our handpicked collection of exceptional properties';
 
   @override
-  String get homeUnparalleledExpertiseVisaTaxAdvisoryDescription =>
-      'Through our established partnerships with Portuguese lawyers and tax specialists, we provide a turn-key solution to clients interested in the Golden Visa, D7, D2, Nomad Visa or Portugal\'s Non-Habitual Resident Status (NHR).';
-
-  @override
-  String get homeUnparalleledExpertiseLuxuryRentalsManagementTitle =>
-      'LUXURY RENTALS & MANAGEMENT';
-
-  @override
-  String get homeUnparalleledExpertiseLuxuryRentalsManagementDescription =>
-      'We ensure your investment is maximized by securing sterling tenants or simply maintaining your property in mint condition. Should you wish to rent an apartment, we will find a prime rental option suitable for your particular goals.';
-
-  @override
-  String get homeUnparalleledExpertiseButton => 'Our Team';
-
-  @override
-  String get homePrivilegingQualityTitle => 'PRIVILEGING QUALITY';
-
-  @override
-  String get homePrivilegingQualitySubtitle =>
-      'Nearly 70% of our clients come by referral';
-
-  @override
-  String get homePrivilegingQualityDescription =>
-      'Here is a selection of our previous transactions.';
-
-  @override
-  String get homePrivilegingQualityButton => 'Request a Private Consultation';
+  String get homeOurPortfolioButton => 'Request a Private Consultation';
 
   @override
   String get propertiesTitle => 'Properties';
@@ -173,6 +142,37 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get propertiesDescription =>
       'Browse our curated selection of premium properties available for purchase.';
+
+  @override
+  String get offMarketTitle => 'Off Market';
+
+  @override
+  String get offMarketSubtitle => 'Exclusive Off Market Opportunities';
+
+  @override
+  String get offMarketDescription =>
+      'Discover our curated selection of exclusive off-market properties available through private consultation.';
+
+  @override
+  String get offMarketViewProperties => 'View Off Market Properties';
+
+  @override
+  String get clientOffMarketErrorLoading =>
+      'Failed to load off-market properties';
+
+  @override
+  String get clientOffMarketRetry => 'Retry';
+
+  @override
+  String get clientOffMarketNoPropertiesFound =>
+      'No off-market properties found';
+
+  @override
+  String get clientOffMarketNoPropertiesMessage =>
+      'We couldn\'t find any off-market properties matching your criteria. Try adjusting your filters.';
+
+  @override
+  String get clientOffMarketClearFilters => 'Clear Filters';
 
   @override
   String get clientPropertiesShowMore => 'Show More';
@@ -292,26 +292,6 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get clientPropertyDetailNotFoundMessage =>
       'The property you are looking for could not be found.';
-
-  @override
-  String get ourTeamTitle => 'Our Team';
-
-  @override
-  String get ourTeamSubtitle => 'Meet Our Expert Advisors';
-
-  @override
-  String get ourTeamDescription =>
-      'Our multidisciplinary team brings unparalleled expertise to every transaction.';
-
-  @override
-  String get aboutUsTitle => 'About Us';
-
-  @override
-  String get aboutUsSubtitle => 'Elegant Advisors';
-
-  @override
-  String get aboutUsDescription =>
-      'Learn more about our mission, values, and commitment to excellence.';
 
   @override
   String get contactTitle => 'Contact Us';
@@ -495,7 +475,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get footerCompanyDescription =>
-      'Leading real estate advisory in Portugal, helping private individuals, family offices, and property investors find and secure premium properties.';
+      'Elegant is a real estate advisory defined by a singular philosophy: real estate, at its finest, is an art of elegance. We curate exceptional property opportunities in Portugal, guided by discretion, market insight, and uncompromising standards.';
 
   @override
   String get footerSocialTitle => 'Follow Us';
@@ -534,4 +514,61 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get contactFormErrorSubmit => 'Failed to submit. Please try again.';
+
+  @override
+  String get clientPropertiesFilterPriceMin => 'Min';
+
+  @override
+  String get clientPropertiesFilterPriceMax => 'Max';
+
+  @override
+  String get clientPropertiesFilterPriceCurrency => '€ ';
+
+  @override
+  String get headerLanguageEnglish => 'English';
+
+  @override
+  String get headerLanguagePortuguese => 'Portuguese';
+
+  @override
+  String get clientPropertiesStatusAvailable => 'Available';
+
+  @override
+  String get clientPropertiesStatusSold => 'Sold';
+
+  @override
+  String get clientPropertiesStatusComingSoon => 'Coming Soon';
+
+  @override
+  String get clientPropertiesStatusOffMarket => 'Off Market';
+
+  @override
+  String get contactOfficeAddressValue => '123 Main Street, Lisbon, Portugal';
+
+  @override
+  String get contactOfficePhoneValue => '+351 123 456 789';
+
+  @override
+  String get contactOfficeEmailValue => 'info@elegantadvisors.com';
+
+  @override
+  String get contactOfficeHoursValue => 'Monday - Friday: 9:00 AM - 6:00 PM';
+
+  @override
+  String get clientPropertyCardBed => 'bed';
+
+  @override
+  String get clientPropertyCardBath => 'bath';
+
+  @override
+  String get clientPropertyDetailSpecType => 'Type:';
+
+  @override
+  String get clientPropertyDetailSpecBedrooms => 'Bedrooms:';
+
+  @override
+  String get clientPropertyDetailSpecBathrooms => 'Bathrooms:';
+
+  @override
+  String get clientPropertyDetailSpecArea => 'Area:';
 }

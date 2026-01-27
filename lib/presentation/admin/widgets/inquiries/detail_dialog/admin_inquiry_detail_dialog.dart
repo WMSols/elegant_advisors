@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
-import 'package:elegant_advisors/core/utils/app_images/app_images.dart';
 import 'package:elegant_advisors/domain/models/contact_submission_model.dart';
 import 'package:elegant_advisors/presentation/admin/widgets/inquiries/detail_dialog/admin_inquiry_detail_header.dart';
 import 'package:elegant_advisors/presentation/admin/widgets/inquiries/detail_dialog/admin_inquiry_detail_content.dart';
@@ -54,11 +53,11 @@ class AdminInquiryDetailDialog extends StatelessWidget {
                 child: Container(
                   decoration: BoxDecoration(
                     color: AppColors.primary,
-                    image: const DecorationImage(
-                      image: AssetImage(AppImages.homeBackground),
-                      fit: BoxFit.cover,
-                      onError: null,
-                    ),
+                    // image: const DecorationImage(
+                    //   image: AssetImage(AppImages.homeBackground),
+                    //   fit: BoxFit.cover,
+                    //   onError: null,
+                    // ),
                     borderRadius: BorderRadius.circular(
                       AppResponsive.radius(context),
                     ),

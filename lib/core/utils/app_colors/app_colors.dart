@@ -4,24 +4,23 @@ class AppColors {
   AppColors._();
 
   //global
-  static const Color primary = Color(0XFF070922);
+  static const Color primary = Color(0xFF070922);
   static const Color secondary = Colors.white;
   static const Color white = Colors.white;
   static const Color black = Colors.black;
-  static const Color grey = Colors.grey;
-  static const Color success = Colors.green;
-  static const Color information = Colors.blue;
-  static const Color warning = Colors.orange;
+  static const Color grey = Color(0xFF9E9E9E);
+  static const Color success = Color(0xFF4CAF50);
+  static const Color information = Color(0xFF2196F3);
+  static const Color warning = Color(0xFFFF9800);
   static const Color error = Color(0xFFF44336);
 
   //dashboard chart
-  static const Color totalVisits = Color(0XFF070922);
-  static const Color propertyVisits = Colors.green;
-  static const Color uniqueVisits = Colors.blue;
-  static const Color totalProperties = Color(0XFF6C5CE7);
+  static const Color totalVisits = Color(0xFF070922);
+  static const Color propertyVisits = Color(0xFF4CAF50);
+  static const Color uniqueVisits = Color(0xFF2196F3);
+  static const Color totalProperties = Color(0xFF6C5CE7);
   static const Color publishedProperties = Color(0xFF00B894);
-  static const Color teamMembers = Color(0xFF0984E3);
-  static const Color newInquiries = Colors.orange;
+  static const Color newInquiries = Color(0xFFFF9800);
 
   //light
   static const Color lightBackground = Color(0xFFFFFFFF);

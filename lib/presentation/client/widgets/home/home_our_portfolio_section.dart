@@ -1,0 +1,29 @@
+import 'package:flutter/material.dart';
+import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
+import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
+import 'package:elegant_advisors/core/widgets/animations/app_fade_in_on_scroll.dart';
+import 'package:elegant_advisors/presentation/client/widgets/home/home_our_portfolio_content.dart';
+
+class HomeOurPortfolioSection extends StatelessWidget {
+  const HomeOurPortfolioSection({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final isSmallScreen = constraints.maxWidth < 768;
+
+        return Container(
+          width: double.infinity,
+          color: AppColors.lightBeige,
+          padding: AppSpacing.symmetric(context, h: 0.1, v: 0.08),
+          child: AppFadeInOnScroll(
+            child: isSmallScreen
+                ? const HomeOurPortfolioContentMobile()
+                : const HomeOurPortfolioContentDesktop(),
+          ),
+        );
+      },
+    );
+  }
+}

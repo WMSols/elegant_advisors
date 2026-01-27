@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
-import 'package:elegant_advisors/core/utils/app_images/app_images.dart';
 import 'package:elegant_advisors/core/constants/admin_constants.dart';
 
 /// Navigation item widget for admin navigation panel
@@ -75,13 +74,13 @@ class AdminNavigationItem extends StatelessWidget {
         ),
         decoration: BoxDecoration(
           // Active items show background image, inactive are transparent
-          image: isActive
-              ? const DecorationImage(
-                  image: AssetImage(AppImages.homeBackground),
-                  fit: BoxFit.cover,
-                )
-              : null,
-          color: isActive ? null : Colors.transparent,
+          // image: isActive
+          //     ? const DecorationImage(
+          //         image: AssetImage(AppImages.homeBackground),
+          //         fit: BoxFit.cover,
+          //       )
+          //     : null,
+          color: isActive ? AppColors.primary : Colors.transparent,
           borderRadius: isActive
               ? BorderRadius.only(
                   topLeft: Radius.circular(borderRadius),

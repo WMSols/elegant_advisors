@@ -24,6 +24,7 @@ class ClientPropertiesFilterPanel extends StatefulWidget {
   final List<String> availableCountries;
   final List<String> availableCities;
   final double? maxPrice;
+  final bool hideStatusFilter; // Hide status filter for off-market screen
 
   const ClientPropertiesFilterPanel({
     super.key,
@@ -35,6 +36,7 @@ class ClientPropertiesFilterPanel extends StatefulWidget {
     this.availableCountries = const [],
     this.availableCities = const [],
     this.maxPrice,
+    this.hideStatusFilter = false,
   });
 
   @override
@@ -226,21 +228,23 @@ class _ClientPropertiesFilterPanelState
                     _updateFilters();
                   },
                 ),
-                AppSpacing.vertical(context, 0.015),
-                // Status Chips
-                ClientPropertyFilterStatusChips(
-                  selectedStatuses: _currentFilters.statuses,
-                  onStatusToggled: (status, selected) {
-                    setState(() {
-                      if (selected) {
-                        _currentFilters.statuses.add(status);
-                      } else {
-                        _currentFilters.statuses.remove(status);
-                      }
-                    });
-                    _updateFilters();
-                  },
-                ),
+                // Status Chips - hide if hideStatusFilter is true
+                if (!widget.hideStatusFilter) ...[
+                  AppSpacing.vertical(context, 0.015),
+                  ClientPropertyFilterStatusChips(
+                    selectedStatuses: _currentFilters.statuses,
+                    onStatusToggled: (status, selected) {
+                      setState(() {
+                        if (selected) {
+                          _currentFilters.statuses.add(status);
+                        } else {
+                          _currentFilters.statuses.remove(status);
+                        }
+                      });
+                      _updateFilters();
+                    },
+                  ),
+                ],
                 AppSpacing.vertical(context, 0.015),
                 // Featured Only
                 ClientPropertyFilterFeatured(

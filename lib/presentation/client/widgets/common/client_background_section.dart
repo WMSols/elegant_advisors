@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
-import 'package:elegant_advisors/core/utils/app_images/app_images.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
 
 /// Reusable background section with image decoration
@@ -27,11 +26,11 @@ class ClientBackgroundSection extends StatelessWidget {
       width: double.infinity,
       decoration: BoxDecoration(
         color: AppColors.primary, // Fallback color
-        image: DecorationImage(
-          image: AssetImage(backgroundImage ?? AppImages.homeBackground),
-          fit: BoxFit.cover,
-          onError: null,
-        ),
+        // image: DecorationImage(
+        //   image: AssetImage(backgroundImage ?? AppImages.homeBackground),
+        //   fit: BoxFit.cover,
+        //   onError: null,
+        // ),
       ),
       child: Container(
         width: double.infinity,

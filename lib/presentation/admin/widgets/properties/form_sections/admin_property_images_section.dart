@@ -194,6 +194,7 @@ class AdminPropertyImagesSection extends GetView<AdminPropertyFormController> {
                               child: AppIconButton(
                                 icon: Iconsax.trash,
                                 color: AppColors.error,
+                                backgroundColor: AppColors.white,
                                 onPressed: () => controller.removeImage(index),
                                 iconSize: AppResponsive.scaleSize(
                                   context,

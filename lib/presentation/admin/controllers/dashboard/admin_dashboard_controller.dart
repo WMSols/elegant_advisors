@@ -16,7 +16,6 @@ class AdminDashboardController extends BaseController {
   final totalUniqueVisits = 0.obs;
   final propertiesCount = 0.obs;
   final publishedPropertiesCount = 0.obs;
-  final teamCount = 0.obs;
   final newInquiriesCount = 0.obs;
   final adminName = 'Admin'.obs;
 
@@ -54,7 +53,6 @@ class AdminDashboardController extends BaseController {
       loadVisitorStats(),
       loadVisitorTrackingStats(),
       loadPropertiesCount(),
-      loadTeamCount(),
       loadInquiriesCount(),
     ]);
   }
@@ -111,15 +109,6 @@ class AdminDashboardController extends BaseController {
           .length;
     } catch (e) {
       showError('Failed to load properties count');
-    }
-  }
-
-  Future<void> loadTeamCount() async {
-    try {
-      final team = await _firestoreService.getAllTeam().first;
-      teamCount.value = team.length;
-    } catch (e) {
-      // showError('Failed to load team count');
     }
   }
 

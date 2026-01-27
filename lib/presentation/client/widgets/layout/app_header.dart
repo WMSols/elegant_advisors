@@ -58,12 +58,8 @@ class _AppHeaderState extends State<AppHeader> {
                             route: ClientConstants.routeClientProperties,
                           ),
                           HeaderNavItem(
-                            label: context.l10n.navOurTeam,
-                            route: ClientConstants.routeClientOurTeam,
-                          ),
-                          HeaderNavItem(
-                            label: context.l10n.navAboutUs,
-                            route: ClientConstants.routeClientAboutUs,
+                            label: context.l10n.navOffMarket,
+                            route: ClientConstants.routeClientOffMarket,
                           ),
                           // Contact and Language Selector in same row
                           Row(

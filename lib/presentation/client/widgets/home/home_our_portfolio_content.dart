@@ -1,0 +1,515 @@
+import 'package:elegant_advisors/core/utils/app_fonts/app_fonts.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
+import 'package:elegant_advisors/core/constants/client_constants.dart';
+import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
+import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
+import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
+import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
+import 'package:elegant_advisors/core/utils/app_helpers/language/app_localizations_helper.dart';
+import 'package:elegant_advisors/core/widgets/buttons/app_button.dart';
+import 'package:elegant_advisors/core/widgets/images/app_error_image_fallback.dart';
+import 'package:elegant_advisors/core/widgets/images/app_network_image.dart';
+import 'package:elegant_advisors/data/services/firestore_service.dart';
+
+class HomeOurPortfolioContentDesktop extends StatelessWidget {
+  const HomeOurPortfolioContentDesktop({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        _PortfolioHeader(),
+        AppSpacing.vertical(context, 0.06),
+        ConstrainedBox(
+          constraints: BoxConstraints(
+            maxWidth: AppResponsive.screenWidth(context) * 0.8,
+          ),
+          child: _ImageCarouselWithGallery(),
+        ),
+        AppSpacing.vertical(context, 0.06),
+        _PortfolioButton(),
+      ],
+    );
+  }
+}
+
+class HomeOurPortfolioContentMobile extends StatelessWidget {
+  const HomeOurPortfolioContentMobile({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        _PortfolioHeader(),
+        AppSpacing.vertical(context, 0.06),
+        _ImageCarouselWithGallery(),
+        AppSpacing.vertical(context, 0.06),
+        _PortfolioButton(fullWidth: true),
+      ],
+    );
+  }
+}
+
+class _PortfolioHeader extends StatelessWidget {
+  const _PortfolioHeader();
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Text(
+          context.l10n.homeOurPortfolioTitle,
+          style: AppTextStyles.bodyText(context).copyWith(
+            color: AppColors.primary,
+            fontFamily: AppFonts.primaryFont,
+            fontWeight: FontWeight.bold,
+            fontSize: AppResponsive.fontSizeClamped(context, min: 26, max: 30),
+          ),
+          textAlign: TextAlign.center,
+        ),
+        AppSpacing.vertical(context, 0.02),
+        Text(
+          context.l10n.homeOurPortfolioSubtitle,
+          style: AppTextStyles.bodyText(context).copyWith(
+            color: AppColors.primary,
+            fontFamily: AppFonts.primaryFont,
+            fontWeight: FontWeight.w500,
+            fontSize: AppResponsive.fontSizeClamped(context, min: 18, max: 22),
+          ),
+          textAlign: TextAlign.center,
+        ),
+        AppSpacing.vertical(context, 0.02),
+        Text(
+          context.l10n.homeOurPortfolioDescription,
+          style: AppTextStyles.bodyText(context).copyWith(
+            color: AppColors.grey,
+            height: 1.6,
+            fontSize: AppResponsive.fontSizeClamped(context, min: 10, max: 14),
+          ),
+          textAlign: TextAlign.center,
+        ),
+      ],
+    );
+  }
+}
+
+class _ImageCarousel extends StatelessWidget {
+  final PageController pageController;
+  final Function(int) onImageChanged;
+  final VoidCallback onPrevious;
+  final VoidCallback onNext;
+  final List<String> images;
+
+  const _ImageCarousel({
+    required this.pageController,
+    required this.onImageChanged,
+    required this.onPrevious,
+    required this.onNext,
+    required this.images,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final isSmallScreen = MediaQuery.of(context).size.width < 768;
+    final carouselHeight = isSmallScreen
+        ? AppResponsive.screenHeight(context) * 0.4
+        : AppResponsive.screenHeight(context) * 0.8;
+    final arrowSize = AppResponsive.fontSizeClamped(context, min: 16, max: 20);
+    final arrowButtonSize = AppResponsive.fontSizeClamped(
+      context,
+      min: 32,
+      max: 40,
+    );
+    final arrowPadding = AppResponsive.screenWidth(context) * 0.02;
+    final iconSize = AppResponsive.fontSizeClamped(context, min: 60, max: 80);
+
+    if (images.isEmpty) {
+      return Container(
+        width: double.infinity,
+        height: carouselHeight,
+        decoration: BoxDecoration(color: AppColors.grey.withValues(alpha: 0.1)),
+        child: Center(child: AppErrorImageFallback(iconSize: iconSize)),
+      );
+    }
+
+    return Stack(
+      children: [
+        Container(
+          width: double.infinity,
+          height: carouselHeight,
+          decoration: BoxDecoration(
+            color: AppColors.grey.withValues(alpha: 0.1),
+          ),
+          child: ClipRRect(
+            child: PageView.builder(
+              controller: pageController,
+              onPageChanged: onImageChanged,
+              itemCount: images.length,
+              itemBuilder: (context, index) {
+                return SizedBox.expand(
+                  child: AppNetworkImage(
+                    imageUrl: images[index],
+                    fit: BoxFit.cover,
+                  ),
+                );
+              },
+            ),
+          ),
+        ),
+        // Left Arrow
+        if (images.length > 1)
+          Positioned(
+            left: arrowPadding,
+            top: 0,
+            bottom: 0,
+            child: Center(
+              child: _CarouselArrow(
+                icon: Iconsax.arrow_left_2,
+                onTap: onPrevious,
+                size: arrowButtonSize,
+                iconSize: arrowSize,
+              ),
+            ),
+          ),
+        // Right Arrow
+        if (images.length > 1)
+          Positioned(
+            right: arrowPadding,
+            top: 0,
+            bottom: 0,
+            child: Center(
+              child: _CarouselArrow(
+                icon: Iconsax.arrow_right_3,
+                onTap: onNext,
+                size: arrowButtonSize,
+                iconSize: arrowSize,
+              ),
+            ),
+          ),
+      ],
+    );
+  }
+}
+
+class _ImageCarouselWithGallery extends StatefulWidget {
+  const _ImageCarouselWithGallery();
+
+  @override
+  State<_ImageCarouselWithGallery> createState() =>
+      _ImageCarouselWithGalleryState();
+}
+
+class _ImageCarouselWithGalleryState extends State<_ImageCarouselWithGallery> {
+  late final PageController _pageController;
+  final FirestoreService _firestoreService = FirestoreService();
+  int _currentImageIndex = 0;
+  List<String> _allImages = [];
+  bool _isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController();
+    _loadPropertyImages();
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  Future<void> _loadPropertyImages() async {
+    try {
+      final properties = await _firestoreService.getPublishedPropertiesOnce();
+      // Get cover images from properties, prioritizing featured properties
+      final coverImages =
+          properties
+              .where((p) => p.coverImage != null && p.coverImage!.isNotEmpty)
+              .toList()
+            ..sort((a, b) {
+              // Featured properties first
+              if (a.isFeatured && !b.isFeatured) return -1;
+              if (!a.isFeatured && b.isFeatured) return 1;
+              return 0;
+            });
+
+      // Limit to maximum 10 images
+      _allImages = coverImages.take(10).map((p) => p.coverImage!).toList();
+    } catch (e) {
+      // Silently fail - empty list will show fallback
+      _allImages = [];
+    } finally {
+      if (mounted) {
+        setState(() {
+          _isLoading = false;
+        });
+      }
+    }
+  }
+
+  void _previousImage() {
+    if (_allImages.isEmpty) return;
+    if (_currentImageIndex > 0) {
+      _pageController.previousPage(
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeInOut,
+      );
+    } else {
+      _pageController.jumpToPage(_allImages.length - 1);
+    }
+  }
+
+  void _nextImage() {
+    if (_allImages.isEmpty) return;
+    if (_currentImageIndex < _allImages.length - 1) {
+      _pageController.nextPage(
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeInOut,
+      );
+    } else {
+      _pageController.jumpToPage(0);
+    }
+  }
+
+  void _goToPage(int index) {
+    if (_allImages.isEmpty) return;
+    _pageController.animateToPage(
+      index,
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeInOut,
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (_isLoading) {
+      return const SizedBox(
+        height: 400,
+        child: Center(child: CircularProgressIndicator()),
+      );
+    }
+
+    if (_allImages.isEmpty) {
+      return const SizedBox.shrink();
+    }
+
+    return Column(
+      children: [
+        _ImageCarousel(
+          pageController: _pageController,
+          onImageChanged: (index) {
+            setState(() {
+              _currentImageIndex = index;
+            });
+          },
+          onPrevious: _previousImage,
+          onNext: _nextImage,
+          images: _allImages,
+        ),
+        AppSpacing.vertical(context, 0.02),
+        _ThumbnailGallery(
+          images: _allImages,
+          currentIndex: _currentImageIndex,
+          onThumbnailTap: _goToPage,
+        ),
+      ],
+    );
+  }
+}
+
+class _ThumbnailGallery extends StatelessWidget {
+  final List<String> images;
+  final int currentIndex;
+  final Function(int) onThumbnailTap;
+
+  const _ThumbnailGallery({
+    required this.images,
+    required this.currentIndex,
+    required this.onThumbnailTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final thumbnailSpacing = AppResponsive.screenWidth(context) * 0.005;
+
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: List.generate(
+          images.length,
+          (index) => Padding(
+            padding: EdgeInsets.only(
+              right: index < images.length - 1 ? thumbnailSpacing : 0,
+            ),
+            child: _ThumbnailItem(
+              imagePath: images[index],
+              isSelected: index == currentIndex,
+              onTap: () => onThumbnailTap(index),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _ThumbnailItem extends StatefulWidget {
+  final String imagePath;
+  final bool isSelected;
+  final VoidCallback onTap;
+
+  const _ThumbnailItem({
+    required this.imagePath,
+    this.isSelected = false,
+    required this.onTap,
+  });
+
+  @override
+  State<_ThumbnailItem> createState() => _ThumbnailItemState();
+}
+
+class _ThumbnailItemState extends State<_ThumbnailItem> {
+  bool _isHovered = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final isSmallScreen = MediaQuery.of(context).size.width < 768;
+    final thumbnailSize = isSmallScreen
+        ? AppResponsive.screenWidth(context) * 0.12
+        : AppResponsive.screenWidth(context) * 0.05;
+    final scale = _isHovered ? 1.1 : 1.0;
+
+    return MouseRegion(
+      onEnter: (_) => setState(() => _isHovered = true),
+      onExit: (_) => setState(() => _isHovered = false),
+      child: GestureDetector(
+        onTap: widget.onTap,
+        child: AnimatedScale(
+          scale: scale,
+          duration: const Duration(milliseconds: 200),
+          curve: Curves.easeInOut,
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 200),
+            curve: Curves.easeInOut,
+            width: thumbnailSize,
+            height: thumbnailSize,
+            decoration: BoxDecoration(
+              color: AppColors.grey.withValues(alpha: 0.1),
+              border: Border.all(
+                color: widget.isSelected
+                    ? AppColors.primary
+                    : (_isHovered ? AppColors.primary : Colors.transparent),
+                width: widget.isSelected || _isHovered ? 2 : 0,
+              ),
+              boxShadow: _isHovered
+                  ? [
+                      BoxShadow(
+                        color: AppColors.primary.withValues(alpha: 0.3),
+                        blurRadius: 10,
+                        spreadRadius: 2,
+                        offset: const Offset(0, 2),
+                      ),
+                    ]
+                  : null,
+            ),
+            child: ClipRRect(
+              child: SizedBox(
+                width: thumbnailSize,
+                height: thumbnailSize,
+                child: AppNetworkImage(
+                  imageUrl: widget.imagePath,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _PortfolioButton extends StatelessWidget {
+  final bool fullWidth;
+
+  const _PortfolioButton({this.fullWidth = false});
+
+  @override
+  Widget build(BuildContext context) {
+    return AppButton(
+      text: context.l10n.homeOurPortfolioButton,
+      backgroundColor: AppColors.primary,
+      textColor: AppColors.white,
+      width: fullWidth ? double.infinity : null,
+      onPressed: () => Get.toNamed(ClientConstants.routeClientContact),
+    );
+  }
+}
+
+class _CarouselArrow extends StatefulWidget {
+  final IconData icon;
+  final VoidCallback onTap;
+  final double size;
+  final double iconSize;
+
+  const _CarouselArrow({
+    required this.icon,
+    required this.onTap,
+    required this.size,
+    required this.iconSize,
+  });
+
+  @override
+  State<_CarouselArrow> createState() => _CarouselArrowState();
+}
+
+class _CarouselArrowState extends State<_CarouselArrow> {
+  bool _isHovered = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return MouseRegion(
+      onEnter: (_) => setState(() => _isHovered = true),
+      onExit: (_) => setState(() => _isHovered = false),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: widget.onTap,
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 200),
+            curve: Curves.easeInOut,
+            width: widget.size,
+            height: widget.size,
+            decoration: BoxDecoration(
+              color: _isHovered
+                  ? AppColors.primary
+                  : AppColors.white.withValues(alpha: 0.8),
+              shape: BoxShape.circle,
+              boxShadow: _isHovered
+                  ? [
+                      BoxShadow(
+                        color: AppColors.primary.withValues(alpha: 0.3),
+                        blurRadius: 10,
+                        spreadRadius: 2,
+                        offset: const Offset(0, 2),
+                      ),
+                    ]
+                  : null,
+            ),
+            child: Icon(
+              widget.icon,
+              color: _isHovered ? AppColors.white : AppColors.primary,
+              size: widget.iconSize,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

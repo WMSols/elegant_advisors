@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
-import 'package:elegant_advisors/core/utils/app_images/app_images.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 
 /// Reusable hero header section with background image
@@ -26,11 +25,11 @@ class ClientHeroHeaderSection extends StatelessWidget {
       height: height ?? AppResponsive.screenHeight(context),
       decoration: BoxDecoration(
         color: AppColors.primary, // Fallback color
-        image: DecorationImage(
-          image: AssetImage(backgroundImage ?? AppImages.homeBackground),
-          fit: BoxFit.cover,
-          onError: null,
-        ),
+        // image: DecorationImage(
+        //   image: AssetImage(backgroundImage ?? AppImages.homeBackground),
+        //   fit: BoxFit.cover,
+        //   onError: null,
+        // ),
       ),
       child: LayoutBuilder(
         builder: (context, constraints) {

@@ -5,12 +5,11 @@ import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
 import 'package:elegant_advisors/core/constants/client_constants.dart';
 import 'package:elegant_advisors/presentation/client/controllers/properties/client_properties_controller.dart';
+import 'package:elegant_advisors/presentation/client/controllers/properties/client_off_market_controller.dart';
 import 'package:elegant_advisors/presentation/client/controllers/properties/client_property_detail_controller.dart';
 import 'package:elegant_advisors/presentation/client/controllers/contact/client_contact_controller.dart';
 import 'package:elegant_advisors/presentation/client/controllers/contact/my_contacts/client_my_contacts_controller.dart';
 import 'package:elegant_advisors/presentation/client/controllers/home/client_home_controller.dart';
-import 'package:elegant_advisors/presentation/client/controllers/our_team/client_our_team_controller.dart';
-import 'package:elegant_advisors/presentation/client/controllers/about_us/client_about_us_controller.dart';
 
 class HeaderNavItem extends StatefulWidget {
   final String label;
@@ -65,6 +64,17 @@ class _HeaderNavItemState extends State<HeaderNavItem> {
               // Use offNamed to replace current route, ensuring old route is fully removed
               // This prevents both widget trees from existing simultaneously
               Get.offNamed(ClientConstants.routeClientProperties);
+            } else if (widget.route == ClientConstants.routeClientOffMarket) {
+              // Special handling for off-market route to prevent GlobalKey/ScrollController conflicts
+              // Delete both controllers to ensure clean state
+              if (Get.isRegistered<ClientPropertyDetailController>()) {
+                Get.delete<ClientPropertyDetailController>(force: true);
+              }
+              if (Get.isRegistered<ClientOffMarketController>()) {
+                Get.delete<ClientOffMarketController>(force: true);
+              }
+              // Use offNamed to replace current route, ensuring old route is fully removed
+              Get.offNamed(ClientConstants.routeClientOffMarket);
             } else if (widget.route == ClientConstants.routeClientContact) {
               // Special handling for contact route to prevent GlobalKey conflicts
               // Delete both contact controllers to ensure clean state
@@ -82,18 +92,6 @@ class _HeaderNavItemState extends State<HeaderNavItem> {
                 Get.delete<ClientHomeController>(force: true);
               }
               Get.offNamed(ClientConstants.routeClientHome);
-            } else if (widget.route == ClientConstants.routeClientOurTeam) {
-              // Special handling for our team route to prevent ScrollController conflicts
-              if (Get.isRegistered<ClientOurTeamController>()) {
-                Get.delete<ClientOurTeamController>(force: true);
-              }
-              Get.offNamed(ClientConstants.routeClientOurTeam);
-            } else if (widget.route == ClientConstants.routeClientAboutUs) {
-              // Special handling for about us route to prevent ScrollController conflicts
-              if (Get.isRegistered<ClientAboutUsController>()) {
-                Get.delete<ClientAboutUsController>(force: true);
-              }
-              Get.offNamed(ClientConstants.routeClientAboutUs);
             } else {
               Get.toNamed(widget.route);
             }

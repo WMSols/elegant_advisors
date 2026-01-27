@@ -90,6 +90,8 @@ class _ClientPropertyImageGalleryState
           loadingVariant: LoadingIndicatorVariant.primary,
           maxWidthDiskCache: 800,
           maxHeightDiskCache: 600,
+          memCacheWidth: 800,
+          memCacheHeight: 600,
         ),
       );
     }
@@ -110,6 +112,8 @@ class _ClientPropertyImageGalleryState
                 loadingVariant: LoadingIndicatorVariant.primary,
                 maxWidthDiskCache: 800,
                 maxHeightDiskCache: 600,
+                memCacheWidth: 800,
+                memCacheHeight: 600,
               );
             },
           ),
@@ -145,6 +149,10 @@ class _ClientPropertyImageGalleryState
         color: isActive
             ? AppColors.white
             : AppColors.white.withValues(alpha: 0.5),
+        borderRadius: BorderRadius.only(
+          topRight: Radius.circular(AppResponsive.radius(context, factor: 3)),
+          bottomLeft: Radius.circular(AppResponsive.radius(context, factor: 3)),
+        ),
       ),
     );
   }

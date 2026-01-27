@@ -8,7 +8,6 @@ import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
 import 'package:elegant_advisors/core/widgets/display/app_logo.dart';
 import 'package:elegant_advisors/core/widgets/buttons/app_action_button.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:elegant_advisors/core/utils/app_images/app_images.dart';
 
 /// Reusable alert dialog with AdminBackground, AppLogo, title, subtitle, and action buttons
 class AppAlertDialog extends StatelessWidget {
@@ -69,11 +68,11 @@ class AppAlertDialog extends StatelessWidget {
                   child: Container(
                     decoration: BoxDecoration(
                       color: AppColors.primary,
-                      image: const DecorationImage(
-                        image: AssetImage(AppImages.homeBackground),
-                        fit: BoxFit.cover,
-                        onError: null,
-                      ),
+                      // image: const DecorationImage(
+                      //   image: AssetImage(AppImages.homeBackground),
+                      //   fit: BoxFit.cover,
+                      //   onError: null,
+                      // ),
                       borderRadius: BorderRadius.circular(
                         AppResponsive.radius(context),
                       ),

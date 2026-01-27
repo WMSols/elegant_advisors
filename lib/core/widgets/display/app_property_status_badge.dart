@@ -3,6 +3,7 @@ import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
 import 'package:elegant_advisors/core/utils/app_texts/app_texts.dart';
+import 'package:elegant_advisors/core/utils/app_helpers/language/app_localizations_helper.dart';
 
 /// Reusable status badge widget for properties and cover image status
 class AppPropertyStatusBadge extends StatelessWidget {
@@ -43,31 +44,42 @@ class AppPropertyStatusBadge extends StatelessWidget {
     }
   }
 
-  String _getStatusText() {
+  String _getStatusText(BuildContext context) {
     if (text != null) return text!;
     if (status == null) return '';
 
-    switch (status!) {
-      case 'available':
-        return AppTexts.adminPropertiesStatusAvailable;
-      case 'sold':
-        return AppTexts.adminPropertiesStatusSold;
-      case 'off_market':
-        return AppTexts.adminPropertiesStatusOffMarket;
-      case 'coming_soon':
-        return AppTexts.adminPropertiesStatusComingSoon;
-      default:
-        return status!;
+    // Use l10n for client side, AppTexts for admin side
+    if (!isAdmin) {
+      switch (status!) {
+        case 'available':
+          return context.l10n.clientPropertiesStatusAvailable;
+        case 'sold':
+          return context.l10n.clientPropertiesStatusSold;
+        case 'off_market':
+          return context.l10n.clientPropertiesStatusOffMarket;
+        case 'coming_soon':
+          return context.l10n.clientPropertiesStatusComingSoon;
+        default:
+          return status!;
+      }
+    } else {
+      switch (status!) {
+        case 'available':
+          return AppTexts.adminPropertiesStatusAvailable;
+        case 'sold':
+          return AppTexts.adminPropertiesStatusSold;
+        case 'off_market':
+          return AppTexts.adminPropertiesStatusOffMarket;
+        case 'coming_soon':
+          return AppTexts.adminPropertiesStatusComingSoon;
+        default:
+          return status!;
+      }
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    // Use responsive radius for admin, fixed radius for client
-    final borderRadius = isAdmin
-        ? AppResponsive.radius(context, factor: 3)
-        : 0.0;
-
     return Container(
       padding: EdgeInsets.symmetric(
         horizontal: AppResponsive.scaleSize(context, 8, min: 6, max: 12),
@@ -75,7 +87,16 @@ class AppPropertyStatusBadge extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         color: _getStatusColor(),
-        borderRadius: BorderRadius.circular(borderRadius),
+        borderRadius: isAdmin
+            ? BorderRadius.circular(AppResponsive.radius(context, factor: 1.5))
+            : BorderRadius.only(
+                topRight: Radius.circular(
+                  AppResponsive.radius(context, factor: 3),
+                ),
+                bottomLeft: Radius.circular(
+                  AppResponsive.radius(context, factor: 3),
+                ),
+              ),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -91,7 +112,7 @@ class AppPropertyStatusBadge extends StatelessWidget {
             ),
           ],
           Text(
-            _getStatusText(),
+            _getStatusText(context),
             style: AppTextStyles.heading(context).copyWith(
               color: AppColors.white,
               fontSize: AppResponsive.fontSizeClamped(

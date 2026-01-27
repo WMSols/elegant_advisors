@@ -4,12 +4,10 @@ import 'package:elegant_advisors/presentation/client/bindings/home/client_home_b
 import 'package:elegant_advisors/presentation/client/screens/home/client_home_screen.dart';
 import 'package:elegant_advisors/presentation/client/bindings/properties/client_properties_binding.dart';
 import 'package:elegant_advisors/presentation/client/screens/properties/client_properties_screen.dart';
+import 'package:elegant_advisors/presentation/client/bindings/properties/client_off_market_binding.dart';
+import 'package:elegant_advisors/presentation/client/screens/properties/client_off_market_screen.dart';
 import 'package:elegant_advisors/presentation/client/bindings/properties/client_property_detail_binding.dart';
 import 'package:elegant_advisors/presentation/client/screens/properties/client_property_detail_screen.dart';
-import 'package:elegant_advisors/presentation/client/bindings/our_team/client_our_team_binding.dart';
-import 'package:elegant_advisors/presentation/client/screens/our_team/client_our_team_screen.dart';
-import 'package:elegant_advisors/presentation/client/bindings/about_us/client_about_us_binding.dart';
-import 'package:elegant_advisors/presentation/client/screens/about_us/client_about_us_screen.dart';
 import 'package:elegant_advisors/presentation/client/bindings/contact/client_contact_binding.dart';
 import 'package:elegant_advisors/presentation/client/screens/contact/client_contact_screen.dart';
 import 'package:elegant_advisors/presentation/client/bindings/contact/my_contacts/client_my_contacts_binding.dart';
@@ -30,19 +28,14 @@ class ClientRoutes {
       binding: ClientPropertiesBinding(),
     ),
     GetPage(
+      name: ClientConstants.routeClientOffMarket,
+      page: () => const ClientOffMarketScreen(),
+      binding: ClientOffMarketBinding(),
+    ),
+    GetPage(
       name: ClientConstants.routeClientPropertyDetail,
       page: () => const ClientPropertyDetailScreen(),
       binding: ClientPropertyDetailBinding(),
-    ),
-    GetPage(
-      name: ClientConstants.routeClientOurTeam,
-      page: () => const ClientOurTeamScreen(),
-      binding: ClientOurTeamBinding(),
-    ),
-    GetPage(
-      name: ClientConstants.routeClientAboutUs,
-      page: () => const ClientAboutUsScreen(),
-      binding: ClientAboutUsBinding(),
     ),
     GetPage(
       name: ClientConstants.routeClientContact,

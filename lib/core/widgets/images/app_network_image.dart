@@ -40,6 +40,12 @@ class AppNetworkImage extends StatelessWidget {
   /// Maximum height for disk cache
   final int? maxHeightDiskCache;
 
+  /// Maximum width for memory cache (keeps image in memory for instant display)
+  final int? memCacheWidth;
+
+  /// Maximum height for memory cache (keeps image in memory for instant display)
+  final int? memCacheHeight;
+
   /// Border radius for the image
   final double? borderRadius;
 
@@ -57,6 +63,8 @@ class AppNetworkImage extends StatelessWidget {
     this.iconColor,
     this.maxWidthDiskCache,
     this.maxHeightDiskCache,
+    this.memCacheWidth,
+    this.memCacheHeight,
     this.borderRadius,
     this.enableDebugLogging = false,
   });
@@ -72,8 +80,11 @@ class AppNetworkImage extends StatelessWidget {
       httpHeaders: const {'Accept': 'image/*'},
       maxWidthDiskCache: maxWidthDiskCache,
       maxHeightDiskCache: maxHeightDiskCache,
+      memCacheWidth: memCacheWidth,
+      memCacheHeight: memCacheHeight,
       fadeInDuration: const Duration(milliseconds: 300),
       fadeOutDuration: const Duration(milliseconds: 100),
+      useOldImageOnUrlChange: true,
       placeholder: (context, url) =>
           placeholder ?? _buildLoadingPlaceholder(context, bgColor),
       errorWidget: (context, url, error) {

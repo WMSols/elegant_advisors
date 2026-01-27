@@ -128,17 +128,11 @@ abstract class AppLocalizations {
   /// **'Properties'**
   String get navProperties;
 
-  /// No description provided for @navOurTeam.
+  /// No description provided for @navOffMarket.
   ///
   /// In en, this message translates to:
-  /// **'Our Team'**
-  String get navOurTeam;
-
-  /// No description provided for @navAboutUs.
-  ///
-  /// In en, this message translates to:
-  /// **'About Us'**
-  String get navAboutUs;
+  /// **'Off Market'**
+  String get navOffMarket;
 
   /// No description provided for @navContact.
   ///
@@ -149,13 +143,13 @@ abstract class AppLocalizations {
   /// No description provided for @homeTitle.
   ///
   /// In en, this message translates to:
-  /// **'YOUR VISION, OUR EXPERTISE'**
+  /// **'ELEGANCE, INTEGRITY, TRANSPARENCY'**
   String get homeTitle;
 
   /// No description provided for @homeSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Elegant is a leading real estate advisory in Portugal in finding and securing properties for private individuals, family offices, and property investors.'**
+  /// **'Elegant is a real estate advisory defined by a singular philosophy: real estate, at its finest, is an art of elegance. We curate exceptional property opportunities in Portugal, guided by discretion, market insight, and uncompromising standards.'**
   String get homeSubtitle;
 
   /// No description provided for @homeButtonConsultation.
@@ -164,203 +158,161 @@ abstract class AppLocalizations {
   /// **'Request A Private Consultation'**
   String get homeButtonConsultation;
 
-  /// No description provided for @homeMarketEducatedTitle.
+  /// No description provided for @homeOurApproachTitle.
   ///
   /// In en, this message translates to:
-  /// **'MARKET EDUCATED,\nBUYER FOCUSED'**
-  String get homeMarketEducatedTitle;
+  /// **'OUR APPROACH'**
+  String get homeOurApproachTitle;
 
-  /// No description provided for @homeMarketEducatedDescription.
+  /// No description provided for @homeOurApproachDescription.
   ///
   /// In en, this message translates to:
-  /// **'Combining an international mindset and profound local market expertise, our bespoke service gives you the insider\'s edge on the Portuguese real estate market. We\'ve spent years forging deep connections with prominent real estate agencies, established developers, and well-connected individuals to shape our network and help you find and secure the property you\'re truly seeking. On or off market, no exclusives to push.'**
-  String get homeMarketEducatedDescription;
+  /// **'We combine deep market intelligence with strong local and international networks to deliver tailored advisory services across the full investment lifecycle — from strategy definition and asset sourcing to acquisition, due diligence, structuring, and closing. Each client receives discreet, data-driven guidance aligned with their financial objectives, risk profile, and investment horizon.'**
+  String get homeOurApproachDescription;
 
-  /// No description provided for @homeMarketEducatedButton.
+  /// No description provided for @homeOurApproachButton.
   ///
   /// In en, this message translates to:
   /// **'What We Do'**
-  String get homeMarketEducatedButton;
+  String get homeOurApproachButton;
 
-  /// No description provided for @homeOurDiscerningClienteleTitle.
+  /// No description provided for @homeOurPhilosophyMissionTitle.
   ///
   /// In en, this message translates to:
-  /// **'OUR DISCERNING\nCLIENTELE'**
-  String get homeOurDiscerningClienteleTitle;
+  /// **'OUR PHILOSOPHY\n& MISSION'**
+  String get homeOurPhilosophyMissionTitle;
 
-  /// No description provided for @homeOurDiscerningClienteleDescription.
+  /// No description provided for @homeOurPhilosophyMissionDescription.
   ///
   /// In en, this message translates to:
-  /// **'Hailing from 30+ nationalities since 2014, our private clientele values a bespoke, discreet service with strategic guidance across all relevant fields. That\'s precisely what we do.'**
-  String get homeOurDiscerningClienteleDescription;
+  /// **'Elegance, integrity, and transparency define how we operate. At Elegant, we believe in quality over volume — carefully curating residential, commercial, and hospitality opportunities that align precisely with each client\'s lifestyle ambitions or investment strategy.'**
+  String get homeOurPhilosophyMissionDescription;
 
-  /// No description provided for @homeOurDiscerningClientelePropertyInvestorsTitle.
+  /// No description provided for @homeOurPhilosophyTitle.
   ///
   /// In en, this message translates to:
-  /// **'PROPERTY INVESTORS'**
-  String get homeOurDiscerningClientelePropertyInvestorsTitle;
+  /// **'OUR PHILOSOPHY'**
+  String get homeOurPhilosophyTitle;
 
-  /// No description provided for @homeOurDiscerningClientelePropertyInvestorsDescription.
+  /// No description provided for @homeOurPhilosophyDescription.
   ///
   /// In en, this message translates to:
-  /// **'If you are looking to grow your real estate portfolio in Portugal, we act as your skilled advisor on all things strategy.'**
-  String get homeOurDiscerningClientelePropertyInvestorsDescription;
+  /// **'Elegance, integrity, and transparency define how we operate. At Elegant, we believe in quality over volume — carefully curating residential, commercial, and hospitality opportunities that align precisely with each client\'s lifestyle ambitions or investment strategy.'**
+  String get homeOurPhilosophyDescription;
 
-  /// No description provided for @homeOurDiscerningClienteleCitizenshipClientsTitle.
+  /// No description provided for @homeOurMissionTitle.
   ///
   /// In en, this message translates to:
-  /// **'CITIZENSHIP CLIENTS'**
-  String get homeOurDiscerningClienteleCitizenshipClientsTitle;
+  /// **'OUR MISSION'**
+  String get homeOurMissionTitle;
 
-  /// No description provided for @homeOurDiscerningClienteleCitizenshipClientsDescription.
+  /// No description provided for @homeOurMissionDescription.
   ///
   /// In en, this message translates to:
-  /// **'If you are looking to gain access to the Golden Visa or another citizenship program by making a real estate investment, we will guide you in the right way.'**
-  String get homeOurDiscerningClienteleCitizenshipClientsDescription;
+  /// **'Our mission is to deliver clarity and sophistication at every stage of the property journey, ensuring each acquisition is as seamless as it is distinguished.'**
+  String get homeOurMissionDescription;
 
-  /// No description provided for @homeOurDiscerningClienteleLifestyleHomeBuyersTitle.
+  /// No description provided for @homeWhatWeSpecializeInTitle.
   ///
   /// In en, this message translates to:
-  /// **'LIFESTYLE HOME BUYERS'**
-  String get homeOurDiscerningClienteleLifestyleHomeBuyersTitle;
+  /// **'WHAT WE SPECIALIZE IN'**
+  String get homeWhatWeSpecializeInTitle;
 
-  /// No description provided for @homeOurDiscerningClienteleLifestyleHomeBuyersDescription.
+  /// No description provided for @homeWhatWeSpecializeInDescription.
   ///
   /// In en, this message translates to:
-  /// **'If you are looking to fully relocate to Portugal or simply enjoy a vacation home, you can count on us to help you find the property you\'ve always envisioned.'**
-  String get homeOurDiscerningClienteleLifestyleHomeBuyersDescription;
+  /// **'We specialize in curating exceptional property opportunities across multiple asset classes, each tailored to meet distinct investment objectives and lifestyle aspirations.'**
+  String get homeWhatWeSpecializeInDescription;
 
-  /// No description provided for @homeOurDiscerningClienteleLuxuryPropertyOwnersTitle.
+  /// No description provided for @homeWhatWeSpecializeInHighEndResidentialTitle.
   ///
   /// In en, this message translates to:
-  /// **'LUXURY PROPERTY OWNERS'**
-  String get homeOurDiscerningClienteleLuxuryPropertyOwnersTitle;
+  /// **'HIGH-END RESIDENTIAL ASSETS'**
+  String get homeWhatWeSpecializeInHighEndResidentialTitle;
 
-  /// No description provided for @homeOurDiscerningClienteleLuxuryPropertyOwnersDescription.
+  /// No description provided for @homeWhatWeSpecializeInHighEndResidentialDescription.
   ///
   /// In en, this message translates to:
-  /// **'If you are looking to rent or find a trustworthy property manager, we deliver a 360° bespoke service that ensures all runs smoothly.'**
-  String get homeOurDiscerningClienteleLuxuryPropertyOwnersDescription;
+  /// **'Luxury villas, premium apartments, and exclusive residential properties in prime locations — curated for lifestyle buyers and investors seeking long-term capital appreciation.'**
+  String get homeWhatWeSpecializeInHighEndResidentialDescription;
 
-  /// No description provided for @homeOurDiscerningClienteleButton.
+  /// No description provided for @homeWhatWeSpecializeInInvestmentPlotsTitle.
   ///
   /// In en, this message translates to:
-  /// **'What Our Clients Say'**
-  String get homeOurDiscerningClienteleButton;
+  /// **'INVESTMENT PLOTS & DEVELOPMENT LAND'**
+  String get homeWhatWeSpecializeInInvestmentPlotsTitle;
 
-  /// No description provided for @homeUnparalleledExpertiseTitle.
+  /// No description provided for @homeWhatWeSpecializeInInvestmentPlotsDescription.
   ///
   /// In en, this message translates to:
-  /// **'UNPARALLELED EXPERTISE'**
-  String get homeUnparalleledExpertiseTitle;
+  /// **'Strategic land opportunities for residential, commercial, and hospitality developments. Suitable for developers, asset managers, private equity funds, and long-term investors seeking scalable growth.'**
+  String get homeWhatWeSpecializeInInvestmentPlotsDescription;
 
-  /// No description provided for @homeUnparalleledExpertiseDescription.
+  /// No description provided for @homeWhatWeSpecializeInInvestmentBuildingsTitle.
   ///
   /// In en, this message translates to:
-  /// **'With an unrivalled track record, our multidisciplinary team manages all transaction details - from first brief to acquisition and post sales.'**
-  String get homeUnparalleledExpertiseDescription;
+  /// **'INVESTMENT BUILDINGS'**
+  String get homeWhatWeSpecializeInInvestmentBuildingsTitle;
 
-  /// No description provided for @homeUnparalleledExpertisePropertySearchTitle.
+  /// No description provided for @homeWhatWeSpecializeInInvestmentBuildingsDescription.
   ///
   /// In en, this message translates to:
-  /// **'PROPERTY SEARCH'**
-  String get homeUnparalleledExpertisePropertySearchTitle;
+  /// **'Entire buildings requiring renovation, refurbishment, or redevelopment for residential or commercial use. Ideal for developers, asset managers, private equity funds, and investors pursuing value-add and repositioning strategies.'**
+  String get homeWhatWeSpecializeInInvestmentBuildingsDescription;
 
-  /// No description provided for @homeUnparalleledExpertisePropertySearchDescription.
+  /// No description provided for @homeWhatWeSpecializeInCommercialRealEstateTitle.
   ///
   /// In en, this message translates to:
-  /// **'After thoroughly analyzing your brief, we take it to the market and search for the property that meets your utmost standards.'**
-  String get homeUnparalleledExpertisePropertySearchDescription;
+  /// **'COMMERCIAL REAL ESTATE'**
+  String get homeWhatWeSpecializeInCommercialRealEstateTitle;
 
-  /// No description provided for @homeUnparalleledExpertisePurchaseStrategyTitle.
+  /// No description provided for @homeWhatWeSpecializeInCommercialRealEstateDescription.
   ///
   /// In en, this message translates to:
-  /// **'PURCHASE STRATEGY'**
-  String get homeUnparalleledExpertisePurchaseStrategyTitle;
+  /// **'Retail, office, parking, and industrial assets — including income-generating properties with stable tenants and strong yield profiles.'**
+  String get homeWhatWeSpecializeInCommercialRealEstateDescription;
 
-  /// No description provided for @homeUnparalleledExpertisePurchaseStrategyDescription.
+  /// No description provided for @homeWhatWeSpecializeInHospitalityTitle.
   ///
   /// In en, this message translates to:
-  /// **'In collaboration with you, we develop a tactical buying plan that adapts to your particular needs.'**
-  String get homeUnparalleledExpertisePurchaseStrategyDescription;
+  /// **'HOSPITALITY & HOTEL INVESTMENTS'**
+  String get homeWhatWeSpecializeInHospitalityTitle;
 
-  /// No description provided for @homeUnparalleledExpertiseNegotiationTitle.
+  /// No description provided for @homeWhatWeSpecializeInHospitalityDescription.
   ///
   /// In en, this message translates to:
-  /// **'NEGOTIATION'**
-  String get homeUnparalleledExpertiseNegotiationTitle;
+  /// **'A dedicated focus on hotels, serviced apartments, boutique hotels, resorts, and mixed-use hospitality developments. We advise on acquisitions, repositioning opportunities, operational assets, and development-led projects — targeting both yield and value creation.'**
+  String get homeWhatWeSpecializeInHospitalityDescription;
 
-  /// No description provided for @homeUnparalleledExpertiseNegotiationDescription.
+  /// No description provided for @homeWhatWeSpecializeInButton.
   ///
   /// In en, this message translates to:
-  /// **'Renowned for our exceptional negotiation skills, we handle the process on your behalf, so you can secure your selected property at the best price.'**
-  String get homeUnparalleledExpertiseNegotiationDescription;
+  /// **'Contact Us'**
+  String get homeWhatWeSpecializeInButton;
 
-  /// No description provided for @homeUnparalleledExpertisePortfolioManagementTitle.
+  /// No description provided for @homeOurPortfolioTitle.
   ///
   /// In en, this message translates to:
-  /// **'PORTFOLIO MANAGEMENT'**
-  String get homeUnparalleledExpertisePortfolioManagementTitle;
+  /// **'OUR PORTFOLIO'**
+  String get homeOurPortfolioTitle;
 
-  /// No description provided for @homeUnparalleledExpertisePortfolioManagementDescription.
+  /// No description provided for @homeOurPortfolioSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Using our market experience to assess risk and identify opportunities, we advise and assist you in building your real estate portfolio.'**
-  String get homeUnparalleledExpertisePortfolioManagementDescription;
+  /// **'Discover Our Curated Selection'**
+  String get homeOurPortfolioSubtitle;
 
-  /// No description provided for @homeUnparalleledExpertiseVisaTaxAdvisoryTitle.
+  /// No description provided for @homeOurPortfolioDescription.
   ///
   /// In en, this message translates to:
-  /// **'VISA & TAX ADVISORY'**
-  String get homeUnparalleledExpertiseVisaTaxAdvisoryTitle;
+  /// **'Explore our handpicked collection of exceptional properties'**
+  String get homeOurPortfolioDescription;
 
-  /// No description provided for @homeUnparalleledExpertiseVisaTaxAdvisoryDescription.
-  ///
-  /// In en, this message translates to:
-  /// **'Through our established partnerships with Portuguese lawyers and tax specialists, we provide a turn-key solution to clients interested in the Golden Visa, D7, D2, Nomad Visa or Portugal\'s Non-Habitual Resident Status (NHR).'**
-  String get homeUnparalleledExpertiseVisaTaxAdvisoryDescription;
-
-  /// No description provided for @homeUnparalleledExpertiseLuxuryRentalsManagementTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'LUXURY RENTALS & MANAGEMENT'**
-  String get homeUnparalleledExpertiseLuxuryRentalsManagementTitle;
-
-  /// No description provided for @homeUnparalleledExpertiseLuxuryRentalsManagementDescription.
-  ///
-  /// In en, this message translates to:
-  /// **'We ensure your investment is maximized by securing sterling tenants or simply maintaining your property in mint condition. Should you wish to rent an apartment, we will find a prime rental option suitable for your particular goals.'**
-  String get homeUnparalleledExpertiseLuxuryRentalsManagementDescription;
-
-  /// No description provided for @homeUnparalleledExpertiseButton.
-  ///
-  /// In en, this message translates to:
-  /// **'Our Team'**
-  String get homeUnparalleledExpertiseButton;
-
-  /// No description provided for @homePrivilegingQualityTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'PRIVILEGING QUALITY'**
-  String get homePrivilegingQualityTitle;
-
-  /// No description provided for @homePrivilegingQualitySubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Nearly 70% of our clients come by referral'**
-  String get homePrivilegingQualitySubtitle;
-
-  /// No description provided for @homePrivilegingQualityDescription.
-  ///
-  /// In en, this message translates to:
-  /// **'Here is a selection of our previous transactions.'**
-  String get homePrivilegingQualityDescription;
-
-  /// No description provided for @homePrivilegingQualityButton.
+  /// No description provided for @homeOurPortfolioButton.
   ///
   /// In en, this message translates to:
   /// **'Request a Private Consultation'**
-  String get homePrivilegingQualityButton;
+  String get homeOurPortfolioButton;
 
   /// No description provided for @propertiesTitle.
   ///
@@ -379,6 +331,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Browse our curated selection of premium properties available for purchase.'**
   String get propertiesDescription;
+
+  /// No description provided for @offMarketTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Off Market'**
+  String get offMarketTitle;
+
+  /// No description provided for @offMarketSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Exclusive Off Market Opportunities'**
+  String get offMarketSubtitle;
+
+  /// No description provided for @offMarketDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Discover our curated selection of exclusive off-market properties available through private consultation.'**
+  String get offMarketDescription;
+
+  /// No description provided for @offMarketViewProperties.
+  ///
+  /// In en, this message translates to:
+  /// **'View Off Market Properties'**
+  String get offMarketViewProperties;
+
+  /// No description provided for @clientOffMarketErrorLoading.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load off-market properties'**
+  String get clientOffMarketErrorLoading;
+
+  /// No description provided for @clientOffMarketRetry.
+  ///
+  /// In en, this message translates to:
+  /// **'Retry'**
+  String get clientOffMarketRetry;
+
+  /// No description provided for @clientOffMarketNoPropertiesFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No off-market properties found'**
+  String get clientOffMarketNoPropertiesFound;
+
+  /// No description provided for @clientOffMarketNoPropertiesMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'We couldn\'t find any off-market properties matching your criteria. Try adjusting your filters.'**
+  String get clientOffMarketNoPropertiesMessage;
+
+  /// No description provided for @clientOffMarketClearFilters.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear Filters'**
+  String get clientOffMarketClearFilters;
 
   /// No description provided for @clientPropertiesShowMore.
   ///
@@ -613,42 +619,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'The property you are looking for could not be found.'**
   String get clientPropertyDetailNotFoundMessage;
-
-  /// No description provided for @ourTeamTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Our Team'**
-  String get ourTeamTitle;
-
-  /// No description provided for @ourTeamSubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Meet Our Expert Advisors'**
-  String get ourTeamSubtitle;
-
-  /// No description provided for @ourTeamDescription.
-  ///
-  /// In en, this message translates to:
-  /// **'Our multidisciplinary team brings unparalleled expertise to every transaction.'**
-  String get ourTeamDescription;
-
-  /// No description provided for @aboutUsTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'About Us'**
-  String get aboutUsTitle;
-
-  /// No description provided for @aboutUsSubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Elegant Advisors'**
-  String get aboutUsSubtitle;
-
-  /// No description provided for @aboutUsDescription.
-  ///
-  /// In en, this message translates to:
-  /// **'Learn more about our mission, values, and commitment to excellence.'**
-  String get aboutUsDescription;
 
   /// No description provided for @contactTitle.
   ///
@@ -1001,7 +971,7 @@ abstract class AppLocalizations {
   /// No description provided for @footerCompanyDescription.
   ///
   /// In en, this message translates to:
-  /// **'Leading real estate advisory in Portugal, helping private individuals, family offices, and property investors find and secure premium properties.'**
+  /// **'Elegant is a real estate advisory defined by a singular philosophy: real estate, at its finest, is an art of elegance. We curate exceptional property opportunities in Portugal, guided by discretion, market insight, and uncompromising standards.'**
   String get footerCompanyDescription;
 
   /// No description provided for @footerSocialTitle.
@@ -1069,6 +1039,120 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Failed to submit. Please try again.'**
   String get contactFormErrorSubmit;
+
+  /// No description provided for @clientPropertiesFilterPriceMin.
+  ///
+  /// In en, this message translates to:
+  /// **'Min'**
+  String get clientPropertiesFilterPriceMin;
+
+  /// No description provided for @clientPropertiesFilterPriceMax.
+  ///
+  /// In en, this message translates to:
+  /// **'Max'**
+  String get clientPropertiesFilterPriceMax;
+
+  /// No description provided for @clientPropertiesFilterPriceCurrency.
+  ///
+  /// In en, this message translates to:
+  /// **'€ '**
+  String get clientPropertiesFilterPriceCurrency;
+
+  /// No description provided for @headerLanguageEnglish.
+  ///
+  /// In en, this message translates to:
+  /// **'English'**
+  String get headerLanguageEnglish;
+
+  /// No description provided for @headerLanguagePortuguese.
+  ///
+  /// In en, this message translates to:
+  /// **'Portuguese'**
+  String get headerLanguagePortuguese;
+
+  /// No description provided for @clientPropertiesStatusAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Available'**
+  String get clientPropertiesStatusAvailable;
+
+  /// No description provided for @clientPropertiesStatusSold.
+  ///
+  /// In en, this message translates to:
+  /// **'Sold'**
+  String get clientPropertiesStatusSold;
+
+  /// No description provided for @clientPropertiesStatusComingSoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Coming Soon'**
+  String get clientPropertiesStatusComingSoon;
+
+  /// No description provided for @clientPropertiesStatusOffMarket.
+  ///
+  /// In en, this message translates to:
+  /// **'Off Market'**
+  String get clientPropertiesStatusOffMarket;
+
+  /// No description provided for @contactOfficeAddressValue.
+  ///
+  /// In en, this message translates to:
+  /// **'123 Main Street, Lisbon, Portugal'**
+  String get contactOfficeAddressValue;
+
+  /// No description provided for @contactOfficePhoneValue.
+  ///
+  /// In en, this message translates to:
+  /// **'+351 123 456 789'**
+  String get contactOfficePhoneValue;
+
+  /// No description provided for @contactOfficeEmailValue.
+  ///
+  /// In en, this message translates to:
+  /// **'info@elegantadvisors.com'**
+  String get contactOfficeEmailValue;
+
+  /// No description provided for @contactOfficeHoursValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Monday - Friday: 9:00 AM - 6:00 PM'**
+  String get contactOfficeHoursValue;
+
+  /// No description provided for @clientPropertyCardBed.
+  ///
+  /// In en, this message translates to:
+  /// **'bed'**
+  String get clientPropertyCardBed;
+
+  /// No description provided for @clientPropertyCardBath.
+  ///
+  /// In en, this message translates to:
+  /// **'bath'**
+  String get clientPropertyCardBath;
+
+  /// No description provided for @clientPropertyDetailSpecType.
+  ///
+  /// In en, this message translates to:
+  /// **'Type:'**
+  String get clientPropertyDetailSpecType;
+
+  /// No description provided for @clientPropertyDetailSpecBedrooms.
+  ///
+  /// In en, this message translates to:
+  /// **'Bedrooms:'**
+  String get clientPropertyDetailSpecBedrooms;
+
+  /// No description provided for @clientPropertyDetailSpecBathrooms.
+  ///
+  /// In en, this message translates to:
+  /// **'Bathrooms:'**
+  String get clientPropertyDetailSpecBathrooms;
+
+  /// No description provided for @clientPropertyDetailSpecArea.
+  ///
+  /// In en, this message translates to:
+  /// **'Area:'**
+  String get clientPropertyDetailSpecArea;
 }
 
 class _AppLocalizationsDelegate
