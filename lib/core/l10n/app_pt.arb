@@ -210,5 +210,69 @@
   "clientPropertyDetailSpecType": "Tipo:",
   "clientPropertyDetailSpecBedrooms": "Quartos:",
   "clientPropertyDetailSpecBathrooms": "Banheiros:",
-  "clientPropertyDetailSpecArea": "Área:"
+  "clientPropertyDetailSpecArea": "Área:",
+  
+  "privacyPolicyTitle": "Política de Privacidade",
+  "privacyPolicyLastUpdated": "Última Atualização: {date}",
+  "@privacyPolicyLastUpdated": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "privacyPolicyIntroduction": "Na Elegant Advisors, estamos comprometidos em proteger sua privacidade. Esta Política de Privacidade explica como coletamos, usamos, divulgamos e protegemos suas informações quando você visita nosso site e usa nossos serviços.",
+  "privacyPolicySection1Title": "1. Informações que Coletamos",
+  "privacyPolicySection1Content": "Coletamos informações que você nos fornece diretamente, incluindo:\n\n• Informações de Contato: Quando você envia um formulário de contato, coletamos seu nome, endereço de e-mail, número de telefone, assunto e mensagem.\n• Consultas sobre Propriedades: Se você consultar sobre uma propriedade específica, podemos associar sua consulta a essa propriedade.\n• Endereço IP: Podemos coletar seu endereço IP para fins de segurança e análise.\n• Dados de Uso: Coletamos automaticamente informações sobre como você interage com nosso site, incluindo páginas visitadas, tempo gasto nas páginas e visualizações de propriedades.\n• Dados de Análise: Usamos Firebase Analytics para rastrear o uso do site, visualizações de tela e interações do usuário.",
+  "privacyPolicySection2Title": "2. Como Usamos Suas Informações",
+  "privacyPolicySection2Content": "Usamos as informações que coletamos para:\n\n• Responder às suas consultas e fornecer suporte ao cliente\n• Processar e gerenciar seus envios de contato\n• Melhorar nosso site e serviços\n• Analisar o uso do site e o comportamento do usuário\n• Rastrear visualizações de propriedades e engajamento do usuário\n• Enviar atualizações sobre propriedades ou serviços (se você optou por receber)\n• Cumprir obrigações legais",
+  "privacyPolicySection3Title": "3. Armazenamento e Segurança de Dados",
+  "privacyPolicySection3Content": "Suas informações são armazenadas com segurança usando:\n\n• Firebase Firestore: Envios de contato e dados relacionados são armazenados no Google Cloud Firestore\n• Firebase Storage: Imagens de propriedades e arquivos relacionados são armazenados com segurança\n• Armazenamento Local: Usamos armazenamento local do navegador (SharedPreferences) para lembrar suas preferências de idioma e melhorar sua experiência\n\nImplementamos medidas técnicas e organizacionais apropriadas para proteger suas informações pessoais contra acesso não autorizado, alteração, divulgação ou destruição.",
+  "privacyPolicySection4Title": "4. Serviços de Terceiros",
+  "privacyPolicySection4Content": "Usamos os seguintes serviços de terceiros que podem coletar informações:\n\n• Google Firebase: Para armazenamento de dados, análises e serviços de autenticação\n• Firebase Analytics: Para análises e rastreamento de uso do site\n\nEsses serviços têm suas próprias políticas de privacidade que regem a coleta e o uso de suas informações.",
+  "privacyPolicySection5Title": "5. Retenção de Dados",
+  "privacyPolicySection5Content": "Retemos suas informações pessoais pelo tempo necessário para cumprir os propósitos descritos nesta Política de Privacidade, a menos que um período de retenção mais longo seja exigido ou permitido por lei. Os envios de contato são retidos para fornecer suporte ao cliente e rastrear o histórico de consultas.",
+  "privacyPolicySection6Title": "6. Seus Direitos",
+  "privacyPolicySection6Content": "Dependendo da sua localização, você pode ter os seguintes direitos em relação às suas informações pessoais:\n\n• Acesso: Solicitar acesso às suas informações pessoais\n• Correção: Solicitar correção de informações imprecisas\n• Exclusão: Solicitar exclusão de suas informações pessoais\n• Oposição: Opor-se ao processamento de suas informações pessoais\n• Portabilidade de Dados: Solicitar transferência de seus dados\n\nPara exercer esses direitos, entre em contato conosco usando as informações fornecidas na seção Contato.",
+  "privacyPolicySection7Title": "7. Cookies e Armazenamento Local",
+  "privacyPolicySection7Content": "Usamos armazenamento local do navegador para lembrar suas preferências de idioma e melhorar sua experiência de navegação. Essas informações são armazenadas localmente no seu dispositivo e não são transmitidas para nossos servidores, exceto como parte da funcionalidade normal do site.",
+  "privacyPolicySection8Title": "8. Privacidade de Menores",
+  "privacyPolicySection8Content": "Nossos serviços não são direcionados a menores de 18 anos. Não coletamos intencionalmente informações pessoais de crianças. Se você acredita que coletamos informações de uma criança, entre em contato conosco imediatamente.",
+  "privacyPolicySection9Title": "9. Alterações nesta Política de Privacidade",
+  "privacyPolicySection9Content": "Podemos atualizar esta Política de Privacidade periodicamente. Notificaremos você sobre quaisquer alterações publicando a nova Política de Privacidade nesta página e atualizando a data de \"Última Atualização\". Recomendamos que você revise esta Política de Privacidade periodicamente para verificar alterações.",
+  "privacyPolicySection10Title": "10. Entre em Contato",
+  "privacyPolicySection10Content": "Se você tiver alguma dúvida sobre esta Política de Privacidade ou nossas práticas de dados, entre em contato conosco:\n\nElegant Advisors\nE-mail: info@elegantadvisors.com\nTelefone: +351 123 456 789",
+  
+  "termsOfServiceTitle": "Termos de Serviço",
+  "termsOfServiceLastUpdated": "Última Atualização: {date}",
+  "@termsOfServiceLastUpdated": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "termsOfServiceIntroduction": "Bem-vindo à Elegant Advisors. Estes Termos de Serviço regem seu acesso e uso de nosso site e serviços. Ao acessar ou usar nosso site, você concorda em estar vinculado a estes Termos.",
+  "termsOfServiceSection1Title": "1. Aceitação dos Termos",
+  "termsOfServiceSection1Content": "Ao acessar e usar o site da Elegant Advisors, você aceita e concorda em estar vinculado aos termos e disposições deste acordo. Se você não concordar com estes Termos, por favor, não use nosso site.",
+  "termsOfServiceSection2Title": "2. Uso do Site",
+  "termsOfServiceSection2Content": "Você concorda em usar nosso site apenas para fins legais e de uma forma que não infrinja os direitos de, restrinja ou iniba o uso e o prazer de qualquer outra pessoa no site. Comportamento proibido inclui assediar ou causar angústia ou inconveniência a qualquer pessoa, transmitir conteúdo obsceno ou ofensivo, ou interromper o fluxo normal de diálogo em nosso site.",
+  "termsOfServiceSection3Title": "3. Informações sobre Propriedades",
+  "termsOfServiceSection3Content": "Todas as informações, descrições, imagens e especificações de propriedades exibidas em nosso site são fornecidas apenas para fins informativos. Embora nos esforcemos para garantir a precisão, não garantimos a integridade, confiabilidade ou precisão de qualquer informação sobre propriedades. A disponibilidade, preços e especificações das propriedades estão sujeitos a alterações sem aviso prévio.",
+  "termsOfServiceSection4Title": "4. Formulário de Contato e Envios",
+  "termsOfServiceSection4Content": "Quando você envia um formulário de contato ou consulta:\n\n• Você concorda em fornecer informações precisas e verdadeiras\n• Você nos concede permissão para usar suas informações de contato para responder à sua consulta\n• Você entende que podemos armazenar seu envio para fins de atendimento ao cliente e manutenção de registros\n• Você concorda em não enviar qualquer conteúdo ilegal, prejudicial ou inadequado",
+  "termsOfServiceSection5Title": "5. Propriedade Intelectual",
+  "termsOfServiceSection5Content": "Todo o conteúdo neste site, incluindo texto, gráficos, logotipos, imagens e software, é propriedade da Elegant Advisors ou de seus fornecedores de conteúdo e é protegido por leis de direitos autorais e outras leis de propriedade intelectual. Você não pode reproduzir, distribuir, modificar ou criar obras derivadas de qualquer conteúdo sem nossa permissão expressa por escrito.",
+  "termsOfServiceSection6Title": "6. Limitação de Responsabilidade",
+  "termsOfServiceSection6Content": "A Elegant Advisors não será responsável por quaisquer danos indiretos, incidentais, especiais, consequenciais ou punitivos resultantes do seu uso ou incapacidade de usar o site ou serviços. Não garantimos que o site estará disponível o tempo todo ou livre de erros ou interrupções.",
+  "termsOfServiceSection7Title": "7. Isenção de Garantias",
+  "termsOfServiceSection7Content": "O site e os serviços são fornecidos \"como estão\" e \"conforme disponível\" sem quaisquer garantias de qualquer tipo, expressas ou implícitas. Não garantimos que o site será ininterrupto, seguro ou livre de erros, ou que os defeitos serão corrigidos.",
+  "termsOfServiceSection8Title": "8. Links para Sites de Terceiros",
+  "termsOfServiceSection8Content": "Nosso site pode conter links para sites de terceiros, incluindo plataformas de mídia social e serviços de mapeamento. Não somos responsáveis pelo conteúdo, políticas de privacidade ou práticas de quaisquer sites de terceiros. Seu uso de sites de terceiros é por sua conta e risco.",
+  "termsOfServiceSection9Title": "9. Modificações dos Termos",
+  "termsOfServiceSection9Content": "Reservamo-nos o direito de modificar estes Termos de Serviço a qualquer momento. Notificaremos os usuários sobre quaisquer alterações materiais atualizando a data de \"Última Atualização\" nesta página. Seu uso contínuo do site após tais modificações constitui aceitação dos Termos atualizados.",
+  "termsOfServiceSection10Title": "10. Lei Aplicável",
+  "termsOfServiceSection10Content": "Estes Termos de Serviço serão regidos e interpretados de acordo com as leis de Portugal, sem levar em consideração suas disposições de conflito de leis.",
+  "termsOfServiceSection11Title": "11. Informações de Contato",
+  "termsOfServiceSection11Content": "Se você tiver alguma dúvida sobre estes Termos de Serviço, entre em contato conosco:\n\nElegant Advisors\nE-mail: info@elegantadvisors.com\nTelefone: +351 123 456 789"
 }

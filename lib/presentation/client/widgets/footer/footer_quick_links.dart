@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
+import 'dart:html' as html;
 import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
@@ -96,18 +98,34 @@ class FooterQuickLinks extends StatelessWidget {
         FooterLink(
           text: context.l10n.footerLinkPrivacyPolicy,
           onTap: () {
-            // TODO: Navigate to Privacy Policy page
-            // Get.toNamed('/privacy-policy');
+            _openInNewTab(ClientConstants.routeClientPrivacyPolicy);
           },
         ),
         FooterLink(
           text: context.l10n.footerLinkTermsOfService,
           onTap: () {
-            // TODO: Navigate to Terms of Service page
-            // Get.toNamed('/terms-of-service');
+            _openInNewTab(ClientConstants.routeClientTermsOfService);
           },
         ),
       ],
     );
+  }
+
+  /// Opens a route in a new browser tab
+  void _openInNewTab(String route) {
+    if (kIsWeb) {
+      try {
+        final currentUrl = html.window.location;
+        final baseUrl = '${currentUrl.protocol}//${currentUrl.host}${currentUrl.port != 80 && currentUrl.port != 443 ? ':${currentUrl.port}' : ''}';
+        final fullUrl = '$baseUrl$route';
+        html.window.open(fullUrl, '_blank');
+      } catch (e) {
+        // Fallback to in-app navigation if window.open fails
+        Get.toNamed(route);
+      }
+    } else {
+      // For non-web platforms, use in-app navigation
+      Get.toNamed(route);
+    }
   }
 }
