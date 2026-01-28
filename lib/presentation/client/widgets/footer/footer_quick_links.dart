@@ -87,12 +87,6 @@ class FooterQuickLinks extends StatelessWidget {
           },
         ),
         FooterLink(
-          text: context.l10n.navFaq,
-          onTap: () {
-            Get.offNamed(ClientConstants.routeClientFaq);
-          },
-        ),
-        FooterLink(
           text: context.l10n.footerLinkMyContacts,
           onTap: () {
             Get.toNamed(ClientConstants.routeClientContacts);
@@ -101,6 +95,12 @@ class FooterQuickLinks extends StatelessWidget {
         AppSpacing.vertical(context, 0.01),
         Divider(color: AppColors.white.withValues(alpha: 0.2), thickness: 1),
         AppSpacing.vertical(context, 0.01),
+        FooterLink(
+          text: context.l10n.navFaq,
+          onTap: () {
+            Get.offNamed(ClientConstants.routeClientFaq);
+          },
+        ),
         FooterLink(
           text: context.l10n.footerLinkPrivacyPolicy,
           onTap: () {
@@ -122,7 +122,8 @@ class FooterQuickLinks extends StatelessWidget {
     if (kIsWeb) {
       try {
         final currentUrl = html.window.location;
-        final baseUrl = '${currentUrl.protocol}//${currentUrl.host}${currentUrl.port != 80 && currentUrl.port != 443 ? ':${currentUrl.port}' : ''}';
+        final baseUrl =
+            '${currentUrl.protocol}//${currentUrl.host}${currentUrl.port != 80 && currentUrl.port != 443 ? ':${currentUrl.port}' : ''}';
         final fullUrl = '$baseUrl$route';
         html.window.open(fullUrl, '_blank');
       } catch (e) {

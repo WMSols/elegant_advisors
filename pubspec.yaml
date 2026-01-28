@@ -83,6 +83,9 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^5.0.0
 
+  # Generate app icons from a single source image for all platforms
+  flutter_launcher_icons: ^0.14.3
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -159,3 +162,15 @@ flutter:
 
   # Generate localization files
   generate: true
+
+# App icon configuration - generates platform icons from a single image
+# (Android/iOS disabled - project is web-only; enable when adding those platforms)
+flutter_launcher_icons:
+  image_path: "assets/images/logo/app_icon.png"
+  android: false
+  ios: false
+  web:
+    generate: true
+    image_path: "assets/images/logo/app_icon.png"
+    background_color: "#070922"
+    theme_color: "#070922"

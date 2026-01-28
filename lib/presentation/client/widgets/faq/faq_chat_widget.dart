@@ -109,7 +109,7 @@ class _ExpandedCard extends StatelessWidget {
                   onPressed: onClose,
                   icon: const Icon(Iconsax.close_circle),
                   color: AppColors.white,
-                  iconSize: AppResponsive.iconSize(context,factor: 0.3),
+                  iconSize: AppResponsive.iconSize(context, factor: 0.3),
                 ),
               ],
             ),
