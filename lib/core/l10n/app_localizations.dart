@@ -1153,6 +1153,456 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Area:'**
   String get clientPropertyDetailSpecArea;
+
+  /// No description provided for @privacyPolicyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy Policy'**
+  String get privacyPolicyTitle;
+
+  /// No description provided for @privacyPolicyLastUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Last Updated: {date}'**
+  String privacyPolicyLastUpdated(String date);
+
+  /// No description provided for @privacyPolicyIntroduction.
+  ///
+  /// In en, this message translates to:
+  /// **'At Elegant Advisors, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our services.'**
+  String get privacyPolicyIntroduction;
+
+  /// No description provided for @privacyPolicySection1Title.
+  ///
+  /// In en, this message translates to:
+  /// **'1. Information We Collect'**
+  String get privacyPolicySection1Title;
+
+  /// No description provided for @privacyPolicySection1Content.
+  ///
+  /// In en, this message translates to:
+  /// **'We collect information that you provide directly to us, including:\n\n• Contact Information: When you submit a contact form, we collect your name, email address, phone number, subject, and message.\n• Property Inquiries: If you inquire about a specific property, we may associate your inquiry with that property.\n• IP Address: We may collect your IP address for security and analytics purposes.\n• Usage Data: We automatically collect information about how you interact with our website, including pages visited, time spent on pages, and property views.\n• Analytics Data: We use Firebase Analytics to track website usage, screen views, and user interactions.'**
+  String get privacyPolicySection1Content;
+
+  /// No description provided for @privacyPolicySection2Title.
+  ///
+  /// In en, this message translates to:
+  /// **'2. How We Use Your Information'**
+  String get privacyPolicySection2Title;
+
+  /// No description provided for @privacyPolicySection2Content.
+  ///
+  /// In en, this message translates to:
+  /// **'We use the information we collect to:\n\n• Respond to your inquiries and provide customer support\n• Process and manage your contact submissions\n• Improve our website and services\n• Analyze website usage and user behavior\n• Track property views and user engagement\n• Send you updates about properties or services (if you have opted in)\n• Comply with legal obligations'**
+  String get privacyPolicySection2Content;
+
+  /// No description provided for @privacyPolicySection3Title.
+  ///
+  /// In en, this message translates to:
+  /// **'3. Data Storage and Security'**
+  String get privacyPolicySection3Title;
+
+  /// No description provided for @privacyPolicySection3Content.
+  ///
+  /// In en, this message translates to:
+  /// **'Your information is stored securely using:\n\n• Firebase Firestore: Contact submissions and related data are stored in Google Cloud Firestore\n• Firebase Storage: Property images and related files are stored securely\n• Local Storage: We use browser local storage (SharedPreferences) to remember your language preferences and improve your experience\n\nWe implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.'**
+  String get privacyPolicySection3Content;
+
+  /// No description provided for @privacyPolicySection4Title.
+  ///
+  /// In en, this message translates to:
+  /// **'4. Third-Party Services'**
+  String get privacyPolicySection4Title;
+
+  /// No description provided for @privacyPolicySection4Content.
+  ///
+  /// In en, this message translates to:
+  /// **'We use the following third-party services that may collect information:\n\n• Google Firebase: For data storage, analytics, and authentication services\n• Firebase Analytics: For website usage analytics and tracking\n\nThese services have their own privacy policies governing the collection and use of your information.'**
+  String get privacyPolicySection4Content;
+
+  /// No description provided for @privacyPolicySection5Title.
+  ///
+  /// In en, this message translates to:
+  /// **'5. Data Retention'**
+  String get privacyPolicySection5Title;
+
+  /// No description provided for @privacyPolicySection5Content.
+  ///
+  /// In en, this message translates to:
+  /// **'We retain your personal information for as long as necessary to fulfill the purposes outlined in this Privacy Policy, unless a longer retention period is required or permitted by law. Contact submissions are retained to provide customer support and track inquiry history.'**
+  String get privacyPolicySection5Content;
+
+  /// No description provided for @privacyPolicySection6Title.
+  ///
+  /// In en, this message translates to:
+  /// **'6. Your Rights'**
+  String get privacyPolicySection6Title;
+
+  /// No description provided for @privacyPolicySection6Content.
+  ///
+  /// In en, this message translates to:
+  /// **'Depending on your location, you may have the following rights regarding your personal information:\n\n• Access: Request access to your personal information\n• Correction: Request correction of inaccurate information\n• Deletion: Request deletion of your personal information\n• Objection: Object to processing of your personal information\n• Data Portability: Request transfer of your data\n\nTo exercise these rights, please contact us using the information provided in the Contact section.'**
+  String get privacyPolicySection6Content;
+
+  /// No description provided for @privacyPolicySection7Title.
+  ///
+  /// In en, this message translates to:
+  /// **'7. Cookies and Local Storage'**
+  String get privacyPolicySection7Title;
+
+  /// No description provided for @privacyPolicySection7Content.
+  ///
+  /// In en, this message translates to:
+  /// **'We use browser local storage to remember your language preferences and improve your browsing experience. This information is stored locally on your device and is not transmitted to our servers except as part of normal website functionality.'**
+  String get privacyPolicySection7Content;
+
+  /// No description provided for @privacyPolicySection8Title.
+  ///
+  /// In en, this message translates to:
+  /// **'8. Children\'s Privacy'**
+  String get privacyPolicySection8Title;
+
+  /// No description provided for @privacyPolicySection8Content.
+  ///
+  /// In en, this message translates to:
+  /// **'Our services are not directed to individuals under the age of 18. We do not knowingly collect personal information from children. If you believe we have collected information from a child, please contact us immediately.'**
+  String get privacyPolicySection8Content;
+
+  /// No description provided for @privacyPolicySection9Title.
+  ///
+  /// In en, this message translates to:
+  /// **'9. Changes to This Privacy Policy'**
+  String get privacyPolicySection9Title;
+
+  /// No description provided for @privacyPolicySection9Content.
+  ///
+  /// In en, this message translates to:
+  /// **'We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the \"Last Updated\" date. You are advised to review this Privacy Policy periodically for any changes.'**
+  String get privacyPolicySection9Content;
+
+  /// No description provided for @privacyPolicySection10Title.
+  ///
+  /// In en, this message translates to:
+  /// **'10. Contact Us'**
+  String get privacyPolicySection10Title;
+
+  /// No description provided for @privacyPolicySection10Content.
+  ///
+  /// In en, this message translates to:
+  /// **'If you have any questions about this Privacy Policy or our data practices, please contact us:\n\nElegant Advisors\nEmail: info@elegantadvisors.com\nPhone: +351 123 456 789'**
+  String get privacyPolicySection10Content;
+
+  /// No description provided for @termsOfServiceTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Terms of Service'**
+  String get termsOfServiceTitle;
+
+  /// No description provided for @termsOfServiceLastUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Last Updated: {date}'**
+  String termsOfServiceLastUpdated(String date);
+
+  /// No description provided for @termsOfServiceIntroduction.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome to Elegant Advisors. These Terms of Service govern your access to and use of our website and services. By accessing or using our website, you agree to be bound by these Terms.'**
+  String get termsOfServiceIntroduction;
+
+  /// No description provided for @termsOfServiceSection1Title.
+  ///
+  /// In en, this message translates to:
+  /// **'1. Acceptance of Terms'**
+  String get termsOfServiceSection1Title;
+
+  /// No description provided for @termsOfServiceSection1Content.
+  ///
+  /// In en, this message translates to:
+  /// **'By accessing and using the Elegant Advisors website, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to these Terms, please do not use our website.'**
+  String get termsOfServiceSection1Content;
+
+  /// No description provided for @termsOfServiceSection2Title.
+  ///
+  /// In en, this message translates to:
+  /// **'2. Use of Website'**
+  String get termsOfServiceSection2Title;
+
+  /// No description provided for @termsOfServiceSection2Content.
+  ///
+  /// In en, this message translates to:
+  /// **'You agree to use our website only for lawful purposes and in a way that does not infringe the rights of, restrict, or inhibit anyone else\'s use and enjoyment of the website. Prohibited behavior includes harassing or causing distress or inconvenience to any person, transmitting obscene or offensive content, or disrupting the normal flow of dialogue within our website.'**
+  String get termsOfServiceSection2Content;
+
+  /// No description provided for @termsOfServiceSection3Title.
+  ///
+  /// In en, this message translates to:
+  /// **'3. Property Information'**
+  String get termsOfServiceSection3Title;
+
+  /// No description provided for @termsOfServiceSection3Content.
+  ///
+  /// In en, this message translates to:
+  /// **'All property information, descriptions, images, and specifications displayed on our website are provided for informational purposes only. While we strive to ensure accuracy, we do not guarantee the completeness, reliability, or accuracy of any property information. Property availability, prices, and specifications are subject to change without notice.'**
+  String get termsOfServiceSection3Content;
+
+  /// No description provided for @termsOfServiceSection4Title.
+  ///
+  /// In en, this message translates to:
+  /// **'4. Contact Form and Submissions'**
+  String get termsOfServiceSection4Title;
+
+  /// No description provided for @termsOfServiceSection4Content.
+  ///
+  /// In en, this message translates to:
+  /// **'When you submit a contact form or inquiry:\n\n• You agree to provide accurate and truthful information\n• You grant us permission to use your contact information to respond to your inquiry\n• You understand that we may store your submission for customer service and record-keeping purposes\n• You agree not to submit any unlawful, harmful, or inappropriate content'**
+  String get termsOfServiceSection4Content;
+
+  /// No description provided for @termsOfServiceSection5Title.
+  ///
+  /// In en, this message translates to:
+  /// **'5. Intellectual Property'**
+  String get termsOfServiceSection5Title;
+
+  /// No description provided for @termsOfServiceSection5Content.
+  ///
+  /// In en, this message translates to:
+  /// **'All content on this website, including text, graphics, logos, images, and software, is the property of Elegant Advisors or its content suppliers and is protected by copyright and other intellectual property laws. You may not reproduce, distribute, modify, or create derivative works from any content without our express written permission.'**
+  String get termsOfServiceSection5Content;
+
+  /// No description provided for @termsOfServiceSection6Title.
+  ///
+  /// In en, this message translates to:
+  /// **'6. Limitation of Liability'**
+  String get termsOfServiceSection6Title;
+
+  /// No description provided for @termsOfServiceSection6Content.
+  ///
+  /// In en, this message translates to:
+  /// **'Elegant Advisors shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of or inability to use the website or services. We do not guarantee that the website will be available at all times or free from errors or interruptions.'**
+  String get termsOfServiceSection6Content;
+
+  /// No description provided for @termsOfServiceSection7Title.
+  ///
+  /// In en, this message translates to:
+  /// **'7. Disclaimer of Warranties'**
+  String get termsOfServiceSection7Title;
+
+  /// No description provided for @termsOfServiceSection7Content.
+  ///
+  /// In en, this message translates to:
+  /// **'The website and services are provided \"as is\" and \"as available\" without any warranties of any kind, either express or implied. We do not warrant that the website will be uninterrupted, secure, or error-free, or that defects will be corrected.'**
+  String get termsOfServiceSection7Content;
+
+  /// No description provided for @termsOfServiceSection8Title.
+  ///
+  /// In en, this message translates to:
+  /// **'8. Links to Third-Party Websites'**
+  String get termsOfServiceSection8Title;
+
+  /// No description provided for @termsOfServiceSection8Content.
+  ///
+  /// In en, this message translates to:
+  /// **'Our website may contain links to third-party websites, including social media platforms and mapping services. We are not responsible for the content, privacy policies, or practices of any third-party websites. Your use of third-party websites is at your own risk.'**
+  String get termsOfServiceSection8Content;
+
+  /// No description provided for @termsOfServiceSection9Title.
+  ///
+  /// In en, this message translates to:
+  /// **'9. Modifications to Terms'**
+  String get termsOfServiceSection9Title;
+
+  /// No description provided for @termsOfServiceSection9Content.
+  ///
+  /// In en, this message translates to:
+  /// **'We reserve the right to modify these Terms of Service at any time. We will notify users of any material changes by updating the \"Last Updated\" date on this page. Your continued use of the website after such modifications constitutes acceptance of the updated Terms.'**
+  String get termsOfServiceSection9Content;
+
+  /// No description provided for @termsOfServiceSection10Title.
+  ///
+  /// In en, this message translates to:
+  /// **'10. Governing Law'**
+  String get termsOfServiceSection10Title;
+
+  /// No description provided for @termsOfServiceSection10Content.
+  ///
+  /// In en, this message translates to:
+  /// **'These Terms of Service shall be governed by and construed in accordance with the laws of Portugal, without regard to its conflict of law provisions.'**
+  String get termsOfServiceSection10Content;
+
+  /// No description provided for @termsOfServiceSection11Title.
+  ///
+  /// In en, this message translates to:
+  /// **'11. Contact Information'**
+  String get termsOfServiceSection11Title;
+
+  /// No description provided for @termsOfServiceSection11Content.
+  ///
+  /// In en, this message translates to:
+  /// **'If you have any questions about these Terms of Service, please contact us:\n\nElegant Advisors\nEmail: info@elegantadvisors.com\nPhone: +351 123 456 789'**
+  String get termsOfServiceSection11Content;
+
+  /// No description provided for @navFaq.
+  ///
+  /// In en, this message translates to:
+  /// **'FAQ'**
+  String get navFaq;
+
+  /// No description provided for @faqPageTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Frequently Asked Questions'**
+  String get faqPageTitle;
+
+  /// No description provided for @faqChatTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Have questions?'**
+  String get faqChatTooltip;
+
+  /// No description provided for @faqCardTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Frequently Asked Questions'**
+  String get faqCardTitle;
+
+  /// No description provided for @faqViewFullPage.
+  ///
+  /// In en, this message translates to:
+  /// **'View full FAQ page'**
+  String get faqViewFullPage;
+
+  /// No description provided for @faq1Question.
+  ///
+  /// In en, this message translates to:
+  /// **'What type of clients does Elegant work with?'**
+  String get faq1Question;
+
+  /// No description provided for @faq1Answer.
+  ///
+  /// In en, this message translates to:
+  /// **'We work with private investors, family offices, developers, private equity funds, asset management firms, and lifestyle buyers seeking high-quality residential, commercial, and hospitality assets. Many of our clients are international and rely on us for local market expertise and end-to-end transaction advisory.'**
+  String get faq1Answer;
+
+  /// No description provided for @faq2Question.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you a real estate agency or an investment advisory firm?'**
+  String get faq2Question;
+
+  /// No description provided for @faq2Answer.
+  ///
+  /// In en, this message translates to:
+  /// **'Elegant operates as a real estate investment advisory and brokerage, combining traditional agency capabilities with strategic investment guidance. We support clients beyond the transaction — including sourcing, evaluation, structuring, and long-term asset positioning.'**
+  String get faq2Answer;
+
+  /// No description provided for @faq3Question.
+  ///
+  /// In en, this message translates to:
+  /// **'Do you work with international investors?'**
+  String get faq3Question;
+
+  /// No description provided for @faq3Answer.
+  ///
+  /// In en, this message translates to:
+  /// **'Yes. A significant portion of our clientele is international. We assist with market entry strategy, asset sourcing, due diligence coordination, and introductions to trusted legal, tax, and financial partners to ensure a seamless acquisition process.'**
+  String get faq3Answer;
+
+  /// No description provided for @faq4Question.
+  ///
+  /// In en, this message translates to:
+  /// **'Can you source off-market opportunities?'**
+  String get faq4Question;
+
+  /// No description provided for @faq4Answer.
+  ///
+  /// In en, this message translates to:
+  /// **'Absolutely. Through our network of owners, developers, operators, and private stakeholders, we regularly access discreet, off-market opportunities not publicly advertised — often among the most attractive investments available.'**
+  String get faq4Answer;
+
+  /// No description provided for @faq5Question.
+  ///
+  /// In en, this message translates to:
+  /// **'What services do you provide beyond buying and selling?'**
+  String get faq5Question;
+
+  /// No description provided for @faq5Answer.
+  ///
+  /// In en, this message translates to:
+  /// **'Our advisory spans the full investment lifecycle, including:\n• Investment strategy definition\n• Asset sourcing (on- and off-market)\n• Financial and yield analysis\n• Due diligence coordination\n• Transaction structuring support\n• Repositioning and value-add guidance\n• Hospitality and operational asset advisory'**
+  String get faq5Answer;
+
+  /// No description provided for @faq6Question.
+  ///
+  /// In en, this message translates to:
+  /// **'Do you help with rental yield and income-producing assets?'**
+  String get faq6Question;
+
+  /// No description provided for @faq6Answer.
+  ///
+  /// In en, this message translates to:
+  /// **'Yes. We advise on income-generating properties, including residential portfolios, commercial buildings, and hospitality assets, focusing on stable cash flow, strong tenant profiles, and long-term value preservation.'**
+  String get faq6Answer;
+
+  /// No description provided for @faq7Question.
+  ///
+  /// In en, this message translates to:
+  /// **'Can you assist developers and land investors?'**
+  String get faq7Question;
+
+  /// No description provided for @faq7Answer.
+  ///
+  /// In en, this message translates to:
+  /// **'We work closely with developers and land investors by identifying strategic plots and development opportunities and providing insights on positioning, demand trends, and exit strategies.'**
+  String get faq7Answer;
+
+  /// No description provided for @faq8Question.
+  ///
+  /// In en, this message translates to:
+  /// **'How do you ensure discretion and confidentiality?'**
+  String get faq8Question;
+
+  /// No description provided for @faq8Answer.
+  ///
+  /// In en, this message translates to:
+  /// **'Discretion is fundamental to our philosophy. Client identities, strategies, and transactions are handled with strict confidentiality, particularly in off-market deals and private portfolio acquisitions.'**
+  String get faq8Answer;
+
+  /// No description provided for @faq9Question.
+  ///
+  /// In en, this message translates to:
+  /// **'How are you compensated?'**
+  String get faq9Question;
+
+  /// No description provided for @faq9Answer.
+  ///
+  /// In en, this message translates to:
+  /// **'Compensation varies depending on the transaction and scope of services. This may include brokerage fees, advisory retainers, or success-based structures. All terms are transparently agreed upon in advance.'**
+  String get faq9Answer;
+
+  /// No description provided for @faq10Question.
+  ///
+  /// In en, this message translates to:
+  /// **'Do you advise on hospitality investments specifically?'**
+  String get faq10Question;
+
+  /// No description provided for @faq10Answer.
+  ///
+  /// In en, this message translates to:
+  /// **'Yes — hospitality is one of our core specializations, covering hotels, serviced apartments, resorts, and mixed-use assets, including acquisitions, repositioning, operator strategy, and development-led projects.'**
+  String get faq10Answer;
+
+  /// No description provided for @faq11Question.
+  ///
+  /// In en, this message translates to:
+  /// **'How do we start working together?'**
+  String get faq11Question;
+
+  /// No description provided for @faq11Answer.
+  ///
+  /// In en, this message translates to:
+  /// **'We begin with a confidential consultation to understand your objectives, risk profile, investment horizon, and capital allocation strategy. From there, we define a tailored approach and present curated opportunities aligned with your goals.'**
+  String get faq11Answer;
 }
 
 class _AppLocalizationsDelegate

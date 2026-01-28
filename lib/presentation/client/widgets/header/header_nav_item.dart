@@ -119,7 +119,7 @@ class _HeaderNavItemState extends State<HeaderNavItem> {
               if (_isHovered || isActive)
                 Container(
                   height: 2,
-                  width: AppResponsive.scaleSize(context, 20, min: 15, max: 25),
+                  width: AppResponsive.scaleSize(context, 25, min: 20, max: 30),
                   color: AppColors.white,
                 ),
             ],

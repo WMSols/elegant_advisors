@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:elegant_advisors/presentation/client/widgets/layout/app_footer.dart';
 import 'package:elegant_advisors/presentation/client/widgets/layout/app_header.dart';
 import 'package:elegant_advisors/presentation/client/widgets/header/header_mobile_drawer.dart';
+import 'package:elegant_advisors/presentation/client/widgets/faq/faq_chat_widget.dart';
 
 /// Reusable screen layout for client screens
 /// Handles the common structure: Stack with scrollable content and fixed header
@@ -50,6 +51,8 @@ class ClientScreenLayout extends StatelessWidget {
                 ? Obx(() => AppHeader(showBackground: showHeader!.value))
                 : const AppHeader(),
           ),
+          // FAQ chat-style widget (bottom-left)
+          const FaqChatWidget(),
         ],
       ),
     );
