@@ -1441,6 +1441,168 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'If you have any questions about these Terms of Service, please contact us:\n\nElegant Advisors\nEmail: info@elegantadvisors.com\nPhone: +351 123 456 789'**
   String get termsOfServiceSection11Content;
+
+  /// No description provided for @navFaq.
+  ///
+  /// In en, this message translates to:
+  /// **'FAQ'**
+  String get navFaq;
+
+  /// No description provided for @faqPageTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Frequently Asked Questions'**
+  String get faqPageTitle;
+
+  /// No description provided for @faqChatTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Have questions?'**
+  String get faqChatTooltip;
+
+  /// No description provided for @faqCardTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Frequently Asked Questions'**
+  String get faqCardTitle;
+
+  /// No description provided for @faqViewFullPage.
+  ///
+  /// In en, this message translates to:
+  /// **'View full FAQ page'**
+  String get faqViewFullPage;
+
+  /// No description provided for @faq1Question.
+  ///
+  /// In en, this message translates to:
+  /// **'What type of clients does Elegant work with?'**
+  String get faq1Question;
+
+  /// No description provided for @faq1Answer.
+  ///
+  /// In en, this message translates to:
+  /// **'We work with private investors, family offices, developers, private equity funds, asset management firms, and lifestyle buyers seeking high-quality residential, commercial, and hospitality assets. Many of our clients are international and rely on us for local market expertise and end-to-end transaction advisory.'**
+  String get faq1Answer;
+
+  /// No description provided for @faq2Question.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you a real estate agency or an investment advisory firm?'**
+  String get faq2Question;
+
+  /// No description provided for @faq2Answer.
+  ///
+  /// In en, this message translates to:
+  /// **'Elegant operates as a real estate investment advisory and brokerage, combining traditional agency capabilities with strategic investment guidance. We support clients beyond the transaction — including sourcing, evaluation, structuring, and long-term asset positioning.'**
+  String get faq2Answer;
+
+  /// No description provided for @faq3Question.
+  ///
+  /// In en, this message translates to:
+  /// **'Do you work with international investors?'**
+  String get faq3Question;
+
+  /// No description provided for @faq3Answer.
+  ///
+  /// In en, this message translates to:
+  /// **'Yes. A significant portion of our clientele is international. We assist with market entry strategy, asset sourcing, due diligence coordination, and introductions to trusted legal, tax, and financial partners to ensure a seamless acquisition process.'**
+  String get faq3Answer;
+
+  /// No description provided for @faq4Question.
+  ///
+  /// In en, this message translates to:
+  /// **'Can you source off-market opportunities?'**
+  String get faq4Question;
+
+  /// No description provided for @faq4Answer.
+  ///
+  /// In en, this message translates to:
+  /// **'Absolutely. Through our network of owners, developers, operators, and private stakeholders, we regularly access discreet, off-market opportunities not publicly advertised — often among the most attractive investments available.'**
+  String get faq4Answer;
+
+  /// No description provided for @faq5Question.
+  ///
+  /// In en, this message translates to:
+  /// **'What services do you provide beyond buying and selling?'**
+  String get faq5Question;
+
+  /// No description provided for @faq5Answer.
+  ///
+  /// In en, this message translates to:
+  /// **'Our advisory spans the full investment lifecycle, including:\n• Investment strategy definition\n• Asset sourcing (on- and off-market)\n• Financial and yield analysis\n• Due diligence coordination\n• Transaction structuring support\n• Repositioning and value-add guidance\n• Hospitality and operational asset advisory'**
+  String get faq5Answer;
+
+  /// No description provided for @faq6Question.
+  ///
+  /// In en, this message translates to:
+  /// **'Do you help with rental yield and income-producing assets?'**
+  String get faq6Question;
+
+  /// No description provided for @faq6Answer.
+  ///
+  /// In en, this message translates to:
+  /// **'Yes. We advise on income-generating properties, including residential portfolios, commercial buildings, and hospitality assets, focusing on stable cash flow, strong tenant profiles, and long-term value preservation.'**
+  String get faq6Answer;
+
+  /// No description provided for @faq7Question.
+  ///
+  /// In en, this message translates to:
+  /// **'Can you assist developers and land investors?'**
+  String get faq7Question;
+
+  /// No description provided for @faq7Answer.
+  ///
+  /// In en, this message translates to:
+  /// **'We work closely with developers and land investors by identifying strategic plots and development opportunities and providing insights on positioning, demand trends, and exit strategies.'**
+  String get faq7Answer;
+
+  /// No description provided for @faq8Question.
+  ///
+  /// In en, this message translates to:
+  /// **'How do you ensure discretion and confidentiality?'**
+  String get faq8Question;
+
+  /// No description provided for @faq8Answer.
+  ///
+  /// In en, this message translates to:
+  /// **'Discretion is fundamental to our philosophy. Client identities, strategies, and transactions are handled with strict confidentiality, particularly in off-market deals and private portfolio acquisitions.'**
+  String get faq8Answer;
+
+  /// No description provided for @faq9Question.
+  ///
+  /// In en, this message translates to:
+  /// **'How are you compensated?'**
+  String get faq9Question;
+
+  /// No description provided for @faq9Answer.
+  ///
+  /// In en, this message translates to:
+  /// **'Compensation varies depending on the transaction and scope of services. This may include brokerage fees, advisory retainers, or success-based structures. All terms are transparently agreed upon in advance.'**
+  String get faq9Answer;
+
+  /// No description provided for @faq10Question.
+  ///
+  /// In en, this message translates to:
+  /// **'Do you advise on hospitality investments specifically?'**
+  String get faq10Question;
+
+  /// No description provided for @faq10Answer.
+  ///
+  /// In en, this message translates to:
+  /// **'Yes — hospitality is one of our core specializations, covering hotels, serviced apartments, resorts, and mixed-use assets, including acquisitions, repositioning, operator strategy, and development-led projects.'**
+  String get faq10Answer;
+
+  /// No description provided for @faq11Question.
+  ///
+  /// In en, this message translates to:
+  /// **'How do we start working together?'**
+  String get faq11Question;
+
+  /// No description provided for @faq11Answer.
+  ///
+  /// In en, this message translates to:
+  /// **'We begin with a confidential consultation to understand your objectives, risk profile, investment horizon, and capital allocation strategy. From there, we define a tailored approach and present curated opportunities aligned with your goals.'**
+  String get faq11Answer;
 }
 
 class _AppLocalizationsDelegate

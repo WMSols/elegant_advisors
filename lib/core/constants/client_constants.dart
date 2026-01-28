@@ -13,4 +13,5 @@ class ClientConstants {
   static const String routeClientContacts = '/my-contacts';
   static const String routeClientPrivacyPolicy = '/privacy-policy';
   static const String routeClientTermsOfService = '/terms-of-service';
+  static const String routeClientFaq = '/faq';
 }

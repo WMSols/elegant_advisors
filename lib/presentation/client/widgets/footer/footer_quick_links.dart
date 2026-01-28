@@ -87,6 +87,12 @@ class FooterQuickLinks extends StatelessWidget {
           },
         ),
         FooterLink(
+          text: context.l10n.navFaq,
+          onTap: () {
+            Get.offNamed(ClientConstants.routeClientFaq);
+          },
+        ),
+        FooterLink(
           text: context.l10n.footerLinkMyContacts,
           onTap: () {
             Get.toNamed(ClientConstants.routeClientContacts);

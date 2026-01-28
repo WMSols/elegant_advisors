@@ -77,6 +77,11 @@ class HeaderMobileDrawer extends StatelessWidget {
                     route: ClientConstants.routeClientContact,
                     onTap: onClose,
                   ),
+                  _MobileDrawerItem(
+                    label: context.l10n.navFaq,
+                    route: ClientConstants.routeClientFaq,
+                    onTap: onClose,
+                  ),
                 ],
               ),
             ),

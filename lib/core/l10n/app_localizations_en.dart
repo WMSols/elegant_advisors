@@ -742,4 +742,101 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get termsOfServiceSection11Content =>
       'If you have any questions about these Terms of Service, please contact us:\n\nElegant Advisors\nEmail: info@elegantadvisors.com\nPhone: +351 123 456 789';
+
+  @override
+  String get navFaq => 'FAQ';
+
+  @override
+  String get faqPageTitle => 'Frequently Asked Questions';
+
+  @override
+  String get faqChatTooltip => 'Have questions?';
+
+  @override
+  String get faqCardTitle => 'Frequently Asked Questions';
+
+  @override
+  String get faqViewFullPage => 'View full FAQ page';
+
+  @override
+  String get faq1Question => 'What type of clients does Elegant work with?';
+
+  @override
+  String get faq1Answer =>
+      'We work with private investors, family offices, developers, private equity funds, asset management firms, and lifestyle buyers seeking high-quality residential, commercial, and hospitality assets. Many of our clients are international and rely on us for local market expertise and end-to-end transaction advisory.';
+
+  @override
+  String get faq2Question =>
+      'Are you a real estate agency or an investment advisory firm?';
+
+  @override
+  String get faq2Answer =>
+      'Elegant operates as a real estate investment advisory and brokerage, combining traditional agency capabilities with strategic investment guidance. We support clients beyond the transaction — including sourcing, evaluation, structuring, and long-term asset positioning.';
+
+  @override
+  String get faq3Question => 'Do you work with international investors?';
+
+  @override
+  String get faq3Answer =>
+      'Yes. A significant portion of our clientele is international. We assist with market entry strategy, asset sourcing, due diligence coordination, and introductions to trusted legal, tax, and financial partners to ensure a seamless acquisition process.';
+
+  @override
+  String get faq4Question => 'Can you source off-market opportunities?';
+
+  @override
+  String get faq4Answer =>
+      'Absolutely. Through our network of owners, developers, operators, and private stakeholders, we regularly access discreet, off-market opportunities not publicly advertised — often among the most attractive investments available.';
+
+  @override
+  String get faq5Question =>
+      'What services do you provide beyond buying and selling?';
+
+  @override
+  String get faq5Answer =>
+      'Our advisory spans the full investment lifecycle, including:\n• Investment strategy definition\n• Asset sourcing (on- and off-market)\n• Financial and yield analysis\n• Due diligence coordination\n• Transaction structuring support\n• Repositioning and value-add guidance\n• Hospitality and operational asset advisory';
+
+  @override
+  String get faq6Question =>
+      'Do you help with rental yield and income-producing assets?';
+
+  @override
+  String get faq6Answer =>
+      'Yes. We advise on income-generating properties, including residential portfolios, commercial buildings, and hospitality assets, focusing on stable cash flow, strong tenant profiles, and long-term value preservation.';
+
+  @override
+  String get faq7Question => 'Can you assist developers and land investors?';
+
+  @override
+  String get faq7Answer =>
+      'We work closely with developers and land investors by identifying strategic plots and development opportunities and providing insights on positioning, demand trends, and exit strategies.';
+
+  @override
+  String get faq8Question =>
+      'How do you ensure discretion and confidentiality?';
+
+  @override
+  String get faq8Answer =>
+      'Discretion is fundamental to our philosophy. Client identities, strategies, and transactions are handled with strict confidentiality, particularly in off-market deals and private portfolio acquisitions.';
+
+  @override
+  String get faq9Question => 'How are you compensated?';
+
+  @override
+  String get faq9Answer =>
+      'Compensation varies depending on the transaction and scope of services. This may include brokerage fees, advisory retainers, or success-based structures. All terms are transparently agreed upon in advance.';
+
+  @override
+  String get faq10Question =>
+      'Do you advise on hospitality investments specifically?';
+
+  @override
+  String get faq10Answer =>
+      'Yes — hospitality is one of our core specializations, covering hotels, serviced apartments, resorts, and mixed-use assets, including acquisitions, repositioning, operator strategy, and development-led projects.';
+
+  @override
+  String get faq11Question => 'How do we start working together?';
+
+  @override
+  String get faq11Answer =>
+      'We begin with a confidential consultation to understand your objectives, risk profile, investment horizon, and capital allocation strategy. From there, we define a tailored approach and present curated opportunities aligned with your goals.';
 }

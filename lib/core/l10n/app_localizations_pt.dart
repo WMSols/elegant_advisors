@@ -749,4 +749,102 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get termsOfServiceSection11Content =>
       'Se você tiver alguma dúvida sobre estes Termos de Serviço, entre em contato conosco:\n\nElegant Advisors\nE-mail: info@elegantadvisors.com\nTelefone: +351 123 456 789';
+
+  @override
+  String get navFaq => 'FAQ';
+
+  @override
+  String get faqPageTitle => 'Perguntas Frequentes';
+
+  @override
+  String get faqChatTooltip => 'Tem dúvidas?';
+
+  @override
+  String get faqCardTitle => 'Perguntas Frequentes';
+
+  @override
+  String get faqViewFullPage => 'Ver página completa de FAQ';
+
+  @override
+  String get faq1Question => 'Que tipo de clientes a Elegant atende?';
+
+  @override
+  String get faq1Answer =>
+      'Trabalhamos com investidores privados, family offices, promotores, fundos de private equity, gestoras de ativos e compradores de estilo de vida que procuram ativos residenciais, comerciais e de hospitalidade de alta qualidade. Muitos dos nossos clientes são internacionais e dependem de nós para conhecimento do mercado local e consultoria transacional de ponta a ponta.';
+
+  @override
+  String get faq2Question =>
+      'São uma imobiliária ou uma consultoria de investimentos?';
+
+  @override
+  String get faq2Answer =>
+      'A Elegant atua como consultoria de investimento imobiliário e corretagem, combinando capacidades de agência tradicional com orientação estratégica de investimento. Apoiamos os clientes para além da transação — incluindo sourcing, avaliação, estruturação e posicionamento de ativos a longo prazo.';
+
+  @override
+  String get faq3Question => 'Trabalham com investidores internacionais?';
+
+  @override
+  String get faq3Answer =>
+      'Sim. Uma parte significativa da nossa clientela é internacional. Auxiliamos com estratégia de entrada no mercado, sourcing de ativos, coordenação de due diligence e apresentações a parceiros jurídicos, fiscais e financeiros de confiança para garantir um processo de aquisição sem falhas.';
+
+  @override
+  String get faq4Question =>
+      'Conseguem aceder a oportunidades fora do mercado?';
+
+  @override
+  String get faq4Answer =>
+      'Absolutamente. Através da nossa rede de proprietários, promotores, operadores e partes interessadas privadas, acedemos regularmente a oportunidades discretas fora do mercado não divulgadas publicamente — frequentemente entre os investimentos mais atrativos disponíveis.';
+
+  @override
+  String get faq5Question =>
+      'Que serviços prestam para além da compra e venda?';
+
+  @override
+  String get faq5Answer =>
+      'A nossa consultoria abrange todo o ciclo de vida do investimento, incluindo:\n• Definição de estratégia de investimento\n• Sourcing de ativos (no mercado e fora do mercado)\n• Análise financeira e de rendimento\n• Coordenação de due diligence\n• Apoio à estruturação de transações\n• Orientação de reposicionamento e valor acrescentado\n• Consultoria em ativos de hospitalidade e operacionais';
+
+  @override
+  String get faq6Question =>
+      'Ajudam com rendimento de aluguer e ativos geradores de receita?';
+
+  @override
+  String get faq6Answer =>
+      'Sim. Aconselhamos sobre propriedades geradoras de rendimento, incluindo portfólios residenciais, edifícios comerciais e ativos de hospitalidade, com foco em fluxo de caixa estável, perfis de inquilinos sólidos e preservação de valor a longo prazo.';
+
+  @override
+  String get faq7Question =>
+      'Podem assistir promotores e investidores em terrenos?';
+
+  @override
+  String get faq7Answer =>
+      'Trabalhamos em estreita colaboração com promotores e investidores em terrenos, identificando parcelas estratégicas e oportunidades de desenvolvimento e fornecendo insights sobre posicionamento, tendências de procura e estratégias de saída.';
+
+  @override
+  String get faq8Question => 'Como garantem discrição e confidencialidade?';
+
+  @override
+  String get faq8Answer =>
+      'A discrição é fundamental na nossa filosofia. As identidades dos clientes, estratégias e transações são tratadas com estrita confidencialidade, particularmente em negócios fora do mercado e aquisições de portfólio privado.';
+
+  @override
+  String get faq9Question => 'Como são remunerados?';
+
+  @override
+  String get faq9Answer =>
+      'A remuneração varia consoante a transação e o âmbito dos serviços. Pode incluir comissões de corretagem, retenções de consultoria ou estruturas baseadas em sucesso. Todos os termos são acordados de forma transparente antecipadamente.';
+
+  @override
+  String get faq10Question =>
+      'Aconselham especificamente sobre investimentos em hospitalidade?';
+
+  @override
+  String get faq10Answer =>
+      'Sim — a hospitalidade é uma das nossas especializações centrais, abrangendo hotéis, apartamentos com serviços, resorts e ativos de uso misto, incluindo aquisições, reposicionamento, estratégia de operadores e projetos liderados por desenvolvimento.';
+
+  @override
+  String get faq11Question => 'Como começamos a trabalhar juntos?';
+
+  @override
+  String get faq11Answer =>
+      'Começamos com uma consulta confidencial para compreender os seus objetivos, perfil de risco, horizonte de investimento e estratégia de alocação de capital. A partir daí, definimos uma abordagem personalizada e apresentamos oportunidades curadas alinhadas com os seus objetivos.';
 }
