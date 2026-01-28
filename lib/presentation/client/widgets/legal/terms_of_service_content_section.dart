@@ -17,7 +17,9 @@ class TermsOfServiceContentSection extends StatelessWidget {
     final l10n = context.l10n;
     final locale = Localizations.localeOf(context);
     final currentDate = DateTime.now();
-    final formattedDate = DateFormat.yMd(locale.toLanguageTag()).format(currentDate);
+    final formattedDate = DateFormat.yMd(
+      locale.toLanguageTag(),
+    ).format(currentDate);
 
     return ClientBackgroundSection(
       horizontalPadding: 0.04,

@@ -7,10 +7,6 @@ class ClientFaqScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ClientScreenLayout(
-      children: [
-        FaqContentSection(),
-      ],
-    );
+    return const ClientScreenLayout(children: [FaqContentSection()]);
   }
 }

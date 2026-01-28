@@ -7,10 +7,6 @@ class ClientPrivacyPolicyScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ClientScreenLayout(
-      children: [
-        PrivacyPolicyContentSection(),
-      ],
-    );
+    return const ClientScreenLayout(children: [PrivacyPolicyContentSection()]);
   }
 }

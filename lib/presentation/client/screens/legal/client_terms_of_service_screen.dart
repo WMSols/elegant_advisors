@@ -7,10 +7,6 @@ class ClientTermsOfServiceScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ClientScreenLayout(
-      children: [
-        TermsOfServiceContentSection(),
-      ],
-    );
+    return const ClientScreenLayout(children: [TermsOfServiceContentSection()]);
   }
 }
