@@ -47,8 +47,8 @@ class AppTextStyles {
   static TextStyle buttonText(BuildContext context) => TextStyle(
     fontSize: AppResponsive.fontSizeClamped(
       context,
-      min: 14, // Minimum readable size on mobile
-      max: 18, // Maximum size on desktop
+      min: 12, // Minimum readable size on mobile
+      max: 16, // Maximum size on desktop
     ),
     fontFamily: AppFonts.primaryFont,
     color: Colors.white,

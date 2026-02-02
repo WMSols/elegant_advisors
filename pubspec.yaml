@@ -121,21 +121,21 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: BricolageGrotesque
+    - family: Montserrat
       fonts:
-        - asset: assets/fonts/BricolageGrotesque-Regular.ttf
+        - asset: assets/fonts/Montserrat-Regular.ttf
           weight: 400
-        - asset: assets/fonts/BricolageGrotesque-Medium.ttf
+        - asset: assets/fonts/Montserrat-Medium.ttf
           weight: 500
-        - asset: assets/fonts/BricolageGrotesque-Bold.ttf
+        - asset: assets/fonts/Montserrat-Bold.ttf
           weight: 700
-    - family: Inter
+    - family: NotoSerifDisplay
       fonts:
-        - asset: assets/fonts/Inter-Regular.ttf
+        - asset: assets/fonts/NotoSerifDisplay-Regular.ttf
           weight: 400
-        - asset: assets/fonts/Inter-Medium.ttf
+        - asset: assets/fonts/NotoSerifDisplay-Medium.ttf
           weight: 500
-        - asset: assets/fonts/Inter-Bold.ttf
+        - asset: assets/fonts/NotoSerifDisplay-Bold.ttf
           weight: 700
     - family: Cinzel
       fonts:
