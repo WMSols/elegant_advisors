@@ -1,5 +1,5 @@
 class AppFonts {
-  static const String primaryFont = 'Montserrat';
-  static const String secondaryFont = 'NotoSerifDisplay';
+  static const String primaryFont = 'PlayfairDisplay';
+  static const String secondaryFont = 'PlayfairDisplay';
   static const String logoFont = 'Cinzel';
 }
