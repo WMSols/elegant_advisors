@@ -15,5 +15,5 @@ void main() async {
   setUrlStrategy(PathUrlStrategy());
 
   await AppInitializer.initialize();
-  runApp(const EAApp(appType: AppType.client));
+  runApp(const EAApp(appType: AppType.admin));
 }
