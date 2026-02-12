@@ -139,6 +139,16 @@ class ClientPropertyDetailController extends BaseController {
     try {
       final loadedProperty = await _firestoreService.getPropertyBySlug(slug!);
       if (loadedProperty != null) {
+        // Off-market listings are inquire-only: redirect to contact
+        if (loadedProperty.status == 'off_market' &&
+            loadedProperty.id != null &&
+            loadedProperty.id!.isNotEmpty) {
+          Get.offNamed(
+            ClientConstants.routeClientContact,
+            arguments: loadedProperty.id,
+          );
+          return;
+        }
         property.value = loadedProperty;
         // Track property visit
         await trackPropertyVisit(loadedProperty);

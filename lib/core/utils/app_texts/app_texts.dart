@@ -265,8 +265,8 @@ class AppTexts {
   static const String commonWarning = "Warning";
 
   // App Titles
-  static const String appTitleClient = "Elegant Advisors";
-  static const String appTitleAdmin = "Elegant Advisors - Admin";
+  static const String appTitleClient = "Elegant Real Estate";
+  static const String appTitleAdmin = "Elegant Real Estate - Admin";
 
   // Property Detail
   static const String clientPropertyDetailNotFoundMessage =

@@ -15,6 +15,8 @@ class ClientPropertyCard extends StatefulWidget {
   isRelatedProperty; // When true, shows image gallery on top and info below
   final double?
   fixedHeight; // Fixed height for related property cards on desktop
+  /// When true, card shows "Inquire" and navigates to contact (off-market inquire-only).
+  final bool isInquireOnly;
 
   const ClientPropertyCard({
     super.key,
@@ -23,6 +25,7 @@ class ClientPropertyCard extends StatefulWidget {
     this.index,
     this.isRelatedProperty = false,
     this.fixedHeight,
+    this.isInquireOnly = false,
   });
 
   @override
@@ -198,6 +201,7 @@ class _ClientPropertyCardState extends State<ClientPropertyCard> {
       property: widget.property,
       onTap: widget.onTap,
       isMobile: isMobile,
+      isInquireOnly: widget.isInquireOnly,
     );
   }
 

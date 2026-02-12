@@ -302,7 +302,7 @@ exports.sendInquiryNotification = functions.https.onCall(async (data, context) =
               </div>
             </div>
             <div class="footer">
-              <p>This email was sent from the Elegant Advisors contact form.</p>
+              <p>This email was sent from the Elegant Real Estate contact form.</p>
             </div>
           </div>
         </body>
@@ -393,14 +393,14 @@ exports.sendInquiryConfirmation = functions.https.onCall(async (data, context) =
             </div>
             <div class="content">
               <p>Dear ${inquiry.name || 'Valued Client'},</p>
-              <p>Thank you for contacting Elegant Advisors. We have received your inquiry and will get back to you as soon as possible.</p>
+              <p>Thank you for contacting Elegant Real Estate. We have received your inquiry and will get back to you as soon as possible.</p>
               <p><strong>Your Inquiry Details:</strong></p>
               <ul>
                 <li><strong>Subject:</strong> ${inquiry.subject || 'General Inquiry'}</li>
                 <li><strong>Submitted:</strong> ${new Date(inquiry.createdAt?.seconds * 1000 || Date.now()).toLocaleString()}</li>
               </ul>
               <p>Our team typically responds within 24-48 hours. If you have any urgent questions, please don't hesitate to contact us directly.</p>
-              <p>Best regards,<br>The Elegant Advisors Team</p>
+              <p>Best regards,<br>The Elegant Real Estate Team</p>
             </div>
             <div class="footer">
               <p>This is an automated confirmation email. Please do not reply to this email.</p>
@@ -415,7 +415,7 @@ Thank You for Your Inquiry
 
 Dear ${inquiry.name || 'Valued Client'},
 
-Thank you for contacting Elegant Advisors. We have received your inquiry and will get back to you as soon as possible.
+Thank you for contacting Elegant Real Estate. We have received your inquiry and will get back to you as soon as possible.
 
 Your Inquiry Details:
 - Subject: ${inquiry.subject || 'General Inquiry'}
@@ -424,7 +424,7 @@ Your Inquiry Details:
 Our team typically responds within 24-48 hours. If you have any urgent questions, please don't hesitate to contact us directly.
 
 Best regards,
-The Elegant Advisors Team
+The Elegant Real Estate Team
 
 ---
 This is an automated confirmation email. Please do not reply to this email.
@@ -433,7 +433,7 @@ This is an automated confirmation email. Please do not reply to this email.
     const mailOptions = {
       from: emailConfig.from,
       to: inquiry.email,
-      subject: 'Thank You for Your Inquiry - Elegant Advisors',
+      subject: 'Thank You for Your Inquiry - Elegant Real Estate',
       text: emailText,
       html: emailHtml,
     };
@@ -616,12 +616,12 @@ exports.sendInquiryReply = functions.https.onCall(async (data, context) => {
             </div>
             <div class="content">
               <p>Dear ${inquiry.name || 'Valued Client'},</p>
-              <p>Thank you for contacting Elegant Advisors. We have received your inquiry and are pleased to respond.</p>
+              <p>Thank you for contacting Elegant Real Estate. We have received your inquiry and are pleased to respond.</p>
               ${originalInquiryInfo}
               <h3>Our Response:</h3>
               <div class="reply-message">${replyMessage.replace(/\n/g, '<br>')}</div>
               <p>If you have any further questions or need additional assistance, please don't hesitate to contact us.</p>
-              <p>Best regards,<br>The Elegant Advisors Team</p>
+              <p>Best regards,<br>The Elegant Real Estate Team</p>
             </div>
             <div class="footer">
               <p>This email was sent in response to your inquiry submitted on ${createdAtDate.toLocaleString()}.</p>
@@ -636,7 +636,7 @@ Reply to Your Inquiry
 
 Dear ${inquiry.name || 'Valued Client'},
 
-Thank you for contacting Elegant Advisors. We have received your inquiry and are pleased to respond.
+Thank you for contacting Elegant Real Estate. We have received your inquiry and are pleased to respond.
 
 Original Inquiry:
 Subject: ${inquiry.subject || 'General Inquiry'}
@@ -650,7 +650,7 @@ ${replyMessage}
 If you have any further questions or need additional assistance, please don't hesitate to contact us.
 
 Best regards,
-The Elegant Advisors Team
+The Elegant Real Estate Team
 
 ---
 This email was sent in response to your inquiry submitted on ${createdAtDate.toLocaleString()}.
@@ -659,7 +659,7 @@ This email was sent in response to your inquiry submitted on ${createdAtDate.toL
     const mailOptions = {
       from: emailConfig.from,
       to: inquiry.email,
-      subject: `Re: ${inquiry.subject || 'Your Inquiry'} - Elegant Advisors`,
+      subject: `Re: ${inquiry.subject || 'Your Inquiry'} - Elegant Real Estate`,
       text: emailText,
       html: emailHtml,
       replyTo: emailConfig.admin, // Allow user to reply back to admin

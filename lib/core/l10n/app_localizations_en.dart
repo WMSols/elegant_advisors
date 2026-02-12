@@ -9,7 +9,7 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get webName => 'Elegant Advisors';
+  String get webName => 'Elegant';
 
   @override
   String get logoTitle => 'ELEGANT';
@@ -30,11 +30,11 @@ class AppLocalizationsEn extends AppLocalizations {
   String get navContact => 'Contact';
 
   @override
-  String get homeTitle => 'ELEGANCE, INTEGRITY, TRANSPARENCY';
+  String get homeTitle => 'REAL ESTATE ADVISORY & INVESTMENT BROKERAGE';
 
   @override
   String get homeSubtitle =>
-      'Elegant is a real estate advisory defined by a singular philosophy: real estate, at its finest, is an art of elegance. We curate exceptional property opportunities in Portugal, guided by discretion, market insight, and uncompromising standards.';
+      'Elegant is a real estate advisory and investment brokerage defined by a singular philosophy: real estate, at its finest, is an art of elegance. We curate exceptional property opportunities in Portugal and the Iberian region, guided by discretion, market insight, and uncompromising standards.';
 
   @override
   String get homeButtonConsultation => 'Request A Private Consultation';
@@ -44,7 +44,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get homeOurApproachDescription =>
-      'We combine deep market intelligence with strong local and international networks to deliver tailored advisory services across the full investment lifecycle — from strategy definition and asset sourcing to acquisition, due diligence, structuring, and closing. Each client receives discreet, data-driven guidance aligned with their financial objectives, risk profile, and investment horizon.';
+      'By combining deep local market knowledge with strong international networks, we deliver considered, investment-led real estate advisory across the full transaction lifecycle — from strategy and asset sourcing to acquisition, due diligence, structuring, and execution.\n\nWe act as a trusted local advisory and execution partner for private clients, developers, and professional investors seeking structured exposure to Iberian real estate, with a clear focus on quality, alignment, and long-term value creation.';
 
   @override
   String get homeOurApproachButton => 'What We Do';
@@ -54,14 +54,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get homeOurPhilosophyMissionDescription =>
-      'Elegance, integrity, and transparency define how we operate. At Elegant, we believe in quality over volume — carefully curating residential, commercial, and hospitality opportunities that align precisely with each client\'s lifestyle ambitions or investment strategy.';
+      'Elegance, discretion, and integrity define how we operate. We take a considered, investment-led approach to real estate advisory, focusing on quality, alignment, and long-term value creation in every engagement.';
 
   @override
   String get homeOurPhilosophyTitle => 'OUR PHILOSOPHY';
 
   @override
   String get homeOurPhilosophyDescription =>
-      'Elegance, integrity, and transparency define how we operate. At Elegant, we believe in quality over volume — carefully curating residential, commercial, and hospitality opportunities that align precisely with each client\'s lifestyle ambitions or investment strategy.';
+      'Elegance, discretion, and integrity define how we operate. We take a considered, investment-led approach to real estate advisory, focusing on quality, alignment, and long-term value creation in every engagement.';
 
   @override
   String get homeOurMissionTitle => 'OUR MISSION';
@@ -71,27 +71,35 @@ class AppLocalizationsEn extends AppLocalizations {
       'Our mission is to deliver clarity and sophistication at every stage of the property journey, ensuring each acquisition is as seamless as it is distinguished.';
 
   @override
-  String get homeWhatWeSpecializeInTitle => 'WHAT WE SPECIALIZE IN';
+  String get homeWhatWeSpecializeInTitle => 'WHAT WE SPECIALISE IN';
 
   @override
   String get homeWhatWeSpecializeInDescription =>
-      'We specialize in curating exceptional property opportunities across multiple asset classes, each tailored to meet distinct investment objectives and lifestyle aspirations.';
+      'We specialise in curating exceptional property opportunities across multiple asset classes, each tailored to meet distinct investment objectives and lifestyle aspirations.';
 
   @override
   String get homeWhatWeSpecializeInHighEndResidentialTitle =>
-      'HIGH-END RESIDENTIAL ASSETS';
+      'PRIVATE RESIDENTIAL ADVISORY';
 
   @override
   String get homeWhatWeSpecializeInHighEndResidentialDescription =>
-      'Luxury villas, premium apartments, and exclusive residential properties in prime locations — curated for lifestyle buyers and investors seeking long-term capital appreciation.';
+      'High-end residential assets: luxury villas, premium apartments, and exclusive residential properties in prime locations. Tailored for private clients seeking a primary residence, secondary home, or long-term lifestyle asset, with a focus on quality, discretion, and long-term value.';
+
+  @override
+  String get homeWhatWeSpecializeInInvestmentCapitalMarketsTitle =>
+      'INVESTMENT & CAPITAL MARKETS ADVISORY';
+
+  @override
+  String get homeWhatWeSpecializeInInvestmentCapitalMarketsDescription =>
+      'We advise and transact on behalf of investment funds, asset managers, family offices, and developers, providing access to both on-market and off-market opportunities across residential, commercial, and hospitality real estate.';
 
   @override
   String get homeWhatWeSpecializeInInvestmentPlotsTitle =>
-      'INVESTMENT PLOTS & DEVELOPMENT LAND';
+      'DEVELOPMENT LAND & STRATEGIC PLOTS';
 
   @override
   String get homeWhatWeSpecializeInInvestmentPlotsDescription =>
-      'Strategic land opportunities for residential, commercial, and hospitality developments. Suitable for developers, asset managers, private equity funds, and long-term investors seeking scalable growth.';
+      'Strategic land opportunities for residential, commercial, and hospitality developments. Suitable for developers and institutional capital seeking scalable projects with planning visibility and clearly defined exit strategies.';
 
   @override
   String get homeWhatWeSpecializeInInvestmentBuildingsTitle =>
@@ -99,7 +107,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get homeWhatWeSpecializeInInvestmentBuildingsDescription =>
-      'Entire buildings requiring renovation, refurbishment, or redevelopment for residential or commercial use. Ideal for developers, asset managers, private equity funds, and investors pursuing value-add and repositioning strategies.';
+      'Building acquisitions suitable for refurbishment, repositioning, or redevelopment, including assets structured for income generation, phased disposals, or full exit strategies. Opportunities are relevant for developers, funds, and asset managers seeking value creation through active asset management, redevelopment, or strategic sale.';
 
   @override
   String get homeWhatWeSpecializeInCommercialRealEstateTitle =>
@@ -107,7 +115,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get homeWhatWeSpecializeInCommercialRealEstateDescription =>
-      'Retail, office, parking, and industrial assets — including income-generating properties with stable tenants and strong yield profiles.';
+      'Retail, office, and mixed-use assets, including income-generating properties with stable or growing cash flows. Opportunities assessed on a risk-adjusted, underwriting-led basis consistent with professional investment mandates.';
 
   @override
   String get homeWhatWeSpecializeInHospitalityTitle =>
@@ -115,7 +123,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get homeWhatWeSpecializeInHospitalityDescription =>
-      'A dedicated focus on hotels, serviced apartments, boutique hotels, resorts, and mixed-use hospitality developments. We advise on acquisitions, repositioning opportunities, operational assets, and development-led projects — targeting both yield and value creation.';
+      'Advisory across hotels, serviced apartments, boutique hotels, resorts, and mixed-use hospitality developments. We support acquisitions, repositioning strategies, operational assets, and development-led hospitality projects, targeting sustainable yield and long-term value creation.';
 
   @override
   String get homeWhatWeSpecializeInButton => 'Contact Us';
@@ -151,10 +159,11 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get offMarketDescription =>
-      'Discover our curated selection of exclusive off-market properties available through private consultation.';
+      'Inquire only. Our curated selection of exclusive off-market opportunities — details shared upon inquiry through private consultation.';
 
   @override
-  String get offMarketViewProperties => 'View Off Market Properties';
+  String get offMarketViewProperties =>
+      'Inquire About Off Market Opportunities';
 
   @override
   String get clientOffMarketErrorLoading =>
@@ -173,6 +182,41 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get clientOffMarketClearFilters => 'Clear Filters';
+
+  @override
+  String get offMarketFormTitle => 'Request Off Market Projects';
+
+  @override
+  String get offMarketFormName => 'Name';
+
+  @override
+  String get offMarketFormEmail => 'Email';
+
+  @override
+  String get offMarketFormPhone => 'Phone';
+
+  @override
+  String get offMarketFormMessage => 'Your requirements';
+
+  @override
+  String get offMarketFormMessageHint =>
+      'Tell us about the type of off-market opportunities you\'re interested in (e.g. sector, location, budget).';
+
+  @override
+  String get offMarketFormButton => 'Submit Request';
+
+  @override
+  String get offMarketFormSuccess =>
+      'Your request has been sent. We\'ll contact you at the email you provided.';
+
+  @override
+  String get offMarketFormErrorSubmit => 'Failed to submit. Please try again.';
+
+  @override
+  String get offMarketFormSubject => 'Request for Off Market Projects';
+
+  @override
+  String get offMarketRequestForm => 'Request Form';
 
   @override
   String get clientPropertiesShowMore => 'Show More';
@@ -315,7 +359,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get contactFormButton => 'Send Message';
 
   @override
-  String get contactOfficeTitle => 'Elegant Advisors Office';
+  String get contactOfficeTitle => 'Elegant Office';
 
   @override
   String get contactOfficeAddress => 'Address';
@@ -331,11 +375,11 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get footerTagline =>
-      'Elegant Advisors - Your Trusted Property & Asset Advisory Partner';
+      'Elegant — Real Estate Advisory & Investment Brokerage';
 
   @override
   String footerCopyright(int year) {
-    return '© $year Elegant Advisors. All rights reserved.';
+    return '© $year Elegant. All rights reserved.';
   }
 
   @override
@@ -453,10 +497,11 @@ class AppLocalizationsEn extends AppLocalizations {
   String get commonWarning => 'Warning';
 
   @override
-  String get appTitleClient => 'Elegant Advisors';
+  String get appTitleClient =>
+      'Elegant — Real Estate Advisory & Investment Brokerage';
 
   @override
-  String get appTitleAdmin => 'Elegant Advisors - Admin';
+  String get appTitleAdmin => 'Elegant — Admin';
 
   @override
   String get locationGoogleMapsError => 'Could not open Google Maps';
@@ -475,7 +520,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get footerCompanyDescription =>
-      'Elegant is a real estate advisory defined by a singular philosophy: real estate, at its finest, is an art of elegance. We curate exceptional property opportunities in Portugal, guided by discretion, market insight, and uncompromising standards.';
+      'Elegance, discretion, and integrity define how we operate. We take a considered, investment-led approach to real estate advisory, focusing on quality, alignment, and long-term value creation in every engagement.';
 
   @override
   String get footerSocialTitle => 'Follow Us';
@@ -582,7 +627,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get privacyPolicyIntroduction =>
-      'At Elegant Advisors, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our services.';
+      'At Elegant, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our services.';
 
   @override
   String get privacyPolicySection1Title => '1. Information We Collect';
@@ -652,7 +697,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get privacyPolicySection10Content =>
-      'If you have any questions about this Privacy Policy or our data practices, please contact us:\n\nElegant Advisors\nEmail: info@elegantadvisors.com\nPhone: +351 123 456 789';
+      'If you have any questions about this Privacy Policy or our data practices, please contact us:\n\nElegant\nEmail: info@elegantadvisors.com\nPhone: +351 123 456 789';
 
   @override
   String get termsOfServiceTitle => 'Terms of Service';
@@ -664,14 +709,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get termsOfServiceIntroduction =>
-      'Welcome to Elegant Advisors. These Terms of Service govern your access to and use of our website and services. By accessing or using our website, you agree to be bound by these Terms.';
+      'Welcome to Elegant. These Terms of Service govern your access to and use of our website and services. By accessing or using our website, you agree to be bound by these Terms.';
 
   @override
   String get termsOfServiceSection1Title => '1. Acceptance of Terms';
 
   @override
   String get termsOfServiceSection1Content =>
-      'By accessing and using the Elegant Advisors website, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to these Terms, please do not use our website.';
+      'By accessing and using the Elegant website, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to these Terms, please do not use our website.';
 
   @override
   String get termsOfServiceSection2Title => '2. Use of Website';
@@ -699,14 +744,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get termsOfServiceSection5Content =>
-      'All content on this website, including text, graphics, logos, images, and software, is the property of Elegant Advisors or its content suppliers and is protected by copyright and other intellectual property laws. You may not reproduce, distribute, modify, or create derivative works from any content without our express written permission.';
+      'All content on this website, including text, graphics, logos, images, and software, is the property of Elegant or its content suppliers and is protected by copyright and other intellectual property laws. You may not reproduce, distribute, modify, or create derivative works from any content without our express written permission.';
 
   @override
   String get termsOfServiceSection6Title => '6. Limitation of Liability';
 
   @override
   String get termsOfServiceSection6Content =>
-      'Elegant Advisors shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of or inability to use the website or services. We do not guarantee that the website will be available at all times or free from errors or interruptions.';
+      'Elegant shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of or inability to use the website or services. We do not guarantee that the website will be available at all times or free from errors or interruptions.';
 
   @override
   String get termsOfServiceSection7Title => '7. Disclaimer of Warranties';
@@ -741,7 +786,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get termsOfServiceSection11Content =>
-      'If you have any questions about these Terms of Service, please contact us:\n\nElegant Advisors\nEmail: info@elegantadvisors.com\nPhone: +351 123 456 789';
+      'If you have any questions about these Terms of Service, please contact us:\n\nElegant\nEmail: info@elegantadvisors.com\nPhone: +351 123 456 789';
 
   @override
   String get navFaq => 'FAQ';

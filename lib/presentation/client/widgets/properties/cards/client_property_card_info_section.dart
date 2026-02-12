@@ -19,11 +19,15 @@ class ClientPropertyCardInfoSection extends StatelessWidget {
   final VoidCallback? onTap;
   final bool isMobile;
 
+  /// When true, show "Inquire" and navigate to contact with property id (off-market inquire-only).
+  final bool isInquireOnly;
+
   const ClientPropertyCardInfoSection({
     super.key,
     required this.property,
     this.onTap,
     this.isMobile = false,
+    this.isInquireOnly = false,
   });
 
   @override
@@ -97,26 +101,36 @@ class ClientPropertyCardInfoSection extends StatelessWidget {
           AppSpacing.vertical(context, 0.02),
         ] else
           AppSpacing.vertical(context, 0.02),
-        // Show More Button
+        // Show More / Inquire Button (inquire-only for off-market)
         AppButton(
-          text: context.l10n.clientPropertiesShowMore,
+          text: isInquireOnly
+              ? context.l10n.clientPropertyDetailInquire
+              : context.l10n.clientPropertiesShowMore,
           backgroundColor: AppColors.primary,
           textColor: AppColors.white,
           width: isMobile ? double.infinity : null,
           onPressed:
               onTap ??
-              () {
-                // Delete existing controller to ensure clean state when navigating
-                if (Get.isRegistered<ClientPropertyDetailController>()) {
-                  Get.delete<ClientPropertyDetailController>(force: true);
-                }
-                Get.toNamed(
-                  ClientConstants.routeClientPropertyDetail.replaceAll(
-                    ':slug',
-                    property.slug,
-                  ),
-                );
-              },
+              (isInquireOnly
+                  ? () {
+                      if (property.id != null) {
+                        Get.toNamed(
+                          ClientConstants.routeClientContact,
+                          arguments: property.id,
+                        );
+                      }
+                    }
+                  : () {
+                      if (Get.isRegistered<ClientPropertyDetailController>()) {
+                        Get.delete<ClientPropertyDetailController>(force: true);
+                      }
+                      Get.toNamed(
+                        ClientConstants.routeClientPropertyDetail.replaceAll(
+                          ':slug',
+                          property.slug,
+                        ),
+                      );
+                    }),
         ),
       ],
     );

@@ -101,7 +101,7 @@ abstract class AppLocalizations {
   /// No description provided for @webName.
   ///
   /// In en, this message translates to:
-  /// **'Elegant Advisors'**
+  /// **'Elegant'**
   String get webName;
 
   /// No description provided for @logoTitle.
@@ -143,13 +143,13 @@ abstract class AppLocalizations {
   /// No description provided for @homeTitle.
   ///
   /// In en, this message translates to:
-  /// **'ELEGANCE, INTEGRITY, TRANSPARENCY'**
+  /// **'REAL ESTATE ADVISORY & INVESTMENT BROKERAGE'**
   String get homeTitle;
 
   /// No description provided for @homeSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Elegant is a real estate advisory defined by a singular philosophy: real estate, at its finest, is an art of elegance. We curate exceptional property opportunities in Portugal, guided by discretion, market insight, and uncompromising standards.'**
+  /// **'Elegant is a real estate advisory and investment brokerage defined by a singular philosophy: real estate, at its finest, is an art of elegance. We curate exceptional property opportunities in Portugal and the Iberian region, guided by discretion, market insight, and uncompromising standards.'**
   String get homeSubtitle;
 
   /// No description provided for @homeButtonConsultation.
@@ -167,7 +167,7 @@ abstract class AppLocalizations {
   /// No description provided for @homeOurApproachDescription.
   ///
   /// In en, this message translates to:
-  /// **'We combine deep market intelligence with strong local and international networks to deliver tailored advisory services across the full investment lifecycle — from strategy definition and asset sourcing to acquisition, due diligence, structuring, and closing. Each client receives discreet, data-driven guidance aligned with their financial objectives, risk profile, and investment horizon.'**
+  /// **'By combining deep local market knowledge with strong international networks, we deliver considered, investment-led real estate advisory across the full transaction lifecycle — from strategy and asset sourcing to acquisition, due diligence, structuring, and execution.\n\nWe act as a trusted local advisory and execution partner for private clients, developers, and professional investors seeking structured exposure to Iberian real estate, with a clear focus on quality, alignment, and long-term value creation.'**
   String get homeOurApproachDescription;
 
   /// No description provided for @homeOurApproachButton.
@@ -185,7 +185,7 @@ abstract class AppLocalizations {
   /// No description provided for @homeOurPhilosophyMissionDescription.
   ///
   /// In en, this message translates to:
-  /// **'Elegance, integrity, and transparency define how we operate. At Elegant, we believe in quality over volume — carefully curating residential, commercial, and hospitality opportunities that align precisely with each client\'s lifestyle ambitions or investment strategy.'**
+  /// **'Elegance, discretion, and integrity define how we operate. We take a considered, investment-led approach to real estate advisory, focusing on quality, alignment, and long-term value creation in every engagement.'**
   String get homeOurPhilosophyMissionDescription;
 
   /// No description provided for @homeOurPhilosophyTitle.
@@ -197,7 +197,7 @@ abstract class AppLocalizations {
   /// No description provided for @homeOurPhilosophyDescription.
   ///
   /// In en, this message translates to:
-  /// **'Elegance, integrity, and transparency define how we operate. At Elegant, we believe in quality over volume — carefully curating residential, commercial, and hospitality opportunities that align precisely with each client\'s lifestyle ambitions or investment strategy.'**
+  /// **'Elegance, discretion, and integrity define how we operate. We take a considered, investment-led approach to real estate advisory, focusing on quality, alignment, and long-term value creation in every engagement.'**
   String get homeOurPhilosophyDescription;
 
   /// No description provided for @homeOurMissionTitle.
@@ -215,37 +215,49 @@ abstract class AppLocalizations {
   /// No description provided for @homeWhatWeSpecializeInTitle.
   ///
   /// In en, this message translates to:
-  /// **'WHAT WE SPECIALIZE IN'**
+  /// **'WHAT WE SPECIALISE IN'**
   String get homeWhatWeSpecializeInTitle;
 
   /// No description provided for @homeWhatWeSpecializeInDescription.
   ///
   /// In en, this message translates to:
-  /// **'We specialize in curating exceptional property opportunities across multiple asset classes, each tailored to meet distinct investment objectives and lifestyle aspirations.'**
+  /// **'We specialise in curating exceptional property opportunities across multiple asset classes, each tailored to meet distinct investment objectives and lifestyle aspirations.'**
   String get homeWhatWeSpecializeInDescription;
 
   /// No description provided for @homeWhatWeSpecializeInHighEndResidentialTitle.
   ///
   /// In en, this message translates to:
-  /// **'HIGH-END RESIDENTIAL ASSETS'**
+  /// **'PRIVATE RESIDENTIAL ADVISORY'**
   String get homeWhatWeSpecializeInHighEndResidentialTitle;
 
   /// No description provided for @homeWhatWeSpecializeInHighEndResidentialDescription.
   ///
   /// In en, this message translates to:
-  /// **'Luxury villas, premium apartments, and exclusive residential properties in prime locations — curated for lifestyle buyers and investors seeking long-term capital appreciation.'**
+  /// **'High-end residential assets: luxury villas, premium apartments, and exclusive residential properties in prime locations. Tailored for private clients seeking a primary residence, secondary home, or long-term lifestyle asset, with a focus on quality, discretion, and long-term value.'**
   String get homeWhatWeSpecializeInHighEndResidentialDescription;
+
+  /// No description provided for @homeWhatWeSpecializeInInvestmentCapitalMarketsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'INVESTMENT & CAPITAL MARKETS ADVISORY'**
+  String get homeWhatWeSpecializeInInvestmentCapitalMarketsTitle;
+
+  /// No description provided for @homeWhatWeSpecializeInInvestmentCapitalMarketsDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'We advise and transact on behalf of investment funds, asset managers, family offices, and developers, providing access to both on-market and off-market opportunities across residential, commercial, and hospitality real estate.'**
+  String get homeWhatWeSpecializeInInvestmentCapitalMarketsDescription;
 
   /// No description provided for @homeWhatWeSpecializeInInvestmentPlotsTitle.
   ///
   /// In en, this message translates to:
-  /// **'INVESTMENT PLOTS & DEVELOPMENT LAND'**
+  /// **'DEVELOPMENT LAND & STRATEGIC PLOTS'**
   String get homeWhatWeSpecializeInInvestmentPlotsTitle;
 
   /// No description provided for @homeWhatWeSpecializeInInvestmentPlotsDescription.
   ///
   /// In en, this message translates to:
-  /// **'Strategic land opportunities for residential, commercial, and hospitality developments. Suitable for developers, asset managers, private equity funds, and long-term investors seeking scalable growth.'**
+  /// **'Strategic land opportunities for residential, commercial, and hospitality developments. Suitable for developers and institutional capital seeking scalable projects with planning visibility and clearly defined exit strategies.'**
   String get homeWhatWeSpecializeInInvestmentPlotsDescription;
 
   /// No description provided for @homeWhatWeSpecializeInInvestmentBuildingsTitle.
@@ -257,7 +269,7 @@ abstract class AppLocalizations {
   /// No description provided for @homeWhatWeSpecializeInInvestmentBuildingsDescription.
   ///
   /// In en, this message translates to:
-  /// **'Entire buildings requiring renovation, refurbishment, or redevelopment for residential or commercial use. Ideal for developers, asset managers, private equity funds, and investors pursuing value-add and repositioning strategies.'**
+  /// **'Building acquisitions suitable for refurbishment, repositioning, or redevelopment, including assets structured for income generation, phased disposals, or full exit strategies. Opportunities are relevant for developers, funds, and asset managers seeking value creation through active asset management, redevelopment, or strategic sale.'**
   String get homeWhatWeSpecializeInInvestmentBuildingsDescription;
 
   /// No description provided for @homeWhatWeSpecializeInCommercialRealEstateTitle.
@@ -269,7 +281,7 @@ abstract class AppLocalizations {
   /// No description provided for @homeWhatWeSpecializeInCommercialRealEstateDescription.
   ///
   /// In en, this message translates to:
-  /// **'Retail, office, parking, and industrial assets — including income-generating properties with stable tenants and strong yield profiles.'**
+  /// **'Retail, office, and mixed-use assets, including income-generating properties with stable or growing cash flows. Opportunities assessed on a risk-adjusted, underwriting-led basis consistent with professional investment mandates.'**
   String get homeWhatWeSpecializeInCommercialRealEstateDescription;
 
   /// No description provided for @homeWhatWeSpecializeInHospitalityTitle.
@@ -281,7 +293,7 @@ abstract class AppLocalizations {
   /// No description provided for @homeWhatWeSpecializeInHospitalityDescription.
   ///
   /// In en, this message translates to:
-  /// **'A dedicated focus on hotels, serviced apartments, boutique hotels, resorts, and mixed-use hospitality developments. We advise on acquisitions, repositioning opportunities, operational assets, and development-led projects — targeting both yield and value creation.'**
+  /// **'Advisory across hotels, serviced apartments, boutique hotels, resorts, and mixed-use hospitality developments. We support acquisitions, repositioning strategies, operational assets, and development-led hospitality projects, targeting sustainable yield and long-term value creation.'**
   String get homeWhatWeSpecializeInHospitalityDescription;
 
   /// No description provided for @homeWhatWeSpecializeInButton.
@@ -347,13 +359,13 @@ abstract class AppLocalizations {
   /// No description provided for @offMarketDescription.
   ///
   /// In en, this message translates to:
-  /// **'Discover our curated selection of exclusive off-market properties available through private consultation.'**
+  /// **'Inquire only. Our curated selection of exclusive off-market opportunities — details shared upon inquiry through private consultation.'**
   String get offMarketDescription;
 
   /// No description provided for @offMarketViewProperties.
   ///
   /// In en, this message translates to:
-  /// **'View Off Market Properties'**
+  /// **'Inquire About Off Market Opportunities'**
   String get offMarketViewProperties;
 
   /// No description provided for @clientOffMarketErrorLoading.
@@ -385,6 +397,72 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Clear Filters'**
   String get clientOffMarketClearFilters;
+
+  /// No description provided for @offMarketFormTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Request Off Market Projects'**
+  String get offMarketFormTitle;
+
+  /// No description provided for @offMarketFormName.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get offMarketFormName;
+
+  /// No description provided for @offMarketFormEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get offMarketFormEmail;
+
+  /// No description provided for @offMarketFormPhone.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone'**
+  String get offMarketFormPhone;
+
+  /// No description provided for @offMarketFormMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Your requirements'**
+  String get offMarketFormMessage;
+
+  /// No description provided for @offMarketFormMessageHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Tell us about the type of off-market opportunities you\'re interested in (e.g. sector, location, budget).'**
+  String get offMarketFormMessageHint;
+
+  /// No description provided for @offMarketFormButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Submit Request'**
+  String get offMarketFormButton;
+
+  /// No description provided for @offMarketFormSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Your request has been sent. We\'ll contact you at the email you provided.'**
+  String get offMarketFormSuccess;
+
+  /// No description provided for @offMarketFormErrorSubmit.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to submit. Please try again.'**
+  String get offMarketFormErrorSubmit;
+
+  /// No description provided for @offMarketFormSubject.
+  ///
+  /// In en, this message translates to:
+  /// **'Request for Off Market Projects'**
+  String get offMarketFormSubject;
+
+  /// No description provided for @offMarketRequestForm.
+  ///
+  /// In en, this message translates to:
+  /// **'Request Form'**
+  String get offMarketRequestForm;
 
   /// No description provided for @clientPropertiesShowMore.
   ///
@@ -665,7 +743,7 @@ abstract class AppLocalizations {
   /// No description provided for @contactOfficeTitle.
   ///
   /// In en, this message translates to:
-  /// **'Elegant Advisors Office'**
+  /// **'Elegant Office'**
   String get contactOfficeTitle;
 
   /// No description provided for @contactOfficeAddress.
@@ -695,13 +773,13 @@ abstract class AppLocalizations {
   /// No description provided for @footerTagline.
   ///
   /// In en, this message translates to:
-  /// **'Elegant Advisors - Your Trusted Property & Asset Advisory Partner'**
+  /// **'Elegant — Real Estate Advisory & Investment Brokerage'**
   String get footerTagline;
 
   /// No description provided for @footerCopyright.
   ///
   /// In en, this message translates to:
-  /// **'© {year} Elegant Advisors. All rights reserved.'**
+  /// **'© {year} Elegant. All rights reserved.'**
   String footerCopyright(int year);
 
   /// No description provided for @contactSuccessMessage.
@@ -929,13 +1007,13 @@ abstract class AppLocalizations {
   /// No description provided for @appTitleClient.
   ///
   /// In en, this message translates to:
-  /// **'Elegant Advisors'**
+  /// **'Elegant — Real Estate Advisory & Investment Brokerage'**
   String get appTitleClient;
 
   /// No description provided for @appTitleAdmin.
   ///
   /// In en, this message translates to:
-  /// **'Elegant Advisors - Admin'**
+  /// **'Elegant — Admin'**
   String get appTitleAdmin;
 
   /// No description provided for @locationGoogleMapsError.
@@ -971,7 +1049,7 @@ abstract class AppLocalizations {
   /// No description provided for @footerCompanyDescription.
   ///
   /// In en, this message translates to:
-  /// **'Elegant is a real estate advisory defined by a singular philosophy: real estate, at its finest, is an art of elegance. We curate exceptional property opportunities in Portugal, guided by discretion, market insight, and uncompromising standards.'**
+  /// **'Elegance, discretion, and integrity define how we operate. We take a considered, investment-led approach to real estate advisory, focusing on quality, alignment, and long-term value creation in every engagement.'**
   String get footerCompanyDescription;
 
   /// No description provided for @footerSocialTitle.
@@ -1169,7 +1247,7 @@ abstract class AppLocalizations {
   /// No description provided for @privacyPolicyIntroduction.
   ///
   /// In en, this message translates to:
-  /// **'At Elegant Advisors, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our services.'**
+  /// **'At Elegant, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our services.'**
   String get privacyPolicyIntroduction;
 
   /// No description provided for @privacyPolicySection1Title.
@@ -1289,7 +1367,7 @@ abstract class AppLocalizations {
   /// No description provided for @privacyPolicySection10Content.
   ///
   /// In en, this message translates to:
-  /// **'If you have any questions about this Privacy Policy or our data practices, please contact us:\n\nElegant Advisors\nEmail: info@elegantadvisors.com\nPhone: +351 123 456 789'**
+  /// **'If you have any questions about this Privacy Policy or our data practices, please contact us:\n\nElegant\nEmail: info@elegantadvisors.com\nPhone: +351 123 456 789'**
   String get privacyPolicySection10Content;
 
   /// No description provided for @termsOfServiceTitle.
@@ -1307,7 +1385,7 @@ abstract class AppLocalizations {
   /// No description provided for @termsOfServiceIntroduction.
   ///
   /// In en, this message translates to:
-  /// **'Welcome to Elegant Advisors. These Terms of Service govern your access to and use of our website and services. By accessing or using our website, you agree to be bound by these Terms.'**
+  /// **'Welcome to Elegant. These Terms of Service govern your access to and use of our website and services. By accessing or using our website, you agree to be bound by these Terms.'**
   String get termsOfServiceIntroduction;
 
   /// No description provided for @termsOfServiceSection1Title.
@@ -1319,7 +1397,7 @@ abstract class AppLocalizations {
   /// No description provided for @termsOfServiceSection1Content.
   ///
   /// In en, this message translates to:
-  /// **'By accessing and using the Elegant Advisors website, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to these Terms, please do not use our website.'**
+  /// **'By accessing and using the Elegant website, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to these Terms, please do not use our website.'**
   String get termsOfServiceSection1Content;
 
   /// No description provided for @termsOfServiceSection2Title.
@@ -1367,7 +1445,7 @@ abstract class AppLocalizations {
   /// No description provided for @termsOfServiceSection5Content.
   ///
   /// In en, this message translates to:
-  /// **'All content on this website, including text, graphics, logos, images, and software, is the property of Elegant Advisors or its content suppliers and is protected by copyright and other intellectual property laws. You may not reproduce, distribute, modify, or create derivative works from any content without our express written permission.'**
+  /// **'All content on this website, including text, graphics, logos, images, and software, is the property of Elegant or its content suppliers and is protected by copyright and other intellectual property laws. You may not reproduce, distribute, modify, or create derivative works from any content without our express written permission.'**
   String get termsOfServiceSection5Content;
 
   /// No description provided for @termsOfServiceSection6Title.
@@ -1379,7 +1457,7 @@ abstract class AppLocalizations {
   /// No description provided for @termsOfServiceSection6Content.
   ///
   /// In en, this message translates to:
-  /// **'Elegant Advisors shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of or inability to use the website or services. We do not guarantee that the website will be available at all times or free from errors or interruptions.'**
+  /// **'Elegant shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of or inability to use the website or services. We do not guarantee that the website will be available at all times or free from errors or interruptions.'**
   String get termsOfServiceSection6Content;
 
   /// No description provided for @termsOfServiceSection7Title.
@@ -1439,7 +1517,7 @@ abstract class AppLocalizations {
   /// No description provided for @termsOfServiceSection11Content.
   ///
   /// In en, this message translates to:
-  /// **'If you have any questions about these Terms of Service, please contact us:\n\nElegant Advisors\nEmail: info@elegantadvisors.com\nPhone: +351 123 456 789'**
+  /// **'If you have any questions about these Terms of Service, please contact us:\n\nElegant\nEmail: info@elegantadvisors.com\nPhone: +351 123 456 789'**
   String get termsOfServiceSection11Content;
 
   /// No description provided for @navFaq.

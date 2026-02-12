@@ -1,12 +1,12 @@
-# 🏢 Elegant Advisors
+# 🏢 Elegant Real Estate
 
-> **Flutter Web Application** for Elegant Advisors - A leading real estate advisory platform in Portugal
+> **Flutter Web Application** for Elegant Real Estate - A leading real estate advisory platform in Portugal
 
 ---
 
 ## 🚀 Overview
 
-Elegant Advisors is a comprehensive real estate management platform built with Flutter Web, providing both client-facing property browsing and a powerful admin dashboard for managing properties, inquiries, and administrative tasks.
+Elegant Real Estate is a comprehensive real estate management platform built with Flutter Web, providing both client-facing property browsing and a powerful admin dashboard for managing properties, inquiries, and administrative tasks.
 
 ---
 
