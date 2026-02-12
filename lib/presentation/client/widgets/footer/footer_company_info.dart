@@ -14,7 +14,7 @@ class FooterCompanyInfo extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "Elegant Advisors",
+          "Elegant Real Estate",
           style: AppTextStyles.heading(context).copyWith(
             color: AppColors.white,
             fontWeight: FontWeight.bold,

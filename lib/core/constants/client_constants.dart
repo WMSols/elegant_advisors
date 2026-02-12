@@ -2,7 +2,7 @@ class ClientConstants {
   ClientConstants._();
 
   // App Info
-  static const String appName = 'Elegant Advisors';
+  static const String appName = 'Elegant Real Estate';
 
   // Routes
   static const String routeClientHome = '/';

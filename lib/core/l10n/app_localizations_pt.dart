@@ -9,7 +9,7 @@ class AppLocalizationsPt extends AppLocalizations {
   AppLocalizationsPt([String locale = 'pt']) : super(locale);
 
   @override
-  String get webName => 'Elegant Advisors';
+  String get webName => 'Elegant';
 
   @override
   String get logoTitle => 'ELEGANT';
@@ -30,11 +30,12 @@ class AppLocalizationsPt extends AppLocalizations {
   String get navContact => 'Contato';
 
   @override
-  String get homeTitle => 'ELEGÂNCIA, INTEGRIDADE, TRANSPARÊNCIA';
+  String get homeTitle =>
+      'CONSULTORIA IMOBILIÁRIA E CORRETAGEM DE INVESTIMENTOS';
 
   @override
   String get homeSubtitle =>
-      'A Elegant é uma consultoria imobiliária definida por uma filosofia singular: o imobiliário, no seu melhor, é uma arte de elegância. Cuidamos de oportunidades excepcionais de propriedade em Portugal, guiados por discrição, conhecimento de mercado e padrões intransigentes.';
+      'A Elegant é uma consultoria e corretagem de investimento imobiliário definida por uma filosofia singular: o imobiliário, no seu melhor, é uma arte de elegância. Cuidamos de oportunidades excepcionais de propriedade em Portugal e na região ibérica, guiados por discrição, conhecimento de mercado e padrões intransigentes.';
 
   @override
   String get homeButtonConsultation => 'Solicitar Consultoria Privada';
@@ -44,7 +45,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get homeOurApproachDescription =>
-      'Combinamos inteligência de mercado profunda com redes locais e internacionais fortes para fornecer serviços de consultoria personalizados em todo o ciclo de vida do investimento — desde a definição de estratégia e origem de ativos até aquisição, due diligence, estruturação e fechamento. Cada cliente recebe orientação discreta e baseada em dados alinhada com seus objetivos financeiros, perfil de risco e horizonte de investimento.';
+      'Combinando profundo conhecimento do mercado local com redes internacionais sólidas, prestamos consultoria imobiliária orientada ao investimento em todo o ciclo de vida da transação — desde a estratégia e sourcing de ativos até aquisição, due diligence, estruturação e execução.\n\nAtuamos como parceiro local de consultoria e execução para clientes privados, promotores e investidores profissionais que procuram exposição estruturada ao imobiliário ibérico, com foco claro em qualidade, alinhamento e criação de valor a longo prazo.';
 
   @override
   String get homeOurApproachButton => 'O Que Fazemos';
@@ -54,14 +55,14 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get homeOurPhilosophyMissionDescription =>
-      'Elegância, integridade e transparência definem como operamos. Na Elegant, acreditamos em qualidade sobre volume — cuidando cuidadosamente de oportunidades residenciais, comerciais e de hospitalidade que se alinham precisamente com as ambições de estilo de vida ou estratégia de investimento de cada cliente.';
+      'Elegância, discrição e integridade definem a forma como operamos. Adotamos uma abordagem ponderada e orientada ao investimento na consultoria imobiliária, com foco em qualidade, alinhamento e criação de valor a longo prazo em cada projeto.';
 
   @override
   String get homeOurPhilosophyTitle => 'NOSSA FILOSOFIA';
 
   @override
   String get homeOurPhilosophyDescription =>
-      'Elegância, integridade e transparência definem como operamos. Na Elegant, acreditamos em qualidade sobre volume — cuidando cuidadosamente de oportunidades residenciais, comerciais e de hospitalidade que se alinham precisamente com as ambições de estilo de vida ou estratégia de investimento de cada cliente.';
+      'Elegância, discrição e integridade definem a forma como operamos. Adotamos uma abordagem ponderada e orientada ao investimento na consultoria imobiliária, com foco em qualidade, alinhamento e criação de valor a longo prazo em cada projeto.';
 
   @override
   String get homeOurMissionTitle => 'NOSSA MISSÃO';
@@ -79,19 +80,27 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get homeWhatWeSpecializeInHighEndResidentialTitle =>
-      'ATIVOS RESIDENCIAIS DE ALTO PADRÃO';
+      'CONSULTORIA RESIDENCIAL PRIVADA';
 
   @override
   String get homeWhatWeSpecializeInHighEndResidentialDescription =>
-      'Villas de luxo, apartamentos premium e propriedades residenciais exclusivas em locais privilegiados — curadas para compradores de estilo de vida e investidores que buscam valorização de capital a longo prazo.';
+      'Ativos residenciais de alto padrão: villas de luxo, apartamentos premium e propriedades residenciais exclusivas em locais privilegiados. Adaptado a clientes privados que procuram residência principal, segunda casa ou ativo de estilo de vida a longo prazo, com foco em qualidade, discrição e valor a longo prazo.';
+
+  @override
+  String get homeWhatWeSpecializeInInvestmentCapitalMarketsTitle =>
+      'CONSULTORIA DE INVESTIMENTO E MERCADOS DE CAPITAIS';
+
+  @override
+  String get homeWhatWeSpecializeInInvestmentCapitalMarketsDescription =>
+      'Aconselhamos e transacionamos em nome de fundos de investimento, gestores de ativos, family offices e promotores, proporcionando acesso a oportunidades no mercado e fora do mercado, no imobiliário residencial, comercial e de hospitalidade.';
 
   @override
   String get homeWhatWeSpecializeInInvestmentPlotsTitle =>
-      'LOTES DE INVESTIMENTO E TERRENOS PARA DESENVOLVIMENTO';
+      'TERRENOS PARA DESENVOLVIMENTO E LOTES ESTRATÉGICOS';
 
   @override
   String get homeWhatWeSpecializeInInvestmentPlotsDescription =>
-      'Oportunidades estratégicas de terrenos para desenvolvimentos residenciais, comerciais e de hospitalidade. Adequado para desenvolvedores, gestores de ativos, fundos de private equity e investidores de longo prazo que buscam crescimento escalável.';
+      'Oportunidades estratégicas de terrenos para desenvolvimentos residenciais, comerciais e de hospitalidade. Adequado para promotores e capital institucional que procuram projetos escaláveis com visibilidade de planeamento e estratégias de saída claramente definidas.';
 
   @override
   String get homeWhatWeSpecializeInInvestmentBuildingsTitle =>
@@ -99,7 +108,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get homeWhatWeSpecializeInInvestmentBuildingsDescription =>
-      'Edifícios inteiros que requerem renovação, reforma ou reurbanização para uso residencial ou comercial. Ideal para desenvolvedores, gestores de ativos, fundos de private equity e investidores que buscam estratégias de valor agregado e reposicionamento.';
+      'Aquisições de edifícios adequadas para reabilitação, reposicionamento ou reurbanização, incluindo ativos estruturados para geração de rendimento, alienações faseadas ou estratégias de saída total. Oportunidades relevantes para promotores, fundos e gestores de ativos que procuram criação de valor através de gestão ativa de ativos, reurbanização ou venda estratégica.';
 
   @override
   String get homeWhatWeSpecializeInCommercialRealEstateTitle =>
@@ -107,7 +116,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get homeWhatWeSpecializeInCommercialRealEstateDescription =>
-      'Ativos de varejo, escritórios, estacionamentos e industriais — incluindo propriedades geradoras de renda com inquilinos estáveis e perfis de rendimento fortes.';
+      'Ativos de retalho, escritórios e de uso misto, incluindo propriedades geradoras de rendimento com fluxos de caixa estáveis ou crescentes. Oportunidades avaliadas numa base ajustada ao risco e orientada à underwriting, consistente com mandatos de investimento profissionais.';
 
   @override
   String get homeWhatWeSpecializeInHospitalityTitle =>
@@ -115,7 +124,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get homeWhatWeSpecializeInHospitalityDescription =>
-      'Um foco dedicado em hotéis, apartamentos com serviços, hotéis boutique, resorts e desenvolvimentos de hospitalidade de uso misto. Aconselhamos sobre aquisições, oportunidades de reposicionamento, ativos operacionais e projetos liderados por desenvolvimento — visando tanto rendimento quanto criação de valor.';
+      'Consultoria em hotéis, apartamentos com serviços, hotéis boutique, resorts e desenvolvimentos de hospitalidade de uso misto. Apoiamos aquisições, estratégias de reposicionamento, ativos operacionais e projetos de hospitalidade liderados por desenvolvimento, visando rendimento sustentável e criação de valor a longo prazo.';
 
   @override
   String get homeWhatWeSpecializeInButton => 'Entre em Contato';
@@ -151,10 +160,11 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get offMarketDescription =>
-      'Descubra nossa seleção curada de propriedades exclusivas fora do mercado disponíveis através de consultoria privada.';
+      'Apenas consulta. Nossa seleção de oportunidades exclusivas fora do mercado — detalhes partilhados mediante consulta através de consultoria privada.';
 
   @override
-  String get offMarketViewProperties => 'Ver Propriedades Fora do Mercado';
+  String get offMarketViewProperties =>
+      'Consultar Oportunidades Fora do Mercado';
 
   @override
   String get clientOffMarketErrorLoading =>
@@ -173,6 +183,42 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get clientOffMarketClearFilters => 'Limpar Filtros';
+
+  @override
+  String get offMarketFormTitle => 'Solicitar Projetos Fora do Mercado';
+
+  @override
+  String get offMarketFormName => 'Nome';
+
+  @override
+  String get offMarketFormEmail => 'E-mail';
+
+  @override
+  String get offMarketFormPhone => 'Telefone';
+
+  @override
+  String get offMarketFormMessage => 'Os seus requisitos';
+
+  @override
+  String get offMarketFormMessageHint =>
+      'Indique o tipo de oportunidades fora do mercado que lhe interessam (ex.: setor, localização, orçamento).';
+
+  @override
+  String get offMarketFormButton => 'Enviar Pedido';
+
+  @override
+  String get offMarketFormSuccess =>
+      'O seu pedido foi enviado. Entraremos em contacto através do e-mail indicado.';
+
+  @override
+  String get offMarketFormErrorSubmit =>
+      'Falha ao enviar. Por favor, tente novamente.';
+
+  @override
+  String get offMarketFormSubject => 'Pedido de Projetos Fora do Mercado';
+
+  @override
+  String get offMarketRequestForm => 'Formulário de Pedido';
 
   @override
   String get clientPropertiesShowMore => 'Mostrar Mais';
@@ -317,7 +363,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get contactFormButton => 'Enviar Mensagem';
 
   @override
-  String get contactOfficeTitle => 'Escritório Elegant Advisors';
+  String get contactOfficeTitle => 'Escritório Elegant';
 
   @override
   String get contactOfficeAddress => 'Endereço';
@@ -333,11 +379,11 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get footerTagline =>
-      'Elegant Advisors - Seu Parceiro de Confiança em Consultoria de Propriedades e Ativos';
+      'Elegant — Consultoria e Corretagem de Investimento Imobiliário';
 
   @override
   String footerCopyright(int year) {
-    return '© $year Elegant Advisors. Todos os direitos reservados.';
+    return '© $year Elegant. Todos os direitos reservados.';
   }
 
   @override
@@ -454,10 +500,11 @@ class AppLocalizationsPt extends AppLocalizations {
   String get commonWarning => 'Aviso';
 
   @override
-  String get appTitleClient => 'Elegant Advisors';
+  String get appTitleClient =>
+      'Elegant — Consultoria e Corretagem de Investimento Imobiliário';
 
   @override
-  String get appTitleAdmin => 'Elegant Advisors - Admin';
+  String get appTitleAdmin => 'Elegant — Admin';
 
   @override
   String get locationGoogleMapsError => 'Não foi possível abrir o Google Maps';
@@ -476,7 +523,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get footerCompanyDescription =>
-      'A Elegant é uma consultoria imobiliária definida por uma filosofia singular: o imobiliário, no seu melhor, é uma arte de elegância. Cuidamos de oportunidades excepcionais de propriedade em Portugal, guiados por discrição, conhecimento de mercado e padrões intransigentes.';
+      'Elegância, discrição e integridade definem a forma como operamos. Adotamos uma abordagem ponderada e orientada ao investimento na consultoria imobiliária, com foco em qualidade, alinhamento e criação de valor a longo prazo em cada projeto.';
 
   @override
   String get footerSocialTitle => 'Siga-nos';
@@ -587,7 +634,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get privacyPolicyIntroduction =>
-      'Na Elegant Advisors, estamos comprometidos em proteger sua privacidade. Esta Política de Privacidade explica como coletamos, usamos, divulgamos e protegemos suas informações quando você visita nosso site e usa nossos serviços.';
+      'Na Elegant, estamos comprometidos em proteger sua privacidade. Esta Política de Privacidade explica como coletamos, usamos, divulgamos e protegemos suas informações quando você visita nosso site e usa nossos serviços.';
 
   @override
   String get privacyPolicySection1Title => '1. Informações que Coletamos';
@@ -659,7 +706,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get privacyPolicySection10Content =>
-      'Se você tiver alguma dúvida sobre esta Política de Privacidade ou nossas práticas de dados, entre em contato conosco:\n\nElegant Advisors\nE-mail: info@elegantadvisors.com\nTelefone: +351 123 456 789';
+      'Se você tiver alguma dúvida sobre esta Política de Privacidade ou nossas práticas de dados, entre em contato conosco:\n\nElegant\nE-mail: info@elegantadvisors.com\nTelefone: +351 123 456 789';
 
   @override
   String get termsOfServiceTitle => 'Termos de Serviço';
@@ -671,14 +718,14 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get termsOfServiceIntroduction =>
-      'Bem-vindo à Elegant Advisors. Estes Termos de Serviço regem seu acesso e uso de nosso site e serviços. Ao acessar ou usar nosso site, você concorda em estar vinculado a estes Termos.';
+      'Bem-vindo à Elegant. Estes Termos de Serviço regem seu acesso e uso de nosso site e serviços. Ao acessar ou usar nosso site, você concorda em estar vinculado a estes Termos.';
 
   @override
   String get termsOfServiceSection1Title => '1. Aceitação dos Termos';
 
   @override
   String get termsOfServiceSection1Content =>
-      'Ao acessar e usar o site da Elegant Advisors, você aceita e concorda em estar vinculado aos termos e disposições deste acordo. Se você não concordar com estes Termos, por favor, não use nosso site.';
+      'Ao acessar e usar o site da Elegant, você aceita e concorda em estar vinculado aos termos e disposições deste acordo. Se você não concordar com estes Termos, por favor, não use nosso site.';
 
   @override
   String get termsOfServiceSection2Title => '2. Uso do Site';
@@ -706,14 +753,14 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get termsOfServiceSection5Content =>
-      'Todo o conteúdo neste site, incluindo texto, gráficos, logotipos, imagens e software, é propriedade da Elegant Advisors ou de seus fornecedores de conteúdo e é protegido por leis de direitos autorais e outras leis de propriedade intelectual. Você não pode reproduzir, distribuir, modificar ou criar obras derivadas de qualquer conteúdo sem nossa permissão expressa por escrito.';
+      'Todo o conteúdo neste site, incluindo texto, gráficos, logotipos, imagens e software, é propriedade da Elegant ou de seus fornecedores de conteúdo e é protegido por leis de direitos autorais e outras leis de propriedade intelectual. Você não pode reproduzir, distribuir, modificar ou criar obras derivadas de qualquer conteúdo sem nossa permissão expressa por escrito.';
 
   @override
   String get termsOfServiceSection6Title => '6. Limitação de Responsabilidade';
 
   @override
   String get termsOfServiceSection6Content =>
-      'A Elegant Advisors não será responsável por quaisquer danos indiretos, incidentais, especiais, consequenciais ou punitivos resultantes do seu uso ou incapacidade de usar o site ou serviços. Não garantimos que o site estará disponível o tempo todo ou livre de erros ou interrupções.';
+      'A Elegant não será responsável por quaisquer danos indiretos, incidentais, especiais, consequenciais ou punitivos resultantes do seu uso ou incapacidade de usar o site ou serviços. Não garantimos que o site estará disponível o tempo todo ou livre de erros ou interrupções.';
 
   @override
   String get termsOfServiceSection7Title => '7. Isenção de Garantias';
@@ -748,7 +795,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get termsOfServiceSection11Content =>
-      'Se você tiver alguma dúvida sobre estes Termos de Serviço, entre em contato conosco:\n\nElegant Advisors\nE-mail: info@elegantadvisors.com\nTelefone: +351 123 456 789';
+      'Se você tiver alguma dúvida sobre estes Termos de Serviço, entre em contato conosco:\n\nElegant\nE-mail: info@elegantadvisors.com\nTelefone: +351 123 456 789';
 
   @override
   String get navFaq => 'FAQ';

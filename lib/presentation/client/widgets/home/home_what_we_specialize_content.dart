@@ -111,10 +111,12 @@ class _SpecializationCategoriesGrid extends StatelessWidget {
             AppSpacing.horizontal(context, 0.03),
             Expanded(
               child: AppCategoryCard(
-                title: context.l10n.homeWhatWeSpecializeInInvestmentPlotsTitle,
+                title: context
+                    .l10n
+                    .homeWhatWeSpecializeInInvestmentCapitalMarketsTitle,
                 description: context
                     .l10n
-                    .homeWhatWeSpecializeInInvestmentPlotsDescription,
+                    .homeWhatWeSpecializeInInvestmentCapitalMarketsDescription,
               ),
             ),
           ],
@@ -126,6 +128,15 @@ class _SpecializationCategoriesGrid extends StatelessWidget {
           children: [
             Expanded(
               child: AppCategoryCard(
+                title: context.l10n.homeWhatWeSpecializeInInvestmentPlotsTitle,
+                description: context
+                    .l10n
+                    .homeWhatWeSpecializeInInvestmentPlotsDescription,
+              ),
+            ),
+            AppSpacing.horizontal(context, 0.03),
+            Expanded(
+              child: AppCategoryCard(
                 title:
                     context.l10n.homeWhatWeSpecializeInInvestmentBuildingsTitle,
                 description: context
@@ -133,7 +144,13 @@ class _SpecializationCategoriesGrid extends StatelessWidget {
                     .homeWhatWeSpecializeInInvestmentBuildingsDescription,
               ),
             ),
-            AppSpacing.horizontal(context, 0.03),
+          ],
+        ),
+        AppSpacing.vertical(context, 0.04),
+        // Third Row - 2 cards
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
             Expanded(
               child: AppCategoryCard(
                 title: context
@@ -144,23 +161,14 @@ class _SpecializationCategoriesGrid extends StatelessWidget {
                     .homeWhatWeSpecializeInCommercialRealEstateDescription,
               ),
             ),
-          ],
-        ),
-        AppSpacing.vertical(context, 0.04),
-        // Third Row - 1 card (centered)
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(flex: 2, child: Container()),
+            AppSpacing.horizontal(context, 0.03),
             Expanded(
-              flex: 2,
               child: AppCategoryCard(
                 title: context.l10n.homeWhatWeSpecializeInHospitalityTitle,
                 description:
                     context.l10n.homeWhatWeSpecializeInHospitalityDescription,
               ),
             ),
-            Expanded(flex: 2, child: Container()),
           ],
         ),
       ],
@@ -179,6 +187,14 @@ class _SpecializationCategoriesList extends StatelessWidget {
           title: context.l10n.homeWhatWeSpecializeInHighEndResidentialTitle,
           description:
               context.l10n.homeWhatWeSpecializeInHighEndResidentialDescription,
+        ),
+        AppSpacing.vertical(context, 0.04),
+        AppCategoryCard(
+          title:
+              context.l10n.homeWhatWeSpecializeInInvestmentCapitalMarketsTitle,
+          description: context
+              .l10n
+              .homeWhatWeSpecializeInInvestmentCapitalMarketsDescription,
         ),
         AppSpacing.vertical(context, 0.04),
         AppCategoryCard(

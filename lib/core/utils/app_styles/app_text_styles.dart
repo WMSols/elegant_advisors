@@ -51,6 +51,7 @@ class AppTextStyles {
       max: 16, // Maximum size on desktop
     ),
     fontFamily: AppFonts.primaryFont,
+    fontWeight: FontWeight.w800,
     color: Colors.white,
   );
 

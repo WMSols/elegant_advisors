@@ -2,7 +2,7 @@ class AdminConstants {
   AdminConstants._();
 
   // App Info
-  static const String appName = 'Elegant Advisors - Admin';
+  static const String appName = 'Elegant Real Estate - Admin';
 
   // Routes
   static const String routeAdminLogin = '/admin-login';

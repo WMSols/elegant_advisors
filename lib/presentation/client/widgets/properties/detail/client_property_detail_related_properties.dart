@@ -67,6 +67,7 @@ class ClientPropertyDetailRelatedProperties extends StatelessWidget {
             separatorBuilder: (context, index) => SizedBox(width: spacing),
             itemBuilder: (context, index) {
               final property = relatedProperties[index];
+              final isOffMarket = property.status == 'off_market';
               return SizedBox(
                 width: cardWidth,
                 height: cardHeight,
@@ -75,18 +76,25 @@ class ClientPropertyDetailRelatedProperties extends StatelessWidget {
                   index: index,
                   isRelatedProperty: true,
                   fixedHeight: cardHeight,
-                  onTap: () {
-                    // Delete existing controller to ensure clean state when navigating
-                    if (Get.isRegistered<ClientPropertyDetailController>()) {
-                      Get.delete<ClientPropertyDetailController>();
-                    }
-                    Get.toNamed(
-                      ClientConstants.routeClientPropertyDetail.replaceAll(
-                        ':slug',
-                        property.slug,
-                      ),
-                    );
-                  },
+                  isInquireOnly: isOffMarket,
+                  onTap: isOffMarket && property.id != null
+                      ? () {
+                          Get.toNamed(
+                            ClientConstants.routeClientContact,
+                            arguments: property.id,
+                          );
+                        }
+                      : () {
+                          if (Get.isRegistered<
+                            ClientPropertyDetailController
+                          >()) {
+                            Get.delete<ClientPropertyDetailController>();
+                          }
+                          Get.toNamed(
+                            ClientConstants.routeClientPropertyDetail
+                                .replaceAll(':slug', property.slug),
+                          );
+                        },
                 ),
               );
             },
@@ -123,22 +131,30 @@ class ClientPropertyDetailRelatedProperties extends StatelessWidget {
           itemCount: relatedProperties.length,
           itemBuilder: (context, index) {
             final property = relatedProperties[index];
+            final isOffMarket = property.status == 'off_market';
             return ClientPropertyCard(
               property: property,
               index: index,
               isRelatedProperty: true,
-              onTap: () {
-                // Delete existing controller to ensure clean state when navigating
-                if (Get.isRegistered<ClientPropertyDetailController>()) {
-                  Get.delete<ClientPropertyDetailController>();
-                }
-                Get.toNamed(
-                  ClientConstants.routeClientPropertyDetail.replaceAll(
-                    ':slug',
-                    property.slug,
-                  ),
-                );
-              },
+              isInquireOnly: isOffMarket,
+              onTap: isOffMarket && property.id != null
+                  ? () {
+                      Get.toNamed(
+                        ClientConstants.routeClientContact,
+                        arguments: property.id,
+                      );
+                    }
+                  : () {
+                      if (Get.isRegistered<ClientPropertyDetailController>()) {
+                        Get.delete<ClientPropertyDetailController>();
+                      }
+                      Get.toNamed(
+                        ClientConstants.routeClientPropertyDetail.replaceAll(
+                          ':slug',
+                          property.slug,
+                        ),
+                      );
+                    },
             );
           },
         );

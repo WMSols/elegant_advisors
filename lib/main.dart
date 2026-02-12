@@ -4,7 +4,7 @@ import 'package:elegant_advisors/core/app/app_initializer.dart';
 import 'package:elegant_advisors/core/app/ea_app.dart';
 import 'package:elegant_advisors/core/app/app_type.dart';
 
-/// Main entry point for the unified Elegant Advisors application
+/// Main entry point for the unified Elegant Real Estate application
 ///
 /// This runs both client and admin routes together.
 /// For isolated apps, use:
@@ -15,5 +15,5 @@ void main() async {
   setUrlStrategy(PathUrlStrategy());
 
   await AppInitializer.initialize();
-  runApp(const EAApp(appType: AppType.admin));
+  runApp(const EAApp(appType: AppType.client));
 }

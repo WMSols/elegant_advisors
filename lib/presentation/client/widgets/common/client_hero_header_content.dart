@@ -158,7 +158,7 @@ class ClientHeroHeaderContent extends StatelessWidget {
               AppSpacing.vertical(context, 0.06),
               ConstrainedBox(
                 constraints: BoxConstraints(
-                  maxWidth: AppResponsive.screenWidth(context) * 0.2,
+                  maxWidth: AppResponsive.screenWidth(context) * 0.5,
                 ),
                 child: actionButton!,
               ),

@@ -33,7 +33,7 @@ class OffMarketHeaderSection extends StatelessWidget {
           width: AppResponsive.isMobile(context)
               ? AppResponsive.screenWidth(context) * 0.9
               : null,
-          onPressed: () => controller.scrollToListing(),
+          onPressed: () => controller.scrollToForm(),
         ),
       ),
     );

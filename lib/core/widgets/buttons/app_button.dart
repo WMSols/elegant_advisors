@@ -103,10 +103,9 @@ class _AppButtonState extends State<AppButton> {
                     ? AppLoadingIndicator()
                     : Text(
                         widget.text,
-                        style: AppTextStyles.buttonText(context).copyWith(
-                          color: finalTextColor,
-                          fontWeight: FontWeight.w500,
-                        ),
+                        style: AppTextStyles.buttonText(
+                          context,
+                        ).copyWith(color: finalTextColor),
                       ),
               ),
             ),

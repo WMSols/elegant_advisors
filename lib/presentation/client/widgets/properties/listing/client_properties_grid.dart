@@ -8,10 +8,14 @@ class ClientPropertiesGrid extends StatelessWidget {
   final List<PropertyModel> properties;
   final Function(PropertyModel)? onPropertyTap;
 
+  /// When true, cards show "Inquire" and navigate to contact (off-market inquire-only).
+  final bool isInquireOnly;
+
   const ClientPropertiesGrid({
     super.key,
     required this.properties,
     this.onPropertyTap,
+    this.isInquireOnly = false,
   });
 
   @override
@@ -38,6 +42,7 @@ class ClientPropertiesGrid extends StatelessWidget {
               onTap: onPropertyTap != null
                   ? () => onPropertyTap!(property)
                   : null,
+              isInquireOnly: isInquireOnly,
             ),
           );
         }).toList(),
@@ -58,6 +63,7 @@ class ClientPropertiesGrid extends StatelessWidget {
               onTap: onPropertyTap != null
                   ? () => onPropertyTap!(property)
                   : null,
+              isInquireOnly: isInquireOnly,
             ),
           );
         }).toList(),

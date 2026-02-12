@@ -3,7 +3,7 @@ import 'app_type.dart';
 import 'client_app.dart';
 import 'admin_app.dart';
 
-/// Elegant Advisors unified application
+/// Elegant Real Estate unified application
 /// Can switch between client, admin, or unified mode
 class EAApp extends StatelessWidget {
   final AppType appType;
