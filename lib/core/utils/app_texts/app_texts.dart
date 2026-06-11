@@ -103,6 +103,8 @@ class AppTexts {
   static const String adminPropertiesStatusComingSoon = "Coming Soon";
   static const String adminPropertiesPublished = "Published";
   static const String adminPropertiesUnpublished = "Unpublished";
+  static const String adminPropertiesPublish = "Publish";
+  static const String adminPropertiesUnpublish = "Unpublish";
   static const String adminPropertiesFeatured = "Featured";
   static const String adminPropertiesNotFeatured = "Not Featured";
 
@@ -206,7 +208,7 @@ class AppTexts {
   static const String adminPropertyFormRemoveImage = "Remove Image";
   static const String adminPropertyFormSetCoverImage = "Set as Cover";
   static const String adminPropertyFormCoverImage = "Cover Image";
-  static const String adminPropertyFormMaxImages = "Maximum 5 images";
+  static const String adminPropertyFormMaxImages = "Maximum 25 images";
   static const String adminPropertyFormStatusLabel = "Status";
   static const String adminPropertyFormIsFeatured = "Featured Property";
   static const String adminPropertyFormIsPublished = "Published";

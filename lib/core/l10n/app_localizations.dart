@@ -1175,19 +1175,19 @@ abstract class AppLocalizations {
   /// No description provided for @contactOfficeAddressValue.
   ///
   /// In en, this message translates to:
-  /// **'123 Main Street, Lisbon, Portugal'**
+  /// **'Avenida Marginal, n° 2862, r/c C, 2775 364 Parede'**
   String get contactOfficeAddressValue;
 
   /// No description provided for @contactOfficePhoneValue.
   ///
   /// In en, this message translates to:
-  /// **'+351 123 456 789'**
+  /// **'+351917700080'**
   String get contactOfficePhoneValue;
 
   /// No description provided for @contactOfficeEmailValue.
   ///
   /// In en, this message translates to:
-  /// **'info@elegantadvisors.com'**
+  /// **'info@elegant-investments.co'**
   String get contactOfficeEmailValue;
 
   /// No description provided for @contactOfficeHoursValue.
@@ -1367,7 +1367,7 @@ abstract class AppLocalizations {
   /// No description provided for @privacyPolicySection10Content.
   ///
   /// In en, this message translates to:
-  /// **'If you have any questions about this Privacy Policy or our data practices, please contact us:\n\nElegant\nEmail: info@elegantadvisors.com\nPhone: +351 123 456 789'**
+  /// **'If you have any questions about this Privacy Policy or our data practices, please contact us:\n\nElegant\nEmail: info@elegant-investments.co\nPhone: +351917700080'**
   String get privacyPolicySection10Content;
 
   /// No description provided for @termsOfServiceTitle.
@@ -1517,7 +1517,7 @@ abstract class AppLocalizations {
   /// No description provided for @termsOfServiceSection11Content.
   ///
   /// In en, this message translates to:
-  /// **'If you have any questions about these Terms of Service, please contact us:\n\nElegant\nEmail: info@elegantadvisors.com\nPhone: +351 123 456 789'**
+  /// **'If you have any questions about these Terms of Service, please contact us:\n\nElegant\nEmail: info@elegant-investments.co\nPhone: +351917700080'**
   String get termsOfServiceSection11Content;
 
   /// No description provided for @navFaq.

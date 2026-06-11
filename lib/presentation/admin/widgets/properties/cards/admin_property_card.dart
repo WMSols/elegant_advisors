@@ -236,6 +236,15 @@ class AdminPropertyCard extends StatelessWidget {
                           status: property.status,
                           isAdmin: true,
                         ),
+                        AppPropertyStatusBadge(
+                          text: property.isPublished
+                              ? AppTexts.adminPropertiesPublished
+                              : AppTexts.adminPropertiesUnpublished,
+                          color: property.isPublished
+                              ? AppColors.success
+                              : AppColors.warning,
+                          isAdmin: true,
+                        ),
                         if (property.isFeatured)
                           AppPropertyStatusBadge(
                             text: AppTexts.adminPropertiesFeatured,
@@ -309,8 +318,8 @@ class AdminPropertyCard extends StatelessWidget {
                         children: [
                           AppActionButton(
                             label: property.isPublished
-                                ? AppTexts.adminPropertiesUnpublished
-                                : AppTexts.adminPropertiesPublished,
+                                ? AppTexts.adminPropertiesUnpublish
+                                : AppTexts.adminPropertiesPublish,
                             onPressed: onTogglePublish,
                             backgroundColor: property.isPublished
                                 ? AppColors.warning

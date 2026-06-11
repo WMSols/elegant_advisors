@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
@@ -9,6 +10,26 @@ import 'package:iconsax/iconsax.dart';
 
 class FooterContactInfo extends StatelessWidget {
   const FooterContactInfo({super.key});
+
+  Future<void> _openGoogleMaps(BuildContext context, String address) async {
+    final uri = Uri.parse(
+      'https://www.google.com/maps/search/?api=1&query=${Uri.encodeComponent(address)}',
+    );
+    try {
+      if (await canLaunchUrl(uri)) {
+        await launchUrl(uri, mode: LaunchMode.externalApplication);
+      }
+    } catch (e) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('${context.l10n.locationGoogleMapsError} $e'),
+            backgroundColor: AppColors.error,
+          ),
+        );
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +48,8 @@ class FooterContactInfo extends StatelessWidget {
         FooterContactItem(
           icon: Iconsax.location5,
           text: context.l10n.contactOfficeAddressValue,
+          onTap: () =>
+              _openGoogleMaps(context, context.l10n.contactOfficeAddressValue),
         ),
         AppSpacing.vertical(context, 0.01),
         FooterContactItem(

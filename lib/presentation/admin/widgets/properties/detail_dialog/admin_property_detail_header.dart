@@ -49,8 +49,8 @@ class AdminPropertyDetailHeader extends StatelessWidget {
           AppSpacing.horizontal(context, 0.02),
           AppActionButton(
             label: property.isPublished
-                ? AppTexts.adminPropertiesUnpublished
-                : AppTexts.adminPropertiesPublished,
+                ? AppTexts.adminPropertiesUnpublish
+                : AppTexts.adminPropertiesPublish,
             onPressed: onTogglePublish,
             backgroundColor: property.isPublished
                 ? AppColors.warning

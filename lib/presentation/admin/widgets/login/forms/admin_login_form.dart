@@ -36,7 +36,7 @@ class AdminLoginForm extends GetView<AdminLoginController> {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Center(child: const AppLogo()),
+              Center(child: const AppLogo(color: AppColors.primary)),
               AppSpacing.vertical(context, 0.04),
               Center(
                 child: Text(

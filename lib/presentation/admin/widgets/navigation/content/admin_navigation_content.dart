@@ -63,48 +63,36 @@ class AdminNavigationContent extends StatelessWidget {
         );
 
         final showLogo = availableHeight > 100;
-        final logoTitleSize = availableHeight < 150
-            ? 12.0
+        final logoHeight = availableHeight < 150
+            ? 30.0
             : availableHeight < 500
-            ? 16.0
+            ? 50.0
             : availableHeight < 600
-            ? 18.0
-            : null;
-        final logoSubtitleSize = logoTitleSize != null
-            ? logoTitleSize * 0.5
-            : null;
+            ? 70.0
+            : 100.0;
 
         return ConstrainedBox(
           constraints: BoxConstraints(maxHeight: constraints.maxHeight),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              // Logo - Flexible to allow shrinking, hide if space is too limited
+              // Logo - reserve full height for logo + padding so it doesn't get clipped
               if (showLogo)
-                Flexible(
-                  flex: 0,
-                  child: ConstrainedBox(
-                    constraints: BoxConstraints(
-                      maxHeight: availableHeight < 150
-                          ? 30.0
-                          : availableHeight < 500
-                          ? 50.0
-                          : availableHeight < 600
-                          ? 70.0
-                          : 100.0,
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: sidePadding,
-                        vertical: logoVerticalPadding,
-                      ),
-                      child: FittedBox(
-                        fit: BoxFit.scaleDown,
-                        child: AppLogo(
-                          color: AppColors.primary,
-                          titleFontSize: logoTitleSize,
-                          subtitleFontSize: logoSubtitleSize,
-                        ),
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: sidePadding,
+                    vertical: logoVerticalPadding,
+                  ),
+                  child: SizedBox(
+                    height: logoHeight,
+                    width: double.infinity,
+                    child: FittedBox(
+                      fit: BoxFit.contain,
+                      alignment: Alignment.center,
+                      child: AppLogo(
+                        color: AppColors.primary,
+                        height: logoHeight,
+                        width: logoHeight * 2,
                       ),
                     ),
                   ),

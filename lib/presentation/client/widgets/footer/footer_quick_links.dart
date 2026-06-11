@@ -122,8 +122,11 @@ class FooterQuickLinks extends StatelessWidget {
     if (kIsWeb) {
       try {
         final currentUrl = html.window.location;
-        final baseUrl =
-            '${currentUrl.protocol}//${currentUrl.host}${currentUrl.port != 80 && currentUrl.port != 443 ? ':${currentUrl.port}' : ''}';
+        final port = currentUrl.port;
+        final portSuffix = port.isNotEmpty && port != '80' && port != '443'
+            ? ':$port'
+            : '';
+        final baseUrl = '${currentUrl.protocol}//${currentUrl.host}$portSuffix';
         final fullUrl = '$baseUrl$route';
         html.window.open(fullUrl, '_blank');
       } catch (e) {

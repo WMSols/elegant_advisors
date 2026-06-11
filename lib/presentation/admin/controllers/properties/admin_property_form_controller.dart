@@ -42,7 +42,8 @@ class AdminPropertyFormController extends BaseController {
   final areaUnit = 'sqm'.obs;
   final status = 'available'.obs;
   final isFeatured = false.obs;
-  final isPublished = false.obs;
+  final isPublished =
+      true.obs; // Default true so new properties show on client site
   final features = <String>[].obs;
   final images = <String>[].obs; // URLs
   final imageFiles =
@@ -57,7 +58,7 @@ class AdminPropertyFormController extends BaseController {
   final formValidationErrors = <String>[].obs;
 
   String? get propertyId => Get.parameters['id'];
-  static const int maxImages = 5;
+  static const int maxImages = 25;
 
   @override
   void onInit() {

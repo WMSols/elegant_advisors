@@ -595,13 +595,14 @@ class AppLocalizationsPt extends AppLocalizations {
   String get clientPropertiesStatusOffMarket => 'Fora do Mercado';
 
   @override
-  String get contactOfficeAddressValue => '123 Main Street, Lisboa, Portugal';
+  String get contactOfficeAddressValue =>
+      'Avenida Marginal, n° 2862, r/c C, 2775 364 Parede';
 
   @override
-  String get contactOfficePhoneValue => '+351 123 456 789';
+  String get contactOfficePhoneValue => '+351917700080';
 
   @override
-  String get contactOfficeEmailValue => 'info@elegantadvisors.com';
+  String get contactOfficeEmailValue => 'info@elegant-investments.co';
 
   @override
   String get contactOfficeHoursValue => 'Segunda - Sexta: 9:00 - 18:00';
@@ -706,7 +707,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get privacyPolicySection10Content =>
-      'Se você tiver alguma dúvida sobre esta Política de Privacidade ou nossas práticas de dados, entre em contato conosco:\n\nElegant\nE-mail: info@elegantadvisors.com\nTelefone: +351 123 456 789';
+      'Se você tiver alguma dúvida sobre esta Política de Privacidade ou nossas práticas de dados, entre em contato conosco:\n\nElegant\nE-mail: info@elegant-investments.co\nTelefone: +351917700080';
 
   @override
   String get termsOfServiceTitle => 'Termos de Serviço';
@@ -795,7 +796,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get termsOfServiceSection11Content =>
-      'Se você tiver alguma dúvida sobre estes Termos de Serviço, entre em contato conosco:\n\nElegant\nE-mail: info@elegantadvisors.com\nTelefone: +351 123 456 789';
+      'Se você tiver alguma dúvida sobre estes Termos de Serviço, entre em contato conosco:\n\nElegant\nE-mail: info@elegant-investments.co\nTelefone: +351917700080';
 
   @override
   String get navFaq => 'FAQ';
