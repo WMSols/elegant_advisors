@@ -8,16 +8,27 @@ class ContactInfoItem extends StatelessWidget {
   final IconData icon;
   final String title;
   final String value;
+  final VoidCallback? onTap;
 
   const ContactInfoItem({
     super.key,
     required this.icon,
     required this.title,
     required this.value,
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
+    final valueWidget = Text(
+      value,
+      style: AppTextStyles.bodyText(context).copyWith(
+        color: AppColors.white,
+        decoration: onTap != null ? TextDecoration.underline : null,
+        decorationColor: AppColors.white,
+      ),
+    );
+
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
@@ -34,12 +45,16 @@ class ContactInfoItem extends StatelessWidget {
                   context,
                 ).copyWith(fontWeight: FontWeight.bold, color: AppColors.white),
               ),
-              Text(
-                value,
-                style: AppTextStyles.bodyText(
-                  context,
-                ).copyWith(color: AppColors.white),
-              ),
+              onTap != null
+                  ? MouseRegion(
+                      cursor: SystemMouseCursors.click,
+                      child: GestureDetector(
+                        onTap: onTap,
+                        behavior: HitTestBehavior.opaque,
+                        child: valueWidget,
+                      ),
+                    )
+                  : valueWidget,
             ],
           ),
         ),

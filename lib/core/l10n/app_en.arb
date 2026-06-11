@@ -212,9 +212,9 @@
   "clientPropertiesStatusSold": "Sold",
   "clientPropertiesStatusComingSoon": "Coming Soon",
   "clientPropertiesStatusOffMarket": "Off Market",
-  "contactOfficeAddressValue": "123 Main Street, Lisbon, Portugal",
-  "contactOfficePhoneValue": "+351 123 456 789",
-  "contactOfficeEmailValue": "info@elegantadvisors.com",
+  "contactOfficeAddressValue": "Avenida Marginal, n° 2862, r/c C, 2775 364 Parede",
+  "contactOfficePhoneValue": "+351917700080",
+  "contactOfficeEmailValue": "info@elegant-investments.co",
   "contactOfficeHoursValue": "Monday - Friday: 9:00 AM - 6:00 PM",
   
   "clientPropertyCardBed": "bed",
@@ -254,7 +254,7 @@
   "privacyPolicySection9Title": "9. Changes to This Privacy Policy",
   "privacyPolicySection9Content": "We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the \"Last Updated\" date. You are advised to review this Privacy Policy periodically for any changes.",
   "privacyPolicySection10Title": "10. Contact Us",
-  "privacyPolicySection10Content": "If you have any questions about this Privacy Policy or our data practices, please contact us:\n\nElegant\nEmail: info@elegantadvisors.com\nPhone: +351 123 456 789",
+  "privacyPolicySection10Content": "If you have any questions about this Privacy Policy or our data practices, please contact us:\n\nElegant\nEmail: info@elegant-investments.co\nPhone: +351917700080",
   
   "termsOfServiceTitle": "Terms of Service",
   "termsOfServiceLastUpdated": "Last Updated: {date}",
@@ -287,7 +287,7 @@
   "termsOfServiceSection10Title": "10. Governing Law",
   "termsOfServiceSection10Content": "These Terms of Service shall be governed by and construed in accordance with the laws of Portugal, without regard to its conflict of law provisions.",
   "termsOfServiceSection11Title": "11. Contact Information",
-  "termsOfServiceSection11Content": "If you have any questions about these Terms of Service, please contact us:\n\nElegant\nEmail: info@elegantadvisors.com\nPhone: +351 123 456 789",
+  "termsOfServiceSection11Content": "If you have any questions about these Terms of Service, please contact us:\n\nElegant\nEmail: info@elegant-investments.co\nPhone: +351917700080",
 
   "navFaq": "FAQ",
   "faqPageTitle": "Frequently Asked Questions",

@@ -7,11 +7,24 @@ import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
 class FooterContactItem extends StatelessWidget {
   final IconData icon;
   final String text;
+  final VoidCallback? onTap;
 
-  const FooterContactItem({super.key, required this.icon, required this.text});
+  const FooterContactItem({
+    super.key,
+    required this.icon,
+    required this.text,
+    this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
+    final textStyle = AppTextStyles.bodyText(context).copyWith(
+      color: AppColors.white.withValues(alpha: 0.8),
+      fontSize: AppResponsive.fontSizeClamped(context, min: 11, max: 13),
+    );
+
+    final textWidget = Text(text, style: textStyle);
+
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -22,17 +35,16 @@ class FooterContactItem extends StatelessWidget {
         ),
         AppSpacing.horizontal(context, 0.01),
         Expanded(
-          child: Text(
-            text,
-            style: AppTextStyles.bodyText(context).copyWith(
-              color: AppColors.white.withValues(alpha: 0.8),
-              fontSize: AppResponsive.fontSizeClamped(
-                context,
-                min: 11,
-                max: 13,
-              ),
-            ),
-          ),
+          child: onTap != null
+              ? MouseRegion(
+                  cursor: SystemMouseCursors.click,
+                  child: GestureDetector(
+                    onTap: onTap,
+                    behavior: HitTestBehavior.opaque,
+                    child: textWidget,
+                  ),
+                )
+              : textWidget,
         ),
       ],
     );

@@ -588,13 +588,14 @@ class AppLocalizationsEn extends AppLocalizations {
   String get clientPropertiesStatusOffMarket => 'Off Market';
 
   @override
-  String get contactOfficeAddressValue => '123 Main Street, Lisbon, Portugal';
+  String get contactOfficeAddressValue =>
+      'Avenida Marginal, n° 2862, r/c C, 2775 364 Parede';
 
   @override
-  String get contactOfficePhoneValue => '+351 123 456 789';
+  String get contactOfficePhoneValue => '+351917700080';
 
   @override
-  String get contactOfficeEmailValue => 'info@elegantadvisors.com';
+  String get contactOfficeEmailValue => 'info@elegant-investments.co';
 
   @override
   String get contactOfficeHoursValue => 'Monday - Friday: 9:00 AM - 6:00 PM';
@@ -697,7 +698,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get privacyPolicySection10Content =>
-      'If you have any questions about this Privacy Policy or our data practices, please contact us:\n\nElegant\nEmail: info@elegantadvisors.com\nPhone: +351 123 456 789';
+      'If you have any questions about this Privacy Policy or our data practices, please contact us:\n\nElegant\nEmail: info@elegant-investments.co\nPhone: +351917700080';
 
   @override
   String get termsOfServiceTitle => 'Terms of Service';
@@ -786,7 +787,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get termsOfServiceSection11Content =>
-      'If you have any questions about these Terms of Service, please contact us:\n\nElegant\nEmail: info@elegantadvisors.com\nPhone: +351 123 456 789';
+      'If you have any questions about these Terms of Service, please contact us:\n\nElegant\nEmail: info@elegant-investments.co\nPhone: +351917700080';
 
   @override
   String get navFaq => 'FAQ';

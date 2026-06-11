@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
 import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
@@ -9,6 +10,26 @@ import 'package:elegant_advisors/presentation/client/widgets/contact/contact_inf
 /// Contact office details section
 class ContactOfficeDetailsSection extends StatelessWidget {
   const ContactOfficeDetailsSection({super.key});
+
+  Future<void> _openGoogleMaps(BuildContext context, String address) async {
+    final uri = Uri.parse(
+      'https://www.google.com/maps/search/?api=1&query=${Uri.encodeComponent(address)}',
+    );
+    try {
+      if (await canLaunchUrl(uri)) {
+        await launchUrl(uri, mode: LaunchMode.externalApplication);
+      }
+    } catch (e) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('${context.l10n.locationGoogleMapsError} $e'),
+            backgroundColor: AppColors.error,
+          ),
+        );
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +47,8 @@ class ContactOfficeDetailsSection extends StatelessWidget {
           icon: Iconsax.location,
           title: context.l10n.contactOfficeAddress,
           value: context.l10n.contactOfficeAddressValue,
+          onTap: () =>
+              _openGoogleMaps(context, context.l10n.contactOfficeAddressValue),
         ),
         AppSpacing.vertical(context, 0.02),
         ContactInfoItem(
