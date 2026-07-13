@@ -226,9 +226,12 @@ class _MobileDrawerItemState extends State<_MobileDrawerItem> {
                     Expanded(
                       child: Text(
                         widget.label,
-                        style: AppTextStyles.bodyText(
-                          context,
-                        ).copyWith(color: AppColors.white, letterSpacing: 0.5),
+                        style: AppTextStyles.navLabel(context).copyWith(
+                          color: AppColors.white,
+                          fontWeight: isActive || _isHovered
+                              ? FontWeight.w600
+                              : FontWeight.w400,
+                        ),
                       ),
                     ),
                   ],

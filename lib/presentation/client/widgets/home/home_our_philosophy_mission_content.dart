@@ -1,14 +1,13 @@
-import 'package:elegant_advisors/core/utils/app_fonts/app_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:elegant_advisors/core/constants/client_constants.dart';
 import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
-import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
 import 'package:elegant_advisors/core/utils/app_helpers/language/app_localizations_helper.dart';
 import 'package:elegant_advisors/core/widgets/buttons/app_button.dart';
 import 'package:elegant_advisors/core/widgets/display/app_category_card.dart';
+import 'package:elegant_advisors/presentation/client/widgets/common/client_section_header.dart';
 
 class HomeOurPhilosophyMissionContentDesktop extends StatelessWidget {
   const HomeOurPhilosophyMissionContentDesktop({super.key});
@@ -44,7 +43,7 @@ class HomeOurPhilosophyMissionContentMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         _PhilosophyMissionHeader(),
         AppSpacing.vertical(context, 0.06),
@@ -61,29 +60,9 @@ class _PhilosophyMissionHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Text(
-          context.l10n.homeOurPhilosophyMissionTitle,
-          style: AppTextStyles.bodyText(context).copyWith(
-            color: AppColors.primary,
-            fontFamily: AppFonts.primaryFont,
-            fontWeight: FontWeight.bold,
-            fontSize: AppResponsive.fontSizeClamped(context, min: 26, max: 30),
-          ),
-          textAlign: TextAlign.center,
-        ),
-        AppSpacing.vertical(context, 0.04),
-        Text(
-          context.l10n.homeOurPhilosophyMissionDescription,
-          style: AppTextStyles.bodyText(context).copyWith(
-            color: AppColors.black.withValues(alpha: 0.7),
-            height: 1.6,
-          ),
-          textAlign: TextAlign.center,
-        ),
-      ],
+    return ClientSectionHeader(
+      title: context.l10n.homeOurPhilosophyMissionTitle,
+      description: context.l10n.homeOurPhilosophyMissionDescription,
     );
   }
 }
@@ -100,6 +79,7 @@ class _PhilosophyMissionCategoriesGrid extends StatelessWidget {
           child: AppCategoryCard(
             title: context.l10n.homeOurPhilosophyTitle,
             description: context.l10n.homeOurPhilosophyDescription,
+            centerAligned: true,
           ),
         ),
         AppSpacing.horizontal(context, 0.03),
@@ -107,6 +87,7 @@ class _PhilosophyMissionCategoriesGrid extends StatelessWidget {
           child: AppCategoryCard(
             title: context.l10n.homeOurMissionTitle,
             description: context.l10n.homeOurMissionDescription,
+            centerAligned: true,
           ),
         ),
       ],
@@ -124,11 +105,13 @@ class _PhilosophyMissionCategoriesList extends StatelessWidget {
         AppCategoryCard(
           title: context.l10n.homeOurPhilosophyTitle,
           description: context.l10n.homeOurPhilosophyDescription,
+          centerAligned: true,
         ),
         AppSpacing.vertical(context, 0.04),
         AppCategoryCard(
           title: context.l10n.homeOurMissionTitle,
           description: context.l10n.homeOurMissionDescription,
+          centerAligned: true,
         ),
       ],
     );

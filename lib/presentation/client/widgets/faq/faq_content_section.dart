@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
-import 'package:elegant_advisors/core/utils/app_fonts/app_fonts.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
 import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
@@ -25,11 +24,9 @@ class FaqContentSection extends StatelessWidget {
             AppSpacing.vertical(context, 0.02),
             Text(
               l10n.faqPageTitle,
-              style: AppTextStyles.headline(context).copyWith(
-                fontWeight: FontWeight.bold,
-                color: AppColors.white,
-                fontFamily: AppFonts.primaryFont,
-              ),
+              style: AppTextStyles.displayTitle(
+                context,
+              ).copyWith(color: AppColors.white),
             ),
             AppSpacing.vertical(context, 0.06),
             _FaqAccordion(),
@@ -104,9 +101,7 @@ class _FaqExpansionTile extends StatelessWidget {
             Expanded(
               child: Text(
                 question,
-                style: AppTextStyles.bodyText(context).copyWith(
-                  fontWeight: FontWeight.w600,
-                  fontFamily: AppFonts.primaryFont,
+                style: AppTextStyles.displayLabel(context).copyWith(
                   color: AppColors.white,
                   fontSize: AppResponsive.fontSizeClamped(
                     context,

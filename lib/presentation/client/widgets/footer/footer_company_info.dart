@@ -15,9 +15,9 @@ class FooterCompanyInfo extends StatelessWidget {
       children: [
         Text(
           "Elegant Real Estate",
-          style: AppTextStyles.heading(context).copyWith(
+          style: AppTextStyles.displayLabel(context).copyWith(
             color: AppColors.white,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w600,
             fontSize: AppResponsive.fontSizeClamped(context, min: 20, max: 24),
           ),
         ),

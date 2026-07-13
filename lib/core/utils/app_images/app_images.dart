@@ -13,6 +13,20 @@ class AppImages {
   static const String homeOurApproachBanner =
       'assets/images/home/home_our_approach_banner.jpg';
 
+  // Service cards (client-provided)
+  static const String serviceCapitalMarkets =
+      'assets/images/home/capital_markets.PNG';
+  static const String serviceLuxuryResidential =
+      'assets/images/home/luxury_residential_advisory.PNG';
+  static const String serviceInvestmentBuildings =
+      'assets/images/home/residential.PNG';
+  static const String serviceStrategicLand =
+      'assets/images/home/strategic_land_advisory.PNG';
+  static const String serviceCommercialRealEstate =
+      'assets/images/home/commercial_real_estate.jpeg';
+  static const String serviceHospitalityInvestments =
+      'assets/images/home/hospitality_investments.jpeg';
+
   //flags
   static const String englandFlag = 'assets/images/home/england_flag.png';
   static const String portugalFlag = 'assets/images/home/portugal_flag.png';

@@ -5,7 +5,7 @@ import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class FooterSocialIcon extends StatelessWidget {
-  final IconData icon;
+  final FaIconData icon;
   final String url;
 
   const FooterSocialIcon({super.key, required this.icon, required this.url});
