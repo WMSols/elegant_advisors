@@ -1,4 +1,3 @@
-import 'package:elegant_advisors/core/utils/app_fonts/app_fonts.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -32,9 +31,9 @@ class TermsOfServiceContentSection extends StatelessWidget {
             // Title
             Text(
               l10n.termsOfServiceTitle,
-              style: AppTextStyles.headline(
+              style: AppTextStyles.displayTitle(
                 context,
-              ).copyWith(fontWeight: FontWeight.bold, color: AppColors.white),
+              ).copyWith(color: AppColors.white),
             ),
             // Last Updated
             Text(
@@ -148,11 +147,9 @@ class TermsOfServiceContentSection extends StatelessWidget {
         if (title != null) ...[
           Text(
             title,
-            style: AppTextStyles.bodyText(context).copyWith(
-              fontWeight: FontWeight.bold,
-              fontFamily: AppFonts.primaryFont,
-              color: AppColors.white,
-            ),
+            style: AppTextStyles.displayLabel(
+              context,
+            ).copyWith(color: AppColors.white),
           ),
           AppSpacing.vertical(context, 0.01),
         ],

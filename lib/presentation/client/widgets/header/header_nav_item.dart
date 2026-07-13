@@ -107,12 +107,11 @@ class _HeaderNavItemState extends State<HeaderNavItem> {
             children: [
               Text(
                 widget.label,
-                style: AppTextStyles.bodyText(context).copyWith(
+                style: AppTextStyles.navLabel(context).copyWith(
                   color: AppColors.white,
-                  letterSpacing: 0.5,
                   fontWeight: (_isHovered || isActive)
-                      ? FontWeight.w500
-                      : FontWeight.normal,
+                      ? FontWeight.w600
+                      : FontWeight.w400,
                 ),
                 overflow: TextOverflow.ellipsis,
               ),

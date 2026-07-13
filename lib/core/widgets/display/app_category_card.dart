@@ -1,4 +1,3 @@
-import 'package:elegant_advisors/core/utils/app_fonts/app_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
@@ -8,11 +7,13 @@ import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
 class AppCategoryCard extends StatefulWidget {
   final String title;
   final String description;
+  final bool centerAligned;
 
   const AppCategoryCard({
     super.key,
     required this.title,
     required this.description,
+    this.centerAligned = false,
   });
 
   @override
@@ -24,6 +25,11 @@ class _AppCategoryCardState extends State<AppCategoryCard> {
 
   @override
   Widget build(BuildContext context) {
+    final alignment = widget.centerAligned
+        ? CrossAxisAlignment.center
+        : CrossAxisAlignment.start;
+    final textAlign = widget.centerAligned ? TextAlign.center : TextAlign.left;
+
     return MouseRegion(
       onEnter: (_) => setState(() => _isHovered = true),
       onExit: (_) => setState(() => _isHovered = false),
@@ -36,21 +42,19 @@ class _AppCategoryCardState extends State<AppCategoryCard> {
           curve: Curves.easeInOut,
           padding: AppSpacing.all(context, factor: 0.03),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: alignment,
             children: [
               Text(
                 widget.title,
-                style: AppTextStyles.bodyText(context).copyWith(
+                style: AppTextStyles.displayLabel(context).copyWith(
                   color: AppColors.primary,
-                  fontWeight: FontWeight.w500,
-                  fontFamily: AppFonts.primaryFont,
                   fontSize: AppResponsive.fontSizeClamped(
                     context,
                     min: 18,
                     max: 22,
                   ),
                 ),
-                textAlign: TextAlign.left,
+                textAlign: textAlign,
               ),
               AppSpacing.vertical(context, 0.01),
               Text(
@@ -64,7 +68,7 @@ class _AppCategoryCardState extends State<AppCategoryCard> {
                   ),
                   height: 1.6,
                 ),
-                textAlign: TextAlign.left,
+                textAlign: textAlign,
               ),
             ],
           ),

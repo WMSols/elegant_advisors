@@ -26,9 +26,9 @@ class FooterQuickLinks extends StatelessWidget {
       children: [
         Text(
           context.l10n.footerQuickLinksTitle,
-          style: AppTextStyles.heading(context).copyWith(
+          style: AppTextStyles.displayLabel(context).copyWith(
             color: AppColors.white,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w600,
             fontSize: AppResponsive.fontSizeClamped(context, min: 16, max: 18),
           ),
         ),

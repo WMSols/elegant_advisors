@@ -1,4 +1,3 @@
-import 'package:elegant_advisors/core/utils/app_fonts/app_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -98,11 +97,9 @@ class _ExpandedCard extends StatelessWidget {
                 Expanded(
                   child: Text(
                     l10n.faqCardTitle,
-                    style: AppTextStyles.bodyText(context).copyWith(
-                      color: AppColors.white,
-                      fontWeight: FontWeight.w500,
-                      fontFamily: AppFonts.primaryFont,
-                    ),
+                    style: AppTextStyles.displayLabel(
+                      context,
+                    ).copyWith(color: AppColors.white),
                   ),
                 ),
                 IconButton(

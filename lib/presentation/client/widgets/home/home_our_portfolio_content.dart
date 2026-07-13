@@ -1,4 +1,3 @@
-import 'package:elegant_advisors/core/utils/app_fonts/app_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -6,9 +5,9 @@ import 'package:elegant_advisors/core/constants/client_constants.dart';
 import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
-import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
 import 'package:elegant_advisors/core/utils/app_helpers/language/app_localizations_helper.dart';
 import 'package:elegant_advisors/core/widgets/buttons/app_button.dart';
+import 'package:elegant_advisors/presentation/client/widgets/common/client_section_header.dart';
 import 'package:elegant_advisors/core/widgets/images/app_error_image_fallback.dart';
 import 'package:elegant_advisors/core/widgets/images/app_network_image.dart';
 import 'package:elegant_advisors/data/services/firestore_service.dart';
@@ -59,41 +58,10 @@ class _PortfolioHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Text(
-          context.l10n.homeOurPortfolioTitle,
-          style: AppTextStyles.bodyText(context).copyWith(
-            color: AppColors.primary,
-            fontFamily: AppFonts.primaryFont,
-            fontWeight: FontWeight.bold,
-            fontSize: AppResponsive.fontSizeClamped(context, min: 26, max: 30),
-          ),
-          textAlign: TextAlign.center,
-        ),
-        AppSpacing.vertical(context, 0.02),
-        Text(
-          context.l10n.homeOurPortfolioSubtitle,
-          style: AppTextStyles.bodyText(context).copyWith(
-            color: AppColors.primary,
-            fontFamily: AppFonts.primaryFont,
-            fontWeight: FontWeight.w500,
-            fontSize: AppResponsive.fontSizeClamped(context, min: 18, max: 22),
-          ),
-          textAlign: TextAlign.center,
-        ),
-        AppSpacing.vertical(context, 0.02),
-        Text(
-          context.l10n.homeOurPortfolioDescription,
-          style: AppTextStyles.bodyText(context).copyWith(
-            color: AppColors.grey,
-            height: 1.6,
-            fontSize: AppResponsive.fontSizeClamped(context, min: 10, max: 14),
-          ),
-          textAlign: TextAlign.center,
-        ),
-      ],
+    return ClientSectionHeader(
+      title: context.l10n.homeOurPortfolioTitle,
+      tagline: context.l10n.homeOurPortfolioSubtitle,
+      description: context.l10n.homeOurPortfolioDescription,
     );
   }
 }
@@ -128,24 +96,32 @@ class _ImageCarousel extends StatelessWidget {
     final arrowPadding = AppResponsive.screenWidth(context) * 0.02;
     final iconSize = AppResponsive.fontSizeClamped(context, min: 60, max: 80);
 
-    if (images.isEmpty) {
-      return Container(
-        width: double.infinity,
-        height: carouselHeight,
-        decoration: BoxDecoration(color: AppColors.grey.withValues(alpha: 0.1)),
-        child: Center(child: AppErrorImageFallback(iconSize: iconSize)),
-      );
-    }
+    final cardBorderRadius = AppResponsive.propertyCardBorderRadius(context);
 
-    return Stack(
-      children: [
-        Container(
+    if (images.isEmpty) {
+      return ClipRRect(
+        borderRadius: cardBorderRadius,
+        child: Container(
           width: double.infinity,
           height: carouselHeight,
           decoration: BoxDecoration(
             color: AppColors.grey.withValues(alpha: 0.1),
           ),
-          child: ClipRRect(
+          child: Center(child: AppErrorImageFallback(iconSize: iconSize)),
+        ),
+      );
+    }
+
+    return Stack(
+      children: [
+        ClipRRect(
+          borderRadius: cardBorderRadius,
+          child: Container(
+            width: double.infinity,
+            height: carouselHeight,
+            decoration: BoxDecoration(
+              color: AppColors.grey.withValues(alpha: 0.1),
+            ),
             child: PageView.builder(
               controller: pageController,
               onPageChanged: onImageChanged,

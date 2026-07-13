@@ -1,14 +1,10 @@
-import 'package:elegant_advisors/core/utils/app_fonts/app_fonts.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:elegant_advisors/core/constants/client_constants.dart';
-import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
+import 'package:elegant_advisors/core/utils/app_images/app_images.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
-import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
 import 'package:elegant_advisors/core/utils/app_helpers/language/app_localizations_helper.dart';
-import 'package:elegant_advisors/core/widgets/buttons/app_button.dart';
-import 'package:elegant_advisors/core/widgets/display/app_category_card.dart';
+import 'package:elegant_advisors/core/widgets/display/app_service_card.dart';
+import 'package:elegant_advisors/presentation/client/widgets/common/client_section_header.dart';
 
 class HomeWhatWeSpecializeContentDesktop extends StatelessWidget {
   const HomeWhatWeSpecializeContentDesktop({super.key});
@@ -22,17 +18,15 @@ class HomeWhatWeSpecializeContentDesktop extends StatelessWidget {
           constraints: BoxConstraints(
             maxWidth: AppResponsive.screenWidth(context) * 0.8,
           ),
-          child: _SpecializationHeader(),
+          child: const _SpecializationHeader(),
         ),
         AppSpacing.vertical(context, 0.06),
         ConstrainedBox(
           constraints: BoxConstraints(
             maxWidth: AppResponsive.screenWidth(context) * 0.8,
           ),
-          child: _SpecializationCategoriesGrid(),
+          child: const _SpecializationServicesLayout(),
         ),
-        AppSpacing.vertical(context, 0.06),
-        _SpecializationButton(),
       ],
     );
   }
@@ -46,11 +40,9 @@ class HomeWhatWeSpecializeContentMobile extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        _SpecializationHeader(),
+        const _SpecializationHeader(),
         AppSpacing.vertical(context, 0.06),
-        _SpecializationCategoriesList(),
-        AppSpacing.vertical(context, 0.06),
-        _SpecializationButton(fullWidth: true),
+        const _SpecializationServicesLayout(),
       ],
     );
   }
@@ -61,186 +53,111 @@ class _SpecializationHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Text(
-          context.l10n.homeWhatWeSpecializeInTitle,
-          style: AppTextStyles.bodyText(context).copyWith(
-            color: AppColors.primary,
-            fontWeight: FontWeight.bold,
-            fontFamily: AppFonts.primaryFont,
-            fontSize: AppResponsive.fontSizeClamped(context, min: 26, max: 30),
-          ),
-          textAlign: TextAlign.center,
-        ),
-        AppSpacing.vertical(context, 0.04),
-        Text(
-          context.l10n.homeWhatWeSpecializeInDescription,
-          style: AppTextStyles.bodyText(context).copyWith(
-            color: AppColors.black.withValues(alpha: 0.7),
-            height: 1.6,
-          ),
-          textAlign: TextAlign.center,
-        ),
-      ],
+    return ClientSectionHeader(
+      title: context.l10n.homeWhatWeSpecializeInTitle,
+      tagline: context.l10n.homeWhatWeSpecializeInTagline,
+      description: context.l10n.homeWhatWeSpecializeInDescription,
     );
   }
 }
 
-class _SpecializationCategoriesGrid extends StatelessWidget {
-  const _SpecializationCategoriesGrid();
+class _ServiceItem {
+  final String imagePath;
+  final String title;
+  final String description;
+
+  const _ServiceItem({
+    required this.imagePath,
+    required this.title,
+    required this.description,
+  });
+}
+
+List<_ServiceItem> _serviceItems(BuildContext context) {
+  final l10n = context.l10n;
+  return [
+    _ServiceItem(
+      imagePath: AppImages.serviceCapitalMarkets,
+      title: l10n.homeWhatWeSpecializeInInvestmentCapitalMarketsTitle,
+      description:
+          l10n.homeWhatWeSpecializeInInvestmentCapitalMarketsDescription,
+    ),
+    _ServiceItem(
+      imagePath: AppImages.serviceCommercialRealEstate,
+      title: l10n.homeWhatWeSpecializeInCommercialRealEstateTitle,
+      description: l10n.homeWhatWeSpecializeInCommercialRealEstateDescription,
+    ),
+    _ServiceItem(
+      imagePath: AppImages.serviceInvestmentBuildings,
+      title: l10n.homeWhatWeSpecializeInInvestmentBuildingsTitle,
+      description: l10n.homeWhatWeSpecializeInInvestmentBuildingsDescription,
+    ),
+    _ServiceItem(
+      imagePath: AppImages.serviceStrategicLand,
+      title: l10n.homeWhatWeSpecializeInInvestmentPlotsTitle,
+      description: l10n.homeWhatWeSpecializeInInvestmentPlotsDescription,
+    ),
+    _ServiceItem(
+      imagePath: AppImages.serviceHospitalityInvestments,
+      title: l10n.homeWhatWeSpecializeInHospitalityInvestmentsTitle,
+      description: l10n.homeWhatWeSpecializeInHospitalityInvestmentsDescription,
+    ),
+    _ServiceItem(
+      imagePath: AppImages.serviceLuxuryResidential,
+      title: l10n.homeWhatWeSpecializeInHighEndResidentialTitle,
+      description: l10n.homeWhatWeSpecializeInHighEndResidentialDescription,
+    ),
+  ];
+}
+
+class _SpecializationServicesLayout extends StatelessWidget {
+  const _SpecializationServicesLayout();
+
+  static const int _columnsWide = 3;
 
   @override
   Widget build(BuildContext context) {
+    final services = _serviceItems(context);
+    final isWide = AppResponsive.screenWidth(context) >= 768;
+
+    if (isWide) {
+      return Column(
+        children: [
+          for (var row = 0; row < services.length; row += _columnsWide) ...[
+            if (row > 0) AppSpacing.vertical(context, 0.04),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                for (var col = 0; col < _columnsWide; col++) ...[
+                  if (col > 0) AppSpacing.horizontal(context, 0.03),
+                  Expanded(
+                    child: row + col < services.length
+                        ? _serviceCard(services[row + col])
+                        : const SizedBox.shrink(),
+                  ),
+                ],
+              ],
+            ),
+          ],
+        ],
+      );
+    }
+
     return Column(
       children: [
-        // First Row - 2 cards
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
-              child: AppCategoryCard(
-                title:
-                    context.l10n.homeWhatWeSpecializeInHighEndResidentialTitle,
-                description: context
-                    .l10n
-                    .homeWhatWeSpecializeInHighEndResidentialDescription,
-              ),
-            ),
-            AppSpacing.horizontal(context, 0.03),
-            Expanded(
-              child: AppCategoryCard(
-                title: context
-                    .l10n
-                    .homeWhatWeSpecializeInInvestmentCapitalMarketsTitle,
-                description: context
-                    .l10n
-                    .homeWhatWeSpecializeInInvestmentCapitalMarketsDescription,
-              ),
-            ),
-          ],
-        ),
-        AppSpacing.vertical(context, 0.04),
-        // Second Row - 2 cards
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
-              child: AppCategoryCard(
-                title: context.l10n.homeWhatWeSpecializeInInvestmentPlotsTitle,
-                description: context
-                    .l10n
-                    .homeWhatWeSpecializeInInvestmentPlotsDescription,
-              ),
-            ),
-            AppSpacing.horizontal(context, 0.03),
-            Expanded(
-              child: AppCategoryCard(
-                title:
-                    context.l10n.homeWhatWeSpecializeInInvestmentBuildingsTitle,
-                description: context
-                    .l10n
-                    .homeWhatWeSpecializeInInvestmentBuildingsDescription,
-              ),
-            ),
-          ],
-        ),
-        AppSpacing.vertical(context, 0.04),
-        // Third Row - 2 cards
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
-              child: AppCategoryCard(
-                title: context
-                    .l10n
-                    .homeWhatWeSpecializeInCommercialRealEstateTitle,
-                description: context
-                    .l10n
-                    .homeWhatWeSpecializeInCommercialRealEstateDescription,
-              ),
-            ),
-            AppSpacing.horizontal(context, 0.03),
-            Expanded(
-              child: AppCategoryCard(
-                title: context.l10n.homeWhatWeSpecializeInHospitalityTitle,
-                description:
-                    context.l10n.homeWhatWeSpecializeInHospitalityDescription,
-              ),
-            ),
-          ],
-        ),
+        for (var i = 0; i < services.length; i++) ...[
+          if (i > 0) AppSpacing.vertical(context, 0.04),
+          _serviceCard(services[i]),
+        ],
       ],
     );
   }
-}
 
-class _SpecializationCategoriesList extends StatelessWidget {
-  const _SpecializationCategoriesList();
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        AppCategoryCard(
-          title: context.l10n.homeWhatWeSpecializeInHighEndResidentialTitle,
-          description:
-              context.l10n.homeWhatWeSpecializeInHighEndResidentialDescription,
-        ),
-        AppSpacing.vertical(context, 0.04),
-        AppCategoryCard(
-          title:
-              context.l10n.homeWhatWeSpecializeInInvestmentCapitalMarketsTitle,
-          description: context
-              .l10n
-              .homeWhatWeSpecializeInInvestmentCapitalMarketsDescription,
-        ),
-        AppSpacing.vertical(context, 0.04),
-        AppCategoryCard(
-          title: context.l10n.homeWhatWeSpecializeInInvestmentPlotsTitle,
-          description:
-              context.l10n.homeWhatWeSpecializeInInvestmentPlotsDescription,
-        ),
-        AppSpacing.vertical(context, 0.04),
-        AppCategoryCard(
-          title: context.l10n.homeWhatWeSpecializeInInvestmentBuildingsTitle,
-          description:
-              context.l10n.homeWhatWeSpecializeInInvestmentBuildingsDescription,
-        ),
-        AppSpacing.vertical(context, 0.04),
-        AppCategoryCard(
-          title: context.l10n.homeWhatWeSpecializeInCommercialRealEstateTitle,
-          description: context
-              .l10n
-              .homeWhatWeSpecializeInCommercialRealEstateDescription,
-        ),
-        AppSpacing.vertical(context, 0.04),
-        AppCategoryCard(
-          title: context.l10n.homeWhatWeSpecializeInHospitalityTitle,
-          description:
-              context.l10n.homeWhatWeSpecializeInHospitalityDescription,
-        ),
-      ],
-    );
-  }
-}
-
-class _SpecializationButton extends StatelessWidget {
-  final bool fullWidth;
-
-  const _SpecializationButton({this.fullWidth = false});
-
-  @override
-  Widget build(BuildContext context) {
-    return AppButton(
-      text: context.l10n.homeWhatWeSpecializeInButton,
-      backgroundColor: AppColors.primary,
-      textColor: AppColors.white,
-      width: fullWidth ? double.infinity : null,
-      onPressed: () {
-        Get.toNamed(ClientConstants.routeClientContact);
-      },
+  Widget _serviceCard(_ServiceItem item) {
+    return AppServiceCard(
+      imagePath: item.imagePath,
+      title: item.title,
+      description: item.description,
     );
   }
 }

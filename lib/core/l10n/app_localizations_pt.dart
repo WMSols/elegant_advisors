@@ -31,106 +31,115 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get homeTitle =>
-      'CONSULTORIA IMOBILIÁRIA E CORRETAGEM DE INVESTIMENTOS';
+      'Consultoria Imobiliária e Corretagem de Investimentos';
+
+  @override
+  String get homeTagline =>
+      'Oportunidades discretas em mercados portugueses privilegiados';
 
   @override
   String get homeSubtitle =>
-      'A Elegant é uma consultoria e corretagem de investimento imobiliário definida por uma filosofia singular: o imobiliário, no seu melhor, é uma arte de elegância. Cuidamos de oportunidades excepcionais de propriedade em Portugal e na região ibérica, guiados por discrição, conhecimento de mercado e padrões intransigentes.';
+      'Cuidamos de oportunidades excepcionais de propriedade em Portugal e na região ibérica, guiados por discrição, conhecimento de mercado e padrões intransigentes.';
 
   @override
   String get homeButtonConsultation => 'Solicitar Consultoria Privada';
 
   @override
-  String get homeOurApproachTitle => 'NOSSA ABORDAGEM';
+  String get homeOurApproachTitle => 'Nossa Abordagem';
+
+  @override
+  String get homeOurApproachTagline =>
+      'Consultoria ponderada em todo o ciclo de vida da transação';
 
   @override
   String get homeOurApproachDescription =>
-      'Combinando profundo conhecimento do mercado local com redes internacionais sólidas, prestamos consultoria imobiliária orientada ao investimento em todo o ciclo de vida da transação — desde a estratégia e sourcing de ativos até aquisição, due diligence, estruturação e execução.\n\nAtuamos como parceiro local de consultoria e execução para clientes privados, promotores e investidores profissionais que procuram exposição estruturada ao imobiliário ibérico, com foco claro em qualidade, alinhamento e criação de valor a longo prazo.';
+      'Combinamos profundo conhecimento do mercado local com redes internacionais para prestar consultoria imobiliária orientada ao investimento — da estratégia e sourcing de ativos à aquisição, due diligence e execução.';
 
   @override
   String get homeOurApproachButton => 'O Que Fazemos';
 
   @override
-  String get homeOurPhilosophyMissionTitle => 'NOSSA FILOSOFIA\nE MISSÃO';
+  String get homeOurPhilosophyMissionTitle => 'Nossa Filosofia\ne Missão';
 
   @override
   String get homeOurPhilosophyMissionDescription =>
-      'Elegância, discrição e integridade definem a forma como operamos. Adotamos uma abordagem ponderada e orientada ao investimento na consultoria imobiliária, com foco em qualidade, alinhamento e criação de valor a longo prazo em cada projeto.';
+      'Elegância, discrição e integridade definem a forma como operamos — com uma abordagem ponderada e orientada ao investimento em cada projeto.';
 
   @override
-  String get homeOurPhilosophyTitle => 'NOSSA FILOSOFIA';
+  String get homeOurPhilosophyTitle => 'Nossa Filosofia';
 
   @override
   String get homeOurPhilosophyDescription =>
-      'Elegância, discrição e integridade definem a forma como operamos. Adotamos uma abordagem ponderada e orientada ao investimento na consultoria imobiliária, com foco em qualidade, alinhamento e criação de valor a longo prazo em cada projeto.';
+      'Elegância, discrição e integridade orientam uma abordagem ponderada e focada em qualidade e valor a longo prazo.';
 
   @override
-  String get homeOurMissionTitle => 'NOSSA MISSÃO';
+  String get homeOurMissionTitle => 'Nossa Missão';
 
   @override
   String get homeOurMissionDescription =>
-      'Nossa missão é entregar clareza e sofisticação em cada etapa da jornada imobiliária, garantindo que cada aquisição seja tão perfeita quanto distinta.';
+      'Entregar clareza e sofisticação em cada etapa da jornada imobiliária.';
 
   @override
-  String get homeWhatWeSpecializeInTitle => 'NO QUE NOS ESPECIALIZAMOS';
+  String get homeWhatWeSpecializeInTitle => 'No Que Nos Especializamos';
+
+  @override
+  String get homeWhatWeSpecializeInTagline =>
+      'Selecionado para clientes privados';
 
   @override
   String get homeWhatWeSpecializeInDescription =>
-      'Especializamo-nos em cuidar de oportunidades excepcionais de propriedade em várias classes de ativos, cada uma adaptada para atender a objetivos de investimento distintos e aspirações de estilo de vida.';
-
-  @override
-  String get homeWhatWeSpecializeInHighEndResidentialTitle =>
-      'CONSULTORIA RESIDENCIAL PRIVADA';
-
-  @override
-  String get homeWhatWeSpecializeInHighEndResidentialDescription =>
-      'Ativos residenciais de alto padrão: villas de luxo, apartamentos premium e propriedades residenciais exclusivas em locais privilegiados. Adaptado a clientes privados que procuram residência principal, segunda casa ou ativo de estilo de vida a longo prazo, com foco em qualidade, discrição e valor a longo prazo.';
+      'Oportunidades excepcionais de propriedade em classes de ativos selecionadas, adaptadas a objetivos de investimento distintos e aspirações de estilo de vida.';
 
   @override
   String get homeWhatWeSpecializeInInvestmentCapitalMarketsTitle =>
-      'CONSULTORIA DE INVESTIMENTO E MERCADOS DE CAPITAIS';
+      'Mercados de Capitais';
 
   @override
   String get homeWhatWeSpecializeInInvestmentCapitalMarketsDescription =>
-      'Aconselhamos e transacionamos em nome de fundos de investimento, gestores de ativos, family offices e promotores, proporcionando acesso a oportunidades no mercado e fora do mercado, no imobiliário residencial, comercial e de hospitalidade.';
+      'Consultoria e transações para fundos, promotores, family offices e gestores de ativos que procuram oportunidades no mercado e fora do mercado.';
 
   @override
-  String get homeWhatWeSpecializeInInvestmentPlotsTitle =>
-      'TERRENOS PARA DESENVOLVIMENTO E LOTES ESTRATÉGICOS';
+  String get homeWhatWeSpecializeInHighEndResidentialTitle =>
+      'Residencial de Luxo';
 
   @override
-  String get homeWhatWeSpecializeInInvestmentPlotsDescription =>
-      'Oportunidades estratégicas de terrenos para desenvolvimentos residenciais, comerciais e de hospitalidade. Adequado para promotores e capital institucional que procuram projetos escaláveis com visibilidade de planeamento e estratégias de saída claramente definidas.';
+  String get homeWhatWeSpecializeInHighEndResidentialDescription =>
+      'Villas de luxo, apartamentos premium e casas exclusivas para clientes privados que procuram imobiliário orientado ao estilo de vida em locais privilegiados de Portugal.';
 
   @override
   String get homeWhatWeSpecializeInInvestmentBuildingsTitle =>
-      'EDIFÍCIOS DE INVESTIMENTO';
+      'Investimento Residencial';
 
   @override
   String get homeWhatWeSpecializeInInvestmentBuildingsDescription =>
-      'Aquisições de edifícios adequadas para reabilitação, reposicionamento ou reurbanização, incluindo ativos estruturados para geração de rendimento, alienações faseadas ou estratégias de saída total. Oportunidades relevantes para promotores, fundos e gestores de ativos que procuram criação de valor através de gestão ativa de ativos, reurbanização ou venda estratégica.';
+      'Edifícios de investimento para reabilitação, reposicionamento ou estratégias orientadas ao rendimento.';
+
+  @override
+  String get homeWhatWeSpecializeInInvestmentPlotsTitle =>
+      'Terrenos Estratégicos';
+
+  @override
+  String get homeWhatWeSpecializeInInvestmentPlotsDescription =>
+      'Oportunidades de terrenos e reurbanização com potencial de valor a longo prazo em mercados portugueses selecionados.';
 
   @override
   String get homeWhatWeSpecializeInCommercialRealEstateTitle =>
-      'IMÓVEIS COMERCIAIS';
+      'Imóveis Comerciais';
 
   @override
   String get homeWhatWeSpecializeInCommercialRealEstateDescription =>
-      'Ativos de retalho, escritórios e de uso misto, incluindo propriedades geradoras de rendimento com fluxos de caixa estáveis ou crescentes. Oportunidades avaliadas numa base ajustada ao risco e orientada à underwriting, consistente com mandatos de investimento profissionais.';
+      'Oportunidades selecionadas de retalho, escritórios e uso misto para investidores profissionais.';
 
   @override
-  String get homeWhatWeSpecializeInHospitalityTitle =>
-      'INVESTIMENTOS EM HOSPITALIDADE E HOTÉIS';
+  String get homeWhatWeSpecializeInHospitalityInvestmentsTitle =>
+      'Investimentos em Hospitalidade';
 
   @override
-  String get homeWhatWeSpecializeInHospitalityDescription =>
-      'Consultoria em hotéis, apartamentos com serviços, hotéis boutique, resorts e desenvolvimentos de hospitalidade de uso misto. Apoiamos aquisições, estratégias de reposicionamento, ativos operacionais e projetos de hospitalidade liderados por desenvolvimento, visando rendimento sustentável e criação de valor a longo prazo.';
+  String get homeWhatWeSpecializeInHospitalityInvestmentsDescription =>
+      'Ativos de hospitalidade selecionados para investidores que procuram além do imobiliário residencial tradicional.';
 
   @override
-  String get homeWhatWeSpecializeInButton => 'Entre em Contato';
-
-  @override
-  String get homeOurPortfolioTitle => 'NOSSO PORTFÓLIO';
+  String get homeOurPortfolioTitle => 'Nosso Portfólio';
 
   @override
   String get homeOurPortfolioSubtitle => 'Descubra Nossa Seleção Curada';

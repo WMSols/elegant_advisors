@@ -25,7 +25,7 @@ class ContactFormSection extends StatelessWidget {
         children: [
           Text(
             context.l10n.contactFormTitle,
-            style: AppTextStyles.heading(
+            style: AppTextStyles.displayTitle(
               context,
             ).copyWith(color: AppColors.white),
           ),

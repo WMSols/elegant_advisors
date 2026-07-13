@@ -1,6 +1,5 @@
 import 'package:elegant_advisors/core/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:elegant_advisors/core/theme/app_theme.dart';
 import 'package:elegant_advisors/core/constants/client_constants.dart';
@@ -25,12 +24,7 @@ class ClientApp extends StatelessWidget {
       // Localization support
       locale: languageController.currentLocale,
       supportedLocales: LanguageController.supportedLocales,
-      localizationsDelegates: [
-        AppLocalizations.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
 
       initialRoute: ClientConstants.routeClientHome,
       getPages: ClientRoutes.routes,

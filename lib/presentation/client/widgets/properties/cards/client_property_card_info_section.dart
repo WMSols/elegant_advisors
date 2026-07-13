@@ -1,4 +1,3 @@
-import 'package:elegant_advisors/core/utils/app_fonts/app_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -48,11 +47,9 @@ class ClientPropertyCardInfoSection extends StatelessWidget {
         // Title
         Text(
           property.title,
-          style: AppTextStyles.bodyText(context).copyWith(
+          style: AppTextStyles.displayLabel(context).copyWith(
             color: AppColors.primary,
-            fontWeight: FontWeight.bold,
-            fontFamily: AppFonts.primaryFont,
-            fontSize: AppResponsive.fontSizeClamped(context, min: 26, max: 30),
+            fontSize: AppResponsive.fontSizeClamped(context, min: 20, max: 24),
           ),
           textAlign: TextAlign.left,
           maxLines: 1,

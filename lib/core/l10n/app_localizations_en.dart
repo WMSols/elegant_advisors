@@ -30,106 +30,113 @@ class AppLocalizationsEn extends AppLocalizations {
   String get navContact => 'Contact';
 
   @override
-  String get homeTitle => 'REAL ESTATE ADVISORY & INVESTMENT BROKERAGE';
+  String get homeTitle => 'Real Estate Advisory & Investment Brokerage';
+
+  @override
+  String get homeTagline =>
+      'Discreet opportunities in prime Portuguese markets';
 
   @override
   String get homeSubtitle =>
-      'Elegant is a real estate advisory and investment brokerage defined by a singular philosophy: real estate, at its finest, is an art of elegance. We curate exceptional property opportunities in Portugal and the Iberian region, guided by discretion, market insight, and uncompromising standards.';
+      'We curate exceptional property opportunities in Portugal and the Iberian region, guided by discretion, market insight, and uncompromising standards.';
 
   @override
   String get homeButtonConsultation => 'Request A Private Consultation';
 
   @override
-  String get homeOurApproachTitle => 'OUR APPROACH';
+  String get homeOurApproachTitle => 'Our Approach';
+
+  @override
+  String get homeOurApproachTagline =>
+      'Considered advisory across the full transaction lifecycle';
 
   @override
   String get homeOurApproachDescription =>
-      'By combining deep local market knowledge with strong international networks, we deliver considered, investment-led real estate advisory across the full transaction lifecycle — from strategy and asset sourcing to acquisition, due diligence, structuring, and execution.\n\nWe act as a trusted local advisory and execution partner for private clients, developers, and professional investors seeking structured exposure to Iberian real estate, with a clear focus on quality, alignment, and long-term value creation.';
+      'We combine deep local market knowledge with international networks to deliver investment-led real estate advisory — from strategy and asset sourcing to acquisition, due diligence, and execution.';
 
   @override
   String get homeOurApproachButton => 'What We Do';
 
   @override
-  String get homeOurPhilosophyMissionTitle => 'OUR PHILOSOPHY\n& MISSION';
+  String get homeOurPhilosophyMissionTitle => 'Our Philosophy\n& Mission';
 
   @override
   String get homeOurPhilosophyMissionDescription =>
-      'Elegance, discretion, and integrity define how we operate. We take a considered, investment-led approach to real estate advisory, focusing on quality, alignment, and long-term value creation in every engagement.';
+      'Elegance, discretion, and integrity define how we operate — with a considered, investment-led approach to every engagement.';
 
   @override
-  String get homeOurPhilosophyTitle => 'OUR PHILOSOPHY';
+  String get homeOurPhilosophyTitle => 'Our Philosophy';
 
   @override
   String get homeOurPhilosophyDescription =>
-      'Elegance, discretion, and integrity define how we operate. We take a considered, investment-led approach to real estate advisory, focusing on quality, alignment, and long-term value creation in every engagement.';
+      'Elegance, discretion, and integrity guide a considered, investment-led approach focused on quality and long-term value.';
 
   @override
-  String get homeOurMissionTitle => 'OUR MISSION';
+  String get homeOurMissionTitle => 'Our Mission';
 
   @override
   String get homeOurMissionDescription =>
-      'Our mission is to deliver clarity and sophistication at every stage of the property journey, ensuring each acquisition is as seamless as it is distinguished.';
+      'To deliver clarity and sophistication at every stage of the property journey.';
 
   @override
-  String get homeWhatWeSpecializeInTitle => 'WHAT WE SPECIALISE IN';
+  String get homeWhatWeSpecializeInTitle => 'What We Specialise In';
+
+  @override
+  String get homeWhatWeSpecializeInTagline => 'Curated for private clients';
 
   @override
   String get homeWhatWeSpecializeInDescription =>
-      'We specialise in curating exceptional property opportunities across multiple asset classes, each tailored to meet distinct investment objectives and lifestyle aspirations.';
-
-  @override
-  String get homeWhatWeSpecializeInHighEndResidentialTitle =>
-      'PRIVATE RESIDENTIAL ADVISORY';
-
-  @override
-  String get homeWhatWeSpecializeInHighEndResidentialDescription =>
-      'High-end residential assets: luxury villas, premium apartments, and exclusive residential properties in prime locations. Tailored for private clients seeking a primary residence, secondary home, or long-term lifestyle asset, with a focus on quality, discretion, and long-term value.';
+      'Exceptional property opportunities across selected asset classes, tailored to distinct investment objectives and lifestyle aspirations.';
 
   @override
   String get homeWhatWeSpecializeInInvestmentCapitalMarketsTitle =>
-      'INVESTMENT & CAPITAL MARKETS ADVISORY';
+      'Capital Markets';
 
   @override
   String get homeWhatWeSpecializeInInvestmentCapitalMarketsDescription =>
-      'We advise and transact on behalf of investment funds, asset managers, family offices, and developers, providing access to both on-market and off-market opportunities across residential, commercial, and hospitality real estate.';
+      'Advisory and transactions for funds, developers, family offices, and asset managers seeking on-market and off-market opportunities.';
 
   @override
-  String get homeWhatWeSpecializeInInvestmentPlotsTitle =>
-      'DEVELOPMENT LAND & STRATEGIC PLOTS';
+  String get homeWhatWeSpecializeInHighEndResidentialTitle =>
+      'Luxury Residential';
 
   @override
-  String get homeWhatWeSpecializeInInvestmentPlotsDescription =>
-      'Strategic land opportunities for residential, commercial, and hospitality developments. Suitable for developers and institutional capital seeking scalable projects with planning visibility and clearly defined exit strategies.';
+  String get homeWhatWeSpecializeInHighEndResidentialDescription =>
+      'Luxury villas, premium apartments, and exclusive homes for private clients seeking lifestyle-led real estate in prime Portuguese locations.';
 
   @override
   String get homeWhatWeSpecializeInInvestmentBuildingsTitle =>
-      'INVESTMENT BUILDINGS';
+      'Residential Investment';
 
   @override
   String get homeWhatWeSpecializeInInvestmentBuildingsDescription =>
-      'Building acquisitions suitable for refurbishment, repositioning, or redevelopment, including assets structured for income generation, phased disposals, or full exit strategies. Opportunities are relevant for developers, funds, and asset managers seeking value creation through active asset management, redevelopment, or strategic sale.';
+      'Investment buildings for refurbishment, repositioning, or income-focused strategies.';
+
+  @override
+  String get homeWhatWeSpecializeInInvestmentPlotsTitle => 'Strategic Land';
+
+  @override
+  String get homeWhatWeSpecializeInInvestmentPlotsDescription =>
+      'Land and redevelopment opportunities with long-term value potential across selected Portuguese markets.';
 
   @override
   String get homeWhatWeSpecializeInCommercialRealEstateTitle =>
-      'COMMERCIAL REAL ESTATE';
+      'Commercial Real Estate';
 
   @override
   String get homeWhatWeSpecializeInCommercialRealEstateDescription =>
-      'Retail, office, and mixed-use assets, including income-generating properties with stable or growing cash flows. Opportunities assessed on a risk-adjusted, underwriting-led basis consistent with professional investment mandates.';
+      'Selected retail, office, and mixed-use opportunities for professional investors.';
 
   @override
-  String get homeWhatWeSpecializeInHospitalityTitle =>
-      'HOSPITALITY & HOTEL INVESTMENTS';
+  String get homeWhatWeSpecializeInHospitalityInvestmentsTitle =>
+      'Hospitality Investments';
 
   @override
-  String get homeWhatWeSpecializeInHospitalityDescription =>
-      'Advisory across hotels, serviced apartments, boutique hotels, resorts, and mixed-use hospitality developments. We support acquisitions, repositioning strategies, operational assets, and development-led hospitality projects, targeting sustainable yield and long-term value creation.';
+  String get homeWhatWeSpecializeInHospitalityInvestmentsDescription =>
+      'Selected hospitality assets for investors looking beyond traditional residential property.';
 
   @override
-  String get homeWhatWeSpecializeInButton => 'Contact Us';
-
-  @override
-  String get homeOurPortfolioTitle => 'OUR PORTFOLIO';
+  String get homeOurPortfolioTitle => 'Our Portfolio';
 
   @override
   String get homeOurPortfolioSubtitle => 'Discover Our Curated Selection';

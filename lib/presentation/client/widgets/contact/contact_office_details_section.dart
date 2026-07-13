@@ -38,7 +38,7 @@ class ContactOfficeDetailsSection extends StatelessWidget {
       children: [
         Text(
           context.l10n.contactOfficeTitle,
-          style: AppTextStyles.heading(
+          style: AppTextStyles.displayTitle(
             context,
           ).copyWith(color: AppColors.white),
         ),

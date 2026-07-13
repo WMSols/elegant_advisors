@@ -20,6 +20,7 @@ class HomeHeaderSection extends StatelessWidget {
     return ClientHeroHeaderSection(
       child: ClientHeroHeaderContent(
         title: context.l10n.homeTitle,
+        tagline: context.l10n.homeTagline,
         description: context.l10n.homeSubtitle,
         textAlign: AppResponsive.isMobile(context)
             ? TextAlign.left
