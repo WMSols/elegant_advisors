@@ -81,7 +81,7 @@ class _ClientPropertiesFilterPanelState
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: AppColors.white,
+        color: AppColors.cream,
 
         border: Border.all(color: AppColors.grey.withValues(alpha: 0.2)),
       ),

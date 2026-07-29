@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
 import 'package:elegant_advisors/core/widgets/animations/app_fade_in_on_scroll.dart';
 import 'package:elegant_advisors/presentation/client/widgets/home/home_our_philosophy_mission_content.dart';
@@ -14,7 +15,7 @@ class HomeOurPhilosophyMissionSection extends StatelessWidget {
 
         return Container(
           width: double.infinity,
-          color: Color(0XFFe3dfd6),
+          color: AppColors.cream,
           padding: AppSpacing.symmetric(context, h: 0.1, v: 0.08),
           child: AppFadeInOnScroll(
             child: isSmallScreen

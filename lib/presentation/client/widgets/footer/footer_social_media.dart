@@ -36,16 +36,11 @@ class FooterSocialMedia extends StatelessWidget {
               icon: FontAwesomeIcons.instagram,
               url: FooterTexts.socialInstagramUrl,
             ),
-            // AppSpacing.horizontal(context, 0.015),
-            // FooterSocialIcon(
-            //   icon: FontAwesomeIcons.linkedin,
-            //   url: FooterTexts.socialLinkedInUrl,
-            // ),
-            // AppSpacing.horizontal(context, 0.015),
-            // FooterSocialIcon(
-            //   icon: FontAwesomeIcons.twitter,
-            //   url: FooterTexts.socialTwitterUrl,
-            // ),
+            AppSpacing.horizontal(context, 0.015),
+            FooterSocialIcon(
+              icon: FontAwesomeIcons.linkedin,
+              url: FooterTexts.socialLinkedInUrl,
+            ),
           ],
         ),
       ],

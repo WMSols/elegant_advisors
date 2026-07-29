@@ -33,8 +33,8 @@ class ClientPropertyCard extends StatefulWidget {
 }
 
 class _ClientPropertyCardState extends State<ClientPropertyCard> {
-  // Beige background color matching the screenshot
-  static const Color _beigeBackground = Color(0XFFe3dfd6);
+  // Beige background color matching site cream sections
+  static const Color _beigeBackground = AppColors.cream;
   bool _isHovered = false;
 
   @override

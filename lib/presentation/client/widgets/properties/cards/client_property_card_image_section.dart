@@ -40,6 +40,8 @@ class ClientPropertyCardImageSection extends StatelessWidget {
       );
     }
 
+    final showStatusBadge = property.status != 'available';
+
     return Stack(
       children: [
         SizedBox(
@@ -50,12 +52,12 @@ class ClientPropertyCardImageSection extends StatelessWidget {
             height: imageHeight,
           ),
         ),
-        // Status Badge Overlay
-        Positioned(
-          top: AppResponsive.scaleSize(context, 12, min: 8, max: 16),
-          left: AppResponsive.scaleSize(context, 12, min: 8, max: 16),
-          child: AppPropertyStatusBadge(status: property.status),
-        ),
+        if (showStatusBadge)
+          Positioned(
+            top: AppResponsive.scaleSize(context, 12, min: 8, max: 16),
+            left: AppResponsive.scaleSize(context, 12, min: 8, max: 16),
+            child: AppPropertyStatusBadge(status: property.status),
+          ),
       ],
     );
   }
