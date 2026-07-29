@@ -27,6 +27,9 @@ class AppLocalizationsPt extends AppLocalizations {
   String get navOffMarket => 'Fora do Mercado';
 
   @override
+  String get navServices => 'Os Nossos Serviços';
+
+  @override
   String get navContact => 'Contato';
 
   @override

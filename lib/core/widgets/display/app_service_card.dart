@@ -3,6 +3,7 @@ import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
 import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
+import 'package:elegant_advisors/core/widgets/text/app_text.dart';
 
 class AppServiceCard extends StatefulWidget {
   final String imagePath;
@@ -45,12 +46,12 @@ class _AppServiceCardState extends State<AppServiceCard> {
           duration: const Duration(milliseconds: 200),
           curve: Curves.easeInOut,
           decoration: BoxDecoration(
-            color: AppColors.cream,
+            color: AppColors.primary,
             borderRadius: cardBorderRadius,
             border: Border.all(
               color: _isHovered
-                  ? AppColors.primary
-                  : AppColors.primary.withValues(alpha: 0.12),
+                  ? AppColors.white
+                  : AppColors.white.withValues(alpha: 0.18),
             ),
             boxShadow: _isHovered
                 ? [
@@ -77,7 +78,7 @@ class _AppServiceCardState extends State<AppServiceCard> {
                         widget.imagePath,
                         fit: BoxFit.cover,
                         errorBuilder: (_, __, ___) => Container(
-                          color: AppColors.lightBeige,
+                          color: AppColors.primary,
                           child: Icon(
                             Icons.image_outlined,
                             color: AppColors.primary.withValues(alpha: 0.4),
@@ -113,10 +114,10 @@ class _AppServiceCardState extends State<AppServiceCard> {
                   ),
                   child: Column(
                     children: [
-                      Text(
+                      AppText(
                         widget.title,
                         style: AppTextStyles.displayLabel(context).copyWith(
-                          color: AppColors.primary,
+                          color: AppColors.white,
                           fontSize: AppResponsive.fontSizeClamped(
                             context,
                             min: widget.compact ? 14 : 16,
@@ -126,10 +127,10 @@ class _AppServiceCardState extends State<AppServiceCard> {
                         textAlign: TextAlign.center,
                       ),
                       AppSpacing.vertical(context, 0.015),
-                      Text(
+                      AppText(
                         widget.description,
                         style: AppTextStyles.bodyText(context).copyWith(
-                          color: AppColors.black.withValues(alpha: 0.7),
+                          color: AppColors.white.withValues(alpha: 0.8),
                           height: 1.55,
                           fontSize: AppResponsive.fontSizeClamped(
                             context,

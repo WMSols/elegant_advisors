@@ -15,7 +15,7 @@ class HomeWhatWeSpecializeSection extends StatelessWidget {
 
         return Container(
           width: double.infinity,
-          color: AppColors.cream,
+          color: AppColors.primary,
           padding: AppSpacing.symmetric(context, h: 0.1, v: 0.08),
           child: AppFadeInOnScroll(
             child: isSmallScreen

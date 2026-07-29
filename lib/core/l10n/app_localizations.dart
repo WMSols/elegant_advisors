@@ -134,6 +134,12 @@ abstract class AppLocalizations {
   /// **'Off Market'**
   String get navOffMarket;
 
+  /// No description provided for @navServices.
+  ///
+  /// In en, this message translates to:
+  /// **'Our Services'**
+  String get navServices;
+
   /// No description provided for @navContact.
   ///
   /// In en, this message translates to:

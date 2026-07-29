@@ -15,6 +15,7 @@ import 'package:elegant_advisors/presentation/client/screens/contact/my_contacts
 import 'package:elegant_advisors/presentation/client/screens/legal/client_privacy_policy_screen.dart';
 import 'package:elegant_advisors/presentation/client/screens/legal/client_terms_of_service_screen.dart';
 import 'package:elegant_advisors/presentation/client/screens/faq/client_faq_screen.dart';
+import 'package:elegant_advisors/presentation/client/screens/services/client_services_screen.dart';
 
 class ClientRoutes {
   ClientRoutes._();
@@ -61,6 +62,10 @@ class ClientRoutes {
     GetPage(
       name: ClientConstants.routeClientFaq,
       page: () => const ClientFaqScreen(),
+    ),
+    GetPage(
+      name: ClientConstants.routeClientServices,
+      page: () => const ClientServicesScreen(),
     ),
   ];
 }

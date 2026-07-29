@@ -63,6 +63,8 @@ class _PhilosophyMissionHeader extends StatelessWidget {
     return ClientSectionHeader(
       title: context.l10n.homeOurPhilosophyMissionTitle,
       description: context.l10n.homeOurPhilosophyMissionDescription,
+      titleColor: AppColors.primary,
+      descriptionColor: AppColors.black.withValues(alpha: 0.7),
     );
   }
 }

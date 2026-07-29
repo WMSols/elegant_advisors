@@ -7,6 +7,7 @@ import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
 import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
 import 'package:elegant_advisors/core/widgets/buttons/app_button.dart';
+import 'package:elegant_advisors/core/widgets/text/app_text.dart';
 
 class HomeTopContentSmall extends StatelessWidget {
   const HomeTopContentSmall({super.key});
@@ -19,7 +20,7 @@ class HomeTopContentSmall extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         // Main Headline
-        Text(
+        AppText(
           context.l10n.homeTitle,
           style: AppTextStyles.headline(context).copyWith(
             color: AppColors.white,
@@ -30,7 +31,7 @@ class HomeTopContentSmall extends StatelessWidget {
         ),
         AppSpacing.vertical(context, 0.04),
         // Subtitle
-        Text(
+        AppText(
           context.l10n.homeSubtitle,
           style: AppTextStyles.bodyText(context).copyWith(
             color: AppColors.white,
@@ -69,7 +70,7 @@ class HomeTopContentLarge extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             // Main Headline
-            Text(
+            AppText(
               context.l10n.homeTitle,
               style: AppTextStyles.headline(context).copyWith(
                 color: AppColors.white,
@@ -84,7 +85,7 @@ class HomeTopContentLarge extends StatelessWidget {
               constraints: BoxConstraints(
                 maxWidth: AppResponsive.screenWidth(context) * 0.5,
               ),
-              child: Text(
+              child: AppText(
                 context.l10n.homeSubtitle,
                 style: AppTextStyles.bodyText(context).copyWith(
                   color: AppColors.white,

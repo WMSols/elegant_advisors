@@ -58,8 +58,8 @@ class _OurApproachContent extends StatelessWidget {
         AppSpacing.vertical(context, 0.06),
         AppButton(
           text: context.l10n.homeOurApproachButton,
-          backgroundColor: AppColors.primary,
-          textColor: AppColors.white,
+          backgroundColor: AppColors.cream,
+          textColor: AppColors.primary,
           width: fullWidthButton ? double.infinity : null,
           onPressed: onButtonPressed,
         ),

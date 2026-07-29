@@ -3,6 +3,7 @@ import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
 import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
+import 'package:elegant_advisors/core/widgets/text/app_text.dart';
 
 class AppCategoryCard extends StatefulWidget {
   final String title;
@@ -44,7 +45,7 @@ class _AppCategoryCardState extends State<AppCategoryCard> {
           child: Column(
             crossAxisAlignment: alignment,
             children: [
-              Text(
+              AppText(
                 widget.title,
                 style: AppTextStyles.displayLabel(context).copyWith(
                   color: AppColors.primary,
@@ -57,7 +58,7 @@ class _AppCategoryCardState extends State<AppCategoryCard> {
                 textAlign: textAlign,
               ),
               AppSpacing.vertical(context, 0.01),
-              Text(
+              AppText(
                 widget.description,
                 style: AppTextStyles.bodyText(context).copyWith(
                   color: AppColors.black.withValues(alpha: 0.7),

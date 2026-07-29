@@ -27,6 +27,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get navOffMarket => 'Off Market';
 
   @override
+  String get navServices => 'Our Services';
+
+  @override
   String get navContact => 'Contact';
 
   @override

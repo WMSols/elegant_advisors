@@ -3,6 +3,7 @@ import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/core/utils/app_spacing/app_spacing.dart';
 import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
+import 'package:elegant_advisors/core/widgets/text/app_text.dart';
 
 /// Reusable hero header content widget
 /// Displays title, tagline, subtitle, description, and optional action button
@@ -47,7 +48,7 @@ class ClientHeroHeaderContent extends StatelessWidget {
       crossAxisAlignment: crossAlign,
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text(
+        AppText(
           title,
           style: AppTextStyles.headline(context).copyWith(
             color: AppColors.white,
@@ -63,7 +64,7 @@ class ClientHeroHeaderContent extends StatelessWidget {
         ),
         if (tagline != null) ...[
           AppSpacing.vertical(context, 0.025),
-          Text(
+          AppText(
             tagline!,
             style: AppTextStyles.tagline(context).copyWith(
               color: Colors.white.withValues(alpha: 0.9),
@@ -78,7 +79,7 @@ class ClientHeroHeaderContent extends StatelessWidget {
         ],
         if (subtitle != null) ...[
           AppSpacing.vertical(context, 0.03),
-          Text(
+          AppText(
             subtitle!,
             style: AppTextStyles.heading(context).copyWith(
               color: AppColors.white.withValues(alpha: 0.9),
@@ -93,7 +94,7 @@ class ClientHeroHeaderContent extends StatelessWidget {
         ],
         if (description != null) ...[
           AppSpacing.vertical(context, 0.03),
-          Text(
+          AppText(
             description!,
             style: AppTextStyles.bodyText(context).copyWith(
               color: Colors.white.withValues(alpha: 0.8),

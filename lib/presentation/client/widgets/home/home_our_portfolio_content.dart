@@ -62,6 +62,9 @@ class _PortfolioHeader extends StatelessWidget {
       title: context.l10n.homeOurPortfolioTitle,
       tagline: context.l10n.homeOurPortfolioSubtitle,
       description: context.l10n.homeOurPortfolioDescription,
+      titleColor: AppColors.primary,
+      taglineColor: AppColors.black.withValues(alpha: 0.65),
+      descriptionColor: AppColors.black.withValues(alpha: 0.7),
     );
   }
 }

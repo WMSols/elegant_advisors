@@ -68,6 +68,11 @@ class HeaderMobileDrawer extends StatelessWidget {
                     onTap: onClose,
                   ),
                   _MobileDrawerItem(
+                    label: context.l10n.navServices,
+                    route: ClientConstants.routeClientServices,
+                    onTap: onClose,
+                  ),
+                  _MobileDrawerItem(
                     label: context.l10n.navOffMarket,
                     route: ClientConstants.routeClientOffMarket,
                     onTap: onClose,

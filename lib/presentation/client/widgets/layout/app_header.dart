@@ -58,6 +58,10 @@ class _AppHeaderState extends State<AppHeader> {
                             route: ClientConstants.routeClientProperties,
                           ),
                           HeaderNavItem(
+                            label: context.l10n.navServices,
+                            route: ClientConstants.routeClientServices,
+                          ),
+                          HeaderNavItem(
                             label: context.l10n.navOffMarket,
                             route: ClientConstants.routeClientOffMarket,
                           ),
