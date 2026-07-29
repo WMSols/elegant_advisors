@@ -38,7 +38,7 @@ class _ClientMyContactCardState extends State<ClientMyContactCard> {
         ),
         padding: AppSpacing.all(context),
         decoration: BoxDecoration(
-          color: AppColors.white,
+          color: AppColors.cream,
           border: Border.all(
             color: _isHovered
                 ? AppColors.primary

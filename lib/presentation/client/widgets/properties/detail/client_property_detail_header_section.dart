@@ -78,8 +78,8 @@ class ClientPropertyDetailHeaderSection extends StatelessWidget {
             ],
           ),
         ),
-        // Status Badge
-        AppPropertyStatusBadge(status: property.status),
+        if (property.status != 'available')
+          AppPropertyStatusBadge(status: property.status),
       ],
     );
   }

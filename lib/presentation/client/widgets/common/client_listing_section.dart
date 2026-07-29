@@ -32,7 +32,7 @@ class ClientListingSection extends StatelessWidget {
           : BoxConstraints(
               minHeight: AppResponsive.screenHeight(context) * 0.5,
             ),
-      color: backgroundColor ?? AppColors.white,
+      color: backgroundColor ?? AppColors.cream,
       padding:
           padding ??
           AppSpacing.symmetric(

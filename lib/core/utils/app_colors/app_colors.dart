@@ -5,6 +5,9 @@ class AppColors {
 
   //global
   static const Color primary = Color(0xFF070922);
+
+  /// Warm cream used for light section / page backgrounds (matches Our Approach).
+  static const Color cream = Color(0xFFE3DFD6);
   static const Color secondary = Colors.white;
   static const Color white = Colors.white;
   static const Color black = Colors.black;
@@ -23,11 +26,11 @@ class AppColors {
   static const Color newInquiries = Color(0xFFFF9800);
 
   //light
-  static const Color lightBackground = Color(0xFFFFFFFF);
-  static const Color lightColor = Colors.white;
+  static const Color lightBackground = cream;
+  static const Color lightColor = cream;
   static const Color lightText = Colors.black;
-  static const Color lightGrey = Color(0xFFF0F0F0);
-  static const Color lightBeige = Color(0xFFF5F5F0);
+  static const Color lightGrey = cream;
+  static const Color lightBeige = cream;
 
   //dark
   static const Color darkBackground = Color(0xFF121212);

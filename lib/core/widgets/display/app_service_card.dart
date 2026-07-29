@@ -45,6 +45,7 @@ class _AppServiceCardState extends State<AppServiceCard> {
           duration: const Duration(milliseconds: 200),
           curve: Curves.easeInOut,
           decoration: BoxDecoration(
+            color: AppColors.cream,
             borderRadius: cardBorderRadius,
             border: Border.all(
               color: _isHovered

@@ -175,7 +175,7 @@ class _ExpandedCard extends StatelessWidget {
                 Get.toNamed(ClientConstants.routeClientFaq);
               },
               textColor: AppColors.primary,
-              backgroundColor: AppColors.white,
+              backgroundColor: AppColors.cream,
             ),
           ],
         ),

@@ -1,6 +1,7 @@
 class AppFonts {
-  static const String primaryFont = 'Charter';
-  static const String secondaryFont = 'Charter';
-  static const String displayFont = 'Cinzel';
-  static const String logoFont = 'Cinzel';
+  /// Playfair Display — site-wide client typography (via google_fonts).
+  static const String primaryFont = 'Playfair Display';
+  static const String secondaryFont = 'Playfair Display';
+  static const String displayFont = 'Playfair Display';
+  static const String logoFont = 'Playfair Display';
 }

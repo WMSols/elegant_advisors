@@ -77,7 +77,7 @@ class MyContactsListingContent extends StatelessWidget {
               text: context.l10n.myContactsViewContacts,
               isLoading: controller.isLoading.value,
               onPressed: controller.viewContacts,
-              backgroundColor: AppColors.white,
+              backgroundColor: AppColors.cream,
               textColor: AppColors.primary,
               width: isMobile
                   ? double.infinity

@@ -62,7 +62,10 @@ class _AppButtonState extends State<AppButton> {
         widget.textColor ??
         (widget.backgroundColor != null ? AppColors.primary : AppColors.white);
 
-    Widget buttonContent = MouseRegion(
+    final minHeight =
+        widget.height ?? AppResponsive.screenHeight(context) * 0.06;
+
+    final buttonBody = MouseRegion(
       onEnter: isDisabled ? null : (_) => setState(() => _isHovered = true),
       onExit: isDisabled ? null : (_) => setState(() => _isHovered = false),
       child: AnimatedScale(
@@ -73,40 +76,56 @@ class _AppButtonState extends State<AppButton> {
           color: Colors.transparent,
           child: InkWell(
             onTap: widget.isLoading ? null : widget.onPressed,
-            child: AnimatedContainer(
-              duration: const Duration(milliseconds: 200),
-              curve: Curves.easeInOut,
-              decoration: baseDecoration.copyWith(
-                boxShadow: _isHovered && !isDisabled
-                    ? [
-                        BoxShadow(
-                          color: (widget.backgroundColor ?? AppColors.primary)
-                              .withValues(alpha: 0.3),
-                          blurRadius: 15,
-                          spreadRadius: 2,
-                          offset: const Offset(0, 4),
-                        ),
-                      ]
-                    : null,
+            child: ConstrainedBox(
+              constraints: BoxConstraints(
+                minHeight: minHeight,
+                minWidth: widget.width ?? 0,
+                maxWidth: widget.width ?? double.infinity,
               ),
-              padding: EdgeInsets.symmetric(
-                horizontal: AppResponsive.scaleSize(
-                  context,
-                  24,
-                  min: 16,
-                  max: 32,
+              child: DecoratedBox(
+                decoration: baseDecoration.copyWith(
+                  boxShadow: _isHovered && !isDisabled
+                      ? [
+                          BoxShadow(
+                            color: (widget.backgroundColor ?? AppColors.primary)
+                                .withValues(alpha: 0.3),
+                            blurRadius: 15,
+                            spreadRadius: 2,
+                            offset: const Offset(0, 4),
+                          ),
+                        ]
+                      : null,
                 ),
-                vertical: AppResponsive.screenHeight(context) * 0.015,
-              ),
-              child: Center(
-                child: widget.isLoading
-                    ? AppLoadingIndicator()
-                    : Text(
-                        widget.text,
-                        style: AppTextStyles.buttonText(
-                          context,
-                        ).copyWith(color: finalTextColor),
-                      ),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: AppResponsive.scaleSize(
+                      context,
+                      24,
+                      min: 16,
+                      max: 32,
+                    ),
+                    vertical: AppResponsive.scaleSize(
+                      context,
+                      14,
+                      min: 12,
+                      max: 18,
+                    ),
+                  ),
+                  child: Center(
+                    widthFactor: widget.width == null ? 1.0 : null,
+                    heightFactor: 1.0,
+                    child: widget.isLoading
+                        ? AppLoadingIndicator()
+                        : Text(
+                            widget.text,
+                            softWrap: false,
+                            textAlign: TextAlign.center,
+                            style: AppTextStyles.buttonText(
+                              context,
+                            ).copyWith(color: finalTextColor),
+                          ),
+                  ),
+                ),
               ),
             ),
           ),
@@ -114,20 +133,11 @@ class _AppButtonState extends State<AppButton> {
       ),
     );
 
-    // If width is provided, wrap in SizedBox, otherwise use intrinsic width
+    // Full-width when width is set; otherwise shrink-wrap to label.
     if (widget.width != null) {
-      return SizedBox(
-        width: widget.width,
-        height: widget.height ?? AppResponsive.screenHeight(context) * 0.06,
-        child: buttonContent,
-      );
-    } else {
-      return IntrinsicWidth(
-        child: SizedBox(
-          height: widget.height ?? AppResponsive.screenHeight(context) * 0.06,
-          child: buttonContent,
-        ),
-      );
+      return SizedBox(width: widget.width, child: buttonBody);
     }
+
+    return Align(alignment: Alignment.center, child: buttonBody);
   }
 }

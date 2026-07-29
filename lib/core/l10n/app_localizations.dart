@@ -143,7 +143,7 @@ abstract class AppLocalizations {
   /// No description provided for @homeTitle.
   ///
   /// In en, this message translates to:
-  /// **'Real Estate Advisory & Investment Brokerage'**
+  /// **'Capital Markets & Real Estate Advisory'**
   String get homeTitle;
 
   /// No description provided for @homeTagline.
@@ -155,13 +155,13 @@ abstract class AppLocalizations {
   /// No description provided for @homeSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'We curate exceptional property opportunities in Portugal and the Iberian region, guided by discretion, market insight, and uncompromising standards.'**
+  /// **'We advise investors, developers, family offices and private clients on acquisitions, disposals and exceptional real estate opportunities across Portugal and Europe.'**
   String get homeSubtitle;
 
   /// No description provided for @homeButtonConsultation.
   ///
   /// In en, this message translates to:
-  /// **'Request A Private Consultation'**
+  /// **'Contact Our Advisory Team'**
   String get homeButtonConsultation;
 
   /// No description provided for @homeOurApproachTitle.
@@ -227,13 +227,13 @@ abstract class AppLocalizations {
   /// No description provided for @homeWhatWeSpecializeInTitle.
   ///
   /// In en, this message translates to:
-  /// **'What We Specialise In'**
+  /// **'Our Expertise'**
   String get homeWhatWeSpecializeInTitle;
 
   /// No description provided for @homeWhatWeSpecializeInTagline.
   ///
   /// In en, this message translates to:
-  /// **'Curated for private clients'**
+  /// **'Institutional advisory across selected asset classes'**
   String get homeWhatWeSpecializeInTagline;
 
   /// No description provided for @homeWhatWeSpecializeInDescription.
@@ -251,19 +251,19 @@ abstract class AppLocalizations {
   /// No description provided for @homeWhatWeSpecializeInInvestmentCapitalMarketsDescription.
   ///
   /// In en, this message translates to:
-  /// **'Advisory and transactions for funds, developers, family offices, and asset managers seeking on-market and off-market opportunities.'**
+  /// **'Strategic advisory for investment funds, family offices, institutional investors and developers across acquisitions, disposals, portfolio transactions, capital deployment and investment strategies throughout Portugal and selected European markets.'**
   String get homeWhatWeSpecializeInInvestmentCapitalMarketsDescription;
 
   /// No description provided for @homeWhatWeSpecializeInHighEndResidentialTitle.
   ///
   /// In en, this message translates to:
-  /// **'Luxury Residential'**
+  /// **'Luxury Residential Real Estate'**
   String get homeWhatWeSpecializeInHighEndResidentialTitle;
 
   /// No description provided for @homeWhatWeSpecializeInHighEndResidentialDescription.
   ///
   /// In en, this message translates to:
-  /// **'Luxury villas, premium apartments, and exclusive homes for private clients seeking lifestyle-led real estate in prime Portuguese locations.'**
+  /// **'Bespoke advisory for private clients, family offices and international buyers seeking exceptional villas, apartments and exclusive off-market residences, delivered with discretion and a tailored approach.'**
   String get homeWhatWeSpecializeInHighEndResidentialDescription;
 
   /// No description provided for @homeWhatWeSpecializeInInvestmentBuildingsTitle.
@@ -275,7 +275,7 @@ abstract class AppLocalizations {
   /// No description provided for @homeWhatWeSpecializeInInvestmentBuildingsDescription.
   ///
   /// In en, this message translates to:
-  /// **'Investment buildings for refurbishment, repositioning, or income-focused strategies.'**
+  /// **'Advisory across residential investment properties, portfolios and development opportunities, supporting investment funds, family offices, private investors and developers in acquisitions, disposals and value-add strategies.'**
   String get homeWhatWeSpecializeInInvestmentBuildingsDescription;
 
   /// No description provided for @homeWhatWeSpecializeInInvestmentPlotsTitle.
@@ -287,7 +287,7 @@ abstract class AppLocalizations {
   /// No description provided for @homeWhatWeSpecializeInInvestmentPlotsDescription.
   ///
   /// In en, this message translates to:
-  /// **'Land and redevelopment opportunities with long-term value potential across selected Portuguese markets.'**
+  /// **'Advisory on development land and urban regeneration opportunities, assisting landowners, developers and investment funds with acquisitions, disposals and long-term development strategies.'**
   String get homeWhatWeSpecializeInInvestmentPlotsDescription;
 
   /// No description provided for @homeWhatWeSpecializeInCommercialRealEstateTitle.
@@ -299,7 +299,7 @@ abstract class AppLocalizations {
   /// No description provided for @homeWhatWeSpecializeInCommercialRealEstateDescription.
   ///
   /// In en, this message translates to:
-  /// **'Selected retail, office, and mixed-use opportunities for professional investors.'**
+  /// **'Advisory across office, retail, logistics and mixed-use assets, representing property owners, occupiers, investment funds and institutional investors in acquisitions, disposals and leasing opportunities.'**
   String get homeWhatWeSpecializeInCommercialRealEstateDescription;
 
   /// No description provided for @homeWhatWeSpecializeInHospitalityInvestmentsTitle.
@@ -311,8 +311,104 @@ abstract class AppLocalizations {
   /// No description provided for @homeWhatWeSpecializeInHospitalityInvestmentsDescription.
   ///
   /// In en, this message translates to:
-  /// **'Selected hospitality assets for investors looking beyond traditional residential property.'**
+  /// **'Investment and advisory services across hotels, resorts, serviced apartments and tourism assets, representing property owners, developers, investment funds and institutional investors in acquisition, disposal and redevelopment opportunities.'**
   String get homeWhatWeSpecializeInHospitalityInvestmentsDescription;
+
+  /// No description provided for @homeOurServicesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Our Services'**
+  String get homeOurServicesTitle;
+
+  /// No description provided for @homeOurServicesTagline.
+  ///
+  /// In en, this message translates to:
+  /// **'Institutional advisory support across the transaction lifecycle'**
+  String get homeOurServicesTagline;
+
+  /// No description provided for @homeOurServicesOffMarketTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Off-Market Sourcing'**
+  String get homeOurServicesOffMarketTitle;
+
+  /// No description provided for @homeOurServicesOffMarketDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Origination of exclusive off-market investment opportunities.'**
+  String get homeOurServicesOffMarketDescription;
+
+  /// No description provided for @homeOurServicesInvestmentTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Investment Advisory'**
+  String get homeOurServicesInvestmentTitle;
+
+  /// No description provided for @homeOurServicesInvestmentDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Strategic advice on acquisitions, disposals and capital deployment.'**
+  String get homeOurServicesInvestmentDescription;
+
+  /// No description provided for @homeOurServicesTransactionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Transaction Advisory'**
+  String get homeOurServicesTransactionTitle;
+
+  /// No description provided for @homeOurServicesTransactionDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Execution and advisory across complex real estate transactions.'**
+  String get homeOurServicesTransactionDescription;
+
+  /// No description provided for @homeOurServicesFinancialTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Financial Analysis'**
+  String get homeOurServicesFinancialTitle;
+
+  /// No description provided for @homeOurServicesFinancialDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Investment underwriting, valuation and financial modelling.'**
+  String get homeOurServicesFinancialDescription;
+
+  /// No description provided for @homeOurServicesMarketTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Market Intelligence'**
+  String get homeOurServicesMarketTitle;
+
+  /// No description provided for @homeOurServicesMarketDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Research-driven market analysis and investment insights.'**
+  String get homeOurServicesMarketDescription;
+
+  /// No description provided for @homeOurServicesDevelopmentTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Development Advisory'**
+  String get homeOurServicesDevelopmentTitle;
+
+  /// No description provided for @homeOurServicesDevelopmentDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Strategic advice across the development and repositioning lifecycle.'**
+  String get homeOurServicesDevelopmentDescription;
+
+  /// No description provided for @homeOurServicesPrivateClientTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Private Client Advisory'**
+  String get homeOurServicesPrivateClientTitle;
+
+  /// No description provided for @homeOurServicesPrivateClientDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Discreet advisory for prime residential acquisitions and disposals.'**
+  String get homeOurServicesPrivateClientDescription;
 
   /// No description provided for @homeOurPortfolioTitle.
   ///
@@ -335,7 +431,7 @@ abstract class AppLocalizations {
   /// No description provided for @homeOurPortfolioButton.
   ///
   /// In en, this message translates to:
-  /// **'Request a Private Consultation'**
+  /// **'Contact Our Advisory Team'**
   String get homeOurPortfolioButton;
 
   /// No description provided for @propertiesTitle.
@@ -377,7 +473,7 @@ abstract class AppLocalizations {
   /// No description provided for @offMarketViewProperties.
   ///
   /// In en, this message translates to:
-  /// **'Inquire About Off Market Opportunities'**
+  /// **'Explore Off-Market Opportunities'**
   String get offMarketViewProperties;
 
   /// No description provided for @clientOffMarketErrorLoading.

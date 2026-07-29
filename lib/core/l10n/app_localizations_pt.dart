@@ -30,8 +30,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get navContact => 'Contato';
 
   @override
-  String get homeTitle =>
-      'Consultoria Imobiliária e Corretagem de Investimentos';
+  String get homeTitle => 'Consultoria de Mercados de Capitais e Imobiliário';
 
   @override
   String get homeTagline =>
@@ -39,10 +38,11 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get homeSubtitle =>
-      'Cuidamos de oportunidades excepcionais de propriedade em Portugal e na região ibérica, guiados por discrição, conhecimento de mercado e padrões intransigentes.';
+      'Aconselhamos investidores, promotores, family offices e clientes privados em aquisições, alienações e oportunidades imobiliárias excecionais em Portugal e na Europa.';
 
   @override
-  String get homeButtonConsultation => 'Solicitar Consultoria Privada';
+  String get homeButtonConsultation =>
+      'Contactar a Nossa Equipa de Consultoria';
 
   @override
   String get homeOurApproachTitle => 'Nossa Abordagem';
@@ -80,11 +80,11 @@ class AppLocalizationsPt extends AppLocalizations {
       'Entregar clareza e sofisticação em cada etapa da jornada imobiliária.';
 
   @override
-  String get homeWhatWeSpecializeInTitle => 'No Que Nos Especializamos';
+  String get homeWhatWeSpecializeInTitle => 'A Nossa Expertise';
 
   @override
   String get homeWhatWeSpecializeInTagline =>
-      'Selecionado para clientes privados';
+      'Consultoria institucional em classes de ativos selecionadas';
 
   @override
   String get homeWhatWeSpecializeInDescription =>
@@ -96,15 +96,15 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get homeWhatWeSpecializeInInvestmentCapitalMarketsDescription =>
-      'Consultoria e transações para fundos, promotores, family offices e gestores de ativos que procuram oportunidades no mercado e fora do mercado.';
+      'Consultoria estratégica para fundos de investimento, family offices, investidores institucionais e promotores em aquisições, alienações, transações de portefólio, alocação de capital e estratégias de investimento em Portugal e em mercados europeus selecionados.';
 
   @override
   String get homeWhatWeSpecializeInHighEndResidentialTitle =>
-      'Residencial de Luxo';
+      'Imobiliário Residencial de Luxo';
 
   @override
   String get homeWhatWeSpecializeInHighEndResidentialDescription =>
-      'Villas de luxo, apartamentos premium e casas exclusivas para clientes privados que procuram imobiliário orientado ao estilo de vida em locais privilegiados de Portugal.';
+      'Consultoria personalizada para clientes privados, family offices e compradores internacionais que procuram villas, apartamentos e residências exclusivas fora do mercado, com discrição e uma abordagem sob medida.';
 
   @override
   String get homeWhatWeSpecializeInInvestmentBuildingsTitle =>
@@ -112,7 +112,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get homeWhatWeSpecializeInInvestmentBuildingsDescription =>
-      'Edifícios de investimento para reabilitação, reposicionamento ou estratégias orientadas ao rendimento.';
+      'Consultoria em propriedades residenciais de investimento, portefólios e oportunidades de desenvolvimento, apoiando fundos, family offices, investidores privados e promotores em aquisições, alienações e estratégias de valor acrescentado.';
 
   @override
   String get homeWhatWeSpecializeInInvestmentPlotsTitle =>
@@ -120,7 +120,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get homeWhatWeSpecializeInInvestmentPlotsDescription =>
-      'Oportunidades de terrenos e reurbanização com potencial de valor a longo prazo em mercados portugueses selecionados.';
+      'Consultoria em terrenos para desenvolvimento e oportunidades de regeneração urbana, apoiando proprietários, promotores e fundos de investimento em aquisições, alienações e estratégias de desenvolvimento a longo prazo.';
 
   @override
   String get homeWhatWeSpecializeInCommercialRealEstateTitle =>
@@ -128,7 +128,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get homeWhatWeSpecializeInCommercialRealEstateDescription =>
-      'Oportunidades selecionadas de retalho, escritórios e uso misto para investidores profissionais.';
+      'Consultoria em escritórios, retalho, logística e ativos de uso misto, representando proprietários, ocupantes, fundos de investimento e investidores institucionais em aquisições, alienações e oportunidades de arrendamento.';
 
   @override
   String get homeWhatWeSpecializeInHospitalityInvestmentsTitle =>
@@ -136,7 +136,65 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get homeWhatWeSpecializeInHospitalityInvestmentsDescription =>
-      'Ativos de hospitalidade selecionados para investidores que procuram além do imobiliário residencial tradicional.';
+      'Serviços de investimento e consultoria em hotéis, resorts, apartamentos com serviços e ativos de turismo, representando proprietários, promotores, fundos e investidores institucionais em aquisições, alienações e reurbanizações.';
+
+  @override
+  String get homeOurServicesTitle => 'Os Nossos Serviços';
+
+  @override
+  String get homeOurServicesTagline =>
+      'Apoio de consultoria institucional ao longo do ciclo de vida da transação';
+
+  @override
+  String get homeOurServicesOffMarketTitle => 'Sourcing Fora do Mercado';
+
+  @override
+  String get homeOurServicesOffMarketDescription =>
+      'Originação de oportunidades de investimento exclusivas fora do mercado.';
+
+  @override
+  String get homeOurServicesInvestmentTitle => 'Consultoria de Investimento';
+
+  @override
+  String get homeOurServicesInvestmentDescription =>
+      'Aconselhamento estratégico em aquisições, alienações e alocação de capital.';
+
+  @override
+  String get homeOurServicesTransactionTitle => 'Consultoria de Transações';
+
+  @override
+  String get homeOurServicesTransactionDescription =>
+      'Execução e consultoria em transações imobiliárias complexas.';
+
+  @override
+  String get homeOurServicesFinancialTitle => 'Análise Financeira';
+
+  @override
+  String get homeOurServicesFinancialDescription =>
+      'Underwriting de investimento, avaliação e modelação financeira.';
+
+  @override
+  String get homeOurServicesMarketTitle => 'Inteligência de Mercado';
+
+  @override
+  String get homeOurServicesMarketDescription =>
+      'Análise de mercado e insights de investimento orientados pela investigação.';
+
+  @override
+  String get homeOurServicesDevelopmentTitle =>
+      'Consultoria de Desenvolvimento';
+
+  @override
+  String get homeOurServicesDevelopmentDescription =>
+      'Aconselhamento estratégico ao longo do ciclo de desenvolvimento e reposicionamento.';
+
+  @override
+  String get homeOurServicesPrivateClientTitle =>
+      'Consultoria a Clientes Privados';
+
+  @override
+  String get homeOurServicesPrivateClientDescription =>
+      'Consultoria discreta para aquisições e alienações residenciais de topo.';
 
   @override
   String get homeOurPortfolioTitle => 'Nosso Portfólio';
@@ -149,7 +207,8 @@ class AppLocalizationsPt extends AppLocalizations {
       'Explore nossa coleção selecionada de propriedades excepcionais';
 
   @override
-  String get homeOurPortfolioButton => 'Solicitar Consultoria Privada';
+  String get homeOurPortfolioButton =>
+      'Contactar a Nossa Equipa de Consultoria';
 
   @override
   String get propertiesTitle => 'Propriedades';
@@ -173,7 +232,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get offMarketViewProperties =>
-      'Consultar Oportunidades Fora do Mercado';
+      'Explorar Oportunidades Fora do Mercado';
 
   @override
   String get clientOffMarketErrorLoading =>

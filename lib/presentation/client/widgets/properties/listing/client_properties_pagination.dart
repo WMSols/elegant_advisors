@@ -105,7 +105,7 @@ class ClientPropertiesPagination extends StatelessWidget {
                       max: 48,
                     ),
                     decoration: BoxDecoration(
-                      color: isActive ? AppColors.primary : AppColors.white,
+                      color: isActive ? AppColors.primary : AppColors.cream,
                       border: Border.all(
                         color: isActive
                             ? AppColors.primary

@@ -15,7 +15,7 @@ class HomeOurPortfolioSection extends StatelessWidget {
 
         return Container(
           width: double.infinity,
-          color: AppColors.lightBeige,
+          color: AppColors.cream,
           padding: AppSpacing.symmetric(context, h: 0.1, v: 0.08),
           child: AppFadeInOnScroll(
             child: isSmallScreen

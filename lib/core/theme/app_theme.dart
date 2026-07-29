@@ -1,32 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:elegant_advisors/core/utils/app_colors/app_colors.dart';
-import 'package:elegant_advisors/core/utils/app_fonts/app_fonts.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
   AppTheme._();
 
   static ThemeData get theme {
+    final baseTextTheme = GoogleFonts.playfairDisplayTextTheme();
     return ThemeData(
       useMaterial3: true,
       colorScheme: ColorScheme.fromSeed(
         seedColor: AppColors.primary,
         brightness: Brightness.light,
+        surface: AppColors.lightBackground,
       ),
       scaffoldBackgroundColor: AppColors.lightBackground,
-      fontFamily: AppFonts.primaryFont,
-      textTheme: const TextTheme(
-        displayLarge: TextStyle(fontFamily: AppFonts.displayFont),
-        displayMedium: TextStyle(fontFamily: AppFonts.displayFont),
-        displaySmall: TextStyle(fontFamily: AppFonts.displayFont),
-        headlineLarge: TextStyle(fontFamily: AppFonts.displayFont),
-        headlineMedium: TextStyle(fontFamily: AppFonts.displayFont),
-        headlineSmall: TextStyle(fontFamily: AppFonts.displayFont),
-        titleLarge: TextStyle(fontFamily: AppFonts.displayFont),
-        titleMedium: TextStyle(fontFamily: AppFonts.displayFont),
-        bodyLarge: TextStyle(fontFamily: AppFonts.primaryFont),
-        bodyMedium: TextStyle(fontFamily: AppFonts.primaryFont),
-        bodySmall: TextStyle(fontFamily: AppFonts.primaryFont),
-        labelLarge: TextStyle(fontFamily: AppFonts.displayFont),
+      fontFamily: GoogleFonts.playfairDisplay().fontFamily,
+      textTheme: baseTextTheme.copyWith(
+        displayLarge: baseTextTheme.displayLarge,
+        displayMedium: baseTextTheme.displayMedium,
+        displaySmall: baseTextTheme.displaySmall,
+        headlineLarge: baseTextTheme.headlineLarge,
+        headlineMedium: baseTextTheme.headlineMedium,
+        headlineSmall: baseTextTheme.headlineSmall,
+        titleLarge: baseTextTheme.titleLarge,
+        titleMedium: baseTextTheme.titleMedium,
+        bodyLarge: baseTextTheme.bodyLarge,
+        bodyMedium: baseTextTheme.bodyMedium,
+        bodySmall: baseTextTheme.bodySmall,
+        labelLarge: baseTextTheme.labelLarge,
       ),
       appBarTheme: const AppBarTheme(
         backgroundColor: AppColors.primary,
@@ -34,6 +36,8 @@ class AppTheme {
         elevation: 0,
         centerTitle: true,
       ),
+      cardColor: AppColors.lightBackground,
+      canvasColor: AppColors.lightBackground,
     );
   }
 }
