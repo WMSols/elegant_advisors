@@ -134,6 +134,12 @@ abstract class AppLocalizations {
   /// **'Off Market'**
   String get navOffMarket;
 
+  /// No description provided for @navServices.
+  ///
+  /// In en, this message translates to:
+  /// **'Our Services'**
+  String get navServices;
+
   /// No description provided for @navContact.
   ///
   /// In en, this message translates to:
@@ -889,6 +895,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'© {year} Elegant. All rights reserved.'**
   String footerCopyright(int year);
+
+  /// No description provided for @footerPoweredBy.
+  ///
+  /// In en, this message translates to:
+  /// **'Powered by'**
+  String get footerPoweredBy;
 
   /// No description provided for @contactSuccessMessage.
   ///

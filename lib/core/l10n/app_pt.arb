@@ -7,6 +7,7 @@
   "navHome": "Início",
   "navProperties": "Propriedades",
   "navOffMarket": "Fora do Mercado",
+  "navServices": "Os Nossos Serviços",
   "navContact": "Contato",
   
   "homeTitle": "Consultoria de Mercados de Capitais e Imobiliário",
@@ -151,6 +152,7 @@
       }
     }
   },
+  "footerPoweredBy": "Desenvolvido por",
   
   "contactSuccessMessage": "Sua mensagem foi enviada com sucesso!",
   "contactSuccessTitle": "Sucesso",

@@ -60,9 +60,8 @@ class AppResponsive {
   static double radius(BuildContext context, {double factor = 1}) =>
       screenWidth(context) * 0.02 * factor;
 
-  /// Asymmetric card radius used on property and home image cards.
+  /// Card border radius for property and expertise cards — rectangular.
   static BorderRadius propertyCardBorderRadius(BuildContext context) {
-    final cornerRadius = Radius.circular(radius(context, factor: 3));
-    return BorderRadius.only(topRight: cornerRadius, bottomLeft: cornerRadius);
+    return BorderRadius.zero;
   }
 }

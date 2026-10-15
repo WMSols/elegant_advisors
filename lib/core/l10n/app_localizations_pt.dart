@@ -27,6 +27,9 @@ class AppLocalizationsPt extends AppLocalizations {
   String get navOffMarket => 'Fora do Mercado';
 
   @override
+  String get navServices => 'Os Nossos Serviços';
+
+  @override
   String get navContact => 'Contato';
 
   @override
@@ -453,6 +456,9 @@ class AppLocalizationsPt extends AppLocalizations {
   String footerCopyright(int year) {
     return '© $year Elegant. Todos os direitos reservados.';
   }
+
+  @override
+  String get footerPoweredBy => 'Desenvolvido por';
 
   @override
   String get contactSuccessMessage => 'Sua mensagem foi enviada com sucesso!';

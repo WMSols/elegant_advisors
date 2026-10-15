@@ -55,7 +55,7 @@ class _ClientPropertyCardState extends State<ClientPropertyCard> {
               color: _beigeBackground,
               borderRadius: AppResponsive.propertyCardBorderRadius(context),
               border: Border.all(
-                color: _isHovered ? AppColors.primary : Colors.transparent,
+                color: _isHovered ? AppColors.primary : AppColors.grey,
               ),
               boxShadow: _isHovered
                   ? [
@@ -97,7 +97,7 @@ class _ClientPropertyCardState extends State<ClientPropertyCard> {
             color: _beigeBackground,
             borderRadius: AppResponsive.propertyCardBorderRadius(context),
             border: Border.all(
-              color: _isHovered ? AppColors.primary : Colors.transparent,
+              color: _isHovered ? AppColors.primary : AppColors.grey,
             ),
             boxShadow: _isHovered
                 ? [

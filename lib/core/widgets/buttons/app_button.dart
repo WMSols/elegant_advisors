@@ -4,6 +4,7 @@ import 'package:elegant_advisors/core/utils/app_gradient/app_gradient.dart';
 import 'package:elegant_advisors/core/utils/app_responsive/app_responsive.dart';
 import 'package:elegant_advisors/core/utils/app_styles/app_text_styles.dart';
 import 'package:elegant_advisors/core/widgets/feedback/app_loading_indicator.dart';
+import 'package:elegant_advisors/core/widgets/text/app_text.dart';
 
 /// Primary Button Widget with Gradient Support
 class AppButton extends StatefulWidget {
@@ -116,7 +117,7 @@ class _AppButtonState extends State<AppButton> {
                     heightFactor: 1.0,
                     child: widget.isLoading
                         ? AppLoadingIndicator()
-                        : Text(
+                        : AppText(
                             widget.text,
                             softWrap: false,
                             textAlign: TextAlign.center,

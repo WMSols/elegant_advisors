@@ -27,6 +27,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get navOffMarket => 'Off Market';
 
   @override
+  String get navServices => 'Our Services';
+
+  @override
   String get navContact => 'Contact';
 
   @override
@@ -444,6 +447,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String footerCopyright(int year) {
     return '© $year Elegant. All rights reserved.';
   }
+
+  @override
+  String get footerPoweredBy => 'Powered by';
 
   @override
   String get contactSuccessMessage =>
