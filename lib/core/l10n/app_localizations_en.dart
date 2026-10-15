@@ -449,6 +449,9 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String get footerPoweredBy => 'Powered by';
+
+  @override
   String get contactSuccessMessage =>
       'Your message has been sent successfully!';
 

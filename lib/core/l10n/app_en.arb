@@ -152,6 +152,7 @@
       }
     }
   },
+  "footerPoweredBy": "Powered by",
   
   "contactSuccessMessage": "Your message has been sent successfully!",
   "contactSuccessTitle": "Success",

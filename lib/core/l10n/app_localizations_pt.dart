@@ -458,6 +458,9 @@ class AppLocalizationsPt extends AppLocalizations {
   }
 
   @override
+  String get footerPoweredBy => 'Desenvolvido por';
+
+  @override
   String get contactSuccessMessage => 'Sua mensagem foi enviada com sucesso!';
 
   @override

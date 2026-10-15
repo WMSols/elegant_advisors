@@ -896,6 +896,12 @@ abstract class AppLocalizations {
   /// **'© {year} Elegant. All rights reserved.'**
   String footerCopyright(int year);
 
+  /// No description provided for @footerPoweredBy.
+  ///
+  /// In en, this message translates to:
+  /// **'Powered by'**
+  String get footerPoweredBy;
+
   /// No description provided for @contactSuccessMessage.
   ///
   /// In en, this message translates to:
